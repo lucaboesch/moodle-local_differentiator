@@ -4,12 +4,12 @@
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="local_differentiator_lg" COMMENT="Learning goals.">
+    <TABLE NAME="local_differentiator_lg" COMMENT="Learning goals">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="The user who owns this learning goal or 0 for system defaults"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal was originally created"/>
-        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which the learning goal was last changed."/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal was last changed"/>
         <FIELD NAME="title" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Title of the learning goal"/>
         <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Code of the language this learning goal is written in"/>
         <FIELD NAME="pre_thinking_skill" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal pre-thinking skill"/>
@@ -28,32 +28,58 @@
         <KEY NAME="userid_key" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="local_differentiator_lgcont" COMMENT="Learning goal content.">
+    <TABLE NAME="local_differentiator_lgcont" COMMENT="Learning goal content">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
         <FIELD NAME="learninggoalid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal this references"/>
         <FIELD NAME="contenttext" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The content text"/>
         <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the content order within the learning goals contents"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal was originally created"/>
-        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which the learning goal was last changed."/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal was last changed"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
         <KEY NAME="lgid_key" TYPE="foreign" FIELDS="learninggoalid" REFTABLE="local_differentiator_lg" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="local_differentiator_lgprod" COMMENT="Learning goal product.">
+    <TABLE NAME="local_differentiator_lgprod" COMMENT="Learning goal product">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
         <FIELD NAME="learninggoalid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal this references"/>
         <FIELD NAME="producttext" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The product text"/>
         <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the product order within the learning goals products"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal was originally created"/>
-        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which the learning goal was last changed."/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal was last changed"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
         <KEY NAME="lgid_key" TYPE="foreign" FIELDS="learninggoalid" REFTABLE="local_differentiator_lg" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_pwce" COMMENT="Learning goals product word category entries">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="pwcid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal product word category this references"/>
+        <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Code of the language this learning goal product word category entry is written in"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal product word category entry was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal product word category entry was last changed"/>
+        <FIELD NAME="pwcetitle" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Title of the learning goal product word category entry"/>
+        <FIELD NAME="pwcetext" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Text of the learning goal product word category entry"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="pwcid_key" TYPE="foreign" FIELDS="pwcid" REFTABLE="local_differentiator_pwc" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_pwc" COMMENT="Learning goals product word category">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the product word category order within the learning goals product word categories"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal product word category was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal product word category was last changed"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
       </KEYS>
     </TABLE>
   </TABLES>
