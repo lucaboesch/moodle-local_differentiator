@@ -164,5 +164,59 @@
         <KEY NAME="tswid_key" TYPE="foreign" FIELDS="tswid" REFTABLE="local_differentiator_tsw" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
+    <TABLE NAME="local_differentiator_cwc" COMMENT="Learning goals content word category">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the content word category order within the learning goals content word categories"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal content word category was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal content word category was last changed"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_cwce" COMMENT="Learning goals content word category entries">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="cwcid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal content word category this references"/>
+        <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Code of the language this learning goal content word category entry is written in"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal content word category entry was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal content word category entry was last changed"/>
+        <FIELD NAME="cwcetitle" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Title of the learning goal content word category entry"/>
+        <FIELD NAME="cwcetext" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Text of the learning goal content word category entry"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="cwcid_key" TYPE="foreign" FIELDS="cwcid" REFTABLE="local_differentiator_cwc" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_cw" COMMENT="Learning goals content word">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="cwcid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal content word category this references"/>
+        <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the content word category order within the learning goals content word"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal content word was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal content word was last changed"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="cwcid_key" TYPE="foreign" FIELDS="cwcid" REFTABLE="local_differentiator_cwc" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_cwe" COMMENT="Learning goals content word entries">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="cwid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal content word this references"/>
+        <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Code of the language this learning goal content word entry is written in"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal content word entry was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal content word entry was last changed"/>
+        <FIELD NAME="cwetitle" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Title of the learning goal content word entry"/>
+        <FIELD NAME="cwetext" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Text of the learning goal content word entry"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="cwid_key" TYPE="foreign" FIELDS="cwid" REFTABLE="local_differentiator_cw" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
   </TABLES>
 </XMLDB>
