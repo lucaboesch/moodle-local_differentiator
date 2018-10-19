@@ -272,5 +272,59 @@
         <KEY NAME="rwid_key" TYPE="foreign" FIELDS="rwid" REFTABLE="local_differentiator_rw" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
+    <TABLE NAME="local_differentiator_gwc" COMMENT="Learning goals group word category">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the group word category order within the learning goals group word categories"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal group word category was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal group word category was last changed"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_gwce" COMMENT="Learning goals group word category entries">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="gwcid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal group word category this references"/>
+        <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Code of the language this learning goal group word category entry is written in"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal group word category entry was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal group word category entry was last changed"/>
+        <FIELD NAME="gwcetitle" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Title of the learning goal group word category entry"/>
+        <FIELD NAME="gwcetext" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Text of the learning goal group word category entry"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="gwcid_key" TYPE="foreign" FIELDS="gwcid" REFTABLE="local_differentiator_gwc" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_gw" COMMENT="Learning goals group word">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="gwcid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal group word category this references"/>
+        <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the group word category order within the learning goals group word"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal group word was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal group word was last changed"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="gwcid_key" TYPE="foreign" FIELDS="gwcid" REFTABLE="local_differentiator_gwc" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_gwe" COMMENT="Learning goals group word entries">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="gwid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal group word this references"/>
+        <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Code of the language this learning goal group word entry is written in"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal group word entry was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal group word entry was last changed"/>
+        <FIELD NAME="gwetitle" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Title of the learning goal group word entry"/>
+        <FIELD NAME="gwetext" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Text of the learning goal group word entry"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="gwid_key" TYPE="foreign" FIELDS="gwid" REFTABLE="local_differentiator_gw" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
   </TABLES>
 </XMLDB>
