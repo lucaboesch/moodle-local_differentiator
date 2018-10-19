@@ -56,6 +56,17 @@
         <KEY NAME="lgid_key" TYPE="foreign" FIELDS="learninggoalid" REFTABLE="local_differentiator_lg" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
+    <TABLE NAME="local_differentiator_pwc" COMMENT="Learning goals product word category">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the product word category order within the learning goals product word categories"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal product word category was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal product word category was last changed"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
     <TABLE NAME="local_differentiator_pwce" COMMENT="Learning goals product word category entries">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
@@ -71,26 +82,17 @@
         <KEY NAME="pwcid_key" TYPE="foreign" FIELDS="pwcid" REFTABLE="local_differentiator_pwc" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="local_differentiator_pwc" COMMENT="Learning goals product word category">
-      <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
-        <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the product word category order within the learning goals product word categories"/>
-        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal product word category was originally created"/>
-        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal product word category was last changed"/>
-      </FIELDS>
-      <KEYS>
-        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-      </KEYS>
-    </TABLE>
     <TABLE NAME="local_differentiator_pw" COMMENT="Learning goals product word">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="pwcid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal product word category this references"/>
         <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the product word category order within the learning goals product word"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal product word was originally created"/>
         <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal product word was last changed"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="pwcid_key" TYPE="foreign" FIELDS="pwcid" REFTABLE="local_differentiator_pwc" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
     <TABLE NAME="local_differentiator_pwe" COMMENT="Learning goals product word entries">
@@ -106,6 +108,60 @@
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
         <KEY NAME="pwid_key" TYPE="foreign" FIELDS="pwid" REFTABLE="local_differentiator_pw" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_tswc" COMMENT="Learning goals thinking skill word category">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the thinking skill word category order within the learning goals thinking skill word categories"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal thinking skill word category was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal thinking skill word category was last changed"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_tswce" COMMENT="Learning goals thinking skill word category entries">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="tswcid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal thinking skill word category this references"/>
+        <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Code of the language this learning goal thinking skill word category entry is written in"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal thinking skill word category entry was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal thinking skill word category entry was last changed"/>
+        <FIELD NAME="tswcetitle" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Title of the learning goal thinking skill word category entry"/>
+        <FIELD NAME="tswcetext" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Text of the learning goal thinking skill word category entry"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="tswcid_key" TYPE="foreign" FIELDS="tswcid" REFTABLE="local_differentiator_tswc" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_tsw" COMMENT="Learning goals thinking skill word">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="tswcid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal thinking skill word category this references"/>
+        <FIELD NAME="sort" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Defines the thinking skill word category order within the learning goals thinking skill word"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal thinking skill word was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal thinking skill word was last changed"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="tswcid_key" TYPE="foreign" FIELDS="tswcid" REFTABLE="local_differentiator_tswc" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_differentiator_tswe" COMMENT="Learning goals thinking skill word entries">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Required ID field"/>
+        <FIELD NAME="tswid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal thinking skill word this references"/>
+        <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Code of the language this learning goal thinking skill word entry is written in"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time at which this learning goal thinking skill word entry was originally created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time at which this learning goal thinking skill word entry was last changed"/>
+        <FIELD NAME="tswetitle" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Title of the learning goal thinking skill word entry"/>
+        <FIELD NAME="tswetext" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Text of the learning goal thinking skill word entry"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="tswid_key" TYPE="foreign" FIELDS="tswid" REFTABLE="local_differentiator_tsw" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
   </TABLES>
