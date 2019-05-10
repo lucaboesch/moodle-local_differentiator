@@ -15,17 +15,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Plugin version and other meta-data are defined here.
+ * This file keeps track of upgrades to local_differentiator.
  *
  * @package     local_differentiator
- * @copyright   2018 Luca Bösch <luca.boesch@bfh.ch>
+ * @category    access
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'local_differentiator';
-$plugin->release = '0.1.0';
-$plugin->version = 2019051000;
-$plugin->requires = 2018051700;
-$plugin->maturity = MATURITY_ALPHA;
+
+/**
+ * Upgrade code for local_differentiator.
+ *
+ * @param int $oldversion the version we are upgrading from.
+ */
+function xmldb_local_differentiator_upgrade($oldversion = 0) {
+    global $CFG, $DB;
+
+    $dbman = $DB->get_manager();
+
+    return true;
+}

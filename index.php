@@ -24,6 +24,8 @@
 
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
+require_once('lib.php');
+
 // require_once($CFG->dirroot . '/local/bfh_resetcategory/locallib.php');
 
 global $CFG, $DB;
@@ -34,12 +36,21 @@ admin_externalpage_setup('local_differentiator', '', null);
 require_login();
 $context = context_system::instance();
 $PAGE->set_context($context);
-$PAGE->set_pagelayout('admin');
+$PAGE->set_title($SITE->fullname . ': ' . get_string('pluginname', 'local_differentiator'));
 $PAGE->set_heading($SITE->fullname);
-$PAGE->set_title($SITE->fullname . ': ' . get_string('pluginname', 'local_bfh_resetcategory'));
 $PAGE->set_url(new moodle_url('/local/differentiator/index.php'));
+$PAGE->set_pagelayout('admin');
+
+$PAGE->requires->js_call_amd('local_differentiator/app-lazy', 'init');
+
 $output = $PAGE->get_renderer('local_differentiator');
 
 echo $OUTPUT->header();
+
+echo <<<'EOT'
+<div id="local-differentiator-app">
+  <router-view></router-view>
+</div>
+EOT;
 
 echo $OUTPUT->footer();

@@ -28,3 +28,28 @@ defined('MOODLE_INTERNAL') || die();
 $string['differentiator:edit'] = 'Edit Differentiator';
 $string['differentiator:view'] = 'View Differentiator';
 $string['pluginname'] = 'Differentiator';
+
+// Required strings.
+$string['modulename'] = 'Differentiator';
+$string['modulenameplural'] = 'Differentiators';
+$string['modulename_help'] = 'Differentiator';
+$string['pluginadministration'] = 'Differentiator Administration';
+$string['pluginname'] = 'Differentiator';
+
+// Capabilities.
+$string['differentiator:view'] = 'View Differentiator';
+
+// Vue component route not found.
+$string['route_not_found'] = 'Error: Page (route) not found!';
+
+// Vue component rooms edit.
+$string['rooms_edit_site_name'] = 'Differentiator learning goals (rooms_edit_site_name)';
+$string['rooms_edit_site_description'] = 'You may add a new goal or edit existing goals.';
+$string['rooms_edit_no_rooms'] = 'There are no goals to show.';
+
+// Room form.
+$string['room'] = 'Goal';
+$string['room_name'] = 'Goal name';
+$string['room_description'] = 'Goal description';
+$string['room_form_title_add'] = 'Add a new goal';
+$string['room_form_title_edit'] = 'Edit a goal';

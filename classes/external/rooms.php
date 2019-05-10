@@ -33,19 +33,20 @@ class rooms extends \external_api {
         $params = ['coursemoduleid' => $coursemoduleid];
         $params = self::validate_parameters(self::get_rooms_parameters(), $params);
 
-        list($course, $coursemodule) = get_course_and_cm_from_cmid($params['coursemoduleid'], 'differentiator');
-        self::validate_context($coursemodule->context);
+        // list($course, $coursemodule) = get_course_and_cm_from_cmid($params['coursemoduleid'], 'differentiator');
+        self::validate_context(\context_system::instance());
 
         global $PAGE, $DB;
         $renderer = $PAGE->get_renderer('core');
-        $ctx = $coursemodule->context;
+        // $ctx = $coursemodule->context;
+        $ctx = \context_system::instance();
 
         $list = [];
-        $rooms = $DB->get_records('differentiator_rooms', ['differentiatorid' => $coursemodule->instance]);
-        foreach ($rooms as $room) {
-            $exporter = new exporter\room($room, $ctx);
-            $list[] = $exporter->export($renderer);
-        }
+        $rooms = $DB->get_records('local_differentiator_lg', ['id' => 1]);
+        //foreach ($rooms as $room) {
+        //    $exporter = new exporter\room($room, $ctx);
+        //    $list[] = $exporter->export($renderer);
+        //}
 
         return $list;
     }
