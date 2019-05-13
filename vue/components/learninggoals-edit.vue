@@ -1,10 +1,10 @@
 <template>
-    <div class="rooms-edit">
+    <div class="learninggoals-edit">
         <h3>{{strings.rooms_edit_site_name}}</h3>
         <div class="description">{{strings.rooms_edit_site_description}}</div>
-        <ul class="rooms-edit-list">
+        <ul class="learninggoals-edit-list">
             <li v-for="room in rooms">
-                <div class="room-top-level">
+                <div class="learninggoal-top-level">
                     <b>{{ room.name }}</b>
                     <p>{{ room.description }}
                     <router-link :to="{ name: 'room-edit', params: { roomId: room.id }}">
@@ -17,7 +17,7 @@
         <div v-if="rooms !== null && rooms.length == 0">
             {{strings.rooms_edit_no_rooms}}
         </div>
-        <div class="rooms-edit-add">
+        <div class="learninggoals-edit-add">
             <router-link :to="{ name: 'room-new' }" tag="button" class="btn btn-primary">{{strings.room_form_title_add}}</router-link>
         </div>
     </div>
@@ -28,7 +28,7 @@
     import { MFormModal } from '../mform';
 
     export default {
-        name: "rooms-edit",
+        name: "learninggoals-edit",
         data: function() {
             return {
                 modal: null,
@@ -84,11 +84,11 @@
 </script>
 
 <style scoped>
-    .rooms-edit-list {
+    .learninggoals-edit-list {
         padding-top: 5px;
     }
 
-    .rooms-edit-add {
+    .learninggoals-edit-add {
         padding-top: 20px;
     }
 </style>
