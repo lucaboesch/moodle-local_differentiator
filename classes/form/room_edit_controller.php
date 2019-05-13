@@ -44,7 +44,7 @@ class room_edit_controller extends form_controller {
         ];
 
         if ($this->roomid) {
-            $this->room = $DB->get_record('differentiator_rooms', ['id' => $this->roomid]);
+            $this->room = $DB->get_record('local_differentiator_lg', ['id' => $this->roomid]);
         }
     }
 
@@ -76,13 +76,13 @@ class room_edit_controller extends form_controller {
             // Set default (existing) data.
             $data = [
                 'name' => $this->room->name,
-//                'description' => $this->learninggoal->description,
+                'description' => $this->learninggoal->description,
             ];
             $this->mform->set_data($data);
         }
     }
 
     protected function check_capability() {
-        $this->differentiator->require_user_has_capability('mod/differentiator:view');
+        $this->differentiator->require_user_has_capability('local/differentiator:view');
     }
 }

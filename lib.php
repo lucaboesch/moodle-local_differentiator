@@ -121,13 +121,14 @@ function differentiator_supports($feature) {
  * @throws moodle_exception
  */
 function local_differentiator_output_fragment_mform($args) {
-    $context = $args['context'];
-    if ($context->contextlevel != CONTEXT_MODULE) {
-        throw new \moodle_exception('fragment_mform_wrong_context', 'differentiator');
-    }
+//    $context = $args['context'];
+//    if ($context->contextlevel != CONTEXT_MODULE) {
+//        throw new \moodle_exception('fragment_mform_wrong_context', 'differentiator');
+//    }
 
-    list($course, $coursemodule) = get_course_and_cm_from_cmid($context->instanceid, 'differentiator');
-    $differentiator = new \local_differentiator\differentiator($coursemodule);
+//    list($course, $coursemodule) = get_course_and_cm_from_cmid($context->instanceid, 'differentiator');
+//    $differentiator = new \local_differentiator\differentiator($coursemodule);
+    $differentiator = new \local_differentiator\differentiator();
 
     $formdata = [];
     if (!empty($args['jsonformdata'])) {

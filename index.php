@@ -29,13 +29,11 @@ require_once('lib.php');
 // require_once($CFG->dirroot . '/local/bfh_resetcategory/locallib.php');
 
 global $CFG, $DB;
-$excludedroles = "'manager', 'coursecreator', 'frontpage'";
 
 admin_externalpage_setup('local_differentiator', '', null);
 
 require_login();
-$context = context_system::instance();
-$PAGE->set_context($context);
+
 $PAGE->set_title($SITE->fullname . ': ' . get_string('pluginname', 'local_differentiator'));
 $PAGE->set_heading($SITE->fullname);
 $PAGE->set_url(new moodle_url('/local/differentiator/index.php'));

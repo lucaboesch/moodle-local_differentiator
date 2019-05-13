@@ -25,8 +25,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['differentiator:edit'] = 'Edit Differentiator';
-$string['differentiator:view'] = 'View Differentiator';
 $string['pluginname'] = 'Differentiator';
 
 // Required strings.
@@ -37,6 +35,7 @@ $string['pluginadministration'] = 'Differentiator Administration';
 $string['pluginname'] = 'Differentiator';
 
 // Capabilities.
+$string['differentiator:edit'] = 'Edit Differentiator';
 $string['differentiator:view'] = 'View Differentiator';
 
 // Vue component route not found.

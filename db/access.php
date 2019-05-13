@@ -29,7 +29,7 @@ $capabilities = [
 
     'local/differentiator:view' => [
         'captype' => 'view',
-        'contextlevel' => CONTEXT_MODULE,
+        'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
             'editingteacher' => CAP_ALLOW,
         ],
@@ -38,7 +38,7 @@ $capabilities = [
 
     'local/differentiator:edit' => [
         'captype' => 'write',
-        'contextlevel' => CONTEXT_MODULE,
+        'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
             'editingteacher' => CAP_ALLOW,
         ],
