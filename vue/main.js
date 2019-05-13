@@ -18,11 +18,11 @@ function init() {
     // You have to use child routes if you use the same component. Otherwise the component's beforeRouteUpdate
     // will not be called.
     const routes = [
-        { path: '/', redirect: { name: 'rooms-edit-overview' }},
-        { path: '/learninggoals/edit', component: roomsEdit, name: 'rooms-edit-overview', meta: { title: 'learninggoals_edit_site_name' },
+        { path: '/', redirect: { name: 'learninggoals-edit-overview' }},
+        { path: '/learninggoals/edit', component: roomsEdit, name: 'learninggoals-edit-overview', meta: { title: 'learninggoals_edit_site_name' },
             children: [
-                { path: '/learninggoals/edit/:roomId(\\d+)', component: roomsEdit, name: 'room-edit', meta: { title: 'learninggoal_form_title_edit' }},
-                { path: '/learninggoals/edit/new', component: roomsEdit, name: 'room-new', meta: { title: 'learninggoal_form_title_add' }},
+                { path: '/learninggoals/edit/:roomId(\\d+)', component: roomsEdit, name: 'learninggoal-edit', meta: { title: 'learninggoal_form_title_edit' }},
+                { path: '/learninggoals/edit/new', component: roomsEdit, name: 'learninggoal-new', meta: { title: 'learninggoal_form_title_add' }},
             ],
         },
         { path: '/lazy-loading', component: exampleLazyLoading},

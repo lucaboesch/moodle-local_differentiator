@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $functions = array(
     'local_differentiator_get_learninggoals' => array(
-        'classname' => 'local_differentiator\external\rooms',
+        'classname' => 'local_differentiator\external\learninggoals',
         'methodname' => 'get_learninggoals',
         'description' => 'Get all learning goals.',
         'type' => 'read',

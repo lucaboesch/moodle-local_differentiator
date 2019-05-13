@@ -31,7 +31,7 @@ use external_single_structure;
 
 defined('MOODLE_INTERNAL') || die();
 
-class rooms extends \external_api {
+class learninggoals extends \external_api {
     public static function get_learninggoals_parameters() {
         return new external_function_parameters([
             'userid' => new external_value(PARAM_INT, 'userid'),
@@ -40,7 +40,7 @@ class rooms extends \external_api {
 
     public static function get_learninggoals_returns() {
         return new external_multiple_structure(
-            exporter\room::get_read_structure()
+            exporter\learninggoal::get_read_structure()
         );
     }
 
@@ -66,7 +66,7 @@ class rooms extends \external_api {
         $list = [];
         $leaninggoals = $DB->get_records('local_differentiator_lg', ['userid' => $userid]);
         foreach ($leaninggoals as $learninggoal) {
-            $exporter = new exporter\room($learninggoal, $ctx);
+            $exporter = new exporter\learninggoal($learninggoal, $ctx);
             $list[] = $exporter->export($renderer);
         }
 

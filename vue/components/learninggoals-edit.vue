@@ -7,7 +7,7 @@
                 <div class="learninggoal-top-level">
                     <b>{{ room.name }}</b>
                     <p>{{ room.description }}
-                    <router-link :to="{ name: 'room-edit', params: { roomId: room.id }}">
+                    <router-link :to="{ name: 'learninggoal-edit', params: { roomId: room.id }}">
                         <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
                     </router-link>
                     </p>
@@ -18,7 +18,7 @@
             {{strings.learninggoals_edit_no_learninggoals}}
         </div>
         <div class="learninggoals-edit-add">
-            <router-link :to="{ name: 'room-new' }" tag="button" class="btn btn-primary">{{strings.learninggoal_form_title_add}}</router-link>
+            <router-link :to="{ name: 'learninggoal-new' }" tag="button" class="btn btn-primary">{{strings.learninggoal_form_title_add}}</router-link>
         </div>
     </div>
 </template>
@@ -53,7 +53,7 @@
                     if (success) {
                         this.$store.dispatch('fetchRooms');
                     }
-                    this.$router.push({name: 'rooms-edit-overview'});
+                    this.$router.push({name: 'learninggoals-edit-overview'});
                 } catch (e) {
                     // This happens when the modal is destroyed on a page change. Ignore.
                 } finally {
@@ -65,9 +65,9 @@
                     this.modal.destroy(false);
                 }
 
-                if (route.name === 'room-edit') {
+                if (route.name === 'learninggoal-edit') {
                     this.$nextTick(this.showForm.bind(this, route.params.roomId));
-                } else if (route.name === 'room-new') {
+                } else if (route.name === 'learninggoal-new') {
                     this.$nextTick(this.showForm.bind(this, null));
                 }
             }

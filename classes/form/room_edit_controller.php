@@ -76,7 +76,7 @@ class room_edit_controller extends form_controller {
             // Set default (existing) data.
             $data = [
                 'name' => $this->room->name,
-//                'description' => $this->room->description,
+//                'description' => $this->learninggoal->description,
             ];
             $this->mform->set_data($data);
         }

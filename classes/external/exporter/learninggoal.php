@@ -26,14 +26,14 @@ namespace local_differentiator\external\exporter;
 
 defined('MOODLE_INTERNAL') || die();
 
-class room extends \core\external\exporter {
-    protected $room;
+class learninggoal extends \core\external\exporter {
+    protected $learninggoal;
 
-    public function __construct($room, \context $context) {
-        $this->room = $room;
+    public function __construct($learninggoal, \context $context) {
+        $this->learninggoal = $learninggoal;
 
         parent::__construct([], ['context' => $context]);
-        $this->room->description = 'Students will judge the ethics of the financial market using a textbook and create ' .
+        $this->learninggoal->description = 'Students will judge the ethics of the financial market using a textbook and create ' .
             'an essay in groups of three.';
     }
 
@@ -41,15 +41,15 @@ class room extends \core\external\exporter {
         return [
             'id' => [
                 'type' => PARAM_INT,
-                'description' => 'room id',
+                'description' => 'learninggoal id',
             ],
             'name' => [
                 'type' => PARAM_TEXT,
-                'description' => 'room name',
+                'description' => 'learninggoal name',
             ],
             'description' => [
                 'type' => PARAM_TEXT,
-                'description' => 'room description',
+                'description' => 'learninggoal description',
             ],
         ];
     }
@@ -62,9 +62,9 @@ class room extends \core\external\exporter {
 
     protected function get_other_values(\renderer_base $output) {
         return [
-            'id' => $this->room->id,
-            'name' => $this->room->title,
-            'description' => $this->room->description,
+            'id' => $this->learninggoal->id,
+            'name' => $this->learninggoal->title,
+            'description' => $this->learninggoal->description,
         ];
     }
 }
