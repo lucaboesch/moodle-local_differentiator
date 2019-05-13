@@ -39,7 +39,7 @@ class room_edit extends \moodleform {
         $roomid = $this->_customdata['roomid'];
 
         // General section header.
-        $mform->addElement('header', 'general', get_string('room', 'local_differentiator'));
+        $mform->addElement('header', 'general', get_string('learninggoal', 'local_differentiator'));
 
         // Room id.
         $mform->addElement('hidden', 'roomid');
@@ -49,12 +49,12 @@ class room_edit extends \moodleform {
         }
 
         // Name.
-        $mform->addElement('text', 'name', get_string('room_name', 'local_differentiator'));
+        $mform->addElement('text', 'name', get_string('learninggoal_name', 'local_differentiator'));
         $mform->addRule('name', get_string('required'), 'required');
         $mform->setType('name', PARAM_TEXT);
 
         // Description.
-        $mform->addElement('text', 'description', get_string('room_description', 'local_differentiator'));
+        $mform->addElement('text', 'description', get_string('learninggoal_description', 'local_differentiator'));
         $mform->addRule('description', get_string('required'), 'required');
         $mform->setType('description', PARAM_TEXT);
 

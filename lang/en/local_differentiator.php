@@ -42,14 +42,14 @@ $string['differentiator:view'] = 'View Differentiator';
 // Vue component route not found.
 $string['route_not_found'] = 'Error: Page (route) not found!';
 
-// Vue component rooms edit.
-$string['rooms_edit_site_name'] = 'Differentiator learning goals';
-$string['rooms_edit_site_description'] = 'You may add a new goal or edit existing goals.';
-$string['rooms_edit_no_rooms'] = 'There are no goals to show.';
+// Vue component learning goal edit.
+$string['learninggoals_edit_site_name'] = 'Differentiator learning goals';
+$string['learninggoals_edit_site_description'] = 'You may add a new goal or edit existing goals.';
+$string['learninggoals_edit_no_learninggoals'] = 'There are no goals to show.';
 
-// Room form.
-$string['room'] = 'Goal';
-$string['room_name'] = 'Goal name';
-$string['room_description'] = 'Goal description';
-$string['room_form_title_add'] = 'Add a new goal';
-$string['room_form_title_edit'] = 'Edit a goal';
+// Learning goal form.
+$string['learninggoal'] = 'Goal';
+$string['learninggoal_name'] = 'Goal name';
+$string['learninggoal_description'] = 'Goal description';
+$string['learninggoal_form_title_add'] = 'Add a new goal';
+$string['learninggoal_form_title_edit'] = 'Edit a goal';

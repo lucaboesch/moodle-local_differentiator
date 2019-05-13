@@ -1,7 +1,7 @@
 <template>
     <div class="learninggoals-edit">
-        <h3>{{strings.rooms_edit_site_name}}</h3>
-        <div class="description">{{strings.rooms_edit_site_description}}</div>
+        <h3>{{strings.learninggoals_edit_site_name}}</h3>
+        <div class="description">{{strings.learninggoals_edit_site_description}}</div>
         <ul class="learninggoals-edit-list">
             <li v-for="room in rooms">
                 <div class="learninggoal-top-level">
@@ -15,10 +15,10 @@
             </li>
         </ul>
         <div v-if="rooms !== null && rooms.length == 0">
-            {{strings.rooms_edit_no_rooms}}
+            {{strings.learninggoals_edit_no_learninggoals}}
         </div>
         <div class="learninggoals-edit-add">
-            <router-link :to="{ name: 'room-new' }" tag="button" class="btn btn-primary">{{strings.room_form_title_add}}</router-link>
+            <router-link :to="{ name: 'room-new' }" tag="button" class="btn btn-primary">{{strings.learninggoal_form_title_add}}</router-link>
         </div>
     </div>
 </template>
