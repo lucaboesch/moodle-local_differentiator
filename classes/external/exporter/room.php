@@ -18,7 +18,7 @@
  * TODO.
  *
  * @package     local_differentiator
- * @copyright   2018 Luca Bösch <luca.boesch@bfh.ch>
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -33,6 +33,8 @@ class room extends \core\external\exporter {
         $this->room = $room;
 
         parent::__construct([], ['context' => $context]);
+        $this->room->description = 'Students will judge the ethics of the financial market using a textbook and create ' .
+            'an essay in groups of three.';
     }
 
     protected static function define_other_properties() {

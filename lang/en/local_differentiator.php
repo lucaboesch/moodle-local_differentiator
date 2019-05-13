@@ -19,7 +19,7 @@
  *
  * @package     local_differentiator
  * @category    string
- * @copyright   2018 Luca Bösch <luca.boesch@bfh.ch>
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -43,7 +43,7 @@ $string['differentiator:view'] = 'View Differentiator';
 $string['route_not_found'] = 'Error: Page (route) not found!';
 
 // Vue component rooms edit.
-$string['rooms_edit_site_name'] = 'Differentiator learning goals (rooms_edit_site_name)';
+$string['rooms_edit_site_name'] = 'Differentiator learning goals';
 $string['rooms_edit_site_description'] = 'You may add a new goal or edit existing goals.';
 $string['rooms_edit_no_rooms'] = 'There are no goals to show.';
 

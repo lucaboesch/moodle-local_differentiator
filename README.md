@@ -5,7 +5,7 @@ This plugin is based off The Differentiator by Ian Byrd <http://byrdseed.com/dif
 
 #### Copyright
 
-Copyright (C) 2018 Luca Bösch <luca.boesch@bfh.ch>
+Copyright (C) 2019 Luca Bösch <luca.boesch@bfh.ch>
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software

@@ -18,7 +18,7 @@
  * Plugin version and other meta-data are defined here.
  *
  * @package     local_differentiator
- * @copyright   2018 Luca Bösch <luca.boesch@bfh.ch>
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

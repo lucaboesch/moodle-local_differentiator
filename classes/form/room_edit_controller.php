@@ -18,7 +18,7 @@
  * TODO.
  *
  * @package     local_differentiator
- * @copyright   2018 Luca Bösch <luca.boesch@bfh.ch>
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -76,7 +76,7 @@ class room_edit_controller extends form_controller {
             // Set default (existing) data.
             $data = [
                 'name' => $this->room->name,
-                'description' => $this->room->description,
+//                'description' => $this->room->description,
             ];
             $this->mform->set_data($data);
         }

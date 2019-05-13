@@ -5,10 +5,12 @@
         <ul class="rooms-edit-list">
             <li v-for="room in rooms">
                 <div class="room-top-level">
-                    {{ room.name }}
+                    <b>{{ room.name }}</b>
+                    <p>{{ room.description }}
                     <router-link :to="{ name: 'room-edit', params: { roomId: room.id }}">
-                        <i class="icon fa fa-cog fa-fw iconsmall" :title="strings.edit"></i>
+                        <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
                     </router-link>
+                    </p>
                 </div>
             </li>
         </ul>
