@@ -54,7 +54,7 @@ export const store = new Vuex.Store({
             }
         },
         async fetchRooms(context) {
-            const rooms = await ajax('local_differentiator_get_rooms');
+            const rooms = await ajax('local_differentiator_get_learninggoals');
             context.commit('setRooms', rooms);
         },
     }
@@ -67,7 +67,7 @@ export async function ajax(method, args) {
     const request = {
         methodname: method,
         args: Object.assign({
-            coursemoduleid: store.state.courseModuleID
+            userid: store.state.courseModuleID
         }, args),
     };
 

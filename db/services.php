@@ -25,10 +25,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $functions = array(
-    'local_differentiator_get_rooms' => array(
+    'local_differentiator_get_learninggoals' => array(
         'classname' => 'local_differentiator\external\rooms',
-        'methodname' => 'get_rooms',
-        'description' => 'Get all rooms.',
+        'methodname' => 'get_learninggoals',
+        'description' => 'Get all learning goals.',
         'type' => 'read',
         'ajax' => true,
     ),

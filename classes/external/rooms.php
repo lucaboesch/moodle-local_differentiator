@@ -32,13 +32,13 @@ use external_single_structure;
 defined('MOODLE_INTERNAL') || die();
 
 class rooms extends \external_api {
-    public static function get_rooms_parameters() {
+    public static function get_learninggoals_parameters() {
         return new external_function_parameters([
-            'coursemoduleid' => new external_value(PARAM_INT, 'course module id'),
+            'userid' => new external_value(PARAM_INT, 'userid'),
         ]);
     }
 
-    public static function get_rooms_returns() {
+    public static function get_learninggoals_returns() {
         return new external_multiple_structure(
             exporter\room::get_read_structure()
         );
@@ -51,9 +51,9 @@ class rooms extends \external_api {
      * @return bool
      * @throws \invalid_parameter_exception
      */
-    public static function get_rooms($userid) {
-        $params = ['coursemoduleid' => $userid];
-        $params = self::validate_parameters(self::get_rooms_parameters(), $params);
+    public static function get_learninggoals($userid) {
+        $params = ['userid' => $userid];
+        $params = self::validate_parameters(self::get_learninggoals_parameters(), $params);
 
         // list($course, $coursemodule) = get_course_and_cm_from_cmid($params['coursemoduleid'], 'differentiator');
         self::validate_context(\context_system::instance());
@@ -65,8 +65,8 @@ class rooms extends \external_api {
 
         $list = [];
         $leaninggoals = $DB->get_records('local_differentiator_lg', ['userid' => $userid]);
-        foreach ($leaninggoals as $leaninggoal) {
-            $exporter = new exporter\room($leaninggoal, $ctx);
+        foreach ($leaninggoals as $learninggoal) {
+            $exporter = new exporter\room($learninggoal, $ctx);
             $list[] = $exporter->export($renderer);
         }
 
