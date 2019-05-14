@@ -33,23 +33,21 @@ class learninggoal extends \core\external\exporter {
         $this->learninggoal = $learninggoal;
 
         parent::__construct([], ['context' => $context]);
-        $this->learninggoal->description = 'Students will judge the ethics of the financial market using a textbook and create ' .
-            'an essay in groups of three.';
     }
 
     protected static function define_other_properties() {
         return [
             'id' => [
                 'type' => PARAM_INT,
-                'description' => 'learninggoal id',
+                'description' => 'learning goal id',
             ],
             'name' => [
                 'type' => PARAM_TEXT,
-                'description' => 'learninggoal name',
+                'description' => 'learning goal name',
             ],
             'description' => [
                 'type' => PARAM_TEXT,
-                'description' => 'learninggoal description',
+                'description' => 'learning goal description',
             ],
         ];
     }
@@ -63,7 +61,7 @@ class learninggoal extends \core\external\exporter {
     protected function get_other_values(\renderer_base $output) {
         return [
             'id' => $this->learninggoal->id,
-            'name' => $this->learninggoal->title,
+            'name' => $this->learninggoal->name,
             'description' => $this->learninggoal->description,
         ];
     }

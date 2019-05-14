@@ -85,7 +85,7 @@
 
 <style scoped>
     .learninggoals-edit-list {
-        padding-top: 5px;
+        padding-top: 1rem;
     }
 
     .learninggoals-edit-add {

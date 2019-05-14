@@ -55,17 +55,35 @@ class learninggoals extends \external_api {
         $params = ['userid' => $userid];
         $params = self::validate_parameters(self::get_learninggoals_parameters(), $params);
 
-        // list($course, $coursemodule) = get_course_and_cm_from_cmid($params['coursemoduleid'], 'differentiator');
         self::validate_context(\context_system::instance());
 
         global $PAGE, $DB;
         $renderer = $PAGE->get_renderer('core');
-        // $ctx = $coursemodule->context;
+
         $ctx = \context_system::instance();
 
-        $list = [];
-        $leaninggoals = $DB->get_records('local_differentiator_lg', ['userid' => $userid]);
-        foreach ($leaninggoals as $learninggoal) {
+        $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
+            'COALESCE(lg.thinking_skill, \'\')', '\' \'',
+            'COALESCE(lgc.contenttext, \'\')', '\' \'',
+            'COALESCE(lg.subject, \'\')', '\' \'',
+            'COALESCE(lg.pre_resource, \'\')', '\' \'',
+            'COALESCE(lg.resource, \'\')', '\' \'',
+            'COALESCE(lg.pre_product, \'\')', '\' \'',
+            'COALESCE(lgp.producttext, \'\')', '\' \'',
+            'COALESCE(lg.pre_group, \'\')', '\' \'',
+            'COALESCE(lg.group, \'\')', '\'.\'');
+
+        $sql = "SELECT lg.id, lg.title AS name, " . $concat . " as description
+            FROM {local_differentiator_lg} AS lg
+            LEFT JOIN {local_differentiator_lgcont} lgc ON lgc.learninggoalid = lg.id 
+            LEFT JOIN {local_differentiator_lgprod} lgp ON lgp.learninggoalid = lg.id 
+            WHERE userid = :userid";
+
+        $params['userid'] = $userid;
+        $learninggoals = $DB->get_records_sql($sql, $params);
+
+        file_put_contents('/Users/luca/Desktop/log0.txt', json_encode($learninggoals));
+        foreach ($learninggoals as $learninggoal) {
             $exporter = new exporter\learninggoal($learninggoal, $ctx);
             $list[] = $exporter->export($renderer);
         }
