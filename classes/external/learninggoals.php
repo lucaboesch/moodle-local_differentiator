@@ -31,13 +31,30 @@ use external_single_structure;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Class learninggoals
+ *
+ * @package     local_differentiator
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class learninggoals extends \external_api {
+    /**
+     * TODO.
+     *
+     * @return external_function_parameters
+     */
     public static function get_learninggoals_parameters() {
         return new external_function_parameters([
             'userid' => new external_value(PARAM_INT, 'userid'),
         ]);
     }
 
+    /**
+     * TODO.
+     *
+     * @return external_multiple_structure
+     */
     public static function get_learninggoals_returns() {
         return new external_multiple_structure(
             exporter\learninggoal::get_read_structure()
@@ -74,9 +91,9 @@ class learninggoals extends \external_api {
             'COALESCE(lg.group, \'\')', '\'.\'');
 
         $sql = "SELECT lg.id, lg.title AS name, " . $concat . " as description
-            FROM {local_differentiator_lg} AS lg
-            LEFT JOIN {local_differentiator_lgcont} lgc ON lgc.learninggoalid = lg.id 
-            LEFT JOIN {local_differentiator_lgprod} lgp ON lgp.learninggoalid = lg.id 
+            FROM {local_differentiator_lg} lg
+            LEFT JOIN {local_differentiator_lgcont} lgc ON lgc.learninggoalid = lg.id
+            LEFT JOIN {local_differentiator_lgprod} lgp ON lgp.learninggoalid = lg.id
             WHERE userid = :userid";
 
         $params['userid'] = $userid;

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO.
+ * Form controller for local_differentiator.
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
@@ -28,6 +28,13 @@ use \local_differentiator\differentiator;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Class form_controller
+ *
+ * @package     local_differentiator
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 abstract class form_controller {
     /** @var differentiator */
     protected $differentiator;
@@ -50,6 +57,13 @@ abstract class form_controller {
     /** @var string display a message instead of rendering the form */
     protected $message = '';
 
+    /**
+     * form_controller constructor.
+     *
+     * @param differentiator $differentiator
+     * @param array $formdata
+     * @param \stdClass $moreargs
+     */
     public function __construct(differentiator $differentiator, array $formdata, \stdClass $moreargs) {
         $this->differentiator = $differentiator;
         $this->formdata = $formdata;
@@ -67,6 +81,9 @@ abstract class form_controller {
         }
     }
 
+    /**
+     * Construct the mform.
+     */
     protected function construct_mform() {
         $formclass = '\\local_differentiator\\form\\' . static::$formname;
         $this->mform = new $formclass(null, $this->customdata, 'post', '', null, true, $this->formdata);
@@ -135,6 +152,13 @@ abstract class form_controller {
 
     /**
      * Get the specific controller for a form.
+     *
+     * @param string $formname
+     * @param differentiator $differentiator
+     * @param array $formdata
+     * @param \stdClass $moreargs
+     * @return form_controller
+     * @throws \moodle_exception
      */
     static public function get_controller(string $formname, differentiator $differentiator, array $formdata, \stdClass $moreargs)
         : form_controller {

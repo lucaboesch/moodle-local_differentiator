@@ -26,14 +26,32 @@ namespace local_differentiator\form;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Class room_edit_controller
+ *
+ * @package     local_differentiator
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class room_edit_controller extends form_controller {
+    /**
+     * @var string
+     */
     public static $formname = 'room_edit';
 
     /** @var int|null */
     private $roomid;
 
+    /**
+     * @var null
+     */
     private $room = null;
 
+    /**
+     * Customdata sent to form.
+     *
+     * @throws \dml_exception
+     */
     protected function build_customdata() {
         global $DB;
 
@@ -48,6 +66,13 @@ class room_edit_controller extends form_controller {
         }
     }
 
+    /**
+     * Handle a successful form submission.
+     *
+     * @param \stdClass $data
+     * @return bool
+     * @throws \dml_exception
+     */
     protected function handle_submit(\stdClass $data) : bool {
         if ($this->roomid && $data->roomid != $this->roomid) {
             return false;
@@ -69,6 +94,9 @@ class room_edit_controller extends form_controller {
         return true;
     }
 
+    /**
+     * First display of the form.
+     */
     protected function handle_display() {
         global $DB;
 
@@ -82,6 +110,12 @@ class room_edit_controller extends form_controller {
         }
     }
 
+    /**
+     * Check that a user has the required capability.
+     *
+     * @throws \dml_exception
+     * @throws \required_capability_exception
+     */
     protected function check_capability() {
         $this->differentiator->require_user_has_capability('local/differentiator:view');
     }

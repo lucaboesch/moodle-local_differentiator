@@ -26,15 +26,37 @@ namespace local_differentiator\external\exporter;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Class learninggoal
+ *
+ * @package     local_differentiator
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class learninggoal extends \core\external\exporter {
+    /**
+     * @var
+     */
     protected $learninggoal;
 
+    /**
+     * The learning goal constructor.
+     *
+     * @param $learninggoal
+     * @param \context $context
+     * @throws \coding_exception
+     */
     public function __construct($learninggoal, \context $context) {
         $this->learninggoal = $learninggoal;
 
         parent::__construct([], ['context' => $context]);
     }
 
+    /**
+     * Get id, name and description of the learning goal.
+     *
+     * @return array
+     */
     protected static function define_other_properties() {
         return [
             'id' => [
@@ -52,12 +74,23 @@ class learninggoal extends \core\external\exporter {
         ];
     }
 
+    /**
+     * TODO.
+     *
+     * @return array
+     */
     protected static function define_related() {
         return [
             'context' => 'context',
         ];
     }
 
+    /**
+     * Get id, name and description of the learning goal.
+     *
+     * @param \renderer_base $output
+     * @return array
+     */
     protected function get_other_values(\renderer_base $output) {
         return [
             'id' => $this->learninggoal->id,

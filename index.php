@@ -26,8 +26,6 @@ require_once(__DIR__ . '/../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
 require_once('lib.php');
 
-// require_once($CFG->dirroot . '/local/bfh_resetcategory/locallib.php');
-
 global $CFG, $DB;
 
 admin_externalpage_setup('local_differentiator', '', null);

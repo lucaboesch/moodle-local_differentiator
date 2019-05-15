@@ -28,20 +28,52 @@ use context_system;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Class differentiator
+ *
+ * @package     local_differentiator
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class differentiator {
 
+    /**
+     * differentiator constructor.
+     */
     public function __construct() {
     }
 
+    /**
+     * Return the URL of this page.
+     *
+     * @param string $subpath
+     * @param array|null $params
+     * @return \moodle_url
+     * @throws \moodle_exception
+     */
     public function make_url(string $subpath, array $params = null) : \moodle_url {
         $path = '/mod/differentiator/view.php/' . $subpath;
         return new \moodle_url($path, $params);
     }
 
+    /**
+     * Check whether a user has a particular capability.
+     *
+     * @param string $capability
+     * @return bool
+     * @throws \coding_exception
+     */
     public function user_has_capability(string $capability) : bool {
         return \has_capability($capability, $this->context);
     }
 
+    /**
+     * Require that a user has a particular capability.
+     *
+     * @param string $capability
+     * @throws \dml_exception
+     * @throws \required_capability_exception
+     */
     public function require_user_has_capability(string $capability) {
         \require_capability($capability, context_system::instance());
     }

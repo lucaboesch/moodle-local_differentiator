@@ -28,7 +28,18 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . "/formslib.php");
 
+/**
+ * Class room_edit
+ *
+ * @package     local_differentiator
+ * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class room_edit extends \moodleform {
+    /**
+     * Define the form.
+     * @throws \coding_exception
+     */
     public function definition() {
         $mform = $this->_form;
 
@@ -61,6 +72,13 @@ class room_edit extends \moodleform {
         $this->add_action_buttons(true, get_string('savechanges'));
     }
 
+    /**
+     * Custom form validation
+     *
+     * @param array $data
+     * @param array $files
+     * @return array
+     */
     public function validation($data, $files) {
         return [];
     }
