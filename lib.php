@@ -65,28 +65,28 @@ function differentiator_update_instance($differentiator) {
     return $ret;
 }
 
-/**
- * Removes a differentiator instance from the database.
- *
- * Given an ID of an instance of this module,
- * this function will permanently delete the instance
- * and any data that depends on it.
- *
- * @param int $id ID of the module instance.
- * @return boolean Success/Failure
- */
-function differentiator_delete_instance($id) {
-    global $DB;
-
-    // Check if an instance with this id exists.
-    if (!$differentiatorinstance = $DB->get_record('differentiator', array('id' => $id))) {
-        return false;
-    }
-
-    $DB->delete_records('differentiator', ['id' => $id]);
-    $DB->delete_records('differentiator_rooms', ['differentiatorid' => $id]);
-    return true;
-}
+///**
+// * Removes a differentiator instance from the database.
+// *
+// * Given an ID of an instance of this module,
+// * this function will permanently delete the instance
+// * and any data that depends on it.
+// *
+// * @param int $id ID of the module instance.
+// * @return boolean Success/Failure
+// */
+//function differentiator_delete_instance($id) {
+//    global $DB;
+//
+//    // Check if an instance with this id exists.
+//    if (!$differentiatorinstance = $DB->get_record('differentiator', array('id' => $id))) {
+//        return false;
+//    }
+//
+//    $DB->delete_records('differentiator', ['id' => $id]);
+//    $DB->delete_records('local_differentiator_lg', ['differentiatorid' => $id]);
+//    return true;
+//}
 
 /**
  * List of features supported in differentiator.

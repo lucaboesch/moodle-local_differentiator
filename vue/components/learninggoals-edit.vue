@@ -3,18 +3,18 @@
         <h3>{{strings.learninggoals_edit_site_name}}</h3>
         <div class="description">{{strings.learninggoals_edit_site_description}}</div>
         <ul class="learninggoals-edit-list">
-            <li v-for="room in rooms">
+            <li v-for="learninggoal in learninggoals">
                 <div class="learninggoal-top-level">
-                    <b>{{ room.name }}</b>
-                    <p>{{ room.description }}
-                    <router-link :to="{ name: 'learninggoal-edit', params: { roomId: room.id }}">
+                    <b>{{ learninggoal.name }}</b>
+                    <p>{{ learninggoal.description }}
+                    <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: learninggoal.id }}">
                         <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
                     </router-link>
                     </p>
                 </div>
             </li>
         </ul>
-        <div v-if="rooms !== null && rooms.length == 0">
+        <div v-if="learninggoals !== null && learninggoals.length == 0">
             {{strings.learninggoals_edit_no_learninggoals}}
         </div>
         <div class="learninggoals-edit-add">
@@ -25,7 +25,6 @@
 
 <script>
     import { mapState } from 'vuex';
-    import { MFormModal } from '../mform';
 
     export default {
         name: "learninggoals-edit",
@@ -34,24 +33,24 @@
                 modal: null,
             };
         },
-        computed: mapState(['strings', 'rooms']),
+        computed: mapState(['strings', 'learninggoals']),
         methods: {
-            async showForm(roomId = null) {
+            async showForm(learninggoalId = null) {
                 let title = '';
                 let args = {};
-                if (roomId) {
-                    title = this.strings.room_form_title_edit;
-                    args.roomid = roomId;
+                if (learninggoalId) {
+                    title = this.strings.learninggoal_form_title_edit;
+                    args.learninggoalid = learninggoalId;
                 } else {
-                    title = this.strings.room_form_title_add;
+                    title = this.strings.learninggoal_form_title_add;
                 }
 
-                this.modal = new MFormModal('room_edit', title, this.$store.state.contextID, args);
+                this.modal = new MFormModal('learninggoal_edit', title, this.$store.state.contextID, args);
                 try {
                     await this.modal.show();
                     const success = await this.modal.finished;
                     if (success) {
-                        this.$store.dispatch('fetchRooms');
+                        this.$store.dispatch('fetchLearninggoals');
                     }
                     this.$router.push({name: 'learninggoals-edit-overview'});
                 } catch (e) {
@@ -66,14 +65,14 @@
                 }
 
                 if (route.name === 'learninggoal-edit') {
-                    this.$nextTick(this.showForm.bind(this, route.params.roomId));
+                    this.$nextTick(this.showForm.bind(this, route.params.learninggoalId));
                 } else if (route.name === 'learninggoal-new') {
                     this.$nextTick(this.showForm.bind(this, null));
                 }
             }
         },
         created: function() {
-            this.$store.dispatch('fetchRooms');
+            this.$store.dispatch('fetchLearninggoals');
             this.checkRoute(this.$route);
         },
         beforeRouteUpdate(to, from, next) {

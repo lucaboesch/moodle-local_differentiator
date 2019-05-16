@@ -27,25 +27,25 @@ namespace local_differentiator\form;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Class room_edit_controller
+ * Class learninggoal_edit_controller
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class room_edit_controller extends form_controller {
+class learninggoal_edit_controller extends form_controller {
     /**
      * @var string
      */
-    public static $formname = 'room_edit';
+    public static $formname = 'learninggoal_edit';
 
     /** @var int|null */
-    private $roomid;
+    private $learninggoalid;
 
     /**
      * @var null
      */
-    private $room = null;
+    private $learninggoal = null;
 
     /**
      * Customdata sent to form.
@@ -55,14 +55,14 @@ class room_edit_controller extends form_controller {
     protected function build_customdata() {
         global $DB;
 
-        $this->roomid = (isset($this->moreargs->roomid)) ? intval($this->moreargs->roomid) : null;
+        $this->learninggoalid = (isset($this->moreargs->learninggoalid)) ? intval($this->moreargs->learninggoalid) : null;
         $this->customdata = [
             'differentiator' => $this->differentiator,
-            'roomid' => $this->roomid,
+            'learninggoalid' => $this->learninggoalid,
         ];
 
-        if ($this->roomid) {
-            $this->room = $DB->get_record('local_differentiator_lg', ['id' => $this->roomid]);
+        if ($this->learninggoalid) {
+            $this->learninggoal = $DB->get_record('local_differentiator_lg', ['id' => $this->learninggoalid]);
         }
     }
 
@@ -74,21 +74,21 @@ class room_edit_controller extends form_controller {
      * @throws \dml_exception
      */
     protected function handle_submit(\stdClass $data) : bool {
-        if ($this->roomid && $data->roomid != $this->roomid) {
+        if ($this->learninggoalid && $data->learninggoalid != $this->learninggoalid) {
             return false;
         }
 
         global $DB;
-        $room = new \stdClass();
-        $room->id = $this->roomid;
-        $room->differentiatorid = $this->differentiator->get_id();
-        $room->name = $data->name;
-        $room->description = $data->description;
+        $learninggoal = new \stdClass();
+        $learninggoal->id = $this->learninggoalid;
+        $learninggoal->differentiatorid = $this->differentiator->get_id();
+        $learninggoal->name = $data->name;
+        $learninggoal->description = $data->description;
 
-        if ($room->id) {
-            $DB->update_record('differentiator_rooms', $room);
+        if ($learninggoal->id) {
+            $DB->update_record('local_differentiator_lg', $learninggoal);
         } else {
-            $DB->insert_record('differentiator_rooms', $room);
+            $DB->insert_record('local_differentiator_lg', $learninggoal);
         }
 
         return true;
@@ -100,10 +100,10 @@ class room_edit_controller extends form_controller {
     protected function handle_display() {
         global $DB;
 
-        if ($this->room) {
+        if ($this->learninggoal) {
             // Set default (existing) data.
             $data = [
-                'name' => $this->room->name,
+                'name' => $this->learninggoal->name,
                 'description' => $this->learninggoal->description,
             ];
             $this->mform->set_data($data);
