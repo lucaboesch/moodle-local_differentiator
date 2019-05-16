@@ -12,7 +12,7 @@ export const store = new Vuex.Store({
         courseModuleID: 0,
         contextID: 0,
         strings: {},
-        rooms: null,
+        learninggoals: null,
     },
     //strict: process.env.NODE_ENV !== 'production',
     mutations: {
@@ -22,8 +22,8 @@ export const store = new Vuex.Store({
         setContextID(state, id) {
             state.contextID = id;
         },
-        setRooms(state, ajaxdata) {
-            state.rooms = ajaxdata;
+        setLearninggoals(state, ajaxdata) {
+            state.learninggoals = ajaxdata;
         },
         setStrings(state, strings) {
             state.strings = strings;
@@ -53,9 +53,9 @@ export const store = new Vuex.Store({
                 moodleStorage.set(cacheKey, JSON.stringify(strings));
             }
         },
-        async fetchRooms(context) {
-            const rooms = await ajax('local_differentiator_get_learninggoals');
-            context.commit('setRooms', rooms);
+        async fetchLearninggoals(context) {
+            const learninggoals = await ajax('local_differentiator_get_learninggoals');
+            context.commit('setLearninggoals', learninggoals);
         },
     }
 });

@@ -164,8 +164,8 @@ abstract class form_controller {
         : form_controller {
 
         switch ($formname) {
-            case 'room_edit':
-                return new room_edit_controller($differentiator, $formdata, $moreargs);
+            case 'learninggoal_edit':
+                return new learninggoal_edit_controller($differentiator, $formdata, $moreargs);
 
             default:
                 throw new \moodle_exception('unknown_form', 'differentiator');

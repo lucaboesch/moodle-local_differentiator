@@ -29,13 +29,13 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . "/formslib.php");
 
 /**
- * Class room_edit
+ * Class learninggoal_edit
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class room_edit extends \moodleform {
+class learninggoal_edit extends \moodleform {
     /**
      * Define the form.
      * @throws \coding_exception
@@ -46,17 +46,17 @@ class room_edit extends \moodleform {
         /** @var \local_differentiator\differentiator $differentiator */
         $differentiator = $this->_customdata['differentiator'];
 
-        /** @var int $roomid */
-        $roomid = $this->_customdata['roomid'];
+        /** @var int $learninggoalid */
+        $learninggoalid = $this->_customdata['learninggoalid'];
 
         // General section header.
         $mform->addElement('header', 'general', get_string('learninggoal', 'local_differentiator'));
 
-        // Room id.
-        $mform->addElement('hidden', 'roomid');
-        $mform->setType('roomid', PARAM_INT);
-        if ($roomid) {
-            $mform->setConstant('roomid', $roomid);
+        // Learning goal id.
+        $mform->addElement('hidden', 'learninggoalid');
+        $mform->setType('learninggoalid', PARAM_INT);
+        if ($learninggoalid) {
+            $mform->setConstant('learninggoalid', $learninggoalid);
         }
 
         // Name.
