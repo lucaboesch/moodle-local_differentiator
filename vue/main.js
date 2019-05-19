@@ -7,7 +7,7 @@ const exampleLazyLoading = () => import('./components/example-lazy-loading');
 
 function init() {
     // We need to overwrite the variable for lazy loading.
-    __webpack_public_path__ = M.cfg.wwwroot + '/mod/differentiator/amd/build/';
+    __webpack_public_path__ = M.cfg.wwwroot + '/local/differentiator/amd/build/';
 
     Vue.use(VueRouter);
 
@@ -29,9 +29,9 @@ function init() {
         { path: '*', component: notFound, meta: { title: 'route_not_found' } },
     ];
 
-    // base URL is /mod/differentiator/view.php/[course module id]/
+    // base URL is /local/differentiator/view.php/[learning goal id]/
     // const currenturl = window.location.pathname;
-    // const base = currenturl.substr(0, currenturl.indexOf('.php')) + '.php/' + coursemoduleid + '/';
+    // const base = currenturl.substr(0, currenturl.indexOf('.php')) + '.php/' + learninggoalid + '/';
 
     const currenturl = window.location.pathname;
     const base = currenturl;

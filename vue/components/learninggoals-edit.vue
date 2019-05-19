@@ -25,7 +25,6 @@
 
 <script>
     import { mapState } from 'vuex';
-    import { MFormModal } from '../mform';
 
     export default {
         name: "learninggoals-edit",
