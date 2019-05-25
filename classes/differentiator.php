@@ -52,7 +52,7 @@ class differentiator {
      * @throws \moodle_exception
      */
     public function make_url(string $subpath, array $params = null) : \moodle_url {
-        $path = '/mod/differentiator/view.php/' . $subpath;
+        $path = '/local/differentiator/edit.php/' . $subpath;
         return new \moodle_url($path, $params);
     }
 
