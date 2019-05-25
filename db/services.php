@@ -32,4 +32,11 @@ $functions = array(
         'type' => 'read',
         'ajax' => true,
     ),
+    'local_differentiator_get_learninggoal' => array(
+        'classname' => 'local_differentiator\external\learninggoal',
+        'methodname' => 'get_learninggoal',
+        'description' => 'Get a specific learning goal.',
+        'type' => 'read',
+        'ajax' => true,
+    ),
 );

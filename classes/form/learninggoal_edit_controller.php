@@ -105,6 +105,16 @@ class learninggoal_edit_controller extends form_controller {
             $data = [
                 'name' => $this->learninggoal->name,
                 'description' => $this->learninggoal->description,
+                'pre_thinking_skill' => $this->learninggoal->pre_thinking_skill,
+                'thinking_skill' => $this->learninggoal->thinking_skill,
+                'content' => $this->learninggoal->content,
+                'subject' => $this->learninggoal->subject,
+                'pre_resource' => $this->learninggoal->pre_resource,
+                'resource' => $this->learninggoal->resource,
+                'pre_product' => $this->learninggoal->pre_product,
+                'product' => $this->learninggoal->product,
+                'pre_group' => $this->learninggoal->pre_group,
+                'group' => $this->learninggoal->group,
             ];
             $this->mform->set_data($data);
         }

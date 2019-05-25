@@ -13,6 +13,7 @@ export const store = new Vuex.Store({
         contextID: 0,
         strings: {},
         learninggoals: null,
+        learninggoal: null,
     },
     //strict: process.env.NODE_ENV !== 'production',
     mutations: {
@@ -24,6 +25,9 @@ export const store = new Vuex.Store({
         },
         setLearninggoals(state, ajaxdata) {
             state.learninggoals = ajaxdata;
+        },
+        setLearninggoal(state, ajaxdata) {
+            state.learninggoal = ajaxdata;
         },
         setStrings(state, strings) {
             state.strings = strings;
@@ -57,6 +61,10 @@ export const store = new Vuex.Store({
             const learninggoals = await ajax('local_differentiator_get_learninggoals');
             context.commit('setLearninggoals', learninggoals);
         },
+        async fetchLearninggoal(context) {
+            const learninggoal = await ajax('local_differentiator_get_learninggoal');
+            context.commit('setLearninggoal', learninggoal);
+        },
     }
 });
 
@@ -67,7 +75,7 @@ export async function ajax(method, args) {
     const request = {
         methodname: method,
         args: Object.assign({
-            userid: store.state.courseModuleID
+            id: 1
         }, args),
     };
 
