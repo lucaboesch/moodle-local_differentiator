@@ -2,11 +2,42 @@
     <div class="learninggoal-edit">
         <h3>{{strings.learninggoal_edit}}</h3>
         <div v-for="goal in learninggoal">
-            <p><b><input v-model="goal.name"></b></p>
-            <p><input v-model="goal.pre_thinking_skill"> <input v-model="goal.thinking_skill">
-                <input v-model="goal.content"> <input v-model="goal.subject"> <input v-model="goal.pre_resource">
-                <input v-model="goal.resource"> <input v-model="goal.pre_product"> <input v-model="goal.product">
-                <input v-model="goal.pre_group"> <input v-model="goal.group">.</p>
+            <p><input type="text"
+                      v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                      v-model="goal.name">
+            </p>
+            <p>
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.pre_thinking_skill">
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.thinking_skill">
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.content">
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.subject">
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.pre_resource">
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.resource">
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.pre_product">
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.product">
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.pre_group">
+                <input type="text"
+                       v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                       v-model="goal.group">.
+            </p>
         </div>
 <!--        <div class="description">{{strings.learninggoals_edit_site_description}}</div>-->
 <!--
@@ -97,4 +128,5 @@
     .learninggoals-edit-add {
         padding-top: 20px;
     }
+
 </style>
