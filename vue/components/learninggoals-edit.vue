@@ -44,24 +44,17 @@
                        class="group">.
             </p>
         </div>
-<!--        <div class="description">{{strings.learninggoals_edit_site_description}}</div>-->
-<!--
-        <ul class="learninggoals-edit-list">
-            <li v-for="learninggoal in learninggoals">
-                <div class="learninggoal-top-level">
-                    <b>{{ learninggoal.name }}</b>
-                    <p>{{ learninggoal.description }}
-                    <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: learninggoal.id }}">
-                        <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
-                    </router-link>
-                    </p>
-                </div>
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item"
+                :class=" { 'active show': selectedTab === tab }"
+                v-for="(tab, index) in tabs"
+                :key="index"
+                @click="selectedTab = tab">
+                <a class="nav-link" href="#linkroot" data-toggle="tab" role="tab" aria-selected="false">{{ tab }}</a>
             </li>
-        </ul>
-        <div v-if="learninggoals !== null && learninggoals.length == 0">
-            {{strings.learninggoals_edit_no_learninggoals}}
+            </ul>
         </div>
--->
     </div>
 </template>
 
@@ -73,6 +66,8 @@
         data: function() {
             return {
                 modal: null,
+                tabs: ['Thinking Skill', 'Content', 'Resources', 'Products', 'Groups'],
+                selectedTab: 'Thinking Skill'  // set from @click
             };
         },
         computed: mapState(['strings', 'learninggoal']),
@@ -87,20 +82,6 @@
                     title = this.strings.learninggoal_form_title_add;
                 }
                 this.$store.dispatch('fetchLearninggoal');
-
-                // this.modal = new MFormModal('learninggoal_edit', title, this.$store.state.contextID, args);
-                // try {
-                //     await this.modal.show();
-                //     const success = await this.modal.finished;
-                //     if (success) {
-                //         this.$store.dispatch('fetchLearninggoals');
-                //     }
-                //     this.$router.push({name: 'learninggoals-edit-overview'});
-                // } catch (e) {
-                //     // This happens when the modal is destroyed on a page change. Ignore.
-                // } finally {
-                //     this.modal = null;
-                // }
             },
             checkRoute(route) {
                 if (this.modal) {
