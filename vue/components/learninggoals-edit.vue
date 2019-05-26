@@ -2,9 +2,11 @@
     <div class="learninggoal-edit">
         <h3>{{strings.learninggoal_edit}}</h3>
         <div v-for="goal in learninggoal">
-            <p><b>{{ goal.name }}</b></p>
-            <p>{{ goal.pre_thinking_skill }} {{ goal.thinking_skill }} {{ goal.content }} {{ goal.subject }} {{ goal.pre_resource }}
-               {{ goal.resource }} {{ goal.pre_product }} {{ goal.product }} {{ goal.pre_group }} {{ goal.group }}.</p>
+            <p><b><input v-model="goal.name"></b></p>
+            <p><input v-model="goal.pre_thinking_skill"> <input v-model="goal.thinking_skill">
+                <input v-model="goal.content"> <input v-model="goal.subject"> <input v-model="goal.pre_resource">
+                <input v-model="goal.resource"> <input v-model="goal.pre_product"> <input v-model="goal.product">
+                <input v-model="goal.pre_group"> <input v-model="goal.group">.</p>
         </div>
 <!--        <div class="description">{{strings.learninggoals_edit_site_description}}</div>-->
 <!--
