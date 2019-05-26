@@ -12,10 +12,12 @@
                        v-model="goal.pre_thinking_skill">
                 <input type="text"
                        v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
-                       v-model="goal.thinking_skill">
+                       v-model="goal.thinking_skill"
+                       class="thinking_skill">
                 <input type="text"
                        v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
-                       v-model="goal.content">
+                       v-model="goal.content"
+                       class="content">
                 <input type="text"
                        v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                        v-model="goal.subject">
@@ -24,19 +26,22 @@
                        v-model="goal.pre_resource">
                 <input type="text"
                        v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
-                       v-model="goal.resource">
+                       v-model="goal.resource"
+                       class="resource">
                 <input type="text"
                        v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                        v-model="goal.pre_product">
                 <input type="text"
                        v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
-                       v-model="goal.product">
+                       v-model="goal.product"
+                       class="product">
                 <input type="text"
                        v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                        v-model="goal.pre_group">
                 <input type="text"
                        v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
-                       v-model="goal.group">.
+                       v-model="goal.group"
+                       class="group">.
             </p>
         </div>
 <!--        <div class="description">{{strings.learninggoals_edit_site_description}}</div>-->
@@ -129,19 +134,59 @@
       padding-top: 20px;
     }
 
+    input.thinking_skill[type="text"] {
+      border: 1.5px solid #009;
+    }
+    input.thinking_skill[type="text"]:focus {
+        outline: none;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        --webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        --moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        border-color: #009;
+        transition: border linear .2s, box-shadow linear .2s;
+    }
+    input.content[type="text"] {
+        border: 1.5px solid #600;
+    }
+    input.content[type="text"]:focus {
+        outline: none;
+        border: 1.5px solid #600;
+    }
+    input.resource[type="text"] {
+        border: 1.5px solid #090;
+    }
+    input.resource[type="text"]:focus {
+        outline: none;
+        border: 1.5px solid #090;
+    }
+    input.product[type="text"] {
+        border: 1.5px solid #909;
+    }
+    input.product[type="text"]:focus {
+        outline: none;
+        border: 1.5px solid #909;
+    }
+    input.group[type="text"] {
+        border: 1.5px solid #990;
+    }
+    input.group[type="text"]:focus {
+        outline: none;
+        border: 1.5px solid #990;
+    }
+
     input[type="text"] {
       transition: border-color 250ms ease;
       appearance: none;
       border-radius: 4px;
       border: 1.5px solid #e9ebeb;
       padding: 0.15em 0.3em;
-      &:focus {
-        outline: none;
-        border-color: $purple;
-      }
-      &::-webkit-input-placeholder {
-        /* Chrome/Opera/Safari */
-        color: rgba(19, 40, 48, 0.54);
-      }
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #999;
+    }
+    input[type="text"]::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: rgba(19, 40, 48, 0.54);
     }
 </style>
