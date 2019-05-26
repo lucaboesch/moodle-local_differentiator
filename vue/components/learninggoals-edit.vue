@@ -122,11 +122,26 @@
 
 <style scoped>
     .learninggoals-edit-list {
-        padding-top: 1rem;
+      padding-top: 1rem;
     }
 
     .learninggoals-edit-add {
-        padding-top: 20px;
+      padding-top: 20px;
     }
 
+    input[type="text"] {
+      transition: border-color 250ms ease;
+      appearance: none;
+      border-radius: 4px;
+      border: 1.5px solid #e9ebeb;
+      padding: 0.15em 0.3em;
+      &:focus {
+        outline: none;
+        border-color: $purple;
+      }
+      &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: rgba(19, 40, 48, 0.54);
+      }
+    }
 </style>
