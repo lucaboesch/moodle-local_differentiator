@@ -48,7 +48,6 @@ class learninggoal extends \core\external\exporter {
      */
     public function __construct($learninggoal, \context $context) {
         $this->learninggoal = $learninggoal;
-
         parent::__construct([], ['context' => $context]);
     }
 
