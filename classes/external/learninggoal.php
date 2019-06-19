@@ -32,7 +32,7 @@ use external_single_structure;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Class learninggoals
+ * Class learninggoal
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>

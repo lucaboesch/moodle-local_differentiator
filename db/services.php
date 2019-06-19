@@ -31,6 +31,7 @@ $functions = array(
         'description' => 'Get all learning goals.',
         'type' => 'read',
         'ajax' => true,
+        'capabilities' => 'local/differentiator:edit',
     ),
     'local_differentiator_get_learninggoal' => array(
         'classname' => 'local_differentiator\external\learninggoal',
@@ -38,5 +39,14 @@ $functions = array(
         'description' => 'Get a specific learning goal.',
         'type' => 'read',
         'ajax' => true,
+        'capabilities' => 'local/differentiator:edit',
+    ),
+    'local_differentiator_get_handlers' => array(
+        'classname' => 'local_differentiator\external\handlers',
+        'methodname' => 'get_handlers',
+        'description' => 'Get the differentiator handlers.',
+        'type' => 'read',
+        'ajax' => true,
+        'capabilities' => 'local/differentiator:edit',
     ),
 );

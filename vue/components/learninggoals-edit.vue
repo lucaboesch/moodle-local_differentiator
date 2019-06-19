@@ -45,24 +45,25 @@
             </p>
         </div>
         <div>
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs" role="tablist" v-for="">
             <li class="nav-item"
-                :class=" { 'active show': selectedTab === tab }"
-                v-for="(tab, index) in tabs"
+                :class=" { 'active show': selectedTabId === tab.id }"
+                v-for="(tab, index) in handlers"
                 :key="index"
-                @click="selectedTab = tab">
-                <a class="nav-link" :href="'#link' + index" data-toggle="tab" role="tab" aria-selected="false">{{ tab }}</a>
+                @click="selectedTabId = tab.id">
+                <a class="nav-link" :href="'#link' + index" data-toggle="tab" role="tab" aria-selected="false"
+                   v-bind:style= "[selectedTabId === tab.id ? {borderRightColor: tab.color, borderTopColor: tab.color, borderLeftColor: tab.color, 'border-top-width': '2px', 'padding-top': '7px'} : {}]">{{ tab.title }}</a>
             </li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane"
-                     :class=" { 'active show': selectedTab === tab }"
-                     v-for="(tab, index) in tabs"
+                     :class=" { 'active show': selectedTabId === tab.id }"
+                     v-for="(tab, index) in handlers"
                      :id="'#link' + index"
                      role="tabpanel">
                     <div class="container">
                         <div class="row">
-                            Blah
+                            <div class="col-12 mt-3"><h5>{{ tab.wordcategory }}</h5></div>
                         </div>
                     </div>
                 </div>
@@ -79,11 +80,10 @@
         data: function() {
             return {
                 modal: null,
-                tabs: ['Thinking Skill', 'Content', 'Resources', 'Products', 'Groups'],
-                selectedTab: 'Thinking Skill'  // set from @click
+                selectedTabId: 0  // set from @click
             };
         },
-        computed: mapState(['strings', 'learninggoal']),
+        computed: mapState(['strings', 'learninggoal', 'handlers']),
         methods: {
             async showForm(learninggoalId = null) {
                 let title = '';
@@ -95,6 +95,7 @@
                     title = this.strings.learninggoal_form_title_add;
                 }
                 this.$store.dispatch('fetchLearninggoal');
+                this.$store.dispatch('getHandlers');
             },
             checkRoute(route) {
                 if (this.modal) {
@@ -110,6 +111,7 @@
         },
         created: function() {
             this.$store.dispatch('fetchLearninggoal');
+            this.$store.dispatch('getHandlers');
             this.checkRoute(this.$route);
         },
         beforeRouteUpdate(to, from, next) {
