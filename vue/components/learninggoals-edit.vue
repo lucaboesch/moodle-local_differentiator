@@ -51,9 +51,22 @@
                 v-for="(tab, index) in tabs"
                 :key="index"
                 @click="selectedTab = tab">
-                <a class="nav-link" href="#linkroot" data-toggle="tab" role="tab" aria-selected="false">{{ tab }}</a>
+                <a class="nav-link" :href="'#link' + index" data-toggle="tab" role="tab" aria-selected="false">{{ tab }}</a>
             </li>
             </ul>
+            <div class="tab-content">
+                <div class="tab-pane"
+                     :class=" { 'active show': selectedTab === tab }"
+                     v-for="(tab, index) in tabs"
+                     :id="'#link' + index"
+                     role="tabpanel">
+                    <div class="container">
+                        <div class="row">
+                            Blah
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
