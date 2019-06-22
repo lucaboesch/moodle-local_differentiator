@@ -23,30 +23,30 @@
 namespace local_differentiator\external\exporter;
 defined('MOODLE_INTERNAL') || die();
 /**
- * Class tab
+ * Class wordcategory
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class tab extends \core\external\exporter {
+class wordcategory extends \core\external\exporter {
     /**
      * @var
      */
-    protected $tab;
+    protected $wordcategory;
     /**
-     * The tab constructor.
+     * The wordcategory constructor.
      *
-     * @param $tab
+     * @param $wordcategory
      * @param \context $context
      * @throws \coding_exception
      */
-    public function __construct($tab, \context $context) {
-        $this->tab = $tab;
+    public function __construct($wordcategory, \context $context) {
+        $this->wordcategory = $wordcategory;
         parent::__construct([], ['context' => $context]);
     }
     /**
-     * Get id and title of the tab.
+     * Get id and title of the wordcategory.
      *
      * @return array
      */
@@ -54,25 +54,12 @@ class tab extends \core\external\exporter {
         return [
             'id' => [
                 'type' => PARAM_INT,
-                'description' => 'tab id',
+                'description' => 'wordcategory id',
             ],
-            'tabtitle' => [
+            'wordcategorytitle' => [
                 'type' => PARAM_TEXT,
-                'description' => 'tab title',
+                'description' => 'wordcategory title',
             ],
-            'tabcolor' => [
-                'type' => PARAM_TEXT,
-                'description' => 'tab color',
-            ],
-            'tabprefix' => [
-                'type' => PARAM_TEXT,
-                'description' => 'tab prefix',
-            ],
-            'wordcategory' => array(
-                'type' => exporter\wordcategory::get_context_structure(),
-                'multiple' => true,
-                'optional' => true,
-            ),
         ];
     }
     /**
@@ -86,20 +73,18 @@ class tab extends \core\external\exporter {
         ];
     }
     /**
-     * Get id, title and color of the tab as well as its word categories.
+     * Get id and title of the wordcategory.
      *
      * @param \renderer_base $output
      * @return array
      */
     protected function get_other_values(\renderer_base $output) {
         $values = array(
-            'id' => $this->tab->id,
-            'tabtitle' => $this->tab->tabtitle,
-            'tabcolor' => $this->tab->tabcolor,
-            'tabprefix' => $this->tab->tabprefix,
+            'id' => $this->wordcategory->id,
+            'wordcategorytitle' => $this->wordcategory->title,
         );
 
-        $values['wordcategory'] = get_wordcategory($this->tab->tabprefix);
+//        $values['wordcategoryentry'] = get_wordcategoryentries($this->tab->tabprefix);
 
         return $values;
     }

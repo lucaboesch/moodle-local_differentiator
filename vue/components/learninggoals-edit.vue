@@ -52,7 +52,7 @@
                 :key="index"
                 @click="selectedTabId = tab.id">
                 <a class="nav-link" :href="'#link' + index" data-toggle="tab" role="tab" aria-selected="false"
-                   v-bind:style= "[selectedTabId === tab.id ? {borderRightColor: tab.color, borderTopColor: tab.color, borderLeftColor: tab.color, 'border-top-width': '2px', 'padding-top': '7px'} : {}]">{{ tab.title }}</a>
+                   v-bind:style= "[selectedTabId === tab.id ? {borderRightColor: tab.tabcolor, borderTopColor: tab.tabcolor, borderLeftColor: tab.tabcolor, 'border-top-width': '2px', 'padding-top': '7px'} : {}]">{{ tab.tabtitle }}</a>
             </li>
             </ul>
             <div class="tab-content">

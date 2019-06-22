@@ -27,7 +27,6 @@ namespace local_differentiator\external;
 use external_function_parameters;
 use external_multiple_structure;
 use external_value;
-use external_single_structure;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -47,6 +46,7 @@ class handlers extends \external_api {
     public static function get_handlers_parameters() {
         return new external_function_parameters([
             'id' => new external_value(PARAM_INT, 'id'),
+//            'lang' => new external_value(PARAM_TEXT, 'language'),
         ]);
     }
 
@@ -62,13 +62,18 @@ class handlers extends \external_api {
     }
 
     /**
-     * Get a learning goal.
+     * Get the differentiator handlers.
      *
-     * @param $id
-     * @return bool
+     * @param void
+     * @return array
      * @throws \invalid_parameter_exception
      */
     public static function get_handlers() {
+        $params = ['id' => $id];
+        $params = self::validate_parameters(self::get_handlers_parameters(), $params);
+//        $params = ['lang' => $lang];
+//        $params = self::validate_parameters(self::get_handlers_parameters(), $params);
+
         self::validate_context(\context_system::instance());
 
         global $PAGE, $DB;
@@ -76,38 +81,42 @@ class handlers extends \external_api {
 
         $ctx = \context_system::instance();
 
-/*
-        $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS title " .
-            "UNION " .
-            "SELECT  1 AS id, '" . get_string('content', 'local_differentiator') . "' AS title " .
-            "UNION " .
-            "SELECT  2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS title " .
-            "UNION " .
-            "SELECT  3 AS id, '" . get_string('products', 'local_differentiator') . "' AS title " .
-            "UNION " .
-            "SELECT  4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS title ORDER BY id ASC";
-*/
+        //$sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS title, '#009' AS color,
+        //            tswce.tswcid as wordcategoryid, tswce.tswcetitle as wordcategory, tswc.sort FROM {local_differentiator_tswce} tswce
+        //            JOIN {local_differentiator_tswc} tswc ON tswc.id = tswce.tswcid
+        //        UNION
+        //        SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS title, '#600' AS color,
+        //            cwce.cwcid as wordcategoryid, cwce.cwcetitle as wordcategory, cwc.sort FROM {local_differentiator_cwce} cwce
+        //            JOIN {local_differentiator_cwc} cwc ON cwc.id = cwce.cwcid
+        //        UNION
+        //        SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS title, '#090' AS color,
+        //            rwce.rwcid as wordcategoryid, rwce.rwcetitle as wordcategory, rwc.sort FROM {local_differentiator_rwce} rwce
+        //            JOIN {local_differentiator_rwc} rwc ON rwc.id = rwce.rwcid
+        //        UNION
+        //        SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS title, '#909' AS color,
+        //            pwce.pwcid as wordcategoryid, pwce.pwcetitle as wordcategory, pwc.sort FROM {local_differentiator_pwce} pwce
+        //            JOIN {local_differentiator_pwc} pwc ON pwc.id = pwce.pwcid
+        //        UNION
+        //        SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS title, '#990' AS color,
+        //            gwce.gwcid as wordcategoryid, gwce.gwcetitle as wordcategory, gwc.sort FROM {local_differentiator_gwce} gwce
+        //            JOIN {local_differentiator_gwc} gwc ON gwc.id = gwce.gwcid
+        //        ORDER BY id ASC, sort ASC";
 
-        $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS title, '#009' AS color,
-                    tswce.tswcetitle as wordcategory, tswc.sort FROM {local_differentiator_tswce} tswce
-                    JOIN {local_differentiator_tswc} tswc ON tswc.id = tswce.tswcid
+        $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
+                    'ts' AS tabprefix
                 UNION
-                SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS title, '#600' AS color,
-                    cwce.cwcetitle as wordcategory, cwc.sort FROM {local_differentiator_cwce} cwce
-                    JOIN {local_differentiator_cwc} cwc ON cwc.id = cwce.cwcid
+                SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS tabtitle, '#600' AS tabcolor,
+                    'c' AS tabprefix
                 UNION
-                SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS title, '#090' AS color,
-                    rwcetitle as wordcategory, rwc.sort FROM {local_differentiator_rwce} rwce
-                    JOIN {local_differentiator_rwc} rwc ON rwc.id = rwce.rwcid
+                SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS tabtitle, '#090' AS tabcolor,
+                    'r' AS tabprefix
                 UNION
-                SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS title, '#909' AS color,
-                    pwcetitle as wordcategory, pwc.sort FROM {local_differentiator_pwce} pwce
-                    JOIN {local_differentiator_pwc} pwc ON pwc.id = pwce.pwcid
+                SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS tabtitle, '#909' AS tabcolor,
+                    'p' AS tabprefix
                 UNION
-                SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS title, '#990' AS color,
-                    gwcetitle as wordcategory, gwc.sort FROM {local_differentiator_gwce} gwce
-                    JOIN {local_differentiator_gwc} gwc ON gwc.id = gwce.gwcid
-                ORDER BY id ASC, sort ASC";
+                SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS tabtitle, '#990' AS tabcolor,
+                    'g' AS tabprefix
+                ORDER BY id ASC";
 
         $handlers = $DB->get_records_sql($sql);
 
