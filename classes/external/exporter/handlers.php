@@ -47,31 +47,24 @@ class handlers extends \core\external\exporter {
      * @throws \coding_exception
      */
     public function __construct($handlers, \context $context) {
+        file_put_contents('/Users/luca/Desktop/log3.txt', json_encode($handlers));
         $this->handlers = $handlers;
         parent::__construct([], ['context' => $context]);
     }
 
-    /**
-     * Get ids and titles of the handlers.
-     *
-     * @return array
-     */
-    protected static function define_other_properties() {
-        return [
-            'title' => [
-                'type' => PARAM_TEXT,
-                'description' => 'tab title'
-            ],
-            'color' => [
-                'type' => PARAM_TEXT,
-                'description' => 'tab color'
-            ],
-            'wordcategory' => [
-                'type' => PARAM_TEXT,
-                'description' => 'word category title'
-            ],
-        ];
-    }
+    ///**
+    // * Get ids and titles of the handlers.
+    // *
+    // * @return array
+    // */
+    //protected static function define_other_properties() {
+    //    return [
+    //        'tabs' => [
+    //            'type' => PARAM_,
+    //            'description' => 'tab title'
+    //        ],
+    //    ];
+    //}
 
     /**
      * TODO.
@@ -92,9 +85,7 @@ class handlers extends \core\external\exporter {
      */
     protected function get_other_values(\renderer_base $output) {
         return [
-            'title' => $this->handlers->title,
-            'color' => $this->handlers->color,
-            'wordcategory' => $this->handlers->wordcategory,
+            'handlers' => $this->handlers,
         ];
     }
 }

@@ -26,6 +26,7 @@ namespace local_differentiator\external;
 
 use external_function_parameters;
 use external_multiple_structure;
+use external_single_structure;
 use external_value;
 
 defined('MOODLE_INTERNAL') || die();
@@ -38,26 +39,55 @@ defined('MOODLE_INTERNAL') || die();
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class handlers extends \external_api {
+// Take from mod/choicegroup/classes/external.php
     /**
      * Returns description of method parameters.
      *
      * @return external_function_parameters
      */
     public static function get_handlers_parameters() {
-        return new external_function_parameters([
+        return new external_function_parameters(
+            array (
+//                // If I had any parameters, they would be described here. But I don't have any, so this array is empty.
+//            )
+//        );
+//        return new external_function_parameters([
             'id' => new external_value(PARAM_INT, 'id'),
 //            'lang' => new external_value(PARAM_TEXT, 'language'),
-        ]);
+            )
+        );
     }
 
     /**
      * Returns description of method result value.
+     * Describes the get_handlers_returns return values.
      *
-     * @return external_multiple_structure
+     * @return external_single_structure
      */
     public static function get_handlers_returns() {
-        return new external_multiple_structure(
-            exporter\tab::get_read_structure()
+        return new external_single_structure(
+            array(
+                        'tabs' => new external_multiple_structure(
+                            new external_single_structure(
+                            array(
+                            'tabtitle' => new external_value(PARAM_TEXT, 'Tabulator title'),
+                            'tabcolor' => new external_value(PARAM_TEXT, 'Tabulator color'),
+                            'categories' => new external_single_structure(
+                                array(
+                                    'cattitle' => new external_value(PARAM_TEXT, 'Category title'),
+                                    'cattext' => new external_value(PARAM_TEXT, 'Category text'),
+                                    'words' => new external_single_structure(
+                                        array(
+                                            'title' => new external_value(PARAM_TEXT, 'Word title'),
+                                            'text' => new external_value(PARAM_TEXT, 'Word text'),
+                                            )
+                                        ),
+                                    )
+                                ),
+                            )
+                            )
+                        ),
+                    )
         );
     }
 
@@ -120,8 +150,26 @@ class handlers extends \external_api {
 
         $handlers = $DB->get_records_sql($sql);
 
-        foreach ($handlers as $tab) {
-            $exporter = new exporter\tab($tab, $ctx);
+        //$handlers = new \stdClass();
+        //$handlers->tabs = array();
+        //$handlers->tabs[0]->tabtitle = 'Thinking Skill';
+        //$handlers->tabs[0]->tabcolor = '#000099';
+        //$handlers->tabs[0]->categories = array();
+        //$handlers->tabs[0]->categories[0]->cattitle = 'Remembering';
+        //$handlers->tabs[0]->categories[0]->cattext = 'Remembering';
+        //$handlers->tabs[0]->categories[0]->words = array();
+        //$handlers->tabs[0]->categories[0]->words[0]->title = 'Remember';
+        //$handlers->tabs[0]->categories[0]->words[0]->text = 'remember the';
+
+        $word = array('title' => 'Remember', 'text' => 'remember the');
+        $category = array('cattitle' => 'Remembering', 'cattext' => 'Remembering', 'words' => $word);
+        $tabs = array('tabtitle' => 'Thinking Skill', 'tabcolor' => '#000099', 'categories' => $category);
+//        $handlers = array('tabs' => $tabs);
+
+        $list = [];
+
+        foreach ($handlers as $handler) {
+            $exporter = new exporter\handlers($handler, $ctx);
             $list[] = $exporter->export($renderer);
         }
 
