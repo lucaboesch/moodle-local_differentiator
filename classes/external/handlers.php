@@ -62,32 +62,32 @@ class handlers extends \external_api {
      * Returns description of method result value.
      * Describes the get_handlers_returns return values.
      *
-     * @return external_single_structure
+     * @return external_multiple_structure
      */
     public static function get_handlers_returns() {
-        return new external_single_structure(
-            array(
-                        'tabs' => new external_multiple_structure(
-                            new external_single_structure(
+        return new external_multiple_structure(
+            new external_single_structure(
+                array(
+                    'tabtitle' => new external_value(PARAM_TEXT, 'Tabulator title', VALUE_OPTIONAL),
+                    'tabcolor' => new external_value(PARAM_TEXT, 'Tabulator color', VALUE_OPTIONAL),
+                    'categories' => new external_multiple_structure(
+                        new external_single_structure(
                             array(
-                            'tabtitle' => new external_value(PARAM_TEXT, 'Tabulator title'),
-                            'tabcolor' => new external_value(PARAM_TEXT, 'Tabulator color'),
-                            'categories' => new external_single_structure(
-                                array(
-                                    'cattitle' => new external_value(PARAM_TEXT, 'Category title'),
-                                    'cattext' => new external_value(PARAM_TEXT, 'Category text'),
-                                    'words' => new external_single_structure(
+                                'cattitle' => new external_value(PARAM_TEXT, 'Category title', VALUE_OPTIONAL),
+                                'cattext' => new external_value(PARAM_TEXT, 'Category text', VALUE_OPTIONAL),
+                                'words' => new external_multiple_structure(
+                                    new external_single_structure(
                                         array(
-                                            'title' => new external_value(PARAM_TEXT, 'Word title'),
-                                            'text' => new external_value(PARAM_TEXT, 'Word text'),
-                                            )
-                                        ),
-                                    )
+                                            'title' => new external_value(PARAM_TEXT, 'Word title', VALUE_OPTIONAL),
+                                            'text' => new external_value(PARAM_TEXT, 'Word text', VALUE_OPTIONAL),
+                                        )
+                                    ), 'Category words', VALUE_OPTIONAL
                                 ),
                             )
-                            )
-                        ),
-                    )
+                        ), 'Tabulator categories', VALUE_OPTIONAL
+                    ),
+                )
+            )
         );
     }
 
@@ -132,39 +132,39 @@ class handlers extends \external_api {
         //            JOIN {local_differentiator_gwc} gwc ON gwc.id = gwce.gwcid
         //        ORDER BY id ASC, sort ASC";
 
-        $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
-                    'ts' AS tabprefix
-                UNION
-                SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS tabtitle, '#600' AS tabcolor,
-                    'c' AS tabprefix
-                UNION
-                SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS tabtitle, '#090' AS tabcolor,
-                    'r' AS tabprefix
-                UNION
-                SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS tabtitle, '#909' AS tabcolor,
-                    'p' AS tabprefix
-                UNION
-                SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS tabtitle, '#990' AS tabcolor,
-                    'g' AS tabprefix
-                ORDER BY id ASC";
+        //$sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
+        //            'ts' AS tabprefix
+        //        UNION
+        //        SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS tabtitle, '#600' AS tabcolor,
+        //            'c' AS tabprefix
+        //        UNION
+        //        SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS tabtitle, '#090' AS tabcolor,
+        //            'r' AS tabprefix
+        //        UNION
+        //        SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS tabtitle, '#909' AS tabcolor,
+        //            'p' AS tabprefix
+        //        UNION
+        //        SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS tabtitle, '#990' AS tabcolor,
+        //            'g' AS tabprefix
+        //        ORDER BY id ASC";
+        //
+        //$handlers = $DB->get_records_sql($sql);
 
-        $handlers = $DB->get_records_sql($sql);
-
-        //$handlers = new \stdClass();
-        //$handlers->tabs = array();
-        //$handlers->tabs[0]->tabtitle = 'Thinking Skill';
-        //$handlers->tabs[0]->tabcolor = '#000099';
-        //$handlers->tabs[0]->categories = array();
-        //$handlers->tabs[0]->categories[0]->cattitle = 'Remembering';
-        //$handlers->tabs[0]->categories[0]->cattext = 'Remembering';
-        //$handlers->tabs[0]->categories[0]->words = array();
-        //$handlers->tabs[0]->categories[0]->words[0]->title = 'Remember';
-        //$handlers->tabs[0]->categories[0]->words[0]->text = 'remember the';
+        $handlers = new \stdClass();
+        $handlers->tabs = array();
+        $handlers->tabs[0]->tabtitle = 'Thinking Skill';
+        $handlers->tabs[0]->tabcolor = '#000099';
+        $handlers->tabs[0]->categories = array();
+        $handlers->tabs[0]->categories[0]->cattitle = 'Remembering';
+        $handlers->tabs[0]->categories[0]->cattext = 'Remembering';
+        $handlers->tabs[0]->categories[0]->words = array();
+        $handlers->tabs[0]->categories[0]->words[0]->title = 'Remember';
+        $handlers->tabs[0]->categories[0]->words[0]->text = 'remember the';
 
         $word = array('title' => 'Remember', 'text' => 'remember the');
         $category = array('cattitle' => 'Remembering', 'cattext' => 'Remembering', 'words' => $word);
         $tabs = array('tabtitle' => 'Thinking Skill', 'tabcolor' => '#000099', 'categories' => $category);
-//        $handlers = array('tabs' => $tabs);
+        $handlers = array($tabs);
 
         $list = [];
 
