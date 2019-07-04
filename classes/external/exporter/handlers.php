@@ -52,19 +52,32 @@ class handlers extends \core\external\exporter {
         parent::__construct([], ['context' => $context]);
     }
 
-    ///**
-    // * Get ids and titles of the handlers.
-    // *
-    // * @return array
-    // */
-    //protected static function define_other_properties() {
-    //    return [
-    //        'tabs' => [
-    //            'type' => PARAM_,
-    //            'description' => 'tab title'
-    //        ],
-    //    ];
-    //}
+    /**
+     * Get ids and titles of the handlers.
+     *
+     * @return array
+     */
+    protected static function define_other_properties() {
+        return [
+            'tabs' => [
+            'type' => tab::read_properties_definition(),
+            'multiple' => true,
+            ],
+
+            //'tabs' => [
+            //    'tabtitle' => PARAM_TEXT,
+            //    'tabcolor' => PARAM_TEXT,
+            //    'categories' => [
+            //        'cattitle' => PARAM_TEXT,
+            //        'cattext' => PARAM_TEXT,
+            //        'words' => [
+            //            'title' => PARAM_TEXT,
+            //            'text' => PARAM_TEXT,
+            //        ]
+            //    ]
+            //],
+        ];
+    }
 
     /**
      * TODO.
@@ -86,6 +99,7 @@ class handlers extends \core\external\exporter {
     protected function get_other_values(\renderer_base $output) {
         return [
             'handlers' => $this->handlers,
+            'tabs' => $this->handlers->tabs,
         ];
     }
 }

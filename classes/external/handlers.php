@@ -68,26 +68,33 @@ class handlers extends \external_api {
         return new external_multiple_structure(
             new external_single_structure(
                 array(
-                    'tabtitle' => new external_value(PARAM_TEXT, 'Tabulator title', VALUE_OPTIONAL),
-                    'tabcolor' => new external_value(PARAM_TEXT, 'Tabulator color', VALUE_OPTIONAL),
-                    'categories' => new external_multiple_structure(
+                    'tabs' => new external_multiple_structure(
                         new external_single_structure(
                             array(
-                                'cattitle' => new external_value(PARAM_TEXT, 'Category title', VALUE_OPTIONAL),
-                                'cattext' => new external_value(PARAM_TEXT, 'Category text', VALUE_OPTIONAL),
-                                'words' => new external_multiple_structure(
+                                'id' => new external_value(PARAM_INT, 'Tabulator id', VALUE_OPTIONAL),
+                                'tabtitle' => new external_value(PARAM_TEXT, 'Tabulator title', VALUE_OPTIONAL),
+                                'tabcolor' => new external_value(PARAM_TEXT, 'Tabulator color', VALUE_OPTIONAL),
+                                'categories' => new external_multiple_structure(
                                     new external_single_structure(
                                         array(
-                                            'title' => new external_value(PARAM_TEXT, 'Word title', VALUE_OPTIONAL),
-                                            'text' => new external_value(PARAM_TEXT, 'Word text', VALUE_OPTIONAL),
+                                            'cattitle' => new external_value(PARAM_TEXT, 'Category title', VALUE_OPTIONAL),
+                                            'cattext' => new external_value(PARAM_TEXT, 'Category text', VALUE_OPTIONAL),
+                                            'words' => new external_multiple_structure(
+                                                new external_single_structure(
+                                                    array(
+                                                        'title' => new external_value(PARAM_TEXT, 'Word title', VALUE_OPTIONAL),
+                                                        'text' => new external_value(PARAM_TEXT, 'Word text', VALUE_OPTIONAL),
+                                                    )
+                                                ), 'Category words', VALUE_OPTIONAL
+                                            ),
                                         )
-                                    ), 'Category words', VALUE_OPTIONAL
+                                    ), 'Tabulator categories', VALUE_OPTIONAL
                                 ),
                             )
-                        ), 'Tabulator categories', VALUE_OPTIONAL
+                        ), 'Tabulators', VALUE_OPTIONAL
                     ),
                 )
-            )
+            ), 'Handler tabs', VALUE_OPTIONAL
         );
     }
 
@@ -132,47 +139,67 @@ class handlers extends \external_api {
         //            JOIN {local_differentiator_gwc} gwc ON gwc.id = gwce.gwcid
         //        ORDER BY id ASC, sort ASC";
 
-        //$sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
-        //            'ts' AS tabprefix
-        //        UNION
-        //        SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS tabtitle, '#600' AS tabcolor,
-        //            'c' AS tabprefix
-        //        UNION
-        //        SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS tabtitle, '#090' AS tabcolor,
-        //            'r' AS tabprefix
-        //        UNION
-        //        SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS tabtitle, '#909' AS tabcolor,
-        //            'p' AS tabprefix
-        //        UNION
-        //        SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS tabtitle, '#990' AS tabcolor,
-        //            'g' AS tabprefix
-        //        ORDER BY id ASC";
-        //
-        //$handlers = $DB->get_records_sql($sql);
+        $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
+                    'ts' AS tabprefix
+                UNION
+                SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS tabtitle, '#600' AS tabcolor,
+                    'c' AS tabprefix
+                UNION
+                SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS tabtitle, '#090' AS tabcolor,
+                    'r' AS tabprefix
+                UNION
+                SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS tabtitle, '#909' AS tabcolor,
+                    'p' AS tabprefix
+                UNION
+                SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS tabtitle, '#990' AS tabcolor,
+                    'g' AS tabprefix
+                ORDER BY id ASC";
+
 
         $handlers = new \stdClass();
         $handlers->tabs = array();
+        $handlers->tabs[0]->id = 0;
         $handlers->tabs[0]->tabtitle = 'Thinking Skill';
         $handlers->tabs[0]->tabcolor = '#000099';
         $handlers->tabs[0]->categories = array();
+        $handlers->tabs[1]->id = 1;
+        $handlers->tabs[1]->tabtitle = 'Content';
+        $handlers->tabs[1]->tabcolor = '#660000';
+        $handlers->tabs[1]->categories = array();
         $handlers->tabs[0]->categories[0]->cattitle = 'Remembering';
         $handlers->tabs[0]->categories[0]->cattext = 'Remembering';
+        $handlers->tabs[1]->categories[0]->cattitle = 'Depth';
+        $handlers->tabs[1]->categories[0]->cattext = 'Depth';
         $handlers->tabs[0]->categories[0]->words = array();
         $handlers->tabs[0]->categories[0]->words[0]->title = 'Remember';
         $handlers->tabs[0]->categories[0]->words[0]->text = 'remember the';
+        $handlers->tabs[1]->categories[0]->words = array();
+        $handlers->tabs[1]->categories[0]->words[0]->title = 'Big Idea';
+        $handlers->tabs[1]->categories[0]->words[0]->text = 'big idea of the';
 
-        $word = array('title' => 'Remember', 'text' => 'remember the');
-        $category = array('cattitle' => 'Remembering', 'cattext' => 'Remembering', 'words' => $word);
-        $tabs = array('tabtitle' => 'Thinking Skill', 'tabcolor' => '#000099', 'categories' => $category);
-        $handlers = array($tabs);
+        //$word = array('title' => 'Remember', 'text' => 'remember the');
+        //$category = array('cattitle' => 'Remembering', 'cattext' => 'Remembering', 'words' => $word);
+        //$tabs = array('tabtitle' => 'Thinking Skill', 'tabcolor' => '#000099', 'categories' => $category);
+        //$handlers = array($tabs);
 
-        $list = [];
+        $handlers = new \stdClass();
+        $handlers->tabs = $DB->get_records_sql($sql);
 
-        foreach ($handlers as $handler) {
-            $exporter = new exporter\handlers($handler, $ctx);
-            $list[] = $exporter->export($renderer);
-        }
+        $handlers->tabs[0]->categories[0]->cattitle = 'Remembering';
+        $handlers->tabs[0]->categories[0]->cattext = 'Remembering';
+        $handlers->tabs[1]->categories[0]->cattitle = 'Depth';
+        $handlers->tabs[1]->categories[0]->cattext = 'Depth';
+        $handlers->tabs[0]->categories[0]->words = array();
+        $handlers->tabs[0]->categories[0]->words[0]->title = 'Remember';
+        $handlers->tabs[0]->categories[0]->words[0]->text = 'remember the';
+        $handlers->tabs[1]->categories[0]->words = array();
+        $handlers->tabs[1]->categories[0]->words[0]->title = 'Big Idea';
+        $handlers->tabs[1]->categories[0]->words[0]->text = 'big idea of the';
 
+        file_put_contents('/Users/luca/Desktop/log0.txt', json_encode($handlers));
+
+        $exporter = new exporter\handlers($handlers, $ctx);
+        $list[] = $exporter->export($renderer);
         return $list;
     }
 }

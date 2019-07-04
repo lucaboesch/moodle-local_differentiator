@@ -52,6 +52,10 @@ class tab extends \core\external\exporter {
      */
     protected static function define_other_properties() {
         return [
+            'id' => [
+                'type' => PARAM_INT,
+                'description' => 'tab id',
+            ],
             'tabtitle' => [
                 'type' => PARAM_TEXT,
                 'description' => 'tab title',
@@ -60,14 +64,10 @@ class tab extends \core\external\exporter {
                 'type' => PARAM_TEXT,
                 'description' => 'tab color',
             ],
-            'tabprefix' => [
-                'type' => PARAM_TEXT,
-                'description' => 'tab prefix',
-            ],
-            'wordcategory' => [
-                'type' => PARAM_TEXT,
-                'description' => 'word category',
-            ],
+            //'wordcategory' => [
+            //    'type' => PARAM_TEXT,
+            //    'description' => 'word category',
+            //],
             //'wordcategory' => array(
             //    'type' => exporter\wordcategory::get_context_structure(),
             //    'multiple' => true,
@@ -93,9 +93,9 @@ class tab extends \core\external\exporter {
      */
     protected function get_other_values(\renderer_base $output) {
         $values = array(
+            'id' => $this->tab->id,
             'tabtitle' => $this->tab->tabtitle,
             'tabcolor' => $this->tab->tabcolor,
-            'tabprefix' => $this->tab->tabprefix,
         );
 
 //        $values['wordcategory'] = \external\wordcategory::get_wordcategory($this->tab->tabprefix);

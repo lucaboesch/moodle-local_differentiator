@@ -44,11 +44,12 @@
                        class="group">.
             </p>
         </div>
-        <div>
-            <ul class="nav nav-tabs" role="tablist" v-for="">
+        <div v-for="tabelements in handlers">
+        <template v-for="tabs in tabelements">
+            <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item"
                 :class=" { 'active show': selectedTabId === tab.id }"
-                v-for="(tab, index) in handlers"
+                v-for="(tab, index) in tabs"
                 :key="index"
                 @click="selectedTabId = tab.id">
                 <a class="nav-link" :href="'#link' + index" data-toggle="tab" role="tab" aria-selected="false"
@@ -58,16 +59,19 @@
             <div class="tab-content">
                 <div class="tab-pane"
                      :class=" { 'active show': selectedTabId === tab.id }"
-                     v-for="(tab, index) in handlers"
+                     v-for="(tab, index) in tabs"
                      :id="'#link' + index"
                      role="tabpanel">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12 mt-3"><h5>{{ tab.wordcategory }}</h5></div>
+                            <div class="col-12 mt-3" v-for="categories in tab" :key="tab.id">
+                                <h5 v-for="category in categories">{{ category.cattitle }}</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </template>
         </div>
     </div>
 </template>
