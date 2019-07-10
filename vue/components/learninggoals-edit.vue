@@ -53,7 +53,7 @@
                 :key="index"
                 @click="selectedTabId = tab.id">
                 <a class="nav-link" :href="'#link' + index" data-toggle="tab" role="tab" aria-selected="false"
-                   v-bind:style= "[selectedTabId === tab.id ? {borderRightColor: tab.tabcolor, borderTopColor: tab.tabcolor, borderLeftColor: tab.tabcolor, 'border-top-width': '2px', 'padding-top': '7px'} : {}]">{{ tab.tabtitle }}</a>
+                   v-bind:style="[selectedTabId === tab.id ? {borderRightColor: tab.tabcolor, borderTopColor: tab.tabcolor, borderLeftColor: tab.tabcolor, 'border-top-width': '2px', 'padding-top': '7px'} : {}]">{{ tab.tabtitle }}</a>
             </li>
             </ul>
             <div class="tab-content">
@@ -62,10 +62,20 @@
                      v-for="(tab, index) in tabs"
                      :id="'#link' + index"
                      role="tabpanel">
-                    <div class="container" v-for="categories in tab">
-                        <div class="row">
-                            <div class="col-12 mt-3">
-                                <h5 v-for="category in categories">{{ category.cattitle }}</h5>
+                    <div v-for="categories in tab">
+                        <div class="container" v-if="selectedTabId == tab.id">
+                            <div class="row">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <template v-for="category in categories">
+                                            <div class="col-2"><h5>{{category.cattitle}}</h5>
+                                                <template v-for="words in category">
+                                                    <p v-for="word in words">{{ word.title }}</p>
+                                                </template>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

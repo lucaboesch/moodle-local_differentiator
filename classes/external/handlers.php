@@ -77,6 +77,7 @@ class handlers extends \external_api {
                                 'categories' => new external_multiple_structure(
                                     new external_single_structure(
                                         array(
+                                            'parenttabid' => new external_value(PARAM_TEXT, 'Parent tabulator id', VALUE_OPTIONAL),
                                             'cattitle' => new external_value(PARAM_TEXT, 'Category title', VALUE_OPTIONAL),
                                             'cattext' => new external_value(PARAM_TEXT, 'Category text', VALUE_OPTIONAL),
                                             'words' => new external_multiple_structure(
@@ -142,6 +143,7 @@ class handlers extends \external_api {
         foreach ($handlers->tabs as $tab) {
             // Create the query through the categories.
             $categorysql = 'SELECT wc.id AS id,
+                            ' . $tab->id . ' AS parenttabid,
                             wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcetitle as cattitle,
                             wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcetext as cattext
                             FROM {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wce} wce
@@ -156,6 +158,7 @@ class handlers extends \external_api {
             foreach ($categories as $category) {
                 $handlers->tabs[$tab->id]->categories[$category->id]->cattitle = $category->cattitle;
                 $handlers->tabs[$tab->id]->categories[$category->id]->cattext = $category->cattext;
+                $handlers->tabs[$tab->id]->categories[$category->id]->parenttabid = $category->parenttabid;
 
                 // Create the query through the words.
                 $wordsql = 'SELECT w.id AS id,
@@ -180,7 +183,7 @@ class handlers extends \external_api {
                 }
             }
         }
-
+        file_put_contents('/Users/luca/Desktop/log0.txt', json_encode($handlers));
         $exporter = new exporter\handlers($handlers, $ctx);
         $list[] = $exporter->export($renderer);
         return $list;
