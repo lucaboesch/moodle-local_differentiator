@@ -156,17 +156,30 @@ class handlers extends \external_api {
             foreach ($categories as $category) {
                 $handlers->tabs[$tab->id]->categories[$category->id]->cattitle = $category->cattitle;
                 $handlers->tabs[$tab->id]->categories[$category->id]->cattext = $category->cattext;
+
+                // Create the query through the words.
+                $wordsql = 'SELECT w.id AS id,
+                we.' . $handlers->tabs[$tab->id]->tabprefix . 'wetitle as wordtitle,
+                we.' . $handlers->tabs[$tab->id]->tabprefix . 'wetext as wordtext
+                FROM {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'we} we
+                JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'w} w
+                ON w.id = we.' . $handlers->tabs[$tab->id]->tabprefix . 'wid
+                JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wc} wc
+                ON wc.id = w.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid
+                WHERE wc.id = ' . $category->id . '
+                ORDER BY w.sort ASC';
+                file_put_contents('/Users/luca/Desktop/log1.txt', $wordsql . "\n\n", FILE_APPEND);
+
+                // Perform that query.
+                $words = $DB->get_records_sql($wordsql);
+
+                // Add the words to the $handlers object.
+                foreach ($words as $word) {
+                    $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->title = $word->wordtitle;
+                    $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->text = $word->wordtext;
+                }
             }
         }
-
-        $handlers->tabs[0]->categories[0]->words = array();
-        $handlers->tabs[0]->categories[0]->words[1]->title = 'Remember';
-        $handlers->tabs[0]->categories[0]->words[1]->text = 'remember the';
-        $handlers->tabs[1]->categories[0]->words = array();
-        $handlers->tabs[1]->categories[0]->words[1]->title = 'Big Idea';
-        $handlers->tabs[1]->categories[0]->words[1]->text = 'big idea of the';
-
-        file_put_contents('/Users/luca/Desktop/log0.txt', json_encode($handlers));
 
         $exporter = new exporter\handlers($handlers, $ctx);
         $list[] = $exporter->export($renderer);
