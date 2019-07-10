@@ -47,7 +47,6 @@ class handlers extends \core\external\exporter {
      * @throws \coding_exception
      */
     public function __construct($handlers, \context $context) {
-        file_put_contents('/Users/luca/Desktop/log3.txt', json_encode($handlers));
         $this->handlers = $handlers;
         parent::__construct([], ['context' => $context]);
     }

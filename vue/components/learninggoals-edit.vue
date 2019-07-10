@@ -62,9 +62,9 @@
                      v-for="(tab, index) in tabs"
                      :id="'#link' + index"
                      role="tabpanel">
-                    <div class="container">
+                    <div class="container" v-for="categories in tab">
                         <div class="row">
-                            <div class="col-12 mt-3" v-for="categories in tab" :key="tab.id">
+                            <div class="col-12 mt-3">
                                 <h5 v-for="category in categories">{{ category.cattitle }}</h5>
                             </div>
                         </div>

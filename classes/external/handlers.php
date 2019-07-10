@@ -118,27 +118,6 @@ class handlers extends \external_api {
 
         $ctx = \context_system::instance();
 
-        //$sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS title, '#009' AS color,
-        //            tswce.tswcid as wordcategoryid, tswce.tswcetitle as wordcategory, tswc.sort FROM {local_differentiator_tswce} tswce
-        //            JOIN {local_differentiator_tswc} tswc ON tswc.id = tswce.tswcid
-        //        UNION
-        //        SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS title, '#600' AS color,
-        //            cwce.cwcid as wordcategoryid, cwce.cwcetitle as wordcategory, cwc.sort FROM {local_differentiator_cwce} cwce
-        //            JOIN {local_differentiator_cwc} cwc ON cwc.id = cwce.cwcid
-        //        UNION
-        //        SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS title, '#090' AS color,
-        //            rwce.rwcid as wordcategoryid, rwce.rwcetitle as wordcategory, rwc.sort FROM {local_differentiator_rwce} rwce
-        //            JOIN {local_differentiator_rwc} rwc ON rwc.id = rwce.rwcid
-        //        UNION
-        //        SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS title, '#909' AS color,
-        //            pwce.pwcid as wordcategoryid, pwce.pwcetitle as wordcategory, pwc.sort FROM {local_differentiator_pwce} pwce
-        //            JOIN {local_differentiator_pwc} pwc ON pwc.id = pwce.pwcid
-        //        UNION
-        //        SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS title, '#990' AS color,
-        //            gwce.gwcid as wordcategoryid, gwce.gwcetitle as wordcategory, gwc.sort FROM {local_differentiator_gwce} gwce
-        //            JOIN {local_differentiator_gwc} gwc ON gwc.id = gwce.gwcid
-        //        ORDER BY id ASC, sort ASC";
-
         $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
                     'ts' AS tabprefix
                 UNION
@@ -155,46 +134,37 @@ class handlers extends \external_api {
                     'g' AS tabprefix
                 ORDER BY id ASC";
 
-
-        $handlers = new \stdClass();
-        $handlers->tabs = array();
-        $handlers->tabs[0]->id = 0;
-        $handlers->tabs[0]->tabtitle = 'Thinking Skill';
-        $handlers->tabs[0]->tabcolor = '#000099';
-        $handlers->tabs[0]->categories = array();
-        $handlers->tabs[1]->id = 1;
-        $handlers->tabs[1]->tabtitle = 'Content';
-        $handlers->tabs[1]->tabcolor = '#660000';
-        $handlers->tabs[1]->categories = array();
-        $handlers->tabs[0]->categories[0]->cattitle = 'Remembering';
-        $handlers->tabs[0]->categories[0]->cattext = 'Remembering';
-        $handlers->tabs[1]->categories[0]->cattitle = 'Depth';
-        $handlers->tabs[1]->categories[0]->cattext = 'Depth';
-        $handlers->tabs[0]->categories[0]->words = array();
-        $handlers->tabs[0]->categories[0]->words[0]->title = 'Remember';
-        $handlers->tabs[0]->categories[0]->words[0]->text = 'remember the';
-        $handlers->tabs[1]->categories[0]->words = array();
-        $handlers->tabs[1]->categories[0]->words[0]->title = 'Big Idea';
-        $handlers->tabs[1]->categories[0]->words[0]->text = 'big idea of the';
-
-        //$word = array('title' => 'Remember', 'text' => 'remember the');
-        //$category = array('cattitle' => 'Remembering', 'cattext' => 'Remembering', 'words' => $word);
-        //$tabs = array('tabtitle' => 'Thinking Skill', 'tabcolor' => '#000099', 'categories' => $category);
-        //$handlers = array($tabs);
-
         $handlers = new \stdClass();
         $handlers->tabs = $DB->get_records_sql($sql);
+        // Now tabs id, tabtitle, tabcolor are set.
+        // Now iterate through the tabs to add their categories.
 
-        $handlers->tabs[0]->categories[0]->cattitle = 'Remembering';
-        $handlers->tabs[0]->categories[0]->cattext = 'Remembering';
-        $handlers->tabs[1]->categories[0]->cattitle = 'Depth';
-        $handlers->tabs[1]->categories[0]->cattext = 'Depth';
+        foreach ($handlers->tabs as $tab) {
+            // Create the query through the categories.
+            $categorysql = 'SELECT wc.id AS id,
+                            wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcetitle as cattitle,
+                            wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcetext as cattext
+                            FROM {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wce} wce
+                            JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wc} wc
+                            ON wc.id = wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid
+                            ORDER BY wc.sort ASC';
+
+            // Perform that query.
+            $categories = $DB->get_records_sql($categorysql);
+
+            // Add the categories to the $handlers object.
+            foreach ($categories as $category) {
+                $handlers->tabs[$tab->id]->categories[$category->id]->cattitle = $category->cattitle;
+                $handlers->tabs[$tab->id]->categories[$category->id]->cattext = $category->cattext;
+            }
+        }
+
         $handlers->tabs[0]->categories[0]->words = array();
-        $handlers->tabs[0]->categories[0]->words[0]->title = 'Remember';
-        $handlers->tabs[0]->categories[0]->words[0]->text = 'remember the';
+        $handlers->tabs[0]->categories[0]->words[1]->title = 'Remember';
+        $handlers->tabs[0]->categories[0]->words[1]->text = 'remember the';
         $handlers->tabs[1]->categories[0]->words = array();
-        $handlers->tabs[1]->categories[0]->words[0]->title = 'Big Idea';
-        $handlers->tabs[1]->categories[0]->words[0]->text = 'big idea of the';
+        $handlers->tabs[1]->categories[0]->words[1]->title = 'Big Idea';
+        $handlers->tabs[1]->categories[0]->words[1]->text = 'big idea of the';
 
         file_put_contents('/Users/luca/Desktop/log0.txt', json_encode($handlers));
 
