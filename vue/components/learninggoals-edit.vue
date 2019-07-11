@@ -63,21 +63,21 @@
                      :id="'#link' + index"
                      role="tabpanel">
                     <div v-for="categories in tab">
-                        <div class="container" v-if="selectedTabId == tab.id">
-                            <div class="row">
+                            <div class="row" v-if="selectedTabId == tab.id">
                                 <div class="col-12 mt-3">
                                     <div class="row">
                                         <template v-for="category in categories">
-                                            <div class="col-2"><h5>{{category.cattitle}}</h5>
+                                            <div class="col-2 mb-1 pr-1 pl-0">
+                                            <div class="pt-2 pr-2 pl-2 pb-2" v-bind:style="[selectedTabId == tab.id ? {borderColor: tab.tabcolor, 'border-width': '1px', 'border-style': 'solid', 'border-radius': '.5rem'} : {}]"><h5>{{category.cattitle}}</h5>
                                                 <template v-for="words in category">
                                                     <p v-for="word in words">{{ word.title }}</p>
                                                 </template>
+                                            </div>
                                             </div>
                                         </template>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
