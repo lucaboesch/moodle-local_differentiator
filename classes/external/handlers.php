@@ -171,7 +171,6 @@ class handlers extends \external_api {
                 ON wc.id = w.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid
                 WHERE wc.id = ' . $category->id . '
                 ORDER BY w.sort ASC';
-                file_put_contents('/Users/luca/Desktop/log1.txt', $wordsql . "\n\n", FILE_APPEND);
 
                 // Perform that query.
                 $words = $DB->get_records_sql($wordsql);
@@ -183,7 +182,6 @@ class handlers extends \external_api {
                 }
             }
         }
-        file_put_contents('/Users/luca/Desktop/log0.txt', json_encode($handlers));
         $exporter = new exporter\handlers($handlers, $ctx);
         $list[] = $exporter->export($renderer);
         return $list;
