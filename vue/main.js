@@ -59,6 +59,7 @@ function init() {
         },
         store,
         router,
+        editingadding: false,
     });
 }
 

@@ -1,24 +1,32 @@
 <template>
     <div class="learninggoals-edit">
-        <h3>{{strings.learninggoals_edit_site_name}}</h3>
-        <div class="description">{{strings.learninggoals_edit_site_description}}</div>
-        <ul class="learninggoals-edit-list">
-            <li v-for="learninggoal in learninggoals">
-                <div class="learninggoal-top-level">
-                    <b>{{ learninggoal.name }}</b>
-                    <p>{{ learninggoal.description }}
-                    <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: learninggoal.id }}">
-                        <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
-                    </router-link>
-                    </p>
-                </div>
-            </li>
-        </ul>
-        <div v-if="learninggoals !== null && learninggoals.length == 0">
-            {{strings.learninggoals_edit_no_learninggoals}}
+        <div v-if="editingadding == false">
+            <h3>{{strings.learninggoals_edit_site_name}}</h3>
+            <div class="description">{{strings.learninggoals_edit_site_description}}</div>
+            <ul class="learninggoals-edit-list">
+                <li v-for="learninggoal in learninggoals">
+                    <div class="learninggoal-top-level">
+                        <b>{{ learninggoal.name }}</b>
+                        <p>{{ learninggoal.description }}
+                            <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: learninggoal.id }}">
+                                <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
+                            </router-link>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <div v-if="learninggoals !== null && learninggoals.length == 0">
+                {{strings.learninggoals_edit_no_learninggoals}}
+            </div>
+            <div class="learninggoals-edit-add">
+                <router-link :to="{ name: 'learninggoal-new' }" tag="button" class="btn btn-primary">{{strings.learninggoal_form_title_add}}</router-link>
+            </div>
         </div>
-        <div class="learninggoals-edit-add">
-            <router-link :to="{ name: 'learninggoal-new' }" tag="button" class="btn btn-primary">{{strings.learninggoal_form_title_add}}</router-link>
+        <div v-if="editingadding == true">
+            <h3>{{strings.learninggoal_form_title_edit}}</h3>
+            <div class="learninggoals-edit-add-form">
+                Some editing is on.
+            </div>
         </div>
     </div>
 </template>
@@ -30,7 +38,7 @@
         name: "learninggoals-edit",
         data: function() {
             return {
-                modal: null,
+                editingadding: false
             };
         },
         computed: mapState(['strings', 'learninggoals']),
@@ -41,29 +49,15 @@
                 if (learninggoalId) {
                     title = this.strings.learninggoal_form_title_edit;
                     args.learninggoalid = learninggoalId;
+                    this.editingadding = true;
+                    // Do something here in case of an edit.
                 } else {
                     title = this.strings.learninggoal_form_title_add;
-                }
-
-                this.modal = new MFormModal('learninggoal_edit', title, this.$store.state.contextID, args);
-                try {
-                    await this.modal.show();
-                    const success = await this.modal.finished;
-                    if (success) {
-                        this.$store.dispatch('fetchLearninggoals');
-                    }
-                    this.$router.push({name: 'learninggoals-edit-overview'});
-                } catch (e) {
-                    // This happens when the modal is destroyed on a page change. Ignore.
-                } finally {
-                    this.modal = null;
+                    this.editingadding = true;
+                    // Do something here in case of an add.
                 }
             },
             checkRoute(route) {
-                if (this.modal) {
-                    this.modal.destroy(false);
-                }
-
                 if (route.name === 'learninggoal-edit') {
                     this.$nextTick(this.showForm.bind(this, route.params.learninggoalId));
                 } else if (route.name === 'learninggoal-new') {
