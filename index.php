@@ -27,17 +27,26 @@ require_once($CFG->libdir . '/adminlib.php');
 require_once('lib.php');
 
 global $CFG, $DB;
+$learninggoalid = optional_param('id', 0, PARAM_INT);
+if ($learninggoalid > 0) {
+    $path = '/local/differentiator/index.php/learninggoals/edit/' . $learninggoalid . '/';
+    redirect(new \moodle_url($path));
+}
 
 admin_externalpage_setup('local_differentiator', '', null);
 
 require_login();
 
+$PAGE->set_context(context_system::instance());
 $PAGE->set_title($SITE->fullname . ': ' . get_string('pluginname', 'local_differentiator'));
 $PAGE->set_heading($SITE->fullname);
-$PAGE->set_url(new moodle_url('/local/differentiator/index.php'));
+$PAGE->set_url(new moodle_url('/local/differentiator/learninggoals/edit/index.php'));
 $PAGE->set_pagelayout('admin');
 
-$PAGE->requires->js_call_amd('local_differentiator/app-lazy', 'init');
+$PAGE->requires->js_call_amd('local_differentiator/app-lazy', 'init', [
+    'learninggoalid' => $learninggoalid,
+    'contextid' => context_system::instance()->id,
+]);
 
 $output = $PAGE->get_renderer('local_differentiator');
 

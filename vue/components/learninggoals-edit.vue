@@ -45,7 +45,6 @@
                     title = this.strings.learninggoal_form_title_add;
                 }
 
-                this.modal = new MFormModal('learninggoal_edit', title, this.$store.state.contextID, args);
                 try {
                     await this.modal.show();
                     const success = await this.modal.finished;
