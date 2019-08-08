@@ -25,7 +25,11 @@
         <div v-if="editingadding == true">
             <h3>{{strings.learninggoal_form_title_edit}}</h3>
             <div class="learninggoals-edit-add-form">
-                Some editing is on.
+                Some editing is on. ID: {{learninggoalid}}
+                <div>
+                    <button type=button @click.prevent="onSave"  class="btn btn-primary">{{strings.save}}</button>
+                    <button type=button @click.prevent="onCancel" class="btn btn-secondary">{{strings.cancel}}</button>
+                </div>
             </div>
         </div>
     </div>
@@ -38,17 +42,19 @@
         name: "learninggoals-edit",
         data: function() {
             return {
-                editingadding: false
+                editingadding: false,
+                learninggoalid: 0,
+                selectedTabID: 0 // Set from @click.
             };
         },
         computed: mapState(['strings', 'learninggoals']),
         methods: {
             async showForm(learninggoalId = null) {
                 let title = '';
-                let args = {};
+                // let args = {};
                 if (learninggoalId) {
                     title = this.strings.learninggoal_form_title_edit;
-                    args.learninggoalid = learninggoalId;
+                    this.learninggoalid = learninggoalId;
                     this.editingadding = true;
                     // Do something here in case of an edit.
                 } else {
@@ -56,6 +62,10 @@
                     this.editingadding = true;
                     // Do something here in case of an add.
                 }
+                this.$store.dispatch('fetchLearninggoal');
+                this.$store.dispatch('getHandlers');
+                // This has to happen after the save button is hit.
+                // this.$store.dispatch('fetchLearninggoals');
             },
             checkRoute(route) {
                 if (route.name === 'learninggoal-edit') {
@@ -63,6 +73,18 @@
                 } else if (route.name === 'learninggoal-new') {
                     this.$nextTick(this.showForm.bind(this, null));
                 }
+            },
+            onCancel(){
+                this.editingadding = false;
+                this.learninggoalid = 0;
+                this.$router.push({name: 'learninggoals-edit-overview'});
+                // TODO: Change back the URL.
+            },
+            onSave(){
+                this.editingadding = false;
+                this.learninggoalid = 0;
+                this.$router.push({name: 'learninggoals-edit-overview'});
+                // TODO: Change back the URL.
             }
         },
         created: function() {

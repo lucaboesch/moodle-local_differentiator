@@ -52,3 +52,5 @@ $string['learninggoal_name'] = 'Goal name';
 $string['learninggoal_description'] = 'Goal description';
 $string['learninggoal_form_title_add'] = 'Add a new goal';
 $string['learninggoal_form_title_edit'] = 'Edit a goal';
+$string['save'] = 'Save';
+$string['cancel'] = 'Cancel';

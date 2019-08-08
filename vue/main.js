@@ -60,6 +60,7 @@ function init() {
         store,
         router,
         editingadding: false,
+        learninggoalid: 0,
     });
 }
 
