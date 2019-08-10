@@ -54,3 +54,10 @@ $string['learninggoal_form_title_add'] = 'Add a new goal';
 $string['learninggoal_form_title_edit'] = 'Edit a goal';
 $string['save'] = 'Save';
 $string['cancel'] = 'Cancel';
+
+// Tabs.
+$string['thinkingskill'] = 'Thinking Skill';
+$string['content'] = 'Content';
+$string['resources'] = 'Resources';
+$string['products'] = 'Products';
+$string['groups'] = 'Groups';

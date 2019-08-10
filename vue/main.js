@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import { store } from './store';
 import notFound from './components/not-found';
 import learninggoalsEdit from './components/learninggoals-edit';
+import VueInputAutowidth from 'vue-input-autowidth';
 const exampleLazyLoading = () => import('./components/example-lazy-loading');
 
 function init() {
@@ -10,6 +11,7 @@ function init() {
     __webpack_public_path__ = M.cfg.wwwroot + '/local/differentiator/amd/build/';
 
     Vue.use(VueRouter);
+    Vue.use(VueInputAutowidth);
 
     store.commit('setCourseModuleID', 1);
     store.commit('setContextID', 1);
@@ -29,13 +31,12 @@ function init() {
         { path: '*', component: notFound, meta: { title: 'route_not_found' } },
     ];
 
-    // base URL is /local/differentiator/view.php/[learning goal id]/
+    // base URL is /local/differentiator/learninggoals/edit/[learning goal id]/
     // const currenturl = window.location.pathname;
     // const base = currenturl.substr(0, currenturl.indexOf('.php')) + '.php/' + learninggoalid + '/';
 
     const currenturl = window.location.pathname;
     const base = currenturl;
-
 
     const router = new VueRouter({
         mode: 'history',
@@ -61,6 +62,7 @@ function init() {
         router,
         editingadding: false,
         learninggoalid: 0,
+        selectedTabId: 0,
     });
 }
 

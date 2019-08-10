@@ -12,6 +12,7 @@ export const store = new Vuex.Store({
         courseModuleID: 0,
         contextID: 0,
         strings: {},
+        handlers: null,
         learninggoals: null,
     },
     //strict: process.env.NODE_ENV !== 'production',
@@ -22,8 +23,14 @@ export const store = new Vuex.Store({
         setContextID(state, id) {
             state.contextID = id;
         },
+        setHandlers(state, ajaxdata) {
+            state.handlers = ajaxdata;
+        },
         setLearninggoals(state, ajaxdata) {
             state.learninggoals = ajaxdata;
+        },
+        setLearninggoal(state, ajaxdata) {
+            state.learninggoal = ajaxdata;
         },
         setStrings(state, strings) {
             state.strings = strings;
@@ -53,9 +60,17 @@ export const store = new Vuex.Store({
                 moodleStorage.set(cacheKey, JSON.stringify(strings));
             }
         },
+        async fetchLearninggoal(context) {
+            const learninggoal = await ajax('local_differentiator_get_learninggoal');
+            context.commit('setLearninggoal', learninggoal);
+        },
         async fetchLearninggoals(context) {
             const learninggoals = await ajax('local_differentiator_get_learninggoals');
             context.commit('setLearninggoals', learninggoals);
+        },
+        async getHandlers(context) {
+            const handlers = await ajax('local_differentiator_get_handlers');
+            context.commit('setHandlers', handlers);
         },
     }
 });

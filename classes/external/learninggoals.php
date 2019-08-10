@@ -99,7 +99,6 @@ class learninggoals extends \external_api {
         $params['userid'] = $userid;
         $learninggoals = $DB->get_records_sql($sql, $params);
 
-        file_put_contents('/Users/luca/Desktop/log0.txt', json_encode($learninggoals));
         foreach ($learninggoals as $learninggoal) {
             $exporter = new exporter\learninggoal($learninggoal, $ctx);
             $list[] = $exporter->export($renderer);
