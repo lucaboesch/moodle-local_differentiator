@@ -25,6 +25,50 @@
         <div v-if="editingadding == true">
             <h3>{{strings.learninggoal_form_title_edit}}</h3>
             <div class="learninggoals-edit-add-form">
+                <div v-for="goal in learninggoal">
+                    <p>
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.name">
+                    </p>
+                    <p>
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.pre_thinking_skill">
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.thinking_skill"
+                            class="thinking_skill">
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.content"
+                            class="content">
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.subject">
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.pre_resource">
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.resource"
+                            class="resource">
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.pre_product">
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.product"
+                            class="product">
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.pre_group">
+                        <input type="text"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goal.group"
+                            class="group">.
+                    </p>
+                </div>
                 <div v-for="tabelements in handlers">
                     <div v-for="tabs in tabelements">
                         <ul class="nav nav-tabs" role="tablist">
@@ -84,7 +128,7 @@
                 selectedTabId: 0,
             };
         },
-        computed: mapState(['strings', 'learninggoals', 'handlers']),
+        computed: mapState(['strings', 'learninggoals', 'learninggoal', 'handlers']),
         methods: {
             async showForm(learninggoalId = null, selectedTabId = 0) {
                 let title = '';
@@ -92,6 +136,7 @@
                 if (learninggoalId) {
                     title = this.strings.learninggoal_form_title_edit;
                     this.learninggoalid = learninggoalId;
+                    this.$store.dispatch('fetchLearninggoal');
                     this.editingadding = true;
                     // Do something here in case of an edit.
                 } else {
@@ -102,7 +147,6 @@
                 if (selectedTabId) {
                     this.selectedTabId = selectedTabId;
                 }
-                // this.$store.dispatch('fetchLearninggoal');
                 this.$store.dispatch('getHandlers');
                 // This has to happen after the save button is hit.
                 // this.$store.dispatch('fetchLearninggoals');

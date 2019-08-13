@@ -48,12 +48,8 @@ class handlers extends \external_api {
     public static function get_handlers_parameters() {
         return new external_function_parameters(
             array (
-//                // If I had any parameters, they would be described here. But I don't have any, so this array is empty.
-//            )
-//        );
-//        return new external_function_parameters([
-            'userid' => new external_value(PARAM_INT, 'userid'),
-//            'lang' => new external_value(PARAM_TEXT, 'language'),
+                'userid' => new external_value(PARAM_INT, 'userid'),
+                'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
             )
         );
     }
@@ -106,11 +102,13 @@ class handlers extends \external_api {
      * @return array
      * @throws \invalid_parameter_exception
      */
-    public static function get_handlers() {
-        $params = ['userid' => $id];
-        $params = self::validate_parameters(self::get_handlers_parameters(), $params);
-//        $params = ['lang' => $lang];
-//        $params = self::validate_parameters(self::get_handlers_parameters(), $params);
+    public static function get_handlers($userid, $learninggoalid) {
+        $params = self::validate_parameters(self::get_handlers_parameters(),
+            array(
+                'userid' => $userid,
+                'learninggoalid' => $learninggoalid
+            )
+        );
 
         self::validate_context(\context_system::instance());
 
@@ -187,4 +185,3 @@ class handlers extends \external_api {
         return $list;
     }
 }
-

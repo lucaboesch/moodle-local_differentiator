@@ -32,19 +32,19 @@ use external_single_structure;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Class learninggoals
+ * Class learninggoal
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class learninggoals extends \external_api {
+class learninggoal extends \external_api {
     /**
      * Returns description of method parameters.
      *
      * @return external_function_parameters
      */
-    public static function get_learninggoals_parameters() {
+    public static function get_learninggoal_parameters() {
         return new external_function_parameters([
             'userid' => new external_value(PARAM_INT, 'userid'),
             'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
@@ -56,28 +56,28 @@ class learninggoals extends \external_api {
      *
      * @return external_multiple_structure
      */
-    public static function get_learninggoals_returns() {
+    public static function get_learninggoal_returns() {
         return new external_multiple_structure(
             exporter\learninggoal::get_read_structure()
         );
     }
 
     /**
-     * Get all learning goals.
+     * Get a learning goal.
      *
-     * @param $userid
+     * @param $id
      * @return bool
      * @throws \invalid_parameter_exception
      */
-    public static function get_learninggoals($userid, $learninggoalid) {
-        $params = self::validate_parameters(self::get_learninggoals_parameters(),
+    public static function get_learninggoal($userid, $learninggoalid) {
+        $params = self::validate_parameters(self::get_learninggoal_parameters(),
             array(
                 'userid' => $userid,
                 'learninggoalid' => $learninggoalid
             )
         );
 
-        $userid = $params['userid'];
+        $learninggoalid = $params['learninggoalid'];
 
         self::validate_context(\context_system::instance());
 
@@ -97,24 +97,32 @@ class learninggoals extends \external_api {
             'COALESCE(lg.pre_group, \'\')', '\' \'',
             'COALESCE(lg.group, \'\')', '\'.\'');
 
-        $sql = "SELECT lg.id, lg.title AS name, " . $concat . " as description
+        $sql = "SELECT lg.id, lg.title AS name, " . $concat . " as description,
+            COALESCE(lg.pre_thinking_skill, '') as pre_thinking_skill,
+            COALESCE(lg.thinking_skill, '') as thinking_skill,
+            COALESCE(lgc.contenttext, '') as content,
+            COALESCE(lg.subject, '') as subject,
+            COALESCE(lg.pre_resource, '') as pre_resource,
+            COALESCE(lg.resource, '') as resource,
+            COALESCE(lg.pre_product, '') as pre_product,
+            COALESCE(lgp.producttext, '') as product,
+            COALESCE(lg.pre_group, '') as pre_group,
+            COALESCE(lg.group, '') as group
             FROM {local_differentiator_lg} lg
             LEFT JOIN {local_differentiator_lgcont} lgc ON lgc.learninggoalid = lg.id
             LEFT JOIN {local_differentiator_lgprod} lgp ON lgp.learninggoalid = lg.id
-            WHERE userid = :userid";
+            WHERE lg.id = :id";
 
         // TODO get this correct.
-        $userid = 1;
+        $learninggoalid = 1;
 
-        $params['userid'] = $userid;
+        $params['id'] = $learninggoalid;
+        $learninggoal = $DB->get_record_sql($sql, $params);
 
-        $learninggoals = $DB->get_records_sql($sql, $params);
-
-        foreach ($learninggoals as $learninggoal) {
-            $exporter = new exporter\learninggoal($learninggoal, $ctx);
-            $list[] = $exporter->export($renderer);
-        }
+        $exporter = new exporter\learninggoal($learninggoal, $ctx);
+        $list[] = $exporter->export($renderer);
 
         return $list;
     }
 }
+

@@ -48,7 +48,6 @@ class learninggoal extends \core\external\exporter {
      */
     public function __construct($learninggoal, \context $context) {
         $this->learninggoal = $learninggoal;
-
         parent::__construct([], ['context' => $context]);
     }
 
@@ -70,6 +69,46 @@ class learninggoal extends \core\external\exporter {
             'description' => [
                 'type' => PARAM_TEXT,
                 'description' => 'learning goal description',
+            ],
+            'pre_thinking_skill' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal pre thinking skill word string',
+            ],
+            'thinking_skill' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal thinking skill word string',
+            ],
+            'content' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal content string',
+            ],
+            'subject' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal subject string',
+            ],
+            'pre_resource' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal pre resource string',
+            ],
+            'resource' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal resource string',
+            ],
+            'pre_product' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal pre product string',
+            ],
+            'product' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal product string',
+            ],
+            'pre_group' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal pre group string',
+            ],
+            'group' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal group string',
             ],
         ];
     }
@@ -96,6 +135,16 @@ class learninggoal extends \core\external\exporter {
             'id' => $this->learninggoal->id,
             'name' => $this->learninggoal->name,
             'description' => $this->learninggoal->description,
+            'pre_thinking_skill' => $this->learninggoal->pre_thinking_skill,
+            'thinking_skill' => $this->learninggoal->thinking_skill,
+            'content' => $this->learninggoal->content,
+            'subject' => $this->learninggoal->subject,
+            'pre_resource' => $this->learninggoal->pre_resource,
+            'resource' => $this->learninggoal->resource,
+            'pre_product' => $this->learninggoal->pre_product,
+            'product' => $this->learninggoal->product,
+            'pre_group' => $this->learninggoal->pre_group,
+            'group' => $this->learninggoal->group,
         ];
     }
 }

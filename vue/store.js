@@ -9,16 +9,17 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        courseModuleID: 0,
+        learningGoalID: 0,
         contextID: 0,
         strings: {},
         handlers: null,
         learninggoals: null,
+        learninggoal: null,
     },
     //strict: process.env.NODE_ENV !== 'production',
     mutations: {
-        setCourseModuleID(state, id) {
-            state.courseModuleID = id;
+        setLearningGoalID(state, id) {
+            state.learningGoalID = id;
         },
         setContextID(state, id) {
             state.contextID = id;
@@ -82,7 +83,8 @@ export async function ajax(method, args) {
     const request = {
         methodname: method,
         args: Object.assign({
-            userid: store.state.courseModuleID
+            userid: 0,
+            learninggoalid: store.state.learningGoalID,
         }, args),
     };
 
