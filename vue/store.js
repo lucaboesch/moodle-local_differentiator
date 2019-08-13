@@ -18,11 +18,15 @@ export const store = new Vuex.Store({
     },
     //strict: process.env.NODE_ENV !== 'production',
     mutations: {
+        // Mutations are synchroneous.
         setLearningGoalID(state, id) {
             state.learningGoalID = id;
         },
         setContextID(state, id) {
             state.contextID = id;
+        },
+        setStrings(state, strings) {
+            state.strings = strings;
         },
         setHandlers(state, ajaxdata) {
             state.handlers = ajaxdata;
@@ -33,11 +37,9 @@ export const store = new Vuex.Store({
         setLearninggoal(state, ajaxdata) {
             state.learninggoal = ajaxdata;
         },
-        setStrings(state, strings) {
-            state.strings = strings;
-        },
     },
     actions: {
+        // Actions are asynchroneous.
         async loadComponentStrings(context) {
             const lang = $('html').attr('lang').replace(/-/g, '_');
             const cacheKey = 'local_differentiator/strings/' + lang;
@@ -62,7 +64,8 @@ export const store = new Vuex.Store({
             }
         },
         async fetchLearninggoal(context) {
-            const learninggoal = await ajax('local_differentiator_get_learninggoal');
+            const learninggoal = await ajax('local_differentiator_get_learninggoal',
+                { userid: 0, learninggoalid: store.state.learningGoalID });
             context.commit('setLearninggoal', learninggoal);
         },
         async fetchLearninggoals(context) {

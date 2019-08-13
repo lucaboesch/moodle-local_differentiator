@@ -106,8 +106,7 @@
                         </div>
                     </div>
                 </div>
-                Some editing is on. ID: {{learninggoalid}}
-                <div>
+                <div class="mt-3">
                     <button type=button @click.prevent="onSave"  class="btn btn-primary">{{strings.save}}</button>
                     <button type=button @click.prevent="onCancel" class="btn btn-secondary">{{strings.cancel}}</button>
                 </div>
@@ -124,32 +123,26 @@
         data: function() {
             return {
                 editingadding: false,
-                learninggoalid: 0,
                 selectedTabId: 0,
             };
         },
-        computed: mapState(['strings', 'learninggoals', 'learninggoal', 'handlers']),
+        computed: mapState(['strings', 'learninggoals', 'learninggoal', 'handlers', 'learningGoalID']),
         methods: {
             async showForm(learninggoalId = null, selectedTabId = 0) {
-                let title = '';
-                // let args = {};
+                let args = {};
                 if (learninggoalId) {
-                    title = this.strings.learninggoal_form_title_edit;
-                    this.learninggoalid = learninggoalId;
+                    this.$store.state.learningGoalID = learninggoalId;
                     this.$store.dispatch('fetchLearninggoal');
                     this.editingadding = true;
                     // Do something here in case of an edit.
                 } else {
-                    title = this.strings.learninggoal_form_title_add;
                     this.editingadding = true;
                     // Do something here in case of an add.
                 }
                 if (selectedTabId) {
                     this.selectedTabId = selectedTabId;
                 }
-                this.$store.dispatch('getHandlers');
                 // This has to happen after the save button is hit.
-                // this.$store.dispatch('fetchLearninggoals');
             },
             checkRoute(route) {
                 if (route.name === 'learninggoal-edit') {
@@ -160,14 +153,12 @@
             },
             onCancel(){
                 this.editingadding = false;
-                this.learninggoalid = 0;
                 this.selectedTabId = 0;
                 this.$router.push({name: 'learninggoals-edit-overview'});
                 // TODO: Change back the URL.
             },
             onSave(){
                 this.editingadding = false;
-                this.learninggoalid = 0;
                 this.selectedTabId = 0;
                 this.$router.push({name: 'learninggoals-edit-overview'});
                 // TODO: Change back the URL.

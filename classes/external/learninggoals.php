@@ -66,10 +66,12 @@ class learninggoals extends \external_api {
      * Get all learning goals.
      *
      * @param $userid
-     * @return bool
+     * @param $learninggoalid
+     * @return array
      * @throws \invalid_parameter_exception
      */
     public static function get_learninggoals($userid, $learninggoalid) {
+        global $USER;
         $params = self::validate_parameters(self::get_learninggoals_parameters(),
             array(
                 'userid' => $userid,
@@ -77,7 +79,7 @@ class learninggoals extends \external_api {
             )
         );
 
-        $userid = $params['userid'];
+        $userid = $USER->id;
 
         self::validate_context(\context_system::instance());
 
@@ -102,9 +104,6 @@ class learninggoals extends \external_api {
             LEFT JOIN {local_differentiator_lgcont} lgc ON lgc.learninggoalid = lg.id
             LEFT JOIN {local_differentiator_lgprod} lgp ON lgp.learninggoalid = lg.id
             WHERE userid = :userid";
-
-        // TODO get this correct.
-        $userid = 1;
 
         $params['userid'] = $userid;
 

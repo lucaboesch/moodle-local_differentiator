@@ -65,11 +65,15 @@ class learninggoal extends \external_api {
     /**
      * Get a learning goal.
      *
-     * @param $id
-     * @return bool
+     * @param $userid
+     * @param $learninggoalid
+     * @return array
      * @throws \invalid_parameter_exception
      */
     public static function get_learninggoal($userid, $learninggoalid) {
+        global $USER;
+        file_put_contents('/Users/luca/Desktop/log0.txt', 'userid ' . $userid . ' learninggoalid '. $learninggoalid);
+
         $params = self::validate_parameters(self::get_learninggoal_parameters(),
             array(
                 'userid' => $userid,
@@ -112,9 +116,6 @@ class learninggoal extends \external_api {
             LEFT JOIN {local_differentiator_lgcont} lgc ON lgc.learninggoalid = lg.id
             LEFT JOIN {local_differentiator_lgprod} lgp ON lgp.learninggoalid = lg.id
             WHERE lg.id = :id";
-
-        // TODO get this correct.
-        $learninggoalid = 1;
 
         $params['id'] = $learninggoalid;
         $learninggoal = $DB->get_record_sql($sql, $params);
