@@ -62,19 +62,6 @@ class handlers extends \core\external\exporter {
             'type' => tab::read_properties_definition(),
             'multiple' => true,
             ],
-
-            //'tabs' => [
-            //    'tabtitle' => PARAM_TEXT,
-            //    'tabcolor' => PARAM_TEXT,
-            //    'categories' => [
-            //        'cattitle' => PARAM_TEXT,
-            //        'cattext' => PARAM_TEXT,
-            //        'words' => [
-            //            'title' => PARAM_TEXT,
-            //            'text' => PARAM_TEXT,
-            //        ]
-            //    ]
-            //],
         ];
     }
 

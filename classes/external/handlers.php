@@ -70,6 +70,7 @@ class handlers extends \external_api {
                                 'id' => new external_value(PARAM_INT, 'Tabulator id', VALUE_OPTIONAL),
                                 'tabtitle' => new external_value(PARAM_TEXT, 'Tabulator title', VALUE_OPTIONAL),
                                 'tabcolor' => new external_value(PARAM_TEXT, 'Tabulator color', VALUE_OPTIONAL),
+                                'targetinput' => new external_value(PARAM_TEXT, 'Target input field', VALUE_OPTIONAL),
                                 'categories' => new external_multiple_structure(
                                     new external_single_structure(
                                         array(
@@ -81,6 +82,7 @@ class handlers extends \external_api {
                                                     array(
                                                         'title' => new external_value(PARAM_TEXT, 'Word title', VALUE_OPTIONAL),
                                                         'text' => new external_value(PARAM_TEXT, 'Word text', VALUE_OPTIONAL),
+                                                        'targetinput' => new external_value(PARAM_TEXT, 'Learning goal text field to be filled'),
                                                     )
                                                 ), 'Category words', VALUE_OPTIONAL
                                             ),
@@ -118,19 +120,19 @@ class handlers extends \external_api {
         $ctx = \context_system::instance();
 
         $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
-                    'ts' AS tabprefix
+                    'ts' AS tabprefix, 'thinking_skill' AS targetinput
                 UNION
                 SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS tabtitle, '#600' AS tabcolor,
-                    'c' AS tabprefix
+                    'c' AS tabprefix, 'content' AS targetinput
                 UNION
                 SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS tabtitle, '#090' AS tabcolor,
-                    'r' AS tabprefix
+                    'r' AS tabprefix, 'resource' AS targetinput
                 UNION
                 SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS tabtitle, '#909' AS tabcolor,
-                    'p' AS tabprefix
+                    'p' AS tabprefix, 'product' AS targetinput
                 UNION
                 SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS tabtitle, '#990' AS tabcolor,
-                    'g' AS tabprefix
+                    'g' AS tabprefix, 'group' AS targetinput
                 ORDER BY id ASC";
 
         $handlers = new \stdClass();
@@ -161,7 +163,8 @@ class handlers extends \external_api {
                 // Create the query through the words.
                 $wordsql = 'SELECT w.id AS id,
                 we.' . $handlers->tabs[$tab->id]->tabprefix . 'wetitle as wordtitle,
-                we.' . $handlers->tabs[$tab->id]->tabprefix . 'wetext as wordtext
+                we.' . $handlers->tabs[$tab->id]->tabprefix . 'wetext as wordtext,
+                \'' . $handlers->tabs[$tab->id]->targetinput . '\' as targetinput
                 FROM {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'we} we
                 JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'w} w
                 ON w.id = we.' . $handlers->tabs[$tab->id]->tabprefix . 'wid
@@ -177,6 +180,7 @@ class handlers extends \external_api {
                 foreach ($words as $word) {
                     $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->title = $word->wordtitle;
                     $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->text = $word->wordtext;
+                    $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->targetinput = $word->targetinput;
                 }
             }
         }

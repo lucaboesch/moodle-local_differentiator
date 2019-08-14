@@ -64,15 +64,10 @@ class tab extends \core\external\exporter {
                 'type' => PARAM_TEXT,
                 'description' => 'tab color',
             ],
-            //'wordcategory' => [
-            //    'type' => PARAM_TEXT,
-            //    'description' => 'word category',
-            //],
-            //'wordcategory' => array(
-            //    'type' => exporter\wordcategory::get_context_structure(),
-            //    'multiple' => true,
-            //    'optional' => true,
-            //),
+            'targetinput' => [
+                'type' => PARAM_TEXT,
+                'description' => 'learning goal text field to be filled',
+            ],
         ];
     }
     /**
@@ -96,6 +91,7 @@ class tab extends \core\external\exporter {
             'id' => $this->tab->id,
             'tabtitle' => $this->tab->tabtitle,
             'tabcolor' => $this->tab->tabcolor,
+            'targetinput' => $this->tab->targetinput,
         );
 
 //        $values['wordcategory'] = \external\wordcategory::get_wordcategory($this->tab->tabprefix);

@@ -4,11 +4,11 @@
             <h3>{{strings.learninggoals_edit_site_name}}</h3>
             <div class="description">{{strings.learninggoals_edit_site_description}}</div>
             <ul class="learninggoals-edit-list">
-                <li v-for="learninggoal in learninggoals">
+                <li v-for="singlelearninggoal in learninggoals">
                     <div class="learninggoal-top-level">
-                        <b>{{ learninggoal.name }}</b>
-                        <p>{{ learninggoal.description }}
-                            <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: learninggoal.id }}">
+                        <b>{{ singlelearninggoal.name }}</b>
+                        <p>{{ singlelearninggoal.description }}
+                            <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}">
                                 <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
                             </router-link>
                         </p>
@@ -94,8 +94,11 @@
                                                 <div class="pt-2 pr-2 pl-2 pb-0"
                                                      v-bind:style="[selectedTabId == tab.id ? {borderColor: tab.tabcolor, 'border-width': '1px', 'border-style': 'solid', 'border-radius': '.5rem'} : {}]">
                                                     <h5 class="pb-2" v-bind:style="[selectedTabId === tab.id ? {color: tab.tabcolor, 'word-break': 'break-word'} : {'word-break': 'break-word'}]">{{category.cattitle}}</h5>
+                                                    <!-- on click learninggoal.thinking_skill should be changed to the clicked word.text -->
+                                                    <!-- https://stackoverflow.com/questions/54918687 -->
                                                     <p v-for="word in category.words" v-bind:style="[selectedTabId === tab.id ? {borderTopColor: tab.tabcolor, 'border-top-width': '1px', 'border-top-style': 'solid'} : {}]" class="mb-2 pt-1">
-                                                        <button v-bind:style="[selectedTabId == tab.id ? {'text-align': 'left', 'background-color': 'transparent', 'border': '0', 'padding-left': '0', 'word-break': 'break-word'} : {}]">{{ word.title }}</button>
+                                                        <button v-bind:style="[selectedTabId == tab.id ? {'text-align': 'left', 'background-color': 'transparent', 'border': '0', 'padding-left': '0', 'word-break': 'break-word', 'width': '100%'} : {}]"
+                                                                v-on:click="greet($event, tabs.id, index, word.targetinput, word.text)">{{ word.title }}</button>
                                                     </p>
                                                 </div>
                                             </div>
@@ -163,6 +166,24 @@
                 this.$router.push({name: 'learninggoals-edit-overview'});
                 // TODO: Change back the URL.
             },
+            greet: function (event, id, index, field, text) {
+                switch(field) {
+                    case "content":
+                        this.learninggoal[0].content = text;
+                        break;
+                    case "resource":
+                        this.learninggoal[0].resource = text;
+                        break;
+                    case "product":
+                        this.learninggoal[0].product = text;
+                        break;
+                    case "group":
+                        this.learninggoal[0].group = text;
+                        break;
+                    default:
+                        this.learninggoal[0].thinking_skill = text;
+                }
+            }
         },
         created: function() {
             this.$store.dispatch('fetchLearninggoals');
