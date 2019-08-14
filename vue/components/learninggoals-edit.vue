@@ -151,6 +151,7 @@
                 if (route.name === 'learninggoal-edit') {
                     this.$nextTick(this.showForm.bind(this, route.params.learninggoalId, 0));
                 } else if (route.name === 'learninggoal-new') {
+                    // TODO Somehow load a standard goal.
                     this.$nextTick(this.showForm.bind(this, null, 0));
                 }
             },
@@ -158,13 +159,14 @@
                 this.editingadding = false;
                 this.selectedTabId = 0;
                 this.$router.push({name: 'learninggoals-edit-overview'});
-                // TODO: Change back the URL.
+                this.$store.dispatch('fetchLearninggoals');
             },
             onSave(){
+                // TODO Save.
                 this.editingadding = false;
                 this.selectedTabId = 0;
                 this.$router.push({name: 'learninggoals-edit-overview'});
-                // TODO: Change back the URL.
+                this.$store.dispatch('fetchLearninggoals');
             },
             greet: function (event, id, index, field, text) {
                 switch(field) {
