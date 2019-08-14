@@ -61,3 +61,12 @@ $string['content'] = 'Content';
 $string['resources'] = 'Resources';
 $string['products'] = 'Products';
 $string['groups'] = 'Groups';
+
+// Words.
+$string['prethinkingskill'] = 'Students will';
+$string['clicktoedit'] = '[click to edit]';
+$string['preresource'] = 'using';
+$string['preproduct'] = 'and create';
+$string['pregroup'] = 'in groups of';
+$string['essay'] = 'an essay';
+

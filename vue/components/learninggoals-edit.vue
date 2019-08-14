@@ -139,6 +139,7 @@
                     this.editingadding = true;
                     // Do something here in case of an edit.
                 } else {
+                    this.$store.dispatch('fetchLearninggoal');
                     this.editingadding = true;
                     // Do something here in case of an add.
                 }

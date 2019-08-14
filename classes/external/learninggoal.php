@@ -90,35 +90,55 @@ class learninggoal extends \external_api {
 
         $ctx = \context_system::instance();
 
-        $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
-            'COALESCE(lg.thinking_skill, \'\')', '\' \'',
-            'COALESCE(lgc.contenttext, \'\')', '\' \'',
-            'COALESCE(lg.subject, \'\')', '\' \'',
-            'COALESCE(lg.pre_resource, \'\')', '\' \'',
-            'COALESCE(lg.resource, \'\')', '\' \'',
-            'COALESCE(lg.pre_product, \'\')', '\' \'',
-            'COALESCE(lgp.producttext, \'\')', '\' \'',
-            'COALESCE(lg.pre_group, \'\')', '\' \'',
-            'COALESCE(lg.group, \'\')', '\'.\'');
+        if ($learninggoalid > 0) {
 
-        $sql = "SELECT lg.id, lg.title AS name, " . $concat . " as description,
-            COALESCE(lg.pre_thinking_skill, '') as pre_thinking_skill,
-            COALESCE(lg.thinking_skill, '') as thinking_skill,
-            COALESCE(lgc.contenttext, '') as content,
-            COALESCE(lg.subject, '') as subject,
-            COALESCE(lg.pre_resource, '') as pre_resource,
-            COALESCE(lg.resource, '') as resource,
-            COALESCE(lg.pre_product, '') as pre_product,
-            COALESCE(lgp.producttext, '') as product,
-            COALESCE(lg.pre_group, '') as pre_group,
-            COALESCE(lg.group, '') as group
+            $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
+                'COALESCE(lg.thinking_skill, \'\')', '\' \'',
+                'COALESCE(lgc.contenttext, \'\')', '\' \'',
+                'COALESCE(lg.subject, \'\')', '\' \'',
+                'COALESCE(lg.pre_resource, \'\')', '\' \'',
+                'COALESCE(lg.resource, \'\')', '\' \'',
+                'COALESCE(lg.pre_product, \'\')', '\' \'',
+                'COALESCE(lgp.producttext, \'\')', '\' \'',
+                'COALESCE(lg.pre_group, \'\')', '\' \'',
+                'COALESCE(lg.group, \'\')', '\'.\'');
+
+            $sql = "SELECT lg.id, lg.title AS name, " . $concat . " AS description,
+            COALESCE(lg.pre_thinking_skill, '') AS pre_thinking_skill,
+            COALESCE(lg.thinking_skill, '') AS thinking_skill,
+            COALESCE(lgc.contenttext, '') AS content,
+            COALESCE(lg.subject, '') AS subject,
+            COALESCE(lg.pre_resource, '') AS pre_resource,
+            COALESCE(lg.resource, '') AS resource,
+            COALESCE(lg.pre_product, '') AS pre_product,
+            COALESCE(lgp.producttext, '') AS product,
+            COALESCE(lg.pre_group, '') AS pre_group,
+            COALESCE(lg.group, '') AS group
             FROM {local_differentiator_lg} lg
             LEFT JOIN {local_differentiator_lgcont} lgc ON lgc.learninggoalid = lg.id
             LEFT JOIN {local_differentiator_lgprod} lgp ON lgp.learninggoalid = lg.id
             WHERE lg.id = :id";
 
-        $params['id'] = $learninggoalid;
-        $learninggoal = $DB->get_record_sql($sql, $params);
+            $params['id'] = $learninggoalid;
+            $learninggoal = $DB->get_record_sql($sql, $params);
+        } else {
+            $sql = "SELECT 0 AS id, '" .
+            get_string('clicktoedit', 'local_differentiator') . "' AS name, " .
+            "'' AS description, '" .
+            get_string('prethinkingskill', 'local_differentiator') . "' AS pre_thinking_skill, " .
+            "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1) AS thinking_skill, " .
+            "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1)  AS content, '" .
+            get_string('clicktoedit', 'local_differentiator') . "' AS subject, '" .
+            get_string('preresource', 'local_differentiator') . "' AS pre_resource, " .
+            "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1) AS resource, '" .
+            get_string('preproduct', 'local_differentiator') . "' AS pre_product, '" .
+            /* "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 1) AS product, '" . */
+            get_string('essay', 'local_differentiator') . "' AS product, '" .
+            get_string('pregroup', 'local_differentiator') . "' AS pre_group, " .
+            "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1) AS group";
+
+            $learninggoal = $DB->get_record_sql($sql);
+        }
 
         $exporter = new exporter\learninggoal($learninggoal, $ctx);
         $list[] = $exporter->export($renderer);
