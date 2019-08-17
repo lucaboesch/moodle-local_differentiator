@@ -90,14 +90,14 @@ class learninggoals extends \external_api {
 
         $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
             'COALESCE(lg.thinking_skill, \'\')', '\' \'',
-            'COALESCE(lg.content, \'\')', '\' \'',
+            'COALESCE(lg.lgcontent, \'\')', '\' \'',
             'COALESCE(lg.subject, \'\')', '\' \'',
             'COALESCE(lg.pre_resource, \'\')', '\' \'',
             'COALESCE(lg.resource, \'\')', '\' \'',
             'COALESCE(lg.pre_product, \'\')', '\' \'',
             'COALESCE(lg.product, \'\')', '\' \'',
             'COALESCE(lg.pre_group, \'\')', '\' \'',
-            'COALESCE(lg.group, \'\')', '\'.\'');
+            'COALESCE(lg.lggroup, \'\')', '\'.\'');
 
         $sql = "SELECT lg.id, lg.title AS name, " . $concat . " as description
             FROM {local_differentiator_lg} lg

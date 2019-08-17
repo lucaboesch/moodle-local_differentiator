@@ -162,8 +162,23 @@
                 this.$router.push({name: 'learninggoals-edit-overview'});
                 this.$store.dispatch('fetchLearninggoals');
             },
-            onSave(){
+            onSave() {
                 // TODO Save.
+                let result = {
+                    learninggoalid: this.$store.state.learningGoalID,
+                    name: this.learninggoal[0].name,
+                    pre_thinking_skill: this.learninggoal[0].pre_thinking_skill,
+                    thinking_skill: this.learninggoal[0].thinking_skill,
+                    content: this.learninggoal[0].content,
+                    subject: this.learninggoal[0].subject,
+                    pre_resource: this.learninggoal[0].pre_resource,
+                    resource: this.learninggoal[0].resource,
+                    pre_product: this.learninggoal[0].pre_product,
+                    product: this.learninggoal[0].product,
+                    pre_group: this.learninggoal[0].pre_group,
+                    group: this.learninggoal[0].group,
+                };
+                this.$store.dispatch('saveLearninggoal', result);
                 this.editingadding = false;
                 this.selectedTabId = 0;
                 this.$router.push({name: 'learninggoals-edit-overview'});
@@ -186,7 +201,7 @@
                     default:
                         this.learninggoal[0].thinking_skill = text;
                 }
-            }
+            },
         },
         created: function() {
             this.$store.dispatch('fetchLearninggoals');

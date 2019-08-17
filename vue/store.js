@@ -40,6 +40,23 @@ export const store = new Vuex.Store({
     },
     actions: {
         // Actions are asynchroneous.
+        /**
+         * Determines the current language.
+         *
+         * @param context
+         *
+         * @returns {Promise<void>}
+         */
+        async loadLang(context) {
+            const lang = $('html').attr('lang').replace(/-/g, '_');
+            context.commit('setLang', lang);
+        },
+        /**
+         * Fetches the i18n data for the current language.
+         *
+         * @param context
+         * @returns {Promise<void>}
+         */
         async loadComponentStrings(context) {
             const lang = $('html').attr('lang').replace(/-/g, '_');
             const cacheKey = 'local_differentiator/strings/' + lang;
@@ -63,18 +80,52 @@ export const store = new Vuex.Store({
                 moodleStorage.set(cacheKey, JSON.stringify(strings));
             }
         },
+        /**
+         * Fetches a learning goal.
+         *
+         * @param context
+         *
+         * @returns {Promise<void>}
+         */
         async fetchLearninggoal(context) {
             const learninggoal = await ajax('local_differentiator_get_learninggoal',
                 { userid: 0, learninggoalid: store.state.learningGoalID });
             context.commit('setLearninggoal', learninggoal);
         },
+        /**
+         * Fetches all of a user's learning goal.
+         *
+         * @param context
+         *
+         * @returns {Promise<void>}
+         */
         async fetchLearninggoals(context) {
             const learninggoals = await ajax('local_differentiator_get_learninggoals');
             context.commit('setLearninggoals', learninggoals);
         },
+        /**
+         * Fetches the differentiator handlers.
+         *
+         * @param context
+         *
+         * @returns {Promise<void>}
+         */
         async getHandlers(context) {
             const handlers = await ajax('local_differentiator_get_handlers');
             context.commit('setHandlers', handlers);
+        },
+        /**
+         * Updates the data of this level, including its categories.
+         *
+         * @param context
+         * @param payload
+         *
+         * @returns {Promise<void>}
+         */
+        async saveLearninggoal(context, payload) {
+            const result = await ajax('local_differentiator_save_learninggoal', payload);
+            context.dispatch('fetchLearninggoals');
+            return result.result;
         },
     }
 });

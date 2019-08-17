@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
- * TODO.
+ * The differentiator handler tab exporter for web service.
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
@@ -93,8 +93,6 @@ class tab extends \core\external\exporter {
             'tabcolor' => $this->tab->tabcolor,
             'targetinput' => $this->tab->targetinput,
         );
-
-//        $values['wordcategory'] = \external\wordcategory::get_wordcategory($this->tab->tabprefix);
 
         return $values;
     }

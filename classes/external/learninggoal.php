@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO.
+ * Handling with a differentiator learning goal.
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
@@ -28,6 +28,7 @@ use external_function_parameters;
 use external_multiple_structure;
 use external_value;
 use external_single_structure;
+use local_differentiator\external\exporter\bool_dto;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -40,6 +41,7 @@ defined('MOODLE_INTERNAL') || die();
  */
 class learninggoal extends \external_api {
     /**
+     * Definition of parameters for {@see get_learninggoal}.
      * Returns description of method parameters.
      *
      * @return external_function_parameters
@@ -52,6 +54,31 @@ class learninggoal extends \external_api {
     }
 
     /**
+     * Definition of parameters for {@see save_learninggoal}.
+     * Returns description of method parameters.
+     *
+     * @return external_function_parameters
+     */
+    public static function save_learninggoal_parameters() {
+        return new external_function_parameters([
+            'userid' => new external_value(PARAM_INT, 'userid'),
+            'learninggoalid' => new external_value(PARAM_INT, 'id of the learning goal'),
+            'name' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'pre_thinking_skill' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'thinking_skill' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'content' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'subject' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'pre_resource' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'resource' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'pre_product' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'product' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'pre_group' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'group' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+        ]);
+    }
+
+    /**
+     * Definition of return type for {@see get_learninggoal}.
      * Returns description of method result value.
      *
      * @return external_multiple_structure
@@ -60,6 +87,15 @@ class learninggoal extends \external_api {
         return new external_multiple_structure(
             exporter\learninggoal::get_read_structure()
         );
+    }
+
+    /**
+     * Definition of return type for {@see save_learninggoal}.
+     *
+     * @return external_single_structure
+     */
+    public static function save_learninggoal_returns() {
+        return bool_dto::get_read_structure();
     }
 
     /**
@@ -72,7 +108,6 @@ class learninggoal extends \external_api {
      */
     public static function get_learninggoal($userid, $learninggoalid) {
         global $USER;
-        file_put_contents('/Users/luca/Desktop/log0.txt', 'userid ' . $userid . ' learninggoalid '. $learninggoalid);
 
         $params = self::validate_parameters(self::get_learninggoal_parameters(),
             array(
@@ -94,29 +129,27 @@ class learninggoal extends \external_api {
 
             $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
                 'COALESCE(lg.thinking_skill, \'\')', '\' \'',
-                'COALESCE(lgc.contenttext, \'\')', '\' \'',
+                'COALESCE(lg.lgcontent, \'\')', '\' \'',
                 'COALESCE(lg.subject, \'\')', '\' \'',
                 'COALESCE(lg.pre_resource, \'\')', '\' \'',
                 'COALESCE(lg.resource, \'\')', '\' \'',
                 'COALESCE(lg.pre_product, \'\')', '\' \'',
-                'COALESCE(lgp.producttext, \'\')', '\' \'',
+                'COALESCE(lg.product, \'\')', '\' \'',
                 'COALESCE(lg.pre_group, \'\')', '\' \'',
-                'COALESCE(lg.group, \'\')', '\'.\'');
+                'COALESCE(lg.lggroup, \'\')', '\'.\'');
 
             $sql = "SELECT lg.id, lg.title AS name, " . $concat . " AS description,
             COALESCE(lg.pre_thinking_skill, '') AS pre_thinking_skill,
             COALESCE(lg.thinking_skill, '') AS thinking_skill,
-            COALESCE(lgc.contenttext, '') AS content,
+            COALESCE(lg.lgcontent, '') AS content,
             COALESCE(lg.subject, '') AS subject,
             COALESCE(lg.pre_resource, '') AS pre_resource,
             COALESCE(lg.resource, '') AS resource,
             COALESCE(lg.pre_product, '') AS pre_product,
-            COALESCE(lgp.producttext, '') AS product,
+            COALESCE(lg.product, '') AS product,
             COALESCE(lg.pre_group, '') AS pre_group,
-            COALESCE(lg.group, '') AS group
+            COALESCE(lg.lggroup, '') AS group
             FROM {local_differentiator_lg} lg
-            LEFT JOIN {local_differentiator_lgcont} lgc ON lgc.learninggoalid = lg.id
-            LEFT JOIN {local_differentiator_lgprod} lgp ON lgp.learninggoalid = lg.id
             WHERE lg.id = :id";
 
             $params['id'] = $learninggoalid;
@@ -144,6 +177,90 @@ class learninggoal extends \external_api {
         $list[] = $exporter->export($renderer);
 
         return $list;
+    }
+
+    /**
+     * Updates or inserts the given data as a learning goal.
+     *
+     * @param int $learninggoalid
+     * @param string $name
+     * @param string $pre_thinking_skill
+     * @param string $thinking_skill
+     * @param string $content
+     * @param string $subject
+     * @param string $pre_resource
+     * @param string $resource
+     * @param string $pre_product
+     * @param string $product
+     * @param string $pre_group
+     * @param string $group
+     *
+     * @return stdClass
+     * @throws \required_capability_exception
+     * @throws coding_exception
+     * @throws dml_exception
+     * @throws invalid_parameter_exception
+     * @throws moodle_exception
+     * @throws restricted_context_exception
+     */
+    public static function save_learninggoal($userid, $learninggoalid, $name, $pre_thinking_skill, $thinking_skill, $content, $subject,
+        $pre_resource, $resource, $pre_product, $product, $pre_group, $group) {
+        global $USER;
+
+        $params = [
+            'userid' => $userid,
+            'learninggoalid' => $learninggoalid,
+            'name' => $name,
+            'pre_thinking_skill' => $pre_thinking_skill,
+            'thinking_skill' => $thinking_skill,
+            'content' => $content,
+            'subject' => $subject,
+            'pre_resource' => $pre_resource,
+            'resource' => $resource,
+            'pre_product' => $pre_product,
+            'product' => $product,
+            'pre_group' => $pre_group,
+            'group' => $group
+        ];
+        self::validate_parameters(self::save_learninggoal_parameters(), $params);
+
+        self::validate_context(\context_system::instance());
+
+        global $PAGE, $DB;
+
+        $renderer = $PAGE->get_renderer('core');
+
+        $ctx = \context_system::instance();
+        // $game = util::get_game($coursemodule);
+        // util::require_user_has_capability('mod/millionaire:manage', $ctx);
+
+        $learninggoal = new \stdClass();
+        $learninggoal->id = $learninggoalid;
+        $learninggoal->userid = $USER->id;
+        $learninggoal->title = $name;
+        $learninggoal->pre_thinking_skill = $pre_thinking_skill;
+        $learninggoal->thinking_skill = $thinking_skill;
+        $learninggoal->lgcontent = $content;
+        $learninggoal->subject = $subject;
+        $learninggoal->pre_resource = $pre_resource;
+        $learninggoal->resource = $resource;
+        $learninggoal->pre_product = $pre_product;
+        $learninggoal->product = $product;
+        $learninggoal->pre_group = $pre_group;
+        $learninggoal->lggroup = $group;
+
+        if ($learninggoal->id != 0) {
+            $learninggoal->timemodified = time();
+            $DB->update_record('local_differentiator_lg', $learninggoal);
+        } else {
+            $learninggoal->id = NULL;
+            $learninggoal->timecreated = time();
+            $DB->insert_record('local_differentiator_lg', $learninggoal);
+        }
+
+        // Return success status.
+        $exporter = new bool_dto(true, $ctx);
+        return $exporter->export($renderer);
     }
 }
 

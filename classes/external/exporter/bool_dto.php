@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The differentiator handler exporter for web service.
+ * A boolean exporter for web service.
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
@@ -24,68 +24,54 @@
 
 namespace local_differentiator\external\exporter;
 
+use coding_exception;
+use context;
+use core\external\exporter;
+use renderer_base;
+
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Class handlers
+ * Class bool_dto
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class handlers extends \core\external\exporter {
-    /**
-     * @var
-     */
-    protected $handlers;
+class bool_dto extends exporter {
 
     /**
-     * The differentiator handlers constructor.
-     *
-     * @param $handlers
-     * @param \context $context
-     * @throws \coding_exception
+     * @var bool
      */
-    public function __construct($handlers, \context $context) {
-        $this->handlers = $handlers;
+    private $value;
+
+    /**
+     * bool_dto constructor.
+     *
+     * @param bool $value
+     * @param context $context
+     *
+     * @throws coding_exception
+     */
+    public function __construct(bool $value, context $context) {
+        $this->value = $value;
         parent::__construct([], ['context' => $context]);
     }
 
-    /**
-     * Get ids and titles of the handlers.
-     *
-     * @return array
-     */
     protected static function define_other_properties() {
         return [
-            'tabs' => [
-            'type' => tab::read_properties_definition(),
-            'multiple' => true,
+            'result' => [
+                'type' => PARAM_BOOL,
+                'description' => 'a boolean value.'
             ],
         ];
     }
 
-    /**
-     * TODO.
-     *
-     * @return array
-     */
     protected static function define_related() {
-        return [
-            'context' => 'context',
-        ];
+        return ['context' => 'context'];
     }
 
-    /**
-     * Get id, name and description of the learning goal.
-     *
-     * @param \renderer_base $output
-     * @return array
-     */
-    protected function get_other_values(\renderer_base $output) {
-        return [
-            'handlers' => $this->handlers,
-            'tabs' => $this->handlers->tabs,
-        ];
+    protected function get_other_values(renderer_base $output) {
+        return ['result' => $this->value];
     }
 }

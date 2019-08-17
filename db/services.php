@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO.
+ * Differentiator plugin external functions and service definitions.
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
@@ -48,5 +48,12 @@ $functions = array(
         'type' => 'read',
         'ajax' => true,
         'capabilities' => 'local/differentiator:edit',
+    ),
+    'local_differentiator_save_learninggoal' => array(
+        'classname' => 'local_differentiator\external\learninggoal',
+        'methodname' => 'save_learninggoal',
+        'description' => 'Save a specific learning goal.',
+        'type' => 'write',
+        'ajax' => true,
     ),
 );
