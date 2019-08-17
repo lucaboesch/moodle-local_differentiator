@@ -4,7 +4,7 @@ import { store } from './store';
 import notFound from './components/not-found';
 import learninggoalsEdit from './components/learninggoals-edit';
 import VueInputAutowidth from 'vue-input-autowidth';
-const exampleLazyLoading = () => import('./components/example-lazy-loading');
+import 'es6-promise/auto';
 
 function init() {
     // We need to overwrite the variable for lazy loading.
@@ -21,7 +21,9 @@ function init() {
     const routes = [
         {
             path: '/',
-            redirect: { name: 'learninggoals-edit-overview' }
+            redirect: {
+                name: 'learninggoals-edit-overview'
+            }
         }, {
             path: '/learninggoals/edit',
             component: learninggoalsEdit,
@@ -40,9 +42,6 @@ function init() {
                     meta: { title: 'learninggoal_form_title_add' }
                  },
             ],
-        }, {
-            path: '/lazy-loading',
-            component: exampleLazyLoading
         }, {
             path: '*',
             component: notFound,
