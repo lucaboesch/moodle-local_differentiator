@@ -90,19 +90,17 @@ class learninggoals extends \external_api {
 
         $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
             'COALESCE(lg.thinking_skill, \'\')', '\' \'',
-            'COALESCE(lgc.contenttext, \'\')', '\' \'',
+            'COALESCE(lg.content, \'\')', '\' \'',
             'COALESCE(lg.subject, \'\')', '\' \'',
             'COALESCE(lg.pre_resource, \'\')', '\' \'',
             'COALESCE(lg.resource, \'\')', '\' \'',
             'COALESCE(lg.pre_product, \'\')', '\' \'',
-            'COALESCE(lgp.producttext, \'\')', '\' \'',
+            'COALESCE(lg.product, \'\')', '\' \'',
             'COALESCE(lg.pre_group, \'\')', '\' \'',
             'COALESCE(lg.group, \'\')', '\'.\'');
 
         $sql = "SELECT lg.id, lg.title AS name, " . $concat . " as description
             FROM {local_differentiator_lg} lg
-            LEFT JOIN {local_differentiator_lgcont} lgc ON lgc.learninggoalid = lg.id
-            LEFT JOIN {local_differentiator_lgprod} lgp ON lgp.learninggoalid = lg.id
             WHERE userid = :userid";
 
         $params['userid'] = $userid;

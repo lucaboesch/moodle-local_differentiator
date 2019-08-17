@@ -14,12 +14,12 @@
         <FIELD NAME="lang" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="Code of the language this learning goal is written in"/>
         <FIELD NAME="pre_thinking_skill" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal pre-thinking skill"/>
         <FIELD NAME="thinking_skill" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal thinking skill"/>
-        <FIELD NAME="content" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal content"/>
+        <FIELD NAME="content" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal content"/>
         <FIELD NAME="subject" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal subject"/>
         <FIELD NAME="pre_resource" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal pre-resource"/>
         <FIELD NAME="resource" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal resource"/>
         <FIELD NAME="pre_product" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal pre-product"/>
-        <FIELD NAME="product" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Learning goal product"/>
+        <FIELD NAME="product" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal product"/>
         <FIELD NAME="pre_group" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal pre-group"/>
         <FIELD NAME="group" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Learning goal group"/>
       </FIELDS>
