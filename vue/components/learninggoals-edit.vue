@@ -7,11 +7,11 @@
                 <li v-for="singlelearninggoal in learninggoals">
                     <div class="learninggoal-top-level">
                         <b>{{ singlelearninggoal.name }}</b>
-                        <p>{{ singlelearninggoal.description }}
+                        <div>{{ singlelearninggoal.description }}
                             <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}">
                                 <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
                             </router-link>
-                        </p>
+                        </div>
                     </div>
                 </li>
             </ul>
