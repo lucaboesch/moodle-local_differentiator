@@ -35,11 +35,13 @@ if ($learninggoalid > 0) {
     redirect(new \moodle_url($path));
 }
 
-admin_externalpage_setup('local_differentiator', '', null);
-
 require_login();
 
+// Set page context.
 $PAGE->set_context(context_system::instance());
+// Set page layout.
+$PAGE->set_pagelayout('standard');
+
 $PAGE->set_title($SITE->fullname . ': ' . get_string('pluginname', 'local_differentiator'));
 $PAGE->set_heading($SITE->fullname);
 $PAGE->set_url(new moodle_url('/local/differentiator/index.php'));
@@ -49,6 +51,9 @@ $PAGE->requires->js_call_amd('local_differentiator/app-lazy', 'init', [
     'learninggoalid' => $learninggoalid,
     'contextid' => context_system::instance()->id]
 );
+
+$PAGE->navbar->add(get_string('pluginname', 'local_differentiator'),
+    new moodle_url('/local/differentiator'));
 
 $output = $PAGE->get_renderer('local_differentiator');
 

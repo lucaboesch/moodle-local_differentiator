@@ -31,17 +31,15 @@ $capabilities = [
         'captype' => 'view',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
-            'editingteacher' => CAP_ALLOW,
-        ],
-        'clonepermissionsfrom' => 'moodle/course:view',
+            'user' => CAP_ALLOW
+        ]
     ],
 
     'local/differentiator:edit' => [
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
-            'editingteacher' => CAP_ALLOW,
-        ],
-        'clonepermissionsfrom' => 'moodle/course:edit',
+            'user' => CAP_ALLOW
+        ]
     ],
 ];
