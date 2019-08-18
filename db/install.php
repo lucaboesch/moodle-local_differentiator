@@ -910,43 +910,43 @@ function xmldb_local_differentiator_install() {
         'tswcid' => 1,
         'lang' => 'en',
         'timecreated' => $time,
-        'tswcetitle' => 'Evaluating',
-        'tswcetext' => 'Evaluating',
+        'tswcetitle' => 'Remembering',
+        'tswcetext' => 'Remembering',
     ]);
     $DB->insert_record('local_differentiator_tswce', [
         'tswcid' => 2,
-        'lang' => 'en',
-        'timecreated' => $time,
-        'tswcetitle' => 'Creating',
-        'tswcetext' => 'Creating',
-    ]);
-    $DB->insert_record('local_differentiator_tswce', [
-        'tswcid' => 3,
-        'lang' => 'en',
-        'timecreated' => $time,
-        'tswcetitle' => 'Analyzing',
-        'tswcetext' => 'Analyzing',
-    ]);
-    $DB->insert_record('local_differentiator_tswce', [
-        'tswcid' => 4,
         'lang' => 'en',
         'timecreated' => $time,
         'tswcetitle' => 'Understanding',
         'tswcetext' => 'Understanding',
     ]);
     $DB->insert_record('local_differentiator_tswce', [
-        'tswcid' => 5,
+        'tswcid' => 3,
         'lang' => 'en',
         'timecreated' => $time,
         'tswcetitle' => 'Applying',
         'tswcetext' => 'Applying',
     ]);
     $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 4,
+        'lang' => 'en',
+        'timecreated' => $time,
+        'tswcetitle' => 'Analyzing',
+        'tswcetext' => 'Analyzing',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 5,
+        'lang' => 'en',
+        'timecreated' => $time,
+        'tswcetitle' => 'Evaluating',
+        'tswcetext' => 'Evaluating',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
         'tswcid' => 6,
         'lang' => 'en',
         'timecreated' => $time,
-        'tswcetitle' => 'Remembering',
-        'tswcetext' => 'Remembering',
+        'tswcetitle' => 'Creating',
+        'tswcetext' => 'Creating',
     ]);
 
     // Table local_differentiator_tswe.
