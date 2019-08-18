@@ -162,6 +162,7 @@
                 }
             },
             onCancel(){
+                this.$store.state.learningGoalID = 0;
                 this.editingadding = false;
                 this.selectedTabId = 0;
                 this.$router.push({name: 'learninggoals-edit-overview'});
@@ -184,6 +185,7 @@
                     group: this.learninggoal[0].group,
                 };
                 this.$store.dispatch('saveLearninggoal', result);
+                this.$store.state.learningGoalID = 0;
                 this.editingadding = false;
                 this.selectedTabId = 0;
                 this.$router.push({name: 'learninggoals-edit-overview'});
