@@ -107,11 +107,19 @@ class learninggoals extends \external_api {
 
         $learninggoals = $DB->get_records_sql($sql, $params);
 
-        foreach ($learninggoals as $learninggoal) {
+        if (!empty($learninggoals)) {
+            foreach ($learninggoals as $learninggoal) {
+                $exporter = new exporter\learninggoal($learninggoal, $ctx);
+                $list[] = $exporter->export($renderer);
+            }
+        } else {
+            $learninggoal = new \stdClass();
+            $learninggoal->id = 0;
+            $learninggoal->name = 'not found';
+            $learninggoal->description = '';
             $exporter = new exporter\learninggoal($learninggoal, $ctx);
             $list[] = $exporter->export($renderer);
         }
-
         return $list;
     }
 }

@@ -3,21 +3,26 @@
         <div v-if="editingadding == false">
             <h3>{{strings.learninggoals_edit_site_name}}</h3>
             <div class="description">{{strings.learninggoals_edit_site_description}}</div>
-            <ul class="learninggoals-edit-list">
-                <li v-for="singlelearninggoal in learninggoals">
-                    <div class="learninggoal-top-level">
-                        <b>{{ singlelearninggoal.name }}</b>
-                        <div>{{ singlelearninggoal.description }}
-                            <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}">
-                                <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
-                            </router-link>
+            <span v-if="learninggoals[0].name !== 'not found' && learninggoals.length == 1 && learninggoals[0].description !== ''">
+                <ul class="learninggoals-edit-list">
+                    <li v-for="singlelearninggoal in learninggoals">
+                        <div class="learninggoal-top-level" v-if="singlelearninggoal.name !== 'not found'">
+                            <b>{{ singlelearninggoal.name }}</b>
+                            <div>{{ singlelearninggoal.description }}
+                                <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}">
+                                    <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
+                                </router-link>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
-            <div v-if="learninggoals !== null && learninggoals.length == 0">
-                {{strings.learninggoals_edit_no_learninggoals}}
-            </div>
+                    </li>
+                </ul>
+            </span>
+            <span v-if="learninggoals[0].name == 'not found' && learninggoals[0].description == ''">
+                <p>&#160;</p>
+                <p v-for="singlelearninggoal in learninggoals">
+                    {{strings.learninggoals_edit_no_learninggoals}}
+                </p>
+            </span>
             <div class="learninggoals-edit-add">
                 <router-link :to="{ name: 'learninggoal-new' }" tag="button" class="btn btn-primary">{{strings.learninggoal_form_title_add}}</router-link>
             </div>
