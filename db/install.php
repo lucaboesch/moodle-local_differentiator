@@ -689,7 +689,7 @@ function xmldb_local_differentiator_install() {
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Poem / Song',
-        'pwetext' => 'a Poem / Song',
+        'pwetext' => 'a poem / song',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 45,
