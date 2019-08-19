@@ -4,7 +4,6 @@ import { store } from './store';
 import notFound from './components/not-found';
 import learninggoalsEdit from './components/learninggoals-edit';
 import VueInputAutowidth from 'vue-input-autowidth';
-import 'es6-promise/auto';
 
 function init() {
     // We need to overwrite the variable for lazy loading.
