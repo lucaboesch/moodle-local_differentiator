@@ -101,7 +101,8 @@ class learninggoals extends \external_api {
 
         $sql = "SELECT lg.id, lg.title AS name, " . $concat . " as description
             FROM {local_differentiator_lg} lg
-            WHERE userid = :userid";
+            WHERE userid = :userid
+            ORDER BY lg.title ASC";
 
         $params['userid'] = $userid;
 
