@@ -51,6 +51,7 @@ $string['edit'] = 'Edit';
 $string['delete'] = 'Delete';
 $string['deleteprompt'] = 'Do you really want to delete the learning goal';
 $string['btnconfirmdelete'] = 'Confirm delete';
+$string['duplicate'] = 'Duplicate';
 
 // Learning goal form.
 $string['learninggoal'] = 'Goal';

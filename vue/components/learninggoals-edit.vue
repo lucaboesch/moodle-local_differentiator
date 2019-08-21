@@ -12,8 +12,11 @@
                                 </router-link>
                                 <div>{{ singlelearninggoal.description }}
                                     <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}" :title="strings.edit">
-                                        <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
+                                        <i class="icon fa fa-pencil fa-fw iconsmall m-r-0" :title="strings.edit"></i>
                                     </router-link>
+                                    <a href="" v-on:click.prevent="duplicateLearninggoal(singlelearninggoal.id)" :title="strings.duplicate">
+                                        <i class="icon fa fa-copy fa-fw iconsmall m-r-0" :title="strings.duplicate"></i>
+                                    </a>
                                     <a href="" v-on:click.prevent="showDeleteConfirm(singlelearninggoal.id)" :title="strings.delete">
                                         <i class="icon fa fa-trash fa-fw iconsmall" :title="strings.delete"></i>
                                     </a>
@@ -222,6 +225,9 @@
                 }
             },
             showDeleteConfirm(index){
+                // Dismiss other open confirm delete prompts.
+                this.clicked = {};
+                // Show the confirm delete prompt.
                 this.$set(this.clicked, index, true)
             },
             cancelDeleteConfirm(index){
@@ -235,6 +241,13 @@
                 this.$store.dispatch('deleteLearninggoal', result);
                 this.$store.dispatch('fetchLearninggoals');
                 this.clicked = {};
+            },
+            duplicateLearninggoal(learninggoalid) {
+                let result = {
+                    learninggoalid: learninggoalid,
+                };
+                this.$store.dispatch('duplicateLearninggoal', result);
+                this.$store.dispatch('fetchLearninggoals');
             }
         },
         created: function() {

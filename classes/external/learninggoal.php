@@ -76,6 +76,7 @@ class learninggoal extends \external_api {
             'group' => new external_value(PARAM_TEXT, 'name of the learning goal'),
         ]);
     }
+
     /**
      * Definition of parameters for {@see delete_learninggoal}.
      * Returns description of method parameters.
@@ -83,6 +84,19 @@ class learninggoal extends \external_api {
      * @return external_function_parameters
      */
     public static function delete_learninggoal_parameters() {
+        return new external_function_parameters([
+            'userid' => new external_value(PARAM_INT, 'userid'),
+            'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
+        ]);
+    }
+
+    /**
+     * Definition of parameters for {@see duplicate_learninggoal}.
+     * Returns description of method parameters.
+     *
+     * @return external_function_parameters
+     */
+    public static function duplicate_learninggoal_parameters() {
         return new external_function_parameters([
             'userid' => new external_value(PARAM_INT, 'userid'),
             'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
@@ -121,6 +135,16 @@ class learninggoal extends \external_api {
     }
 
     /**
+     * Definition of return type for {@see duplicate_learninggoal}.
+     * Returns description of method result value.
+     *
+     * @return external_single_structure
+     */
+    public static function duplicate_learninggoal_returns() {
+        return bool_dto::get_read_structure();
+    }
+
+    /**
      * Get a learning goal.
      *
      * @param $userid
@@ -130,27 +154,19 @@ class learninggoal extends \external_api {
      */
     public static function get_learninggoal($userid, $learninggoalid) {
         global $USER;
-
         $params = self::validate_parameters(self::get_learninggoal_parameters(),
             array(
                 'userid' => $userid,
                 'learninggoalid' => $learninggoalid
             )
         );
-
         // TODO check if the learning goal really belongs to the user.
-
         $learninggoalid = $params['learninggoalid'];
-
         self::validate_context(\context_system::instance());
-
         global $PAGE, $DB;
         $renderer = $PAGE->get_renderer('core');
-
         $ctx = \context_system::instance();
-
         if ($learninggoalid > 0) {
-
             $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
                 'COALESCE(lg.thinking_skill, \'\')', '\' \'',
                 'COALESCE(lg.lgcontent, \'\')', '\' \'',
@@ -161,7 +177,6 @@ class learninggoal extends \external_api {
                 'COALESCE(lg.product, \'\')', '\' \'',
                 'COALESCE(lg.pre_group, \'\')', '\' \'',
                 'COALESCE(lg.lggroup, \'\')', '\'.\'');
-
             $sql = "SELECT lg.id, lg.title AS name, " . $concat . " AS description,
             COALESCE(lg.pre_thinking_skill, '') AS pre_thinking_skill,
             COALESCE(lg.thinking_skill, '') AS thinking_skill,
@@ -175,31 +190,27 @@ class learninggoal extends \external_api {
             COALESCE(lg.lggroup, '') AS group
             FROM {local_differentiator_lg} lg
             WHERE lg.id = :id";
-
             $params['id'] = $learninggoalid;
             $learninggoal = $DB->get_record_sql($sql, $params);
         } else {
             $sql = "SELECT 0 AS id, '" .
-            get_string('clicktoedit', 'local_differentiator') . "' AS name, " .
-            "'' AS description, '" .
-            get_string('prethinkingskill', 'local_differentiator') . "' AS pre_thinking_skill, " .
-            "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1) AS thinking_skill, " .
-            "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1)  AS content, '" .
-            get_string('clicktoedit', 'local_differentiator') . "' AS subject, '" .
-            get_string('preresource', 'local_differentiator') . "' AS pre_resource, " .
-            "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1) AS resource, '" .
-            get_string('preproduct', 'local_differentiator') . "' AS pre_product, '" .
-            /* "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 1) AS product, '" . */
-            get_string('essay', 'local_differentiator') . "' AS product, '" .
-            get_string('pregroup', 'local_differentiator') . "' AS pre_group, " .
-            "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1) AS group";
-
+                get_string('clicktoedit', 'local_differentiator') . "' AS name, " .
+                "'' AS description, '" .
+                get_string('prethinkingskill', 'local_differentiator') . "' AS pre_thinking_skill, " .
+                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1) AS thinking_skill, " .
+                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1)  AS content, '" .
+                get_string('clicktoedit', 'local_differentiator') . "' AS subject, '" .
+                get_string('preresource', 'local_differentiator') . "' AS pre_resource, " .
+                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1) AS resource, '" .
+                get_string('preproduct', 'local_differentiator') . "' AS pre_product, '" .
+                /* "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 1) AS product, '" . */
+                get_string('essay', 'local_differentiator') . "' AS product, '" .
+                get_string('pregroup', 'local_differentiator') . "' AS pre_group, " .
+                "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1) AS group";
             $learninggoal = $DB->get_record_sql($sql);
         }
-
         $exporter = new exporter\learninggoal($learninggoal, $ctx);
         $list[] = $exporter->export($renderer);
-
         return $list;
     }
 
@@ -277,7 +288,7 @@ class learninggoal extends \external_api {
             $learninggoal->timemodified = time();
             $DB->update_record('local_differentiator_lg', $learninggoal);
         } else {
-            $learninggoal->id = NULL;
+            $learninggoal->id = null;
             $learninggoal->timecreated = time();
             $DB->insert_record('local_differentiator_lg', $learninggoal);
         }
@@ -318,6 +329,68 @@ class learninggoal extends \external_api {
 
         if (isset($learninggoalid) && ($learninggoalid > 0)) {
             $DB->delete_records('local_differentiator_lg', array('id' => $learninggoalid, 'userid' => $USER->id));
+        }
+
+        // Return success status.
+        $exporter = new bool_dto(true, $ctx);
+        return $exporter->export($renderer);
+    }
+
+    /**
+     * Duplicate a learning goal.
+     *
+     * @param $userid
+     * @param $learninggoalid
+     * @return array
+     * @throws \invalid_parameter_exception
+     */
+    public static function duplicate_learninggoal($userid, $learninggoalid) {
+        global $USER;
+
+        $params = self::validate_parameters(self::get_learninggoal_parameters(),
+            array(
+                'userid' => $userid,
+                'learninggoalid' => $learninggoalid
+            )
+        );
+
+        // TODO check if the learning goal really belongs to the user.
+
+        $learninggoalid = $params['learninggoalid'];
+
+        self::validate_context(\context_system::instance());
+
+        global $PAGE, $DB;
+        $renderer = $PAGE->get_renderer('core');
+
+        $ctx = \context_system::instance();
+
+        if ($learninggoalid > 0) {
+
+            $sql = "SELECT lg.id,
+            lg.title,
+            lg.pre_thinking_skill,
+            lg.thinking_skill,
+            lg.lgcontent,
+            lg.subject,
+            lg.pre_resource,
+            lg.resource,
+            lg.pre_product,
+            lg.product,
+            lg.pre_group,
+            lg.lggroup
+            FROM {local_differentiator_lg} lg
+            WHERE lg.id = :id";
+
+            $params['id'] = $learninggoalid;
+            $learninggoal = $DB->get_record_sql($sql, $params);
+        }
+
+        if (isset($learninggoal)) {
+            $learninggoal->id = null;
+            $learninggoal->userid = $USER->id;
+            $learninggoal->timecreated = time();
+            $DB->insert_record('local_differentiator_lg', $learninggoal);
         }
 
         // Return success status.

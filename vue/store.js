@@ -140,6 +140,19 @@ export const store = new Vuex.Store({
             context.dispatch('fetchLearninggoals');
             return result.result;
         },
+        /**
+         * Duplicates a learning goal.
+         *
+         * @param context
+         * @param payload
+         *
+         * @returns {Promise<void>}
+         */
+        async duplicateLearninggoal(context, payload) {
+            const result = await ajax('local_differentiator_duplicate_learninggoal', payload);
+            context.dispatch('fetchLearninggoals');
+            return result.result;
+        },
     }
 });
 

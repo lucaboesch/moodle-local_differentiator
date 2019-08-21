@@ -63,4 +63,11 @@ $functions = array(
         'type' => 'write',
         'ajax' => true,
     ),
+    'local_differentiator_duplicate_learninggoal' => array(
+        'classname' => 'local_differentiator\external\learninggoal',
+        'methodname' => 'duplicate_learninggoal',
+        'description' => 'Duplicate a specific learning goal.',
+        'type' => 'write',
+        'ajax' => true,
+    ),
 );
