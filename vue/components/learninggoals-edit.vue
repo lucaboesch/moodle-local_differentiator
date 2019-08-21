@@ -7,13 +7,24 @@
                     <ul class="learninggoals-edit-list">
                         <li v-for="singlelearninggoal in learninggoals">
                             <div class="learninggoal-top-level" v-if="singlelearninggoal.name !== 'not found'">
-                                <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}">
+                                <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}" :title="strings.edit">
                                     <b>{{ singlelearninggoal.name }}</b>
                                 </router-link>
                                 <div>{{ singlelearninggoal.description }}
-                                    <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}">
+                                    <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}" :title="strings.edit">
                                         <i class="icon fa fa-pencil fa-fw iconsmall" :title="strings.edit"></i>
                                     </router-link>
+                                    <a href="" v-on:click.prevent="showDeleteConfirm(singlelearninggoal.id)" :title="strings.delete">
+                                        <i class="icon fa fa-trash fa-fw iconsmall" :title="strings.delete"></i>
+                                    </a>
+                                </div>
+                                <div class="alert-danger p-3 m-t-1 m-b-1" v-show="clicked[singlelearninggoal.id]">
+                                    <div>{{strings.deleteprompt}} {{ singlelearninggoal.name }} ?</div>
+                                    <div class="m-t-1">
+                                        <button class="btn btn-danger m-r-0" @click="deleteLevelConfirm(level)" :title="strings.btnconfirmdelete">
+                                        {{ strings.btnconfirmdelete }}</button>
+                                        <button type=button @click="cancelDeleteConfirm(singlelearninggoal.id)" class="btn btn-secondary">{{strings.cancel}}</button>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -105,7 +116,7 @@
                                                     <!-- https://stackoverflow.com/questions/54918687 -->
                                                     <p v-for="word in category.words" v-bind:style="[selectedTabId === tab.id ? {borderTopColor: tab.tabcolor, 'border-top-width': '1px', 'border-top-style': 'solid'} : {}]" class="mb-2 pt-1">
                                                         <button v-bind:style="[selectedTabId == tab.id ? {'text-align': 'left', 'background-color': 'transparent', 'border': '0', 'padding-left': '0', 'word-break': 'break-word', 'width': '100%'} : {}]"
-                                                                v-on:click="greet($event, tabs.id, index, word.targetinput, word.text)">{{ word.title }}</button>
+                                                                v-on:click="fillword($event, tabs.id, index, word.targetinput, word.text)">{{ word.title }}</button>
                                                     </p>
                                                 </div>
                                             </div>
@@ -117,8 +128,8 @@
                     </div>
                 </div>
                 <div class="mt-3">
-                    <button type=button @click.prevent="onSave"  class="btn btn-primary">{{strings.save}}</button>
-                    <button type=button @click.prevent="onCancel" class="btn btn-secondary">{{strings.cancel}}</button>
+                    <button type=button @click.prevent="onSave" class="btn btn-primary" :title="strings.save">{{strings.save}}</button>
+                    <button type=button @click.prevent="onCancel" class="btn btn-secondary" :title="strings.cancel">{{strings.cancel}}</button>
                 </div>
             </div>
         </div>
@@ -134,6 +145,7 @@
             return {
                 editingadding: false,
                 selectedTabId: 0,
+                clicked: {},
             };
         },
         computed: mapState(['strings', 'learninggoals', 'learninggoal', 'handlers', 'learningGoalID']),
@@ -159,7 +171,6 @@
                 if (route.name === 'learninggoal-edit') {
                     this.$nextTick(this.showForm.bind(this, route.params.learninggoalId, 0));
                 } else if (route.name === 'learninggoal-new') {
-                    // TODO Somehow load a standard goal.
                     this.$nextTick(this.showForm.bind(this, null, 0));
                 }
             },
@@ -171,7 +182,6 @@
                 this.$store.dispatch('fetchLearninggoals');
             },
             onSave() {
-                // TODO Save.
                 let result = {
                     learninggoalid: this.$store.state.learningGoalID,
                     name: this.learninggoal[0].name,
@@ -193,7 +203,7 @@
                 this.$router.push({name: 'learninggoals-edit-overview'});
                 this.$store.dispatch('fetchLearninggoals');
             },
-            greet: function (event, id, index, field, text) {
+            fillword: function (event, id, index, field, text) {
                 switch(field) {
                     case "content":
                         this.learninggoal[0].content = text;
@@ -211,6 +221,25 @@
                         this.learninggoal[0].thinking_skill = text;
                 }
             },
+            showDeleteConfirm(index){
+                this.$set(this.clicked, index, true)
+
+            },
+            cancelDeleteConfirm(index){
+                if (this.clicked.hasOwnProperty(index))
+                    this.$set(this.clicked, index, !this.clicked[index])
+            },
+            onDelete() {
+            },
+            deleteLevelAsk(level) {
+                this.deleteConfirmationLevelId = level.id;
+            },
+            deleteLevelConfirm(level) {
+                this.deleteConfirmationLevelId = null;
+                this.deleteLevel({
+                    levelid: level.id
+                });
+            }
         },
         created: function() {
             this.$store.dispatch('fetchLearninggoals');

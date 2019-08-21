@@ -46,6 +46,12 @@ $string['learninggoals_edit_site_name'] = 'Differentiator learning goals';
 $string['learninggoals_edit_site_description'] = 'You may add a new goal or edit existing goals.';
 $string['learninggoals_edit_no_learninggoals'] = 'There are no goals to show.';
 
+// Learning goals overview.
+$string['edit'] = 'Edit';
+$string['delete'] = 'Delete';
+$string['deleteprompt'] = 'Do you really want to delete the learning goal';
+$string['btnconfirmdelete'] = 'Confirm delete';
+
 // Learning goal form.
 $string['learninggoal'] = 'Goal';
 $string['learninggoal_name'] = 'Goal name';
