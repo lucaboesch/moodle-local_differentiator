@@ -76,6 +76,18 @@ class learninggoal extends \external_api {
             'group' => new external_value(PARAM_TEXT, 'name of the learning goal'),
         ]);
     }
+    /**
+     * Definition of parameters for {@see delete_learninggoal}.
+     * Returns description of method parameters.
+     *
+     * @return external_function_parameters
+     */
+    public static function delete_learninggoal_parameters() {
+        return new external_function_parameters([
+            'userid' => new external_value(PARAM_INT, 'userid'),
+            'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
+        ]);
+    }
 
     /**
      * Definition of return type for {@see get_learninggoal}.
@@ -99,6 +111,16 @@ class learninggoal extends \external_api {
     }
 
     /**
+     * Definition of return type for {@see delete_learninggoal}.
+     * Returns description of method result value.
+     *
+     * @return external_single_structure
+     */
+    public static function delete_learninggoal_returns() {
+        return bool_dto::get_read_structure();
+    }
+
+    /**
      * Get a learning goal.
      *
      * @param $userid
@@ -115,6 +137,8 @@ class learninggoal extends \external_api {
                 'learninggoalid' => $learninggoalid
             )
         );
+
+        // TODO check if the learning goal really belongs to the user.
 
         $learninggoalid = $params['learninggoalid'];
 
@@ -256,6 +280,44 @@ class learninggoal extends \external_api {
             $learninggoal->id = NULL;
             $learninggoal->timecreated = time();
             $DB->insert_record('local_differentiator_lg', $learninggoal);
+        }
+
+        // Return success status.
+        $exporter = new bool_dto(true, $ctx);
+        return $exporter->export($renderer);
+    }
+
+    /**
+     * Delete a learning goal.
+     *
+     * @param $userid
+     * @param $learninggoalid
+     * @return array
+     * @throws \invalid_parameter_exception
+     */
+    public static function delete_learninggoal($userid, $learninggoalid) {
+        global $USER;
+
+        $params = self::validate_parameters(self::get_learninggoal_parameters(),
+            array(
+                'userid' => $userid,
+                'learninggoalid' => $learninggoalid
+            )
+        );
+
+        // TODO check if the learning goal really belongs to the user.
+
+        $learninggoalid = $params['learninggoalid'];
+
+        self::validate_context(\context_system::instance());
+
+        global $PAGE, $DB;
+        $renderer = $PAGE->get_renderer('core');
+
+        $ctx = \context_system::instance();
+
+        if (isset($learninggoalid) && ($learninggoalid > 0)) {
+            $DB->delete_records('local_differentiator_lg', array('id' => $learninggoalid, 'userid' => $USER->id));
         }
 
         // Return success status.

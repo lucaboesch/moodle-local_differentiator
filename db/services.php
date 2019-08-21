@@ -56,4 +56,11 @@ $functions = array(
         'type' => 'write',
         'ajax' => true,
     ),
+    'local_differentiator_delete_learninggoal' => array(
+        'classname' => 'local_differentiator\external\learninggoal',
+        'methodname' => 'delete_learninggoal',
+        'description' => 'Delete a specific learning goal.',
+        'type' => 'write',
+        'ajax' => true,
+    ),
 );

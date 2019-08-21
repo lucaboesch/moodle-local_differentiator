@@ -115,7 +115,7 @@ export const store = new Vuex.Store({
             context.commit('setHandlers', handlers);
         },
         /**
-         * Updates the data of this level, including its categories.
+         * Saves a learning goal.
          *
          * @param context
          * @param payload
@@ -124,6 +124,19 @@ export const store = new Vuex.Store({
          */
         async saveLearninggoal(context, payload) {
             const result = await ajax('local_differentiator_save_learninggoal', payload);
+            context.dispatch('fetchLearninggoals');
+            return result.result;
+        },
+        /**
+         * Deletes a learning goal.
+         *
+         * @param context
+         * @param payload
+         *
+         * @returns {Promise<void>}
+         */
+        async deleteLearninggoal(context, payload) {
+            const result = await ajax('local_differentiator_delete_learninggoal', payload);
             context.dispatch('fetchLearninggoals');
             return result.result;
         },
