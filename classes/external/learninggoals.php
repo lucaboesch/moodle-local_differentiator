@@ -40,6 +40,7 @@ defined('MOODLE_INTERNAL') || die();
  */
 class learninggoals extends \external_api {
     /**
+     * Definition of parameters for {@see get_learninggoals}.
      * Returns description of method parameters.
      *
      * @return external_function_parameters
@@ -52,6 +53,7 @@ class learninggoals extends \external_api {
     }
 
     /**
+     * Definition of parameters for {@see get_learninggoals}.
      * Returns description of method result value.
      *
      * @return external_multiple_structure

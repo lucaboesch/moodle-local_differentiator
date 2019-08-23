@@ -115,8 +115,6 @@
                                                 <div class="pt-2 pr-2 pl-2 pb-0"
                                                      v-bind:style="[selectedTabId == tab.id ? {borderColor: tab.tabcolor, 'border-width': '1px', 'border-style': 'solid', 'border-radius': '.5rem'} : {}]">
                                                     <h5 class="pb-2" v-bind:style="[selectedTabId === tab.id ? {color: tab.tabcolor, 'word-break': 'break-word'} : {'word-break': 'break-word'}]">{{category.cattitle}}</h5>
-                                                    <!-- on click learninggoal.thinking_skill should be changed to the clicked word.text -->
-                                                    <!-- https://stackoverflow.com/questions/54918687 -->
                                                     <p v-for="word in category.words" v-bind:style="[selectedTabId === tab.id ? {borderTopColor: tab.tabcolor, 'border-top-width': '1px', 'border-top-style': 'solid'} : {}]" class="mb-2 pt-1">
                                                         <button v-bind:style="[selectedTabId == tab.id ? {'text-align': 'left', 'background-color': 'transparent', 'border': '0', 'padding-left': '0', 'word-break': 'break-word', 'width': '100%'} : {}]"
                                                                 v-on:click="fillword($event, tabs.id, index, word.targetinput, word.text)">{{ word.title }}</button>

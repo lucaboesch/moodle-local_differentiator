@@ -26,11 +26,14 @@ namespace local_differentiator\external;
 
 use external_function_parameters;
 use external_multiple_structure;
+use external_settings;
 use external_value;
 use external_single_structure;
 use local_differentiator\external\exporter\bool_dto;
 
 defined('MOODLE_INTERNAL') || die();
+
+require_once($CFG->libdir.'/externallib.php');
 
 /**
  * Class learninggoal
@@ -117,6 +120,7 @@ class learninggoal extends \external_api {
 
     /**
      * Definition of return type for {@see save_learninggoal}.
+     * Returns description of method result value.
      *
      * @return external_single_structure
      */
@@ -160,11 +164,20 @@ class learninggoal extends \external_api {
                 'learninggoalid' => $learninggoalid
             )
         );
+
         // TODO check if the learning goal really belongs to the user.
         $learninggoalid = $params['learninggoalid'];
         self::validate_context(\context_system::instance());
-        global $PAGE, $DB;
+        global $PAGE, $DB, $SESSION;
         $renderer = $PAGE->get_renderer('core');
+
+        // Do additional setup stuff.
+        $settings = external_settings::get_instance();
+        $sessionlang = $settings->get_lang();
+        if (!empty($sessionlang)) {
+            $SESSION->lang = $sessionlang;
+        }
+
         $ctx = \context_system::instance();
         if ($learninggoalid > 0) {
             $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
@@ -197,16 +210,16 @@ class learninggoal extends \external_api {
                 get_string('clicktoedit', 'local_differentiator') . "' AS name, " .
                 "'' AS description, '" .
                 get_string('prethinkingskill', 'local_differentiator') . "' AS pre_thinking_skill, " .
-                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1) AS thinking_skill, " .
-                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1)  AS content, '" .
+                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1 AND lang = '" . $SESSION->lang . "') AS thinking_skill, " .
+                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1 AND lang = '" . $SESSION->lang . "') AS content, '" .
                 get_string('clicktoedit', 'local_differentiator') . "' AS subject, '" .
                 get_string('preresource', 'local_differentiator') . "' AS pre_resource, " .
-                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1) AS resource, '" .
+                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $SESSION->lang . "') AS resource, '" .
                 get_string('preproduct', 'local_differentiator') . "' AS pre_product, '" .
                 /* "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 1) AS product, '" . */
                 get_string('essay', 'local_differentiator') . "' AS product, '" .
                 get_string('pregroup', 'local_differentiator') . "' AS pre_group, " .
-                "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1) AS group";
+                "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1 AND lang = '" . $SESSION->lang . "') AS group";
             $learninggoal = $DB->get_record_sql($sql);
         }
         $exporter = new exporter\learninggoal($learninggoal, $ctx);
