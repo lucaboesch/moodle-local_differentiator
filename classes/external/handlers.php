@@ -26,10 +26,13 @@ namespace local_differentiator\external;
 
 use external_function_parameters;
 use external_multiple_structure;
+use external_settings;
 use external_single_structure;
 use external_value;
 
 defined('MOODLE_INTERNAL') || die();
+
+require_once($CFG->libdir.'/externallib.php');
 
 /**
  * Class handlers
@@ -114,8 +117,25 @@ class handlers extends \external_api {
 
         self::validate_context(\context_system::instance());
 
-        global $PAGE, $DB;
+        global $PAGE, $DB, $CFG, $SESSION;
         $renderer = $PAGE->get_renderer('core');
+
+        // Do additional setup stuff.
+        $settings = external_settings::get_instance();
+        $sessionlang = $settings->get_lang();
+        if (!empty($sessionlang)) {
+            $SESSION->lang = $sessionlang;
+        }
+
+        setup_lang_from_browser();
+
+        if (empty($CFG->lang)) {
+            if (empty($SESSION->lang)) {
+                $CFG->lang = 'en';
+            } else {
+                $CFG->lang = $SESSION->lang;
+            }
+        }
 
         $ctx = \context_system::instance();
 
