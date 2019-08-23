@@ -117,7 +117,7 @@ class handlers extends \external_api {
 
         self::validate_context(\context_system::instance());
 
-        global $PAGE, $DB, $CFG, $SESSION;
+        global $PAGE, $DB, $SESSION;
         $renderer = $PAGE->get_renderer('core');
 
         // Do additional setup stuff.
@@ -125,16 +125,6 @@ class handlers extends \external_api {
         $sessionlang = $settings->get_lang();
         if (!empty($sessionlang)) {
             $SESSION->lang = $sessionlang;
-        }
-
-        setup_lang_from_browser();
-
-        if (empty($CFG->lang)) {
-            if (empty($SESSION->lang)) {
-                $CFG->lang = 'en';
-            } else {
-                $CFG->lang = $SESSION->lang;
-            }
         }
 
         $ctx = \context_system::instance();
@@ -168,8 +158,11 @@ class handlers extends \external_api {
                             wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcetext as cattext
                             FROM {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wce} wce
                             JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wc} wc
-                            ON wc.id = wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid
+                            ON wc.id = wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid AND wce.lang = \'' .
+                            $SESSION->lang . '\'
                             ORDER BY wc.sort ASC';
+
+            file_put_contents('/Users/luca/Desktop/log0.txt', $categorysql);
 
             // Perform that query.
             $categories = $DB->get_records_sql($categorysql);
@@ -189,11 +182,12 @@ class handlers extends \external_api {
                 JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'w} w
                 ON w.id = we.' . $handlers->tabs[$tab->id]->tabprefix . 'wid
                 JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wc} wc
-                ON wc.id = w.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid
+                ON wc.id = w.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid AND we.lang = \'' .
+                    $SESSION->lang . '\'
                 WHERE wc.id = ' . $category->id . '
                 ORDER BY w.sort ASC';
-
                 // Perform that query.
+                file_put_contents('/Users/luca/Desktop/log0.txt', $wordsql);
                 $words = $DB->get_records_sql($wordsql);
 
                 // Add the words to the $handlers object.
