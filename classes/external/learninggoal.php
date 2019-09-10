@@ -190,36 +190,36 @@ class learninggoal extends \external_api {
                 'COALESCE(lg.product, \'\')', '\' \'',
                 'COALESCE(lg.pre_group, \'\')', '\' \'',
                 'COALESCE(lg.lggroup, \'\')', '\'.\'');
-            $sql = "SELECT lg.id, lg.title AS 'name', " . $concat . " AS 'description',
-            COALESCE(lg.pre_thinking_skill, '') AS 'pre_thinking_skill',
-            COALESCE(lg.thinking_skill, '') AS 'thinking_skill',
-            COALESCE(lg.lgcontent, '') AS 'content',
-            COALESCE(lg.subject, '') AS 'subject',
-            COALESCE(lg.pre_resource, '') AS 'pre_resource',
-            COALESCE(lg.resource, '') AS 'resource',
-            COALESCE(lg.pre_product, '') AS 'pre_product',
-            COALESCE(lg.product, '') AS 'product',
-            COALESCE(lg.pre_group, '') AS 'pre_group',
-            COALESCE(lg.lggroup, '') AS 'group'
+            $sql = "SELECT lg.id, lg.title AS \"name\", " . $concat . " AS \"description\",
+            COALESCE(lg.pre_thinking_skill, '') AS \"pre_thinking_skill\",
+            COALESCE(lg.thinking_skill, '') AS \"thinking_skill\",
+            COALESCE(lg.lgcontent, '') AS \"content\",
+            COALESCE(lg.subject, '') AS \"subject\",
+            COALESCE(lg.pre_resource, '') AS \"pre_resource\",
+            COALESCE(lg.resource, '') AS \"resource\",
+            COALESCE(lg.pre_product, '') AS \"pre_product\",
+            COALESCE(lg.product, '') AS \"product\",
+            COALESCE(lg.pre_group, '') AS \"pre_group\",
+            COALESCE(lg.lggroup, '') AS \"group\"
             FROM {local_differentiator_lg} lg
             WHERE lg.id = :id";
             $params['id'] = $learninggoalid;
             $learninggoal = $DB->get_record_sql($sql, $params);
         } else {
             $sql = "SELECT 0 AS id, '" .
-                get_string('clicktoedit', 'local_differentiator') . "' AS 'name', " .
-                "'' AS 'description', '" .
-                get_string('prethinkingskill', 'local_differentiator') . "' AS 'pre_thinking_skill', " .
-                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1 AND lang = '" . $SESSION->lang . "') AS 'thinking_skill', " .
-                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1 AND lang = '" . $SESSION->lang . "') AS 'content', '" .
-                get_string('clicktoedit', 'local_differentiator') . "' AS 'subject', '" .
-                get_string('preresource', 'local_differentiator') . "' AS 'pre_resource', " .
-                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $SESSION->lang . "') AS 'resource', '" .
-                get_string('preproduct', 'local_differentiator') . "' AS 'pre_product', '" .
-                /* "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 1) AS product, '" . */
-                get_string('essay', 'local_differentiator') . "' AS 'product', '" .
-                get_string('pregroup', 'local_differentiator') . "' AS 'pre_group', " .
-                "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1 AND lang = '" . $SESSION->lang . "') AS 'group'";
+                get_string('clicktoedit', 'local_differentiator') . "' AS \"name\", " .
+                "'' AS \"description\", '" .
+                get_string('prethinkingskill', 'local_differentiator') . "' AS \"pre_thinking_skill\", " .
+                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1 AND lang = '" . $SESSION->lang . "') AS \"thinking_skill\", " .
+                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1 AND lang = '" . $SESSION->lang . "') AS \"content\", '" .
+                get_string('clicktoedit', 'local_differentiator') . "' AS \"subject\", '" .
+                get_string('preresource', 'local_differentiator') . "' AS \"pre_resource\", " .
+                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $SESSION->lang . "') AS \"resource\", '" .
+                get_string('preproduct', 'local_differentiator') . "' AS \"pre_product\", '" .
+                /* "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 1) AS \"product\", '" . */
+                get_string('essay', 'local_differentiator') . "' AS \"product\", '" .
+                get_string('pregroup', 'local_differentiator') . "' AS \"pre_group\", " .
+                "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1 AND lang = '" . $SESSION->lang . "') AS \"group\"";
             $learninggoal = $DB->get_record_sql($sql);
         }
         $exporter = new exporter\learninggoal($learninggoal, $ctx);
