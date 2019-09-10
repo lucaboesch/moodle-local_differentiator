@@ -190,17 +190,17 @@ class learninggoal extends \external_api {
                 'COALESCE(lg.product, \'\')', '\' \'',
                 'COALESCE(lg.pre_group, \'\')', '\' \'',
                 'COALESCE(lg.lggroup, \'\')', '\'.\'');
-            $sql = "SELECT lg.id, lg.title AS name, " . $concat . " AS description,
-            COALESCE(lg.pre_thinking_skill, '') AS pre_thinking_skill,
-            COALESCE(lg.thinking_skill, '') AS thinking_skill,
-            COALESCE(lg.lgcontent, '') AS content,
-            COALESCE(lg.subject, '') AS subject,
-            COALESCE(lg.pre_resource, '') AS pre_resource,
-            COALESCE(lg.resource, '') AS resource,
-            COALESCE(lg.pre_product, '') AS pre_product,
-            COALESCE(lg.product, '') AS product,
-            COALESCE(lg.pre_group, '') AS pre_group,
-            COALESCE(lg.lggroup, '') AS group
+            $sql = "SELECT lg.id, lg.title AS 'name', " . $concat . " AS 'description',
+            COALESCE(lg.pre_thinking_skill, '') AS 'pre_thinking_skill',
+            COALESCE(lg.thinking_skill, '') AS 'thinking_skill',
+            COALESCE(lg.lgcontent, '') AS 'content',
+            COALESCE(lg.subject, '') AS 'subject',
+            COALESCE(lg.pre_resource, '') AS 'pre_resource',
+            COALESCE(lg.resource, '') AS 'resource',
+            COALESCE(lg.pre_product, '') AS 'pre_product',
+            COALESCE(lg.product, '') AS 'product',
+            COALESCE(lg.pre_group, '') AS 'pre_group',
+            COALESCE(lg.lggroup, '') AS 'group'
             FROM {local_differentiator_lg} lg
             WHERE lg.id = :id";
             $params['id'] = $learninggoalid;
