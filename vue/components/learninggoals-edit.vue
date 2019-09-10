@@ -5,12 +5,18 @@
             <div class="description">{{strings.learninggoals_edit_site_description}}</div>
                 <span v-if="learninggoals && learninggoals[0].name !== 'not found' && learninggoals[0].description !== ''">
                     <ul class="learninggoals-edit-list">
-                        <li v-for="singlelearninggoal in learninggoals">
+                        <li v-for="singlelearninggoal in learninggoals" style="margin-bottom: 10px">
                             <div class="learninggoal-top-level" v-if="singlelearninggoal.name !== 'not found'">
                                 <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}" :title="strings.edit">
                                     <b>{{ singlelearninggoal.name }}</b>
                                 </router-link>
-                                <div>{{ singlelearninggoal.description }}
+                                <i
+                                        style="cursor: pointer"
+                                        @click="addToClipboard(singlelearninggoal.description)"
+                                        class="icon fa fa-clipboard fa-fw iconsmall" :title="strings.toclipboard"></i>
+                                <div
+                                @click="addToClipboard(singlelearninggoal.description)"
+                                >{{ singlelearninggoal.description }}
                                     <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}" :title="strings.edit">
                                         <i class="icon fa fa-pencil fa-fw iconsmall m-r-0" :title="strings.edit"></i>
                                     </router-link>
@@ -151,6 +157,9 @@
         },
         computed: mapState(['strings', 'learninggoals', 'learninggoal', 'handlers', 'learningGoalID']),
         methods: {
+            addToClipboard: function (data) {
+                navigator.clipboard.writeText(data);
+            },
             async showForm(learninggoalId = null, selectedTabId = 0) {
                 let args = {};
                 if (learninggoalId) {
