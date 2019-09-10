@@ -52,9 +52,6 @@ $PAGE->requires->js_call_amd('local_differentiator/app-lazy', 'init', [
     'contextid' => context_system::instance()->id]
 );
 
-$PAGE->navbar->add(get_string('pluginname', 'local_differentiator'),
-    new moodle_url('/local/differentiator'));
-
 $output = $PAGE->get_renderer('local_differentiator');
 
 echo $OUTPUT->header();
