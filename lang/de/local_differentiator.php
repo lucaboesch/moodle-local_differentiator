@@ -52,6 +52,7 @@ $string['delete'] = 'Löschen';
 $string['deleteprompt'] = 'Möchten Sie das Lernziel wirklich löschen?';
 $string['btnconfirmdelete'] = 'Löschen bestätigen';
 $string['duplicate'] = 'Duplizieren';
+$string['toclipboard'] = 'In Zwischenablage kopieren';
 
 // Learning goal form.
 $string['learninggoal'] = 'Lernziel';
