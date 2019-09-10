@@ -118,16 +118,13 @@ class handlers extends \external_api {
 
         self::validate_context(\context_system::instance());
 
-        global $PAGE, $DB, $SESSION;
+        global $PAGE, $DB, $SESSION, $USER;
         $renderer = $PAGE->get_renderer('core');
 
         // Do additional setup stuff.
         $settings = external_settings::get_instance();
-        $sessionlang = $settings->get_lang();
-        if (!empty($sessionlang)) {
-            $SESSION->lang = $sessionlang;
-        }
-
+        $displaylang = $settings->get_lang() ? $settings->get_lang() : ($SESSION->lang ? $SESSION->lang : $USER->lang) ;
+        
         $ctx = \context_system::instance();
 
         $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
@@ -151,6 +148,7 @@ class handlers extends \external_api {
         // Now tabs id, tabtitle, tabcolor are set.
         // Now iterate through the tabs to add their categories.
 
+
         foreach ($handlers->tabs as $tab) {
             // Create the query through the categories.
             $categorysql = 'SELECT wc.id AS id,
@@ -160,7 +158,7 @@ class handlers extends \external_api {
                             FROM {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wce} wce
                             JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wc} wc
                             ON wc.id = wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid AND wce.lang = \'' .
-                            $SESSION->lang . '\'
+                            $displaylang . '\'
                             ORDER BY wc.sort ASC';
 
             // Perform that query.
@@ -182,7 +180,7 @@ class handlers extends \external_api {
                 ON w.id = we.' . $handlers->tabs[$tab->id]->tabprefix . 'wid
                 JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wc} wc
                 ON wc.id = w.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid AND we.lang = \'' .
-                    $SESSION->lang . '\'
+                    $displaylang . '\'
                 WHERE wc.id = ' . $category->id . '
                 ORDER BY w.sort ASC';
                 // Perform that query.
