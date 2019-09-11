@@ -226,6 +226,7 @@
                 this.selectedTabId = 0;
                 this.$router.push({name: 'learninggoals-edit-overview'});
                 this.$store.dispatch('fetchLearninggoals');
+                window.scrollTo(0,0);
             },
             fillword: function (event, id, index, field, text) {
                 switch(field) {
