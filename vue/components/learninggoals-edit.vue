@@ -78,7 +78,13 @@
                             v-model="goal.content"
                             class="content"
                             @click="switchTab(1)">
-                        <input type="text"
+                        <input v-if="$store.state.learningGoalID == 0"
+                            type="text"
+                            v-bind:placeholder="strings.subject"
+                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                            v-model="goalsubject">
+                        <input v-else
+                            type="text"
                             v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                             v-model="goal.subject">
                         <input type="text"
@@ -164,6 +170,7 @@
         data: function() {
             return {
                 goalname: '',
+                goalsubject: '',
                 editingadding: false,
                 selectedTabId: 0,
                 clicked: {},
@@ -173,6 +180,9 @@
         watch: {
             goalname: function () {
                 this.learninggoal[0].name = this.goalname
+            },
+            goalsubject: function () {
+                this.learninggoal[0].subject = this.goalsubject
             }
         },
         methods: {
@@ -185,6 +195,7 @@
             },
             async showForm(learninggoalId = null, selectedTabId = 0) {
                 this.goalname = '';
+                this.goalsubject = '';
                 let args = {};
                 if (learninggoalId) {
                     this.$store.state.learningGoalID = learninggoalId;

@@ -55,6 +55,8 @@ $string['duplicate'] = 'Duplicate';
 $string['toclipboard'] = 'Copy to clipboard';
 $string['goalnameplaceholder'] = 'Learngoal name';
 $string['toclipboarddone'] = 'Copied to clipboard';
+$string['subject'] = 'Subject';
+
 
 // Learning goal form.
 $string['learninggoal'] = 'Goal';

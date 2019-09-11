@@ -55,6 +55,7 @@ $string['duplicate'] = 'Duplizieren';
 $string['toclipboard'] = 'In Zwischenablage kopieren';
 $string['goalnameplaceholder'] = 'Lernzielname';
 $string['toclipboarddone'] = 'In Zwischenablage kopiert';
+$string['subject'] = 'Thema';
 
 // Learning goal form.
 $string['learninggoal'] = 'Lernziel';
