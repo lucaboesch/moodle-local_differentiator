@@ -276,6 +276,10 @@
     .learninggoals-edit-add {
         padding-top: 20px;
     }
+    .learninggoals-edit-add-form > div > p > input {
+        margin-bottom: 5px;
+        font-size: 1rem;
+    }
     input.thinking_skill[type="text"] {
         border: 1.5px solid #009;
         border-bottom: 2.5px solid #009;
