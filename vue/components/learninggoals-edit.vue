@@ -105,7 +105,7 @@
                                 :key="index"
                                 @click="selectedTabId = tab.id">
                                 <a class="nav-link" :href="'#link' + index" data-toggle="tab" role="tab" aria-selected="false"
-                                   v-bind:style="[selectedTabId === tab.id ? {borderRightColor: tab.tabcolor, borderTopColor: tab.tabcolor, borderLeftColor: tab.tabcolor, 'border-top-width': '2px', 'padding-top': '8px'} : {}]">{{ tab.tabtitle }}</a>
+                                   v-bind:style="[selectedTabId === tab.id ? {borderRightColor: tab.tabcolor, borderTopColor: tab.tabcolor, borderLeftColor: tab.tabcolor, 'border-top-width': '2px', 'padding-top': '8px'} : {}, {'color': tab.tabcolor}]">{{ tab.tabtitle }}</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -278,6 +278,7 @@
     }
     input.thinking_skill[type="text"] {
         border: 1.5px solid #009;
+        border-bottom: 2.5px solid #009;
     }
     input.thinking_skill[type="text"]:focus {
         outline: none;
@@ -289,37 +290,46 @@
     }
     input.content[type="text"] {
         border: 1.5px solid #600;
+        border-bottom: 2.5px solid #600;
     }
     input.content[type="text"]:focus {
         outline: none;
         border: 1.5px solid #600;
+        border-bottom: 2.5px solid #600;
     }
     input.resource[type="text"] {
         border: 1.5px solid #090;
+        border-bottom: 2.5px solid #090;
     }
     input.resource[type="text"]:focus {
         outline: none;
         border: 1.5px solid #090;
+        border-bottom: 2.5px solid #090;
     }
     input.product[type="text"] {
         border: 1.5px solid #909;
+        border-bottom: 2.5px solid #909;
     }
     input.product[type="text"]:focus {
         outline: none;
         border: 1.5px solid #909;
+        border-bottom: 2.5px solid #909;
     }
     input.group[type="text"] {
         border: 1.5px solid #990;
+        border-bottom: 2.5px solid #990;
     }
     input.group[type="text"]:focus {
         outline: none;
         border: 1.5px solid #990;
+        border-bottom: 2.5px solid #990;
     }
     input[type="text"] {
         transition: border-color 250ms ease;
         appearance: none;
         border-radius: 4px;
         border: 1.5px solid #e9ebeb;
+        border-bottom: 2.5px solid #e9ebeb;
         padding: 0.15em 0.3em;
     }
     input[type="text"]:focus {
