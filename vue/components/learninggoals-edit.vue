@@ -10,10 +10,6 @@
                                 <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}" :title="strings.edit">
                                     <b>{{ singlelearninggoal.name }}</b>
                                 </router-link>
-                                <i
-                                        style="cursor: pointer"
-                                        @click="addToClipboard(singlelearninggoal.description)"
-                                        class="icon fa fa-clipboard fa-fw iconsmall" :title="strings.toclipboard"></i>
                                 <div
                                 @click="addToClipboard(singlelearninggoal.description)"
                                 >{{ singlelearninggoal.description }}
@@ -22,6 +18,10 @@
                                     </router-link>
                                     <a href="" v-on:click.prevent="duplicateLearninggoal(singlelearninggoal.id)" :title="strings.duplicate">
                                         <i class="icon fa fa-copy fa-fw iconsmall m-r-0" :title="strings.duplicate"></i>
+                                    </a>
+                                    <a href="" v-on:click.prevent="addToClipboard(singlelearninggoal.description)">
+                                        <i                                        
+                                            class="icon fa fa-clipboard fa-fw iconsmall" :title="strings.toclipboard"></i>
                                     </a>
                                     <a href="" v-on:click.prevent="showDeleteConfirm(singlelearninggoal.id)" :title="strings.delete">
                                         <i class="icon fa fa-trash fa-fw iconsmall" :title="strings.delete"></i>
@@ -113,7 +113,7 @@
                                 :key="index"
                                 @click="selectedTabId = tab.id">
                                 <a class="nav-link" :href="'#link' + index" data-toggle="tab" role="tab" aria-selected="false"
-                                   v-bind:style="[selectedTabId === tab.id ? {borderRightColor: tab.tabcolor, borderTopColor: tab.tabcolor, borderLeftColor: tab.tabcolor, 'border-top-width': '2px', 'padding-top': '8px'} : {}]">{{ tab.tabtitle }}</a>
+                                   v-bind:style="[selectedTabId === tab.id ? {borderRightColor: tab.tabcolor, borderTopColor: tab.tabcolor, borderLeftColor: tab.tabcolor, 'border-top-width': '2px', 'padding-top': '8px'} : {}, {'color': tab.tabcolor}]">{{ tab.tabtitle }}</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -291,8 +291,13 @@
     .learninggoals-edit-add {
         padding-top: 20px;
     }
+    .learninggoals-edit-add-form > div > p > input {
+        margin-bottom: 5px;
+        font-size: 1rem;
+    }
     input.thinking_skill[type="text"] {
         border: 1.5px solid #009;
+        border-bottom: 2.5px solid #009;
     }
     input.thinking_skill[type="text"]:focus {
         outline: none;
@@ -304,37 +309,46 @@
     }
     input.content[type="text"] {
         border: 1.5px solid #600;
+        border-bottom: 2.5px solid #600;
     }
     input.content[type="text"]:focus {
         outline: none;
         border: 1.5px solid #600;
+        border-bottom: 2.5px solid #600;
     }
     input.resource[type="text"] {
         border: 1.5px solid #090;
+        border-bottom: 2.5px solid #090;
     }
     input.resource[type="text"]:focus {
         outline: none;
         border: 1.5px solid #090;
+        border-bottom: 2.5px solid #090;
     }
     input.product[type="text"] {
         border: 1.5px solid #909;
+        border-bottom: 2.5px solid #909;
     }
     input.product[type="text"]:focus {
         outline: none;
         border: 1.5px solid #909;
+        border-bottom: 2.5px solid #909;
     }
     input.group[type="text"] {
         border: 1.5px solid #990;
+        border-bottom: 2.5px solid #990;
     }
     input.group[type="text"]:focus {
         outline: none;
         border: 1.5px solid #990;
+        border-bottom: 2.5px solid #990;
     }
     input[type="text"] {
         transition: border-color 250ms ease;
         appearance: none;
         border-radius: 4px;
         border: 1.5px solid #e9ebeb;
+        border-bottom: 2.5px solid #e9ebeb;
         padding: 0.15em 0.3em;
     }
     input[type="text"]:focus {
@@ -344,5 +358,9 @@
     input[type="text"]::-webkit-input-placeholder {
         /* Chrome/Opera/Safari */
         color: rgba(19, 40, 48, 0.54);
+    }
+    .fa-clipboard {
+        cursor: pointer;
+        margin-right: 0px;
     }
 </style>
