@@ -20,7 +20,7 @@
                                         <i class="icon fa fa-copy fa-fw iconsmall m-r-0" :title="strings.duplicate"></i>
                                     </a>
                                     <a href="" v-on:click.prevent="addToClipboard(singlelearninggoal.description)">
-                                        <i                                        
+                                        <i
                                             class="icon fa fa-clipboard fa-fw iconsmall" :title="strings.toclipboard"></i>
                                     </a>
                                     <a href="" v-on:click.prevent="showDeleteConfirm(singlelearninggoal.id)" :title="strings.delete">
@@ -73,11 +73,13 @@
                         <input type="text"
                             v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                             v-model="goal.thinking_skill"
-                            class="thinking_skill">
+                            class="thinking_skill"
+                            @click="switchTab(0)">
                         <input type="text"
                             v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                             v-model="goal.content"
-                            class="content">
+                            class="content"
+                            @click="switchTab(1)">
                         <input type="text"
                             v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                             v-model="goal.subject">
@@ -87,21 +89,25 @@
                         <input type="text"
                             v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                             v-model="goal.resource"
-                            class="resource">
+                            class="resource"
+                            @click="switchTab(2)">
                         <input type="text"
                             v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                             v-model="goal.pre_product">
                         <input type="text"
                             v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                             v-model="goal.product"
-                            class="product">
+                            class="product"
+                            @click="switchTab(3)">
                         <input type="text"
                             v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                             v-model="goal.pre_group">
                         <input type="text"
                             v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                             v-model="goal.group"
-                            class="group">.
+                            class="group"
+                            @click="switchTab(4)">
+                        .
                     </p>
                 </div>
                 <div v-for="tabelements in handlers">
@@ -110,6 +116,7 @@
                             <li class="nav-item"
                                 :class=" { 'active show': selectedTabId === tab.id }"
                                 v-for="(tab, index) in tabs"
+                                :ref="'tab'+index"
                                 :key="index"
                                 @click="selectedTabId = tab.id">
                                 <a class="nav-link" :href="'#link' + index" data-toggle="tab" role="tab" aria-selected="false"
@@ -171,6 +178,9 @@
             }
         },
         methods: {
+            switchTab: function (id) {
+                this.$refs['tab'+id][0].click()
+            },
             addToClipboard: function (data) {
                 navigator.clipboard.writeText(data);
             },
