@@ -53,6 +53,8 @@ $string['deleteprompt'] = 'Voulez-vous vraiment supprimer l\'objectif ';
 $string['btnconfirmdelete'] = 'Confirmer la suppression';
 $string['duplicate'] = 'Dupliquer';
 $string['toclipboard'] = 'Copier dans le presse-papier';
+$string['goalnameplaceholder'] = 'Nom de l\'apprentissage';
+
 
 
 // Learning goal form.

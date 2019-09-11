@@ -53,7 +53,7 @@ $string['deleteprompt'] = 'Do you really want to delete the learning goal';
 $string['btnconfirmdelete'] = 'Confirm delete';
 $string['duplicate'] = 'Duplicate';
 $string['toclipboard'] = 'Copy to clipboard';
-
+$string['goalnameplaceholder'] = 'Learngoal name';
 
 // Learning goal form.
 $string['learninggoal'] = 'Goal';

@@ -54,9 +54,17 @@
             <div class="learninggoals-edit-add-form">
                 <div v-for="goal in learninggoal">
                     <p>
-                        <input type="text"
-                            v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
-                            v-model="goal.name">
+
+                        <input v-if="$store.state.learningGoalID == 0"
+                               v-bind:placeholder="strings.goalnameplaceholder"
+                               autofocus
+                               type="text"
+                               v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                               v-model="goalname">
+                        <input v-else
+                               type="text"
+                               v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                               v-model="goal.name">
                     </p>
                     <p>
                         <input type="text"
@@ -150,17 +158,24 @@
         name: "learninggoals-edit",
         data: function() {
             return {
+                goalname: '',
                 editingadding: false,
                 selectedTabId: 0,
                 clicked: {},
             };
         },
         computed: mapState(['strings', 'learninggoals', 'learninggoal', 'handlers', 'learningGoalID']),
+        watch: {
+            goalname: function () {
+                this.learninggoal[0].name = this.goalname
+            }
+        },
         methods: {
             addToClipboard: function (data) {
                 navigator.clipboard.writeText(data);
             },
             async showForm(learninggoalId = null, selectedTabId = 0) {
+                this.goalname = '';
                 let args = {};
                 if (learninggoalId) {
                     this.$store.state.learningGoalID = learninggoalId;
