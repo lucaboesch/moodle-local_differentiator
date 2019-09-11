@@ -56,7 +56,7 @@ function init() {
     const base = currenturl;
 
     const router = new VueRouter({
-        mode: 'history',
+        mode: 'hash',
         routes,
         base
     });
