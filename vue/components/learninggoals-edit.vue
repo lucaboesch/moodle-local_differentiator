@@ -10,10 +10,6 @@
                                 <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}" :title="strings.edit">
                                     <b>{{ singlelearninggoal.name }}</b>
                                 </router-link>
-                                <i
-                                        style="cursor: pointer"
-                                        @click="addToClipboard(singlelearninggoal.description)"
-                                        class="icon fa fa-clipboard fa-fw iconsmall" :title="strings.toclipboard"></i>
                                 <div
                                 @click="addToClipboard(singlelearninggoal.description)"
                                 >{{ singlelearninggoal.description }}
@@ -22,6 +18,10 @@
                                     </router-link>
                                     <a href="" v-on:click.prevent="duplicateLearninggoal(singlelearninggoal.id)" :title="strings.duplicate">
                                         <i class="icon fa fa-copy fa-fw iconsmall m-r-0" :title="strings.duplicate"></i>
+                                    </a>
+                                    <a href="" v-on:click.prevent="addToClipboard(singlelearninggoal.description)">
+                                        <i                                        
+                                            class="icon fa fa-clipboard fa-fw iconsmall" :title="strings.toclipboard"></i>
                                     </a>
                                     <a href="" v-on:click.prevent="showDeleteConfirm(singlelearninggoal.id)" :title="strings.delete">
                                         <i class="icon fa fa-trash fa-fw iconsmall" :title="strings.delete"></i>
@@ -343,5 +343,9 @@
     input[type="text"]::-webkit-input-placeholder {
         /* Chrome/Opera/Safari */
         color: rgba(19, 40, 48, 0.54);
+    }
+    .fa-clipboard {
+        cursor: pointer;
+        margin-right: 0px;
     }
 </style>
