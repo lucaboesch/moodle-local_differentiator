@@ -4,6 +4,7 @@ import { store } from './store';
 import notFound from './components/not-found';
 import learninggoalsEdit from './components/learninggoals-edit';
 import VueInputAutowidth from 'vue-input-autowidth';
+import Toasted from 'vue-toasted';
 
 function init() {
     // We need to overwrite the variable for lazy loading.
@@ -11,6 +12,7 @@ function init() {
 
     Vue.use(VueRouter);
     Vue.use(VueInputAutowidth);
+    Vue.use(Toasted, {position: 'bottom-center', duration: '1500'});
 
     store.commit('setContextID', 1);
     store.dispatch('loadComponentStrings');

@@ -54,8 +54,7 @@ $string['btnconfirmdelete'] = 'Confirmer la suppression';
 $string['duplicate'] = 'Dupliquer';
 $string['toclipboard'] = 'Copier dans le presse-papier';
 $string['goalnameplaceholder'] = 'Nom de l\'apprentissage';
-
-
+$string['toclipboarddone'] = 'Copié dans le presse-papier';
 
 // Learning goal form.
 $string['learninggoal'] = 'Objectif';

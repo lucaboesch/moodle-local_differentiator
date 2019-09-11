@@ -10,9 +10,7 @@
                                 <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}" :title="strings.edit">
                                     <b>{{ singlelearninggoal.name }}</b>
                                 </router-link>
-                                <div
-                                @click="addToClipboard(singlelearninggoal.description)"
-                                >{{ singlelearninggoal.description }}
+                                <div>{{ singlelearninggoal.description }}
                                     <router-link :to="{ name: 'learninggoal-edit', params: { learninggoalId: singlelearninggoal.id }}" :title="strings.edit">
                                         <i class="icon fa fa-pencil fa-fw iconsmall m-r-0" :title="strings.edit"></i>
                                     </router-link>
@@ -173,6 +171,7 @@
         methods: {
             addToClipboard: function (data) {
                 navigator.clipboard.writeText(data);
+                this.$toasted.show(this.strings.toclipboarddone);
             },
             async showForm(learninggoalId = null, selectedTabId = 0) {
                 this.goalname = '';

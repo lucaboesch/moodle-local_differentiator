@@ -54,7 +54,6 @@ $string['btnconfirmdelete'] = 'Löschen bestätigen';
 $string['duplicate'] = 'Duplizieren';
 $string['toclipboard'] = 'In Zwischenablage kopieren';
 $string['goalnameplaceholder'] = 'Lernzielname';
-$string['toclipboarddone'] = 'In Zwischenablage kopiert';
 
 // Learning goal form.
 $string['learninggoal'] = 'Lernziel';

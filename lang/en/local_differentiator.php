@@ -54,6 +54,7 @@ $string['btnconfirmdelete'] = 'Confirm delete';
 $string['duplicate'] = 'Duplicate';
 $string['toclipboard'] = 'Copy to clipboard';
 $string['goalnameplaceholder'] = 'Learngoal name';
+$string['toclipboarddone'] = 'Copied to clipboard';
 
 // Learning goal form.
 $string['learninggoal'] = 'Goal';
