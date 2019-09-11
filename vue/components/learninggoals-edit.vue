@@ -210,6 +210,7 @@
                 if (selectedTabId) {
                     this.selectedTabId = selectedTabId;
                 }
+                window.scrollTo(0,0);
                 // This has to happen after the save button is hit.
             },
             checkRoute(route) {
