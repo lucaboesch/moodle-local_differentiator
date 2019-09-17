@@ -49,11 +49,12 @@ $string['learninggoals_edit_no_learninggoals'] = 'Il n\'y a pas d\'objectifs à 
 // Learning goals overview.
 $string['edit'] = 'Modifier';
 $string['delete'] = 'Supprimer';
-$string['deleteprompt'] = 'Voulez-vous vraiment supprimer l\'objectif ';
+$string['deletepromptpre'] = 'Voulez-vous vraiment supprimer l\'objectif "';
+$string['deletepromptpost'] = '" ?';
 $string['btnconfirmdelete'] = 'Confirmer la suppression';
 $string['duplicate'] = 'Dupliquer';
 $string['toclipboard'] = 'Copier dans le presse-papier';
-$string['goalnameplaceholder'] = 'Nom de l\'apprentissage';
+$string['goalnameplaceholder'] = 'Nom de l\'objectif';
 $string['toclipboarddone'] = 'Copié dans le presse-papier';
 $string['subject'] = 'Assujettir';
 

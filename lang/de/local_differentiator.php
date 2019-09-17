@@ -49,7 +49,8 @@ $string['learninggoals_edit_no_learninggoals'] = 'Es gibt keine Lernziele anzuze
 // Learning goals overview.
 $string['edit'] = 'Bearbeiten';
 $string['delete'] = 'Löschen';
-$string['deleteprompt'] = 'Möchten Sie das Lernziel wirklich löschen?';
+$string['deletepromptpre'] = 'Möchten Sie das Lernziel "';
+$string['deletepromptpost'] = '" wirklich löschen?';
 $string['btnconfirmdelete'] = 'Löschen bestätigen';
 $string['duplicate'] = 'Duplizieren';
 $string['toclipboard'] = 'In Zwischenablage kopieren';

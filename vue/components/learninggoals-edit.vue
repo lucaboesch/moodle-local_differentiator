@@ -26,7 +26,7 @@
                                     </a>
                                 </div>
                                 <div class="alert-danger p-3 m-t-1 m-b-1" v-show="clicked[singlelearninggoal.id]">
-                                    <div>{{strings.deleteprompt}} {{ singlelearninggoal.name }} ?</div>
+                                    <div>{{strings.deletepromptpre}}{{singlelearninggoal.name}}{{strings.deletepromptpost}}</div>
                                     <div class="m-t-1">
                                         <button class="btn btn-danger m-r-0" @click="deleteLearninggoalConfirm(singlelearninggoal.id)" :title="strings.btnconfirmdelete">
                                         {{ strings.btnconfirmdelete }}</button>

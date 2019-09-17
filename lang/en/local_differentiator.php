@@ -49,7 +49,8 @@ $string['learninggoals_edit_no_learninggoals'] = 'There are no goals to show.';
 // Learning goals overview.
 $string['edit'] = 'Edit';
 $string['delete'] = 'Delete';
-$string['deleteprompt'] = 'Do you really want to delete the learning goal';
+$string['deletepromptpre'] = 'Do you really want to delete the learning goal "';
+$string['deletepromptpost'] = '"?';
 $string['btnconfirmdelete'] = 'Confirm delete';
 $string['duplicate'] = 'Duplicate';
 $string['toclipboard'] = 'Copy to clipboard';
