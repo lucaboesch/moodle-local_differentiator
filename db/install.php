@@ -2966,7 +2966,7 @@ function xmldb_local_differentiator_install() {
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Rapport',
-        'pwetext' => 'einen rapport',
+        'pwetext' => 'einen Rapport',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 40,
