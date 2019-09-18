@@ -328,7 +328,7 @@ function xmldb_local_differentiator_install() {
             'timecreated' => $time,
         ]);
     }
-    for ($i = 1; $i <= 12; $i++) {
+    for ($i = 1; $i <= 13; $i++) {
         $DB->insert_record('local_differentiator_pw', [
             'pwcid' => 5,
             'sort' => $i,
@@ -638,81 +638,88 @@ function xmldb_local_differentiator_install() {
         'pwid' => 37,
         'lang' => 'en',
         'timecreated' => $time,
+        'pwetitle' => 'Essay',
+        'pwetext' => 'an essay',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 38,
+        'lang' => 'en',
+        'timecreated' => $time,
         'pwetitle' => 'Response To Literature',
         'pwetext' => 'a response to literature',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 38,
+        'pwid' => 39,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Report',
         'pwetext' => 'a report',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 39,
+        'pwid' => 40,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Article',
         'pwetext' => 'an article',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 40,
+        'pwid' => 41,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Persuasive Essay',
         'pwetext' => 'a persuasive essay',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 41,
+        'pwid' => 42,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Sequel',
         'pwetext' => 'a sequel',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 42,
+        'pwid' => 43,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Letter',
         'pwetext' => 'a letter',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 43,
+        'pwid' => 44,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => "Children's Story",
         'pwetext' => "a children's story",
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 44,
+        'pwid' => 45,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Poem / Song',
         'pwetext' => 'a poem / song',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 45,
+        'pwid' => 46,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Eulogy',
         'pwetext' => 'a eulogy',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 46,
+        'pwid' => 47,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Diary',
         'pwetext' => 'a diary',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 47,
+        'pwid' => 48,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Review',
         'pwetext' => 'a review',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 48,
+        'pwid' => 49,
         'lang' => 'en',
         'timecreated' => $time,
         'pwetitle' => 'Story In A New Genre',
@@ -1844,81 +1851,88 @@ function xmldb_local_differentiator_install() {
         'pwid' => 37,
         'lang' => 'fr',
         'timecreated' => $time,
+        'pwetitle' => 'Essai',
+        'pwetext' => 'un essai',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 38,
+        'lang' => 'fr',
+        'timecreated' => $time,
         'pwetitle' => 'Réponse à la littérature',
         'pwetext' => 'une réponse à la littérature',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 38,
+        'pwid' => 39,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Reportage',
         'pwetext' => 'un reportage',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 39,
+        'pwid' => 40,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Article',
         'pwetext' => 'un article',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 40,
+        'pwid' => 41,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Essai persuasif',
         'pwetext' => 'un essai persuasif',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 41,
+        'pwid' => 42,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Série',
         'pwetext' => 'une série',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 42,
+        'pwid' => 43,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Lettre',
         'pwetext' => 'une lettre',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 43,
+        'pwid' => 44,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => "Histoire d'enfants",
         'pwetext' => "une histoire d'enfants",
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 44,
+        'pwid' => 45,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Poème / Chanson',
         'pwetext' => 'un poème / une chanson',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 45,
+        'pwid' => 46,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Éloge',
         'pwetext' => 'en éloge',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 46,
+        'pwid' => 47,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Journal intime',
         'pwetext' => 'un journal intime',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 47,
+        'pwid' => 48,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Revue',
         'pwetext' => 'une revue',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 48,
+        'pwid' => 49,
         'lang' => 'fr',
         'timecreated' => $time,
         'pwetitle' => 'Histoire d\'un genre nouveau',
@@ -2937,81 +2951,88 @@ function xmldb_local_differentiator_install() {
         'pwid' => 37,
         'lang' => 'de',
         'timecreated' => $time,
+        'pwetitle' => 'Aufsatz',
+        'pwetext' => 'einen Aufsatz',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 38,
+        'lang' => 'de',
+        'timecreated' => $time,
         'pwetitle' => 'Antwort auf Literatur',
         'pwetext' => 'eine Antwort auf Literatur',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 38,
+        'pwid' => 39,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Rapport',
         'pwetext' => 'einen rapport',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 39,
+        'pwid' => 40,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Artikel',
         'pwetext' => 'einen Artikel',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 40,
+        'pwid' => 41,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Überzeugender Aufsatz',
         'pwetext' => 'einen überzeugenden Aufsatz',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 41,
+        'pwid' => 42,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Serie',
         'pwetext' => 'eine Serie',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 42,
+        'pwid' => 43,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Brief',
         'pwetext' => 'einen Brief',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 43,
+        'pwid' => 44,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => "Kindergeschichte",
         'pwetext' => "eine Kindergeschichte",
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 44,
+        'pwid' => 45,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Gedicht / Chanson',
         'pwetext' => 'ein Gedicht / ein Chanson',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 45,
+        'pwid' => 46,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Nachruf',
         'pwetext' => 'einen Nachruf',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 46,
+        'pwid' => 47,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Tagebuch',
         'pwetext' => 'ein Tagebuch',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 47,
+        'pwid' => 48,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Rezension',
         'pwetext' => 'eine Rezension',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
-        'pwid' => 48,
+        'pwid' => 49,
         'lang' => 'de',
         'timecreated' => $time,
         'pwetitle' => 'Geschichte in einem neuen Genre',

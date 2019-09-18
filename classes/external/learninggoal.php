@@ -216,8 +216,7 @@ class learninggoal extends \external_api {
                 get_string('preresource', 'local_differentiator') . "' AS \"pre_resource\", " .
                 "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $SESSION->lang . "') AS \"resource\", '" .
                 get_string('preproduct', 'local_differentiator') . "' AS \"pre_product\", '" .
-                /* "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 1) AS \"product\", '" . */
-                get_string('essay', 'local_differentiator') . "' AS \"product\", '" .
+                "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 37) AS \"product\", '" .
                 get_string('pregroup', 'local_differentiator') . "' AS \"pre_group\", " .
                 "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1 AND lang = '" . $SESSION->lang . "') AS \"group\"";
             $learninggoal = $DB->get_record_sql($sql);
@@ -279,8 +278,6 @@ class learninggoal extends \external_api {
         $renderer = $PAGE->get_renderer('core');
 
         $ctx = \context_system::instance();
-        // $game = util::get_game($coursemodule);
-        // util::require_user_has_capability('mod/millionaire:manage', $ctx);
 
         $learninggoal = new \stdClass();
         $learninggoal->id = $learninggoalid;
