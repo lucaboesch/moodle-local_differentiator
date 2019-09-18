@@ -54,7 +54,7 @@ $string['deletepromptpost'] = '"?';
 $string['btnconfirmdelete'] = 'Confirm delete';
 $string['duplicate'] = 'Duplicate';
 $string['toclipboard'] = 'Copy to clipboard';
-$string['goalnameplaceholder'] = 'Learngoal name';
+$string['goalnameplaceholder'] = 'Learning goal name';
 $string['toclipboarddone'] = 'Copied to clipboard';
 $string['subject'] = 'Subject';
 
