@@ -215,8 +215,8 @@ class learninggoal extends \external_api {
                 get_string('clicktoedit', 'local_differentiator') . "' AS \"subject\", '" .
                 get_string('preresource', 'local_differentiator') . "' AS \"pre_resource\", " .
                 "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $SESSION->lang . "') AS \"resource\", '" .
-                get_string('preproduct', 'local_differentiator') . "' AS \"pre_product\", '" .
-                "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 37) AS \"product\", '" .
+                get_string('preproduct', 'local_differentiator') . "' AS \"pre_product\", " .
+                "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 37 AND lang = '" . $SESSION->lang . "') AS \"product\", '" .
                 get_string('pregroup', 'local_differentiator') . "' AS \"pre_group\", " .
                 "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1 AND lang = '" . $SESSION->lang . "') AS \"group\"";
             $learninggoal = $DB->get_record_sql($sql);
