@@ -1065,8 +1065,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 16,
         'lang' => 'en',
         'timecreated' => $time,
-        'tswetitle' => 'Justify',
-        'tswetext' => 'justify the',
+        'tswetitle' => 'Substantiate',
+        'tswetext' => 'substantiate the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 17,
@@ -1086,190 +1086,190 @@ function xmldb_local_differentiator_install() {
         'tswid' => 19,
         'lang' => 'en',
         'timecreated' => $time,
+        'tswetitle' => 'Interpret',
+        'tswetext' => 'interpret the',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 20,
+        'lang' => 'en',
+        'timecreated' => $time,
         'tswetitle' => 'Solve',
         'tswetext' => 'solve the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 20,
+        'tswid' => 21,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Visualise',
         'tswetext' => 'visualise the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 21,
+        'tswid' => 22,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Present',
         'tswetext' => 'present the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 22,
+        'tswid' => 23,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Measure',
         'tswetext' => 'measure the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 23,
+        'tswid' => 24,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Outline',
         'tswetext' => 'outline the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 24,
+        'tswid' => 25,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Implement',
         'tswetext' => 'implement the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 25,
+        'tswid' => 26,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Calculate',
         'tswetext' => 'calculate the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 26,
+        'tswid' => 27,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Execute',
         'tswetext' => 'execute the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 27,
+        'tswid' => 28,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Review',
         'tswetext' => 'review the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 28,
+        'tswid' => 29,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Question',
         'tswetext' => 'question the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 29,
+        'tswid' => 30,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Judge',
         'tswetext' => 'judge the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 30,
+        'tswid' => 31,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Contrast',
         'tswetext' => 'contrast the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 31,
+        'tswid' => 32,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Criticize',
         'tswetext' => 'criticize the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 32,
+        'tswid' => 33,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Analyse',
         'tswetext' => 'analyse the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 33,
+        'tswid' => 34,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Diagnose',
         'tswetext' => 'diagnose the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 34,
+        'tswid' => 35,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Reflect',
         'tswetext' => 'reflect the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 35,
+        'tswid' => 36,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Deduce',
         'tswetext' => 'deduce the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 36,
+        'tswid' => 37,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Select',
         'tswetext' => 'select the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 37,
+        'tswid' => 38,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Suggest',
         'tswetext' => 'suggest the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 38,
+        'tswid' => 39,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Assess',
         'tswetext' => 'assess the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 39,
+        'tswid' => 40,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Evaluate',
         'tswetext' => 'evaluate the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 40,
+        'tswid' => 41,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Decide',
         'tswetext' => 'decide the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 41,
+        'tswid' => 42,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Justify',
         'tswetext' => 'justify the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 42,
+        'tswid' => 43,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Appraise',
         'tswetext' => 'appraise the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 43,
+        'tswid' => 44,
         'lang' => 'en',
         'timecreated' => $time,
         'tswetitle' => 'Assemble',
         'tswetext' => 'assemble the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 44,
-        'lang' => 'en',
-        'timecreated' => $time,
-        'tswetitle' => 'Entwerfen',
-        'tswetext' => 'assemble the',
-    ]);
-    $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 45,
         'lang' => 'en',
         'timecreated' => $time,
-        'tswetitle' => 'Transform',
-        'tswetext' => 'transform the',
+        'tswetitle' => 'Conceive',
+        'tswetext' => 'conceive the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 46,
@@ -2167,8 +2167,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 11,
         'lang' => 'fr',
         'timecreated' => $time,
-        'tswetitle' => 'Présenter',
-        'tswetext' => 'de présenter',
+        'tswetitle' => 'Montrer',
+        'tswetext' => 'de montrer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 12,
@@ -2223,190 +2223,190 @@ function xmldb_local_differentiator_install() {
         'tswid' => 19,
         'lang' => 'fr',
         'timecreated' => $time,
+        'tswetitle' => 'Interpréter',
+        'tswetext' => 'd\'interpréter',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 20,
+        'lang' => 'fr',
+        'timecreated' => $time,
         'tswetitle' => 'Résoudre',
         'tswetext' => 'de résoudre',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 20,
+        'tswid' => 21,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Visualiser',
         'tswetext' => 'de visualiser',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 21,
+        'tswid' => 22,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Présenter',
         'tswetext' => 'de présenter',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 22,
+        'tswid' => 23,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Mesurer',
         'tswetext' => 'de mesurer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 23,
+        'tswid' => 24,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Brouillonner',
         'tswetext' => 'de brouillonner',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 24,
+        'tswid' => 25,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Concrétiser',
         'tswetext' => 'de concrétiser',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 25,
+        'tswid' => 26,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Calculer',
         'tswetext' => 'de calculer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 26,
+        'tswid' => 27,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Executer',
         'tswetext' => 'd\'executer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 27,
+        'tswid' => 28,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Vérifier',
         'tswetext' => 'de vérifier',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 28,
+        'tswid' => 29,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Questionner',
         'tswetext' => 'de questionner',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 29,
+        'tswid' => 30,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Estimer',
         'tswetext' => 'd\'estimer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 30,
+        'tswid' => 31,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Contraster',
         'tswetext' => 'de contraster',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 31,
+        'tswid' => 32,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Critiquer',
         'tswetext' => 'de critiquer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 32,
+        'tswid' => 33,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Analyser',
         'tswetext' => 'd\'analyser',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 33,
+        'tswid' => 34,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Diagnostiquer',
         'tswetext' => 'de diagnostiquer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 34,
+        'tswid' => 35,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Refléter',
         'tswetext' => 'de refléter',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 35,
+        'tswid' => 36,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Déduire',
         'tswetext' => 'de déduire',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 36,
+        'tswid' => 37,
         'lang' => 'fr',
         'timecreated' => $time,
-        'tswetitle' => 'Distinguer',
-        'tswetext' => 'de distinguer',
+        'tswetitle' => 'Sélectionner',
+        'tswetext' => 'de sélectionner',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 37,
+        'tswid' => 38,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Suggérer',
         'tswetext' => 'de suggérer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 38,
+        'tswid' => 39,
         'lang' => 'fr',
         'timecreated' => $time,
-        'tswetitle' => 'Juger',
-        'tswetext' => 'de juger',
+        'tswetitle' => 'Considerer',
+        'tswetext' => 'de condiderer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 39,
+        'tswid' => 40,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Évaluer',
         'tswetext' => 'd\'évaluer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 40,
+        'tswid' => 41,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Décider',
         'tswetext' => 'de décider',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 41,
+        'tswid' => 42,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Justifier',
         'tswetext' => 'de justifier',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 42,
+        'tswid' => 43,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Estimer',
         'tswetext' => 'd\'estimer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 43,
+        'tswid' => 44,
         'lang' => 'fr',
         'timecreated' => $time,
         'tswetitle' => 'Assembler',
         'tswetext' => 'd\'assembler',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
-        'tswid' => 44,
-        'lang' => 'fr',
-        'timecreated' => $time,
-        'tswetitle' => 'Concevoir',
-        'tswetext' => 'de concevoir',
-    ]);
-    $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 45,
         'lang' => 'fr',
         'timecreated' => $time,
-        'tswetitle' => 'Modifier',
-        'tswetext' => 'de modifier',
+        'tswetitle' => 'Engendrer',
+        'tswetext' => 'd\'engendrer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 46,
