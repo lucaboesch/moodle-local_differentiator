@@ -80,5 +80,3 @@ $string['clicktoedit'] = '[klicken zum Bearbeiten]';
 $string['preresource'] = 'unter Verwendung';
 $string['preproduct'] = 'und kreieren';
 $string['pregroup'] = 'in Gruppen von';
-$string['essay'] = 'einen Aufsatz';
-

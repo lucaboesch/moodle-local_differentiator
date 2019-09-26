@@ -81,5 +81,3 @@ $string['clicktoedit'] = '[cliquez pour éditer]';
 $string['preresource'] = 'utilisant';
 $string['preproduct'] = 'et de créer';
 $string['pregroup'] = 'en groupes de';
-$string['essay'] = 'un essai';
-

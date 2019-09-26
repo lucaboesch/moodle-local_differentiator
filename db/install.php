@@ -3102,7 +3102,7 @@ function xmldb_local_differentiator_install() {
         'rwid' => 7,
         'lang' => 'de',
         'timecreated' => $time,
-        'rwetitle' => 'eine/n Expert/in',
+        'rwetitle' => 'Expert/in',
         'rwetext' => 'eine/n Expert/in',
     ]);
     $DB->insert_record('local_differentiator_rwe', [
@@ -3144,7 +3144,7 @@ function xmldb_local_differentiator_install() {
         'rwid' => 13,
         'lang' => 'de',
         'timecreated' => $time,
-        'rwetitle' => 'einer/s Expert/in',
+        'rwetitle' => 'Expert/in',
         'rwetext' => 'einer/s Expert/in',
     ]);
 
@@ -3539,6 +3539,1106 @@ function xmldb_local_differentiator_install() {
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 50,
         'lang' => 'de',
+        'timecreated' => $time,
+        'tswetitle' => 'Konstruieren',
+        'tswetext' => 'konstruieren',
+    ]);
+
+    // Italian.
+
+    // Table local_differentiator_cwce.
+    $DB->insert_record('local_differentiator_cwce', [
+        'cwcid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwcetitle' => 'Approfondimento',
+        'cwcetext' => 'Approfondimento',
+    ]);
+    $DB->insert_record('local_differentiator_cwce', [
+        'cwcid' => 2,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwcetitle' => 'Complessità',
+        'cwcetext' => 'Complessità',
+    ]);
+    $DB->insert_record('local_differentiator_cwce', [
+        'cwcid' => 3,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwcetitle' => 'Esigenze',
+        'cwcetext' => 'Esigenze',
+    ]);
+    $DB->insert_record('local_differentiator_cwce', [
+        'cwcid' => 4,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwcetitle' => 'Parole chiave',
+        'cwcetext' => 'Parole chiave',
+    ]);
+
+    // Table local_differentiator_cwe.
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Gesamtbild',
+        'cwetext' => 'das Gesamtbild der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 2,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Unbeantwortete Fragen',
+        'cwetext' => 'die unbeantworteten Fragen der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 3,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Ethik',
+        'cwetext' => 'die Ethik der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 4,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Motive',
+        'cwetext' => 'die Motive der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 5,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Regeln',
+        'cwetext' => 'die Regeln der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 6,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Fachsprache',
+        'cwetext' => 'die Fachsprache der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 7,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Wesentliche Details',
+        'cwetext' => 'die wesentliche Details der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 8,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Trends',
+        'cwetext' => 'die Trends der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 9,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Mehrere Gesichtspunkte',
+        'cwetext' => 'mehrere Gesichtspunkte der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 10,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Veränderung im Laufe der Zeit',
+        'cwetext' => 'die Veränderung im Laufe der Zeit der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 11,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Interdisziplinarität',
+        'cwetext' => 'die Interdisziplinarität der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 12,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Herkunft',
+        'cwetext' => 'die Herkunft der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 13,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Konvergenz',
+        'cwetext' => 'die Konvergenz der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 14,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Parallellen',
+        'cwetext' => 'die Parallelen der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 15,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Paradox',
+        'cwetext' => 'das Paradox der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 16,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Beitrag',
+        'cwetext' => 'den Beitrag der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 17,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Konsequenzen',
+        'cwetext' => 'die Konsequenzen der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 18,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Motivation',
+        'cwetext' => 'die Motivation der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 19,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Implikationen',
+        'cwetext' => 'die Implikationen der',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwcid' => 20,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'cwetitle' => 'Bedeutung',
+        'cwetext' => 'die Bedeutung der',
+    ]);
+
+    // Table local_differentiator_gwce.
+    $DB->insert_record('local_differentiator_gwce', [
+        'gwcid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'gwcetitle' => 'Dimensione gruppo',
+        'gwcetext' => 'Dimensione gruppo',
+    ]);
+
+    // Table local_differentiator_gwe.
+    $DB->insert_record('local_differentiator_gwe', [
+        'gwid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'gwetitle' => 'Uno',
+        'gwetext' => 'uno',
+    ]);
+    $DB->insert_record('local_differentiator_gwe', [
+        'gwid' => 2,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'gwetitle' => 'Due',
+        'gwetext' => 'due',
+    ]);
+    $DB->insert_record('local_differentiator_gwe', [
+        'gwid' => 3,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'gwetitle' => 'Tre',
+        'gwetext' => 'tre',
+    ]);
+    $DB->insert_record('local_differentiator_gwe', [
+        'gwid' => 4,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'gwetitle' => 'Quattro',
+        'gwetext' => 'quattro',
+    ]);
+
+    // Table local_differentiator_pwce.
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwcetitle' => 'Visivo',
+        'pwcetext' => 'Visivo',
+    ]);
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 2,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwcetitle' => 'Costruzione',
+        'pwcetext' => 'Costruzione',
+    ]);
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 3,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwcetitle' => 'Orale',
+        'pwcetext' => 'Orale',
+    ]);
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 4,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwcetitle' => 'Multimediale',
+        'pwcetext' => 'Multimediale',
+    ]);
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 5,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwcetitle' => 'Scritto',
+        'pwcetext' => 'Scritto',
+    ]);
+
+    // Table local_differentiator_pwe.
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Grafik',
+        'pwetext' => 'eine Grafik',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 2,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Zeichnung',
+        'pwetext' => 'eine Zeichnung',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 3,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Chronologie',
+        'pwetext' => 'eine Chronologie',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 4,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Diagramm',
+        'pwetext' => 'ein Diagramme',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 5,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Schematische Darstellung',
+        'pwetext' => 'eine schematische Darstellung',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 6,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Karte',
+        'pwetext' => 'eine Karte',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 7,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Comic',
+        'pwetext' => 'einen Comic',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 8,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Buchumschlag',
+        'pwetext' => 'einen Buchumschlag',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 9,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Plakat',
+        'pwetext' => 'ein Plakat',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 10,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Modell',
+        'pwetext' => 'ein Modell',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 11,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Skulptur',
+        'pwetext' => 'eine Skulptur',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 12,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Diorama',
+        'pwetext' => 'ein Diorama',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 13,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Miniatur',
+        'pwetext' => 'eine Miniatur',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 14,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Kunstgalerie',
+        'pwetext' => 'eine Kunstgalerie',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 15,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Museumsausstellung',
+        'pwetext' => 'eine Museumsausstellung',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 16,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Mobilé',
+        'pwetext' => 'ein Mobilé',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 17,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Debatte',
+        'pwetext' => 'eine Debatte',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 18,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Podiumsdiskussion',
+        'pwetext' => 'eine Podiumsdiskussion',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 19,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Lektion',
+        'pwetext' => 'eine Lektion',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 20,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Bericht',
+        'pwetext' => 'einen Bericht',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 21,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Theaterstück',
+        'pwetext' => 'ein Theaterstück',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 22,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => "Hörspiel",
+        'pwetext' => "ein Hörspiel",
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 23,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Pressekonferenz',
+        'pwetext' => 'eine Pressekonferenz',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 24,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Talkshow',
+        'pwetext' => 'eine Talkshow',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 25,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Monolog',
+        'pwetext' => 'einen Monolog',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 26,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Filmkritik',
+        'pwetext' => 'eine Filmkritik',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 27,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Lied',
+        'pwetext' => 'ein Lied',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 28,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Bildband',
+        'pwetext' => 'einen Bildband',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 29,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Zeitung',
+        'pwetext' => 'eine Zeitung',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 30,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Fernsehsendung',
+        'pwetext' => 'eine Fernsehsendung',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 31,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'PowerPoint',
+        'pwetext' => 'ein PowerPoint',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 32,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Videopoesie',
+        'pwetext' => 'eine Videopoesie',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 33,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Fotoreportage',
+        'pwetext' => 'eine Fotoreportage',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 34,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Videoreisebericht',
+        'pwetext' => 'einen Videoreisebericht',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 35,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Nachrichtenbeitrag',
+        'pwetext' => 'einen Nachrichtenbeitrag',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 36,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Webseite',
+        'pwetext' => 'eine Webseite',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 37,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Aufsatz',
+        'pwetext' => 'einen Aufsatz',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 38,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Antwort auf Literatur',
+        'pwetext' => 'eine Antwort auf Literatur',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 39,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Rapport',
+        'pwetext' => 'einen Rapport',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 40,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Artikel',
+        'pwetext' => 'einen Artikel',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 41,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Überzeugender Aufsatz',
+        'pwetext' => 'einen überzeugenden Aufsatz',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 42,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Serie',
+        'pwetext' => 'eine Serie',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 43,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Brief',
+        'pwetext' => 'einen Brief',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 44,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => "Kindergeschichte",
+        'pwetext' => "eine Kindergeschichte",
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 45,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Gedicht / Chanson',
+        'pwetext' => 'ein Gedicht / ein Chanson',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 46,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Nachruf',
+        'pwetext' => 'einen Nachruf',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 47,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Tagebuch',
+        'pwetext' => 'ein Tagebuch',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 48,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Rezension',
+        'pwetext' => 'eine Rezension',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 49,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'pwetitle' => 'Geschichte in einem neuen Genre',
+        'pwetext' => 'eine Geschichte in einem neuen Genre',
+    ]);
+
+    // Table local_differentiator_rwce.
+    $DB->insert_record('local_differentiator_rwce', [
+        'rwcid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwcetitle' => 'Offline',
+        'rwcetext' => 'Offline',
+    ]);
+    $DB->insert_record('local_differentiator_rwce', [
+        'rwcid' => 2,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwcetitle' => 'Online',
+        'rwcetext' => 'Online',
+    ]);
+
+    // Table local_differentiator_rwe.
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Text',
+        'rwetext' => 'eines Textes',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 2,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Buch',
+        'rwetext' => 'eines Buchs',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 3,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Magazin',
+        'rwetext' => 'eines Magazins',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 4,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Zeitschrift',
+        'rwetext' => 'einer Zeitschrift',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 5,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Interview',
+        'rwetext' => 'eines Interviews',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 6,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Enzyklopädie',
+        'rwetext' => 'einer Enzyklopädie',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 7,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Expert/in',
+        'rwetext' => 'eine/n Expert/in',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 8,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Webseite',
+        'rwetext' => 'einer Webseite',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 9,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Wikipedia',
+        'rwetext' => 'von Wikipedia',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 10,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Online-Enzyklopädie',
+        'rwetext' => 'einer Online-Enzyklopädie',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 11,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Online-Zeitschrift',
+        'rwetext' => 'einer Online-Zeitschrift',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 12,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Artikel',
+        'rwetext' => 'eines Artikels',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 13,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'rwetitle' => 'Expert/in',
+        'rwetext' => 'einer/s Expert/in',
+    ]);
+
+    // Table local_differentiator_tswce.
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswcetitle' => 'Erinnern',
+        'tswcetext' => 'Erinnern',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 2,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswcetitle' => 'Verstehen',
+        'tswcetext' => 'Verstehen',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 3,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswcetitle' => 'Anwenden',
+        'tswcetext' => 'Anwenden',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 4,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswcetitle' => 'Analysieren',
+        'tswcetext' => 'Analysieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 5,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswcetitle' => 'Evaluieren',
+        'tswcetext' => 'Evaluieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 6,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswcetitle' => 'Kreieren',
+        'tswcetext' => 'Kreieren',
+    ]);
+
+    // Table local_differentiator_tswe.
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 1,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Erinnern',
+        'tswetext' => 'erinnern sich an',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 2,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Angeben',
+        'tswetext' => 'geben an',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 3,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Benennen',
+        'tswetext' => 'benennen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 4,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Berichten',
+        'tswetext' => 'berichten',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 5,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Auflisten',
+        'tswetext' => 'listen auf',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 6,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Erklären',
+        'tswetext' => 'erklären',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 7,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Definieren',
+        'tswetext' => 'definieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 8,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Veranschaulichen',
+        'tswetext' => 'veranschaulichen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 9,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Wiedererkennen',
+        'tswetext' => 'erkennen wieder',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 10,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Vergleichen',
+        'tswetext' => 'vergleichen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 11,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Darstellen',
+        'tswetext' => 'stellen dar',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 12,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Erläutern',
+        'tswetext' => 'erläutern',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 13,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Auswählen',
+        'tswetext' => 'wählen aus',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 14,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Beschreiben',
+        'tswetext' => 'beschreiben',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 15,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Einordnen',
+        'tswetext' => 'ordnen ein',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 16,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Begründen',
+        'tswetext' => 'Begründen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 17,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Zusammenfassen',
+        'tswetext' => 'fassen zusammen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 18,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Unterscheiden',
+        'tswetext' => 'unterscheiden',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 19,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Interpretieren',
+        'tswetext' => 'interpretieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 20,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Lösen',
+        'tswetext' => 'lösen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 21,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Visualisieren',
+        'tswetext' => 'visualisieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 22,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Präsentieren',
+        'tswetext' => 'präsentieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 23,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Messen',
+        'tswetext' => 'messen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 24,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Entwerfen',
+        'tswetext' => 'entwerfen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 25,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Umsetzen',
+        'tswetext' => 'setzen um',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 26,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Berechnen',
+        'tswetext' => 'berechnen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 27,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Ausführen',
+        'tswetext' => 'führen aus',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 28,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Überprüfen',
+        'tswetext' => 'überprüfen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 29,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Hinterfragen',
+        'tswetext' => 'hinterfragen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 30,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Bewerten',
+        'tswetext' => 'bewerten',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 31,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Gegenüberstellen',
+        'tswetext' => 'stellen gegenüber',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 32,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Kritisieren',
+        'tswetext' => 'kritisieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 33,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Analysieren',
+        'tswetext' => 'analysieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 34,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Diagnostizieren',
+        'tswetext' => 'diagnostizieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 35,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Reflektieren',
+        'tswetext' => 'reflektieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 36,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Ableiten',
+        'tswetext' => 'ableiten',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 37,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Auswählen',
+        'tswetext' => 'wählen aus',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 38,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Vorschlagen',
+        'tswetext' => 'vorschlagen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 39,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Beurteilen',
+        'tswetext' => 'beurteilen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 40,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Evaluieren',
+        'tswetext' => 'evaluieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 41,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Entscheiden',
+        'tswetext' => 'entscheiden',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 42,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Rechtfertigen',
+        'tswetext' => 'rechtfertigen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 43,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Auswerten',
+        'tswetext' => 'werten aus',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 44,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Zusammensetzen',
+        'tswetext' => 'setzen zusammen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 45,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Konzipieren',
+        'tswetext' => 'konzipieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 46,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Erweitern',
+        'tswetext' => 'erweitern',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 47,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Entwickeln',
+        'tswetext' => 'entwickeln',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 48,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Designen',
+        'tswetext' => 'designen',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 49,
+        'lang' => 'it',
+        'timecreated' => $time,
+        'tswetitle' => 'Kreieren',
+        'tswetext' => 'kreieren',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 50,
+        'lang' => 'it',
         'timecreated' => $time,
         'tswetitle' => 'Konstruieren',
         'tswetext' => 'konstruieren',
