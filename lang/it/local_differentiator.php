@@ -59,11 +59,11 @@ $string['toclipboarddone'] = 'Copiato negli appunti';
 $string['subject'] = 'Soggetto';
 
 // Learning goal form.
-$string['learninggoal'] = 'Obiettivi formativo';
+$string['learninggoal'] = 'Obiettivo formativo';
 $string['learninggoal_name'] = 'Nome del obiettivo formativo';
 $string['learninggoal_description'] = 'Descrizione del obiettivo formativo';
 $string['learninggoal_form_title_add'] = 'Aggiungere un nuovo obiettivo formativo';
-$string['learninggoal_form_title_edit'] = 'Modificare un\'obiettivo formativo';
+$string['learninggoal_form_title_edit'] = 'Modificare un obiettivo formativo';
 $string['save'] = 'Salva';
 $string['cancel'] = 'Annulla';
 
