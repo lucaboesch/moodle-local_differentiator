@@ -1858,8 +1858,8 @@ function xmldb_local_differentiator_install() {
         'pwid' => 38,
         'lang' => 'fr',
         'timecreated' => $time,
-        'pwetitle' => 'Réponse à la littérature',
-        'pwetext' => 'une réponse à la littérature',
+        'pwetitle' => 'Analyse littéraire',
+        'pwetext' => 'une analyse littéraire',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 39,
@@ -2958,8 +2958,8 @@ function xmldb_local_differentiator_install() {
         'pwid' => 38,
         'lang' => 'de',
         'timecreated' => $time,
-        'pwetitle' => 'Antwort auf Literatur',
-        'pwetext' => 'eine Antwort auf Literatur',
+        'pwetitle' => 'Literarischer Essay',
+        'pwetext' => 'einen literarischen Essay',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 39,
@@ -2979,8 +2979,8 @@ function xmldb_local_differentiator_install() {
         'pwid' => 41,
         'lang' => 'de',
         'timecreated' => $time,
-        'pwetitle' => 'Überzeugender Aufsatz',
-        'pwetext' => 'einen überzeugenden Aufsatz',
+        'pwetitle' => 'Argumentativer Aufsatz',
+        'pwetext' => 'einen argumentativen Aufsatz',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 42,
@@ -3876,7 +3876,7 @@ function xmldb_local_differentiator_install() {
         'pwid' => 12,
         'lang' => 'it',
         'timecreated' => $time,
-        'pwetitle' => 'Diorama ',
+        'pwetitle' => 'Diorama',
         'pwetext' => 'un diorama',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
@@ -3988,7 +3988,7 @@ function xmldb_local_differentiator_install() {
         'pwid' => 28,
         'lang' => 'it',
         'timecreated' => $time,
-        'pwetitle' => 'Libro illustrato ',
+        'pwetitle' => 'Libro illustrato',
         'pwetext' => 'un libro illustrato',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
@@ -4135,7 +4135,7 @@ function xmldb_local_differentiator_install() {
         'pwid' => 49,
         'lang' => 'it',
         'timecreated' => $time,
-        'pwetitle' => 'Storia di nuovo genere ',
+        'pwetitle' => 'Storia di nuovo genere',
         'pwetext' => 'una storia di nuovo genere',
     ]);
 
