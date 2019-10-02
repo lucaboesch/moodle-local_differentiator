@@ -42,7 +42,7 @@ require_once($CFG->libdir.'/externallib.php');
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class handlers extends \external_api {
-// Take from mod/choicegroup/classes/external.php
+    // Taken from mod/choicegroup/classes/external.php.
     /**
      * Definition of parameters for {@see get_handlers}.
      * Returns description of method parameters.
@@ -86,7 +86,8 @@ class handlers extends \external_api {
                                                     array(
                                                         'title' => new external_value(PARAM_TEXT, 'Word title', VALUE_OPTIONAL),
                                                         'text' => new external_value(PARAM_TEXT, 'Word text', VALUE_OPTIONAL),
-                                                        'targetinput' => new external_value(PARAM_TEXT, 'Learning goal text field to be filled'),
+                                                        'targetinput' => new external_value(PARAM_TEXT,
+                                                            'Learning goal text field to be filled'),
                                                     )
                                                 ), 'Category words', VALUE_OPTIONAL
                                             ),
@@ -104,7 +105,8 @@ class handlers extends \external_api {
     /**
      * Get the differentiator handlers.
      *
-     * @param void
+     * @param int $userid
+     * @param int $learninggoalid
      * @return array
      * @throws \invalid_parameter_exception
      */
@@ -123,8 +125,8 @@ class handlers extends \external_api {
 
         // Do additional setup stuff.
         $settings = external_settings::get_instance();
-        $displaylang = $settings->get_lang() ? $settings->get_lang() : ($SESSION->lang ? $SESSION->lang : $USER->lang) ;
-        
+        $displaylang = $settings->get_lang() ? $settings->get_lang() : ($SESSION->lang ? $SESSION->lang : $USER->lang);
+
         $ctx = \context_system::instance();
 
         $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
@@ -147,7 +149,6 @@ class handlers extends \external_api {
         $handlers->tabs = $DB->get_records_sql($sql);
         // Now tabs id, tabtitle, tabcolor are set.
         // Now iterate through the tabs to add their categories.
-
 
         foreach ($handlers->tabs as $tab) {
             // Create the query through the categories.

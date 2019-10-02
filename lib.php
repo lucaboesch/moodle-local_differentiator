@@ -65,7 +65,7 @@ function differentiator_update_instance($differentiator) {
     return $ret;
 }
 
-///**
+// **
 // * Removes a differentiator instance from the database.
 // *
 // * Given an ID of an instance of this module,
@@ -75,7 +75,7 @@ function differentiator_update_instance($differentiator) {
 // * @param int $id ID of the module instance.
 // * @return boolean Success/Failure
 // */
-//function differentiator_delete_instance($id) {
+// function differentiator_delete_instance($id) {
 //    global $DB;
 //
 //    // Check if an instance with this id exists.
@@ -86,7 +86,7 @@ function differentiator_update_instance($differentiator) {
 //    $DB->delete_records('differentiator', ['id' => $id]);
 //    $DB->delete_records('local_differentiator_lg', ['differentiatorid' => $id]);
 //    return true;
-//}
+// }
 
 /**
  * List of features supported in differentiator.
@@ -118,7 +118,7 @@ function differentiator_supports($feature) {
  * Returns the HTML to view an mform.
  * If form data is delivered and the data is valid, this returns 'ok'.
  *
- * @param $args
+ * @param array $args
  * @return string
  * @throws moodle_exception
  */

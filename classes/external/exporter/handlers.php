@@ -42,9 +42,9 @@ class handlers extends \core\external\exporter {
     /**
      * The differentiator handlers constructor.
      *
-     * @param $handlers
+     * @param \handlers $handlers
      * @param \context $context
-     * @throws \coding_exception
+     * @throws coding_exception
      */
     public function __construct($handlers, \context $context) {
         $this->handlers = $handlers;
@@ -52,7 +52,7 @@ class handlers extends \core\external\exporter {
     }
 
     /**
-     * Get ids and titles of the handlers.
+     * Return the list of additional, generated dynamically from the given properties.
      *
      * @return array
      */
@@ -66,7 +66,7 @@ class handlers extends \core\external\exporter {
     }
 
     /**
-     * TODO.
+     * Return the list of properties.
      *
      * @return array
      */

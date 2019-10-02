@@ -42,7 +42,7 @@ class learninggoal extends \core\external\exporter {
     /**
      * The learning goal constructor.
      *
-     * @param $learninggoal
+     * @param \learninggoal $learninggoal
      * @param \context $context
      * @throws \coding_exception
      */
@@ -52,7 +52,7 @@ class learninggoal extends \core\external\exporter {
     }
 
     /**
-     * Get id, name and description of the learning goal.
+     * Return the id, name, description and elements of the learning goal.
      *
      * @return array
      */
@@ -114,7 +114,7 @@ class learninggoal extends \core\external\exporter {
     }
 
     /**
-     * TODO.
+     * Return the list of properties.
      *
      * @return array
      */

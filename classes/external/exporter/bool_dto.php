@@ -48,16 +48,21 @@ class bool_dto extends exporter {
     /**
      * bool_dto constructor.
      *
-     * @param bool $value
-     * @param context $context
+     * @param \bool $value
+     * @param \context $context
      *
      * @throws coding_exception
      */
-    public function __construct(bool $value, context $context) {
+    public function __construct($value, \context $context) {
         $this->value = $value;
         parent::__construct([], ['context' => $context]);
     }
 
+    /**
+     * Return the type and description of the dto.
+     *
+     * @return array
+     */
     protected static function define_other_properties() {
         return [
             'result' => [
@@ -67,10 +72,24 @@ class bool_dto extends exporter {
         ];
     }
 
+    /**
+     * Return the list of properties.
+     *
+     * @return array
+     */
     protected static function define_related() {
         return ['context' => 'context'];
     }
 
+    /**
+     * Assign values to the defined other properties.
+     *
+     * @param renderer_base $output The output renderer object.
+     * @return array
+     * @throws coding_exception
+     * @throws dml_exception
+     * @throws moodle_exception
+     */
     protected function get_other_values(renderer_base $output) {
         return ['result' => $this->value];
     }

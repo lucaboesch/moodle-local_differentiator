@@ -37,7 +37,7 @@ class tab extends \core\external\exporter {
     /**
      * The tab constructor.
      *
-     * @param $tab
+     * @param \tab $tab
      * @param \context $context
      * @throws \coding_exception
      */
@@ -46,7 +46,7 @@ class tab extends \core\external\exporter {
         parent::__construct([], ['context' => $context]);
     }
     /**
-     * Get id and title of the tab.
+     * Return the it, title, color and target input field of the tab.
      *
      * @return array
      */
@@ -70,8 +70,9 @@ class tab extends \core\external\exporter {
             ],
         ];
     }
+
     /**
-     * TODO.
+     * Return the list of properties.
      *
      * @return array
      */
@@ -80,6 +81,7 @@ class tab extends \core\external\exporter {
             'context' => 'context',
         ];
     }
+
     /**
      * Get id, title and color of the tab as well as its word categories.
      *

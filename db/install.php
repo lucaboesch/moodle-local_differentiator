@@ -18,7 +18,7 @@
  * This file installs the needed values to local_differentiator.
  *
  * @package     local_differentiator
- * @category    install
+ * @category    upgrade
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -3638,7 +3638,7 @@ function xmldb_local_differentiator_install() {
         'lang' => 'it',
         'timecreated' => $time,
         'cwetitle' => 'Punti di vista differenti',
-        'cwetext' => 'i punti di vista differenti',
+        'cwetext' => 'punti di vista differenti',
     ]);
     $DB->insert_record('local_differentiator_cwe', [
         'cwid' => 10,
@@ -3672,7 +3672,7 @@ function xmldb_local_differentiator_install() {
         'cwid' => 14,
         'lang' => 'it',
         'timecreated' => $time,
-        'cwetitle' => 'Parallilismo',
+        'cwetitle' => 'Parallelismo',
         'cwetext' => 'il parallelismo',
     ]);
     $DB->insert_record('local_differentiator_cwe', [

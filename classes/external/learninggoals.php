@@ -67,8 +67,8 @@ class learninggoals extends \external_api {
     /**
      * Get all learning goals.
      *
-     * @param $userid
-     * @param $learninggoalid
+     * @param int $userid
+     * @param int $learninggoalid
      * @return array
      * @throws \invalid_parameter_exception
      */

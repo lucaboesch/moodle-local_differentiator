@@ -151,8 +151,8 @@ class learninggoal extends \external_api {
     /**
      * Get a learning goal.
      *
-     * @param $userid
-     * @param $learninggoalid
+     * @param int $userid
+     * @param int $learninggoalid
      * @return array
      * @throws \invalid_parameter_exception
      */
@@ -210,13 +210,17 @@ class learninggoal extends \external_api {
                 get_string('clicktoedit', 'local_differentiator') . "' AS \"name\", " .
                 "'' AS \"description\", '" .
                 get_string('prethinkingskill', 'local_differentiator') . "' AS \"pre_thinking_skill\", " .
-                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1 AND lang = '" . $SESSION->lang . "') AS \"thinking_skill\", " .
-                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1 AND lang = '" . $SESSION->lang . "') AS \"content\", '" .
+                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1 AND lang = '" . $SESSION->lang . "') AS " .
+                "\"thinking_skill\", " .
+                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1 AND lang = '" . $SESSION->lang . "') AS " .
+                "\"content\", '" .
                 get_string('clicktoedit', 'local_differentiator') . "' AS \"subject\", '" .
                 get_string('preresource', 'local_differentiator') . "' AS \"pre_resource\", " .
-                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $SESSION->lang . "') AS \"resource\", '" .
+                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $SESSION->lang . "') AS " .
+                "\"resource\", '" .
                 get_string('preproduct', 'local_differentiator') . "' AS \"pre_product\", " .
-                "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 37 AND lang = '" . $SESSION->lang . "') AS \"product\", '" .
+                "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 37 AND lang = '" . $SESSION->lang . "') AS " .
+                "\"product\", '" .
                 get_string('pregroup', 'local_differentiator') . "' AS \"pre_group\", " .
                 "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1 AND lang = '" . $SESSION->lang . "') AS \"group\"";
             $learninggoal = $DB->get_record_sql($sql);
@@ -229,6 +233,7 @@ class learninggoal extends \external_api {
     /**
      * Updates or inserts the given data as a learning goal.
      *
+     * @param int $userid
      * @param int $learninggoalid
      * @param string $name
      * @param string $pre_thinking_skill
@@ -250,8 +255,8 @@ class learninggoal extends \external_api {
      * @throws moodle_exception
      * @throws restricted_context_exception
      */
-    public static function save_learninggoal($userid, $learninggoalid, $name, $pre_thinking_skill, $thinking_skill, $content, $subject,
-        $pre_resource, $resource, $pre_product, $product, $pre_group, $group) {
+    public static function save_learninggoal($userid, $learninggoalid, $name, $pre_thinking_skill, $thinking_skill, $content,
+        $subject, $pre_resource, $resource, $pre_product, $product, $pre_group, $group) {
         global $USER;
 
         $params = [
@@ -311,8 +316,8 @@ class learninggoal extends \external_api {
     /**
      * Delete a learning goal.
      *
-     * @param $userid
-     * @param $learninggoalid
+     * @param int $userid
+     * @param int $learninggoalid
      * @return array
      * @throws \invalid_parameter_exception
      */
@@ -349,8 +354,8 @@ class learninggoal extends \external_api {
     /**
      * Duplicate a learning goal.
      *
-     * @param $userid
-     * @param $learninggoalid
+     * @param int $userid
+     * @param int $learninggoalid
      * @return array
      * @throws \invalid_parameter_exception
      */
