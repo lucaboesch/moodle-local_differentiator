@@ -1107,8 +1107,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 22,
         'lang' => 'en',
         'timecreated' => $time,
-        'tswetitle' => 'Present',
-        'tswetext' => 'present the',
+        'tswetitle' => 'Judge',
+        'tswetext' => 'judge the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 23,
@@ -1163,8 +1163,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 30,
         'lang' => 'en',
         'timecreated' => $time,
-        'tswetitle' => 'Judge',
-        'tswetext' => 'judge the',
+        'tswetitle' => 'Present',
+        'tswetext' => 'present the',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 31,
@@ -2244,8 +2244,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 22,
         'lang' => 'fr',
         'timecreated' => $time,
-        'tswetitle' => 'Présenter',
-        'tswetext' => 'de présenter',
+        'tswetitle' => 'Estimer',
+        'tswetext' => 'd\'estimer',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 23,
@@ -2300,8 +2300,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 30,
         'lang' => 'fr',
         'timecreated' => $time,
-        'tswetitle' => 'Estimer',
-        'tswetext' => 'd\'estimer',
+        'tswetitle' => 'Présenter',
+        'tswetext' => 'de présenter',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 31,
@@ -3344,8 +3344,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 22,
         'lang' => 'de',
         'timecreated' => $time,
-        'tswetitle' => 'Präsentieren',
-        'tswetext' => 'präsentieren',
+        'tswetitle' => 'Bewerten',
+        'tswetext' => 'bewerten',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 23,
@@ -3400,8 +3400,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 30,
         'lang' => 'de',
         'timecreated' => $time,
-        'tswetitle' => 'Bewerten',
-        'tswetext' => 'bewerten',
+        'tswetitle' => 'Präsentieren',
+        'tswetext' => 'präsentieren',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 31,
@@ -4444,8 +4444,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 22,
         'lang' => 'it',
         'timecreated' => $time,
-        'tswetitle' => 'Presentare',
-        'tswetext' => 'presentare',
+        'tswetitle' => 'Giudicare',
+        'tswetext' => 'giudicare',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 23,
@@ -4500,8 +4500,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 30,
         'lang' => 'it',
         'timecreated' => $time,
-        'tswetitle' => 'Giudicare',
-        'tswetext' => 'giudicare',
+        'tswetitle' => 'Presentare',
+        'tswetext' => 'presentare',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 31,
