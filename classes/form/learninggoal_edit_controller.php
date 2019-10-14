@@ -74,11 +74,12 @@ class learninggoal_edit_controller extends form_controller {
      * @throws \dml_exception
      */
     protected function handle_submit(\stdClass $data) : bool {
+        global $DB;
+
         if ($this->learninggoalid && $data->learninggoalid != $this->learninggoalid) {
             return false;
         }
 
-        global $DB;
         $learninggoal = new \stdClass();
         $learninggoal->id = $this->learninggoalid;
         $learninggoal->differentiatorid = $this->differentiator->get_id();
@@ -98,7 +99,6 @@ class learninggoal_edit_controller extends form_controller {
      * First display of the form.
      */
     protected function handle_display() {
-        global $DB;
 
         if ($this->learninggoal) {
             // Set default (existing) data.
