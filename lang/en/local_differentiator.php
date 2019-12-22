@@ -81,5 +81,4 @@ $string['clicktoedit'] = '[click to edit]';
 $string['preresource'] = 'using';
 $string['preproduct'] = 'and create';
 $string['pregroup'] = 'in groups of';
-$string['essay'] = 'an essay';
 
