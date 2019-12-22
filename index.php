@@ -45,6 +45,8 @@ $PAGE->set_pagelayout('standard');
 $PAGE->set_title($SITE->fullname . ': ' . get_string('pluginname', 'local_differentiator'));
 $PAGE->set_heading($SITE->fullname);
 $PAGE->set_url(new moodle_url('/local/differentiator/index.php'));
+$PAGE->navbar->ignore_active(true);
+$PAGE->navbar->add(get_string('pluginname', 'local_differentiator'), new moodle_url('/local/differentiator/index.php'));
 $PAGE->set_pagelayout('admin');
 
 $PAGE->requires->js_call_amd('local_differentiator/app-lazy', 'init', [
