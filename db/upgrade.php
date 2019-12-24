@@ -228,8 +228,8 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
             'gwid' => 1,
             'lang' => 'es',
             'timecreated' => $time,
-            'gwetitle' => 'Un',
-            'gwetext' => 'un',
+            'gwetitle' => 'Uno',
+            'gwetext' => 'uno',
         ]);
         $DB->insert_record('local_differentiator_gwe', [
             'gwid' => 2,
@@ -1087,8 +1087,8 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
             'tswid' => 43,
             'lang' => 'es',
             'timecreated' => $time,
-            'tswetitle' => 'Interpretar',
-            'tswetext' => 'interpretar',
+            'tswetitle' => 'Apreciar',
+            'tswetext' => 'apreciar',
         ]);
         $DB->insert_record('local_differentiator_tswe', [
             'tswid' => 44,
@@ -1328,8 +1328,8 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
             'gwid' => 1,
             'lang' => 'es_mx',
             'timecreated' => $time,
-            'gwetitle' => 'Un',
-            'gwetext' => 'un',
+            'gwetitle' => 'Uno',
+            'gwetext' => 'uno',
         ]);
         $DB->insert_record('local_differentiator_gwe', [
             'gwid' => 2,
@@ -2187,8 +2187,8 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
             'tswid' => 43,
             'lang' => 'es_mx',
             'timecreated' => $time,
-            'tswetitle' => 'Interpretar',
-            'tswetext' => 'interpretar',
+            'tswetitle' => 'Apreciar',
+            'tswetext' => 'apreciar',
         ]);
         $DB->insert_record('local_differentiator_tswe', [
             'tswid' => 44,
@@ -2243,5 +2243,52 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
         // Plugin savepoint reached.
         upgrade_plugin_savepoint(true, 2019122300, 'local', 'differentiator');
     }
-        return true;
+
+    if ($oldversion < 2019122400) {
+
+        $time = time();
+        $gwe = $DB->get_record('local_differentiator_gwe', ['gwid' => 1, 'lang' => 'es']);
+        if (!empty($gwe)) {
+            $gwe->gwetitle = 'Uno';
+            $gwe->gwetext = 'uno';
+            $gwe->timemodified = $time;
+            $DB->update_record('local_differentiator_gwe', $gwe);
+        }
+
+        $gwe = $DB->get_record('local_differentiator_gwe', ['gwid' => 1, 'lang' => 'es_mx']);
+        if (!empty($gwe)) {
+            $gwe->gwetitle = 'Uno';
+            $gwe->gwetext = 'uno';
+            $gwe->timemodified = $time;
+            $DB->update_record('local_differentiator_gwe', $gwe);
+        }
+
+        $tswe = $DB->get_record('local_differentiator_tswe', ['tswid' => 43, 'lang' => 'es']);
+        if (!empty($tswe)) {
+            $tswe->tswetitle = 'Apreciar';
+            $tswe->tswetext = 'apreciar';
+            $tswe->timemodified = $time;
+            $DB->update_record('local_differentiator_tswe', $tswe);
+        }
+
+        $tswe = $DB->get_record('local_differentiator_tswe', ['tswid' => 43, 'lang' => 'es_mx']);
+        if (!empty($tswe)) {
+            $tswe->tswetitle = 'Apreciar';
+            $tswe->tswetext = 'apreciar';
+            $tswe->timemodified = $time;
+            $DB->update_record('local_differentiator_tswe', $tswe);
+        }
+
+        $tswe = $DB->get_record('local_differentiator_tswe', ['tswid' => 43, 'lang' => 'it']);
+        if (!empty($tswe)) {
+            $tswe->tswetitle = 'Apprezziare';
+            $tswe->tswetext = 'apprezziare';
+            $tswe->timemodified = $time;
+            $DB->update_record('local_differentiator_tswe', $tswe);
+        }
+
+        // Plugin savepoint reached.
+        upgrade_plugin_savepoint(true, 2019122400, 'local', 'differentiator');
+    }
+    return true;
 }
