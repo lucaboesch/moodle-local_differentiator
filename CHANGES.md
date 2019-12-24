@@ -4,6 +4,10 @@ moodle-local_differentiator
 Changes
 -------
 
+### Release 1.1.1
+
+* 2019-12-24 - Amended strings, also fixed strings for thinking skills appearing twice in es, es_mx and it.
+
 ### Release 1.1.0
 
 * 2019-12-22 - Added strings for es as well as es_mx, including the user tour with typo fixes. Thanks to Germán Valero!
