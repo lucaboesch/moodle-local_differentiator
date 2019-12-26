@@ -4,6 +4,11 @@ moodle-local_differentiator
 Changes
 -------
 
+### Release 1.2.1
+
+* 2019-12-27 - Fixed strings for products in pt.
+* 2019-12-27 - Fixed coding style issues.
+
 ### Release 1.2.0
 
 * 2019-12-26 - Added strings for pt. Thanks to Dinis Medeiro!

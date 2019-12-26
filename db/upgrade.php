@@ -3398,5 +3398,35 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
         // Plugin savepoint reached.
         upgrade_plugin_savepoint(true, 2019122600, 'local', 'differentiator');
     }
+
+    if ($oldversion < 2019122700) {
+        $time = time();
+        $pwce = $DB->get_record('local_differentiator_pwce', ['pwcid' => 4, 'lang' => 'pt']);
+        if (!empty($pwce)) {
+            $pwce->pwcetitle = 'Multimédia';
+            $pwce->pwcetext = 'Multimédia';
+            $pwce->timemodified = $time;
+            $DB->update_record('local_differentiator_pwce', $pwce);
+        }
+
+        $pwce = $DB->get_record('local_differentiator_pwce', ['pwcid' => 5, 'lang' => 'pt']);
+        if (!empty($pwce)) {
+            $pwce->pwcetitle = 'Escrita';
+            $pwce->pwcetext = 'Escrita';
+            $pwce->timemodified = $time;
+            $DB->update_record('local_differentiator_pwce', $pwce);
+        }
+
+        $cwe = $DB->get_record('local_differentiator_cwe', ['cwid' => 7, 'lang' => 'pt']);
+        if (!empty($cwe)) {
+            $cwe->cwetitle = 'Detalhes essenciais';
+            $cwe->cwetext = 'os detalhes essenciais';
+            $cwe->timemodified = $time;
+            $DB->update_record('local_differentiator_cwe', $cwe);
+        }
+
+        // Plugin savepoint reached.
+        upgrade_plugin_savepoint(true, 2019122700, 'local', 'differentiator');
+    }
     return true;
 }
