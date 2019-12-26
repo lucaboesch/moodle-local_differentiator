@@ -167,6 +167,7 @@ class handlers extends \external_api {
 
             // Add the categories to the $handlers object.
             foreach ($categories as $category) {
+                $handlers->tabs[$tab->id]->categories[$category->id] = new \stdClass();
                 $handlers->tabs[$tab->id]->categories[$category->id]->cattitle = $category->cattitle;
                 $handlers->tabs[$tab->id]->categories[$category->id]->cattext = $category->cattext;
                 $handlers->tabs[$tab->id]->categories[$category->id]->parenttabid = $category->parenttabid;
@@ -189,6 +190,7 @@ class handlers extends \external_api {
 
                 // Add the words to the $handlers object.
                 foreach ($words as $word) {
+                    $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id] = new \stdClass();
                     $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->title = $word->wordtitle;
                     $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->text = $word->wordtext;
                     $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->targetinput = $word->targetinput;
