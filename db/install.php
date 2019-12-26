@@ -6923,8 +6923,8 @@ function xmldb_local_differentiator_install() {
         'cwid' => 7,
         'lang' => 'pt',
         'timecreated' => $time,
-        'cwetitle' => 'Detalhes Essenciais',
-        'cwetext' => 'os detalhes Essenciais',
+        'cwetitle' => 'Detalhes essenciais',
+        'cwetext' => 'os detalhes essenciais',
     ]);
     $DB->insert_record('local_differentiator_cwe', [
         'cwid' => 8,
@@ -7083,15 +7083,15 @@ function xmldb_local_differentiator_install() {
         'pwcid' => 4,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwcetitle' => 'Multimedia',
-        'pwcetext' => 'Multimedia',
+        'pwcetitle' => 'Multimédia',
+        'pwcetext' => 'Multimédia',
     ]);
     $DB->insert_record('local_differentiator_pwce', [
         'pwcid' => 5,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwcetitle' => 'Multimédia',
-        'pwcetext' => 'Multimédia',
+        'pwcetitle' => 'Escrita',
+        'pwcetext' => 'Escrita',
     ]);
 
     // Table local_differentiator_pwe.
