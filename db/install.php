@@ -1557,43 +1557,6 @@ function xmldb_local_differentiator_install() {
         'pwcetext' => 'Écrit',
     ]);
 
-    // Table local_differentiator_pwce.
-    $DB->insert_record('local_differentiator_pwce', [
-        'pwcid' => 1,
-        'lang' => 'en',
-        'timecreated' => $time,
-        'pwcetitle' => 'Visual',
-        'pwcetext' => 'Visual',
-    ]);
-    $DB->insert_record('local_differentiator_pwce', [
-        'pwcid' => 2,
-        'lang' => 'en',
-        'timecreated' => $time,
-        'pwcetitle' => 'Construction',
-        'pwcetext' => 'Construction',
-    ]);
-    $DB->insert_record('local_differentiator_pwce', [
-        'pwcid' => 3,
-        'lang' => 'en',
-        'timecreated' => $time,
-        'pwcetitle' => 'Oral',
-        'pwcetext' => 'Oral',
-    ]);
-    $DB->insert_record('local_differentiator_pwce', [
-        'pwcid' => 4,
-        'lang' => 'en',
-        'timecreated' => $time,
-        'pwcetitle' => 'Multimedia',
-        'pwcetext' => 'Multimedia',
-    ]);
-    $DB->insert_record('local_differentiator_pwce', [
-        'pwcid' => 5,
-        'lang' => 'en',
-        'timecreated' => $time,
-        'pwcetitle' => 'Written',
-        'pwcetext' => 'Written',
-    ]);
-
     // Table local_differentiator_pwe.
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 1,
