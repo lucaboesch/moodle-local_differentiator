@@ -135,16 +135,17 @@ class learninggoal extends \core\external\exporter {
             'id' => $this->learninggoal->id,
             'name' => $this->learninggoal->name,
             'description' => $this->learninggoal->description,
-            'pre_thinking_skill' => $this->learninggoal->pre_thinking_skill,
-            'thinking_skill' => $this->learninggoal->thinking_skill,
-            'content' => $this->learninggoal->content,
-            'subject' => $this->learninggoal->subject,
-            'pre_resource' => $this->learninggoal->pre_resource,
-            'resource' => $this->learninggoal->resource,
-            'pre_product' => $this->learninggoal->pre_product,
-            'product' => $this->learninggoal->product,
-            'pre_group' => $this->learninggoal->pre_group,
-            'group' => $this->learninggoal->group,
+            'pre_thinking_skill' => ((isset($this->learninggoal->pre_thinking_skill)) ? $this->learninggoal->pre_thinking_skill :
+                ''),
+            'thinking_skill' => ((isset($this->learninggoal->thinking_skill)) ? $this->learninggoal->thinking_skill : ''),
+            'content' => ((isset($this->learninggoal->content)) ? $this->learninggoal->content : ''),
+            'subject' => ((isset($this->learninggoal->subject)) ? $this->learninggoal->subject : ''),
+            'pre_resource' => ((isset($this->learninggoal->pre_resource)) ? $this->learninggoal->pre_resource : ''),
+            'resource' => ((isset($this->learninggoal->resource)) ? $this->learninggoal->resource : ''),
+            'pre_product' => ((isset($this->learninggoal->pre_product)) ? $this->learninggoal->pre_product : ''),
+            'product' => ((isset($this->learninggoal->product)) ? $this->learninggoal->product : ''),
+            'pre_group' => ((isset($this->learninggoal->pre_group)) ? $this->learninggoal->pre_group : ''),
+            'group' => ((isset($this->learninggoal->group)) ? $this->learninggoal->group : ''),
         ];
     }
 }
