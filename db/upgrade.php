@@ -3428,5 +3428,81 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
         // Plugin savepoint reached.
         upgrade_plugin_savepoint(true, 2019122700, 'local', 'differentiator');
     }
+
+    if ($oldversion < 2019122800) {
+        $time = time();
+        $tswe = $DB->get_record('local_differentiator_tswe', ['tswid' => 12, 'lang' => 'pt']);
+        if (!empty($tswe)) {
+            $tswe->tswetitle = 'Explicar';
+            $tswe->tswetext = 'explicar';
+            $tswe->timemodified = $time;
+            $DB->update_record('local_differentiator_tswe', $tswe);
+        }
+        $tswe = $DB->get_record('local_differentiator_tswe', ['tswid' => 29, 'lang' => 'pt']);
+        if (!empty($tswe)) {
+            $tswe->tswetitle = 'Perguntar';
+            $tswe->tswetext = 'perguntar';
+            $tswe->timemodified = $time;
+            $DB->update_record('local_differentiator_tswe', $tswe);
+        }
+        $tswe = $DB->get_record('local_differentiator_tswe', ['tswid' => 31, 'lang' => 'pt']);
+        if (!empty($tswe)) {
+            $tswe->tswetitle = 'Debater';
+            $tswe->tswetext = 'debater';
+            $tswe->timemodified = $time;
+            $DB->update_record('local_differentiator_tswe', $tswe);
+        }
+        $tswe = $DB->get_record('local_differentiator_tswe', ['tswid' => 39, 'lang' => 'pt']);
+        if (!empty($tswe)) {
+            $tswe->tswetitle = 'Considerar';
+            $tswe->tswetext = 'considerar';
+            $tswe->timemodified = $time;
+            $DB->update_record('local_differentiator_tswe', $tswe);
+        }
+        $rwe = $DB->get_record('local_differentiator_rwe', ['rwid' => 8, 'lang' => 'pt']);
+        if (!empty($rwe)) {
+            $rwe->tswetitle = 'Site Web';
+            $rwe->tswetext = 'um site Web';
+            $rwe->timemodified = $time;
+            $DB->update_record('local_differentiator_rwe', $rwe);
+        }
+        $rwe = $DB->get_record('local_differentiator_rwe', ['rwid' => 9, 'lang' => 'pt']);
+        if (!empty($rwe)) {
+            $rwe->tswetitle = 'Wikipédia';
+            $rwe->tswetext = 'Wikipédia';
+            $rwe->timemodified = $time;
+            $DB->update_record('local_differentiator_rwe', $rwe);
+        }
+        $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 9, 'lang' => 'pt']);
+        if (!empty($pwe)) {
+            $pwe->tswetitle = 'Póster';
+            $pwe->tswetext = 'um póster';
+            $pwe->timemodified = $time;
+            $DB->update_record('local_differentiator_pwe', $pwe);
+        }
+        $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 16, 'lang' => 'pt']);
+        if (!empty($pwe)) {
+            $pwe->tswetitle = 'Dispositivo móvel';
+            $pwe->tswetext = 'um dispositivo móvel';
+            $pwe->timemodified = $time;
+            $DB->update_record('local_differentiator_pwe', $pwe);
+        }
+        $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 32, 'lang' => 'pt']);
+        if (!empty($pwe)) {
+            $pwe->tswetitle = 'Vídeo de poesia';
+            $pwe->tswetext = 'um vídeo de poesia';
+            $pwe->timemodified = $time;
+            $DB->update_record('local_differentiator_pwe', $pwe);
+        }
+        $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 34, 'lang' => 'pt']);
+        if (!empty($pwe)) {
+            $pwe->tswetitle = 'Vídeo de uma viagem';
+            $pwe->tswetext = 'um vídeo de uma viagem';
+            $pwe->timemodified = $time;
+            $DB->update_record('local_differentiator_pwe', $pwe);
+        }
+        // Plugin savepoint reached.
+        upgrade_plugin_savepoint(true, 2019122800, 'local', 'differentiator');
+    }
     return true;
 }

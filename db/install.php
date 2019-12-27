@@ -7118,8 +7118,8 @@ function xmldb_local_differentiator_install() {
         'pwid' => 9,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwetitle' => 'Poster',
-        'pwetext' => 'um poster',
+        'pwetitle' => 'Póster',
+        'pwetext' => 'um póster',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 10,
@@ -7167,8 +7167,8 @@ function xmldb_local_differentiator_install() {
         'pwid' => 16,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwetitle' => 'Móvel',
-        'pwetext' => 'um móvel',
+        'pwetitle' => 'Dispositivo móvel',
+        'pwetext' => 'um dispositivo móvel',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 17,
@@ -7279,7 +7279,7 @@ function xmldb_local_differentiator_install() {
         'pwid' => 32,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwetitle' => 'Video de poesia',
+        'pwetitle' => 'Vídeo de poesia',
         'pwetext' => 'um vídeo de poesia',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
@@ -7293,8 +7293,8 @@ function xmldb_local_differentiator_install() {
         'pwid' => 34,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwetitle' => 'Video de uma viagem',
-        'pwetext' => 'um video de uma viagem',
+        'pwetitle' => 'Vídeo de viagem',
+        'pwetext' => 'um vídeo de uma viagem',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 35,
@@ -7472,15 +7472,15 @@ function xmldb_local_differentiator_install() {
         'rwid' => 8,
         'lang' => 'pt',
         'timecreated' => $time,
-        'rwetitle' => 'Site web',
-        'rwetext' => 'um Site Web',
+        'rwetitle' => 'Site Web',
+        'rwetext' => 'um site Web',
     ]);
     $DB->insert_record('local_differentiator_rwe', [
         'rwid' => 9,
         'lang' => 'pt',
         'timecreated' => $time,
-        'rwetitle' => 'Wikipedia',
-        'rwetext' => 'Wikipedia',
+        'rwetitle' => 'Wikipédia',
+        'rwetext' => 'Wikipédia',
     ]);
     $DB->insert_record('local_differentiator_rwe', [
         'rwid' => 10,
@@ -7637,8 +7637,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 12,
         'lang' => 'pt',
         'timecreated' => $time,
-        'tswetitle' => 'Elucidar',
-        'tswetext' => 'elucidar',
+        'tswetitle' => 'Explicar',
+        'tswetext' => 'explicar',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 13,
@@ -7756,8 +7756,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 29,
         'lang' => 'pt',
         'timecreated' => $time,
-        'tswetitle' => 'Preguntar',
-        'tswetext' => 'preguntar',
+        'tswetitle' => 'Perguntar',
+        'tswetext' => 'perguntar',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 30,
@@ -7770,8 +7770,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 31,
         'lang' => 'pt',
         'timecreated' => $time,
-        'tswetitle' => 'Contrastar',
-        'tswetext' => 'contrastar',
+        'tswetitle' => 'Debater',
+        'tswetext' => 'debater',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 32,
@@ -7826,8 +7826,8 @@ function xmldb_local_differentiator_install() {
         'tswid' => 39,
         'lang' => 'pt',
         'timecreated' => $time,
-        'tswetitle' => 'Valorizar',
-        'tswetext' => 'valorizar',
+        'tswetitle' => 'Considerar',
+        'tswetext' => 'considerar',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 40,
