@@ -44,7 +44,7 @@ require_once($CFG->libdir.'/externallib.php');
 class handlers extends \external_api {
     // Taken from mod/choicegroup/classes/external.php.
     /**
-     * Definition of parameters for {@see get_handlers}.
+     * Definition of parameters for {@link get_handlers()}.
      * Returns description of method parameters.
      *
      * @return external_function_parameters
@@ -59,7 +59,7 @@ class handlers extends \external_api {
     }
 
     /**
-     * Definition of return type for {@see get_handlers}.
+     * Definition of return type for {@link get_handlers()}.
      * Returns description of method result value.
      *
      * @return external_multiple_structure
