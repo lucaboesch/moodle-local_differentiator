@@ -111,7 +111,7 @@ class handlers extends \external_api {
      * @throws \invalid_parameter_exception
      */
     public static function get_handlers($userid, $learninggoalid) {
-        $params = self::validate_parameters(self::get_handlers_parameters(),
+        self::validate_parameters(self::get_handlers_parameters(),
             array(
                 'userid' => $userid,
                 'learninggoalid' => $learninggoalid

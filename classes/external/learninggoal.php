@@ -236,15 +236,15 @@ class learninggoal extends \external_api {
      * @param int $userid
      * @param int $learninggoalid
      * @param string $name
-     * @param string $pre_thinking_skill
-     * @param string $thinking_skill
+     * @param string $prethinkingskill
+     * @param string $thinkingskill
      * @param string $content
      * @param string $subject
-     * @param string $pre_resource
+     * @param string $preresource
      * @param string $resource
-     * @param string $pre_product
+     * @param string $preproduct
      * @param string $product
-     * @param string $pre_group
+     * @param string $pregroup
      * @param string $group
      *
      * @return stdClass
@@ -255,23 +255,23 @@ class learninggoal extends \external_api {
      * @throws moodle_exception
      * @throws restricted_context_exception
      */
-    public static function save_learninggoal($userid, $learninggoalid, $name, $pre_thinking_skill, $thinking_skill, $content,
-        $subject, $pre_resource, $resource, $pre_product, $product, $pre_group, $group) {
+    public static function save_learninggoal($userid, $learninggoalid, $name, $prethinkingskill, $thinkingskill, $content,
+        $subject, $preresource, $resource, $preproduct, $product, $pregroup, $group) {
         global $USER;
 
         $params = [
             'userid' => $userid,
             'learninggoalid' => $learninggoalid,
             'name' => $name,
-            'pre_thinking_skill' => $pre_thinking_skill,
-            'thinking_skill' => $thinking_skill,
+            'pre_thinking_skill' => $prethinkingskill,
+            'thinking_skill' => $thinkingskill,
             'content' => $content,
             'subject' => $subject,
-            'pre_resource' => $pre_resource,
+            'pre_resource' => $preresource,
             'resource' => $resource,
-            'pre_product' => $pre_product,
+            'pre_product' => $preproduct,
             'product' => $product,
-            'pre_group' => $pre_group,
+            'pre_group' => $pregroup,
             'group' => $group
         ];
         self::validate_parameters(self::save_learninggoal_parameters(), $params);
@@ -288,15 +288,15 @@ class learninggoal extends \external_api {
         $learninggoal->id = $learninggoalid;
         $learninggoal->userid = $USER->id;
         $learninggoal->title = $name;
-        $learninggoal->pre_thinking_skill = $pre_thinking_skill;
-        $learninggoal->thinking_skill = $thinking_skill;
+        $learninggoal->pre_thinking_skill = $prethinkingskill;
+        $learninggoal->thinking_skill = $thinkingskill;
         $learninggoal->lgcontent = $content;
         $learninggoal->subject = $subject;
-        $learninggoal->pre_resource = $pre_resource;
+        $learninggoal->pre_resource = $preresource;
         $learninggoal->resource = $resource;
-        $learninggoal->pre_product = $pre_product;
+        $learninggoal->pre_product = $preproduct;
         $learninggoal->product = $product;
-        $learninggoal->pre_group = $pre_group;
+        $learninggoal->pre_group = $pregroup;
         $learninggoal->lggroup = $group;
 
         if ($learninggoal->id != 0) {
