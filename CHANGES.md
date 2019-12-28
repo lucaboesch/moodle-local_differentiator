@@ -4,6 +4,10 @@ moodle-local_differentiator
 Changes
 -------
 
+### Release 1.2.3
+
+* 2019-12-29 - Reliably setting alignments for words in LTR as well as RTL.
+
 ### Release 1.2.2
 
 * 2019-12-28 - Updated set-value to version 2.0.1.

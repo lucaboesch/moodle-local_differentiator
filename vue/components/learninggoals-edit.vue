@@ -142,7 +142,7 @@
                                                     <h5 class="pb-2" v-bind:style="[selectedTabId === tab.id ? {color: tab.tabcolor, 'word-break': 'break-word'} : {'word-break': 'break-word'}]">{{category.cattitle}}</h5>
                                                     <p v-for="word in category.words" v-bind:style="[selectedTabId === tab.id ? {borderTopColor: tab.tabcolor, 'border-top-width': '1px', 'border-top-style': 'solid'} : {}]" class="mb-2 pt-1">
                                                         <button class="pl-0" v-bind:style="[selectedTabId == tab.id ? {'background-color': 'transparent', 'border': '0', 'word-break': 'break-word', 'width': '100%'} : {}]"
-                                                                v-on:click="fillword($event, tabs.id, index, word.targetinput, word.text)"><span class="pull-left">{{ word.title }}</span></button>
+                                                                v-on:click="fillword($event, tabs.id, index, word.targetinput, word.text)">{{ word.title }}</button>
                                                     </p>
                                                 </div>
                                             </div>
