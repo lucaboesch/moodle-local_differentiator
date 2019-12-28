@@ -6,6 +6,7 @@ Changes
 
 ### Release 1.2.3
 
+* 2019-12-29 - Amended strings for the pt user tour.
 * 2019-12-29 - Reliably setting alignments for words in LTR as well as RTL.
 
 ### Release 1.2.2
