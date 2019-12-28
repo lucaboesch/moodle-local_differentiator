@@ -1,0 +1,7 @@
+#page-local-differentiator-index #local-differentiator-app .tab-content button {
+    /*rtl:raw:
+    text-align: right;
+    */
+    /*rtl:remove*/
+    text-align: left;
+}
