@@ -3461,36 +3461,36 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
         }
         $rwe = $DB->get_record('local_differentiator_rwe', ['rwid' => 8, 'lang' => 'pt']);
         if (!empty($rwe)) {
-            $rwe->tswetitle = 'Site Web';
-            $rwe->tswetext = 'um site Web';
+            $rwe->rwetitle = 'Site Web';
+            $rwe->rwetext = 'um site Web';
             $rwe->timemodified = $time;
             $DB->update_record('local_differentiator_rwe', $rwe);
         }
         $rwe = $DB->get_record('local_differentiator_rwe', ['rwid' => 9, 'lang' => 'pt']);
         if (!empty($rwe)) {
-            $rwe->tswetitle = 'Wikipédia';
-            $rwe->tswetext = 'Wikipédia';
+            $rwe->rwetitle = 'Wikipédia';
+            $rwe->rwetext = 'Wikipédia';
             $rwe->timemodified = $time;
             $DB->update_record('local_differentiator_rwe', $rwe);
         }
         $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 9, 'lang' => 'pt']);
         if (!empty($pwe)) {
-            $pwe->tswetitle = 'Póster';
-            $pwe->tswetext = 'um póster';
+            $pwe->pwetitle = 'Póster';
+            $pwe->pwetext = 'um póster';
             $pwe->timemodified = $time;
             $DB->update_record('local_differentiator_pwe', $pwe);
         }
         $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 16, 'lang' => 'pt']);
         if (!empty($pwe)) {
-            $pwe->tswetitle = 'Dispositivo móvel';
-            $pwe->tswetext = 'um dispositivo móvel';
+            $pwe->pwetitle = 'Dispositivo móvel';
+            $pwe->pwetext = 'um dispositivo móvel';
             $pwe->timemodified = $time;
             $DB->update_record('local_differentiator_pwe', $pwe);
         }
         $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 32, 'lang' => 'pt']);
         if (!empty($pwe)) {
-            $pwe->tswetitle = 'Vídeo de poesia';
-            $pwe->tswetext = 'um vídeo de poesia';
+            $pwe->pwetitle = 'Vídeo de poesia';
+            $pwe->pwetext = 'um vídeo de poesia';
             $pwe->timemodified = $time;
             $DB->update_record('local_differentiator_pwe', $pwe);
         }
@@ -3503,6 +3503,19 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
         }
         // Plugin savepoint reached.
         upgrade_plugin_savepoint(true, 2019122800, 'local', 'differentiator');
+    }
+
+    if ($oldversion < 2019122900) {
+        $time = time();
+        $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 37, 'lang' => 'pt']);
+        if (!empty($pwe)) {
+            $pwe->pwetitle = 'Ensaio';
+            $pwe->pwetext = 'um ensaio';
+            $pwe->timemodified = $time;
+            $DB->update_record('local_differentiator_pwe', $pwe);
+        }
+        // Plugin savepoint reached.
+        upgrade_plugin_savepoint(true, 2019122900, 'local', 'differentiator');
     }
     return true;
 }

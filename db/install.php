@@ -7315,7 +7315,7 @@ function xmldb_local_differentiator_install() {
         'lang' => 'pt',
         'timecreated' => $time,
         'pwetitle' => 'Ensaio',
-        'pwetext' => 'un ensaio',
+        'pwetext' => 'um ensaio',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
         'pwid' => 38,
