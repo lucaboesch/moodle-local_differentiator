@@ -3514,6 +3514,34 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
             $pwe->timemodified = $time;
             $DB->update_record('local_differentiator_pwe', $pwe);
         }
+        $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 36, 'lang' => 'pt']);
+        if (!empty($pwe)) {
+            $pwe->pwetitle = 'Página Web';
+            $pwe->pwetext = 'uma página Web';
+            $pwe->timemodified = $time;
+            $DB->update_record('local_differentiator_pwe', $pwe);
+        }
+        $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 44, 'lang' => 'pt']);
+        if (!empty($pwe)) {
+            $pwe->pwetitle = 'História infantil';
+            $pwe->pwetext = 'uma história infantil';
+            $pwe->timemodified = $time;
+            $DB->update_record('local_differentiator_pwe', $pwe);
+        }
+         $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 49, 'lang' => 'pt']);
+        if (!empty($pwe)) {
+            $pwe->pwetitle = 'História num género novo';
+            $pwe->pwetext = 'uma história num género novo';
+            $pwe->timemodified = $time;
+            $DB->update_record('local_differentiator_pwe', $pwe);
+        }
+        $pwce = $DB->get_record('local_differentiator_pwce', ['pwcid' => 3, 'lang' => 'pt']);
+        if (!empty($pwce)) {
+            $pwce->pwcetitle = 'Oralidade';
+            $pwce->pwcetext = 'Oralidade';
+            $pwce->timemodified = $time;
+            $DB->update_record('local_differentiator_pwce', $pwce);
+        }
         // Plugin savepoint reached.
         upgrade_plugin_savepoint(true, 2019122900, 'local', 'differentiator');
     }
