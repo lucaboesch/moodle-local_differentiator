@@ -7039,8 +7039,8 @@ function xmldb_local_differentiator_install() {
         'pwcid' => 3,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwcetitle' => 'Oral',
-        'pwcetext' => 'Oral',
+        'pwcetitle' => 'Oralidade',
+        'pwcetext' => 'Oralidade',
     ]);
     $DB->insert_record('local_differentiator_pwce', [
         'pwcid' => 4,
@@ -7307,7 +7307,7 @@ function xmldb_local_differentiator_install() {
         'pwid' => 36,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwetitle' => 'Página web',
+        'pwetitle' => 'Página Web',
         'pwetext' => 'uma página Web',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
@@ -7363,7 +7363,7 @@ function xmldb_local_differentiator_install() {
         'pwid' => 44,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwetitle' => 'Historia infantil',
+        'pwetitle' => 'História infantil',
         'pwetext' => 'uma história infantil',
     ]);
     $DB->insert_record('local_differentiator_pwe', [
@@ -7398,8 +7398,8 @@ function xmldb_local_differentiator_install() {
         'pwid' => 49,
         'lang' => 'pt',
         'timecreated' => $time,
-        'pwetitle' => 'História num novo género',
-        'pwetext' => 'uma história num novo género',
+        'pwetitle' => 'História num género novo',
+        'pwetext' => 'uma história num género novo',
     ]);
 
     // Table local_differentiator_rwce.
