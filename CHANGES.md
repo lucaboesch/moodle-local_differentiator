@@ -4,6 +4,11 @@ moodle-local_differentiator
 Changes
 -------
 
+### Release 1.3.0
+
+* 2020-01-03 - Added strings for nl. Thanks to Koen Roggemans!
+* 2020-01-03 - Fixed some strings in pt.
+
 ### Release 1.2.3
 
 * 2019-12-29 - Amended strings for the pt user tour.
