@@ -4,6 +4,10 @@ moodle-local_differentiator
 Changes
 -------
 
+### Release 1.4.0
+
+* 2020-01-03 - Added strings for el. Thanks to Stamos Spiliotis!
+
 ### Release 1.3.0
 
 * 2020-01-03 - Added strings for nl. Thanks to Koen Roggemans!
