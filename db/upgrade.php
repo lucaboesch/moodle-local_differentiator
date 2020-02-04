@@ -4664,7 +4664,7 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
 
         $time = time();
 
-        // ελληνικά.
+        // Ελληνικά.
 
         // Table local_differentiator_cwce.
         $DB->insert_record('local_differentiator_cwce', [
