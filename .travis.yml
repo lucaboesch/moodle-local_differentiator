@@ -3,61 +3,92 @@ language: php
 os: linux
 
 addons:
-  postgresql: "9.4"
-  apt:
-    packages:
-      - openjdk-8-jre-headless
+  firefox: "47.0.1"
 
 cache:
   directories:
     - $HOME/.composer/cache
     - $HOME/.npm
-
-php:
- - 7.0
- - 7.1
- - 7.2
- - 7.3
+    - $HOME/.nvm
 
 before_install:
   - phpenv config-rm xdebug.ini
-  - nvm install 8.9
-  - nvm use 8.9
+  - if [ -z $NODE ]; then
+      export NODE=14;
+    fi
+  - nvm install $NODE
+  - nvm use $NODE
   - cd ../..
-  - composer create-project -n --no-dev --prefer-dist blackboard-open-source/moodle-plugin-ci ci ^2
+  - composer create-project -n --no-dev --prefer-dist moodlerooms/moodle-plugin-ci ci ^2
   - export PATH="$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH"
+  - export IGNORE_PATHS=moodle/tests/fixtures,moodle/Sniffs
+  - export BEHAT=yes
 
 install:
   - moodle-plugin-ci install
 
 services:
  - mysql
-
-env:
-  jobs:
-    - DB=pgsql MOODLE_BRANCH=MOODLE_36_STABLE
-    - DB=pgsql MOODLE_BRANCH=MOODLE_37_STABLE
-    - DB=pgsql MOODLE_BRANCH=MOODLE_38_STABLE
-    - DB=pgsql MOODLE_BRANCH=master
-    - DB=mysqli MOODLE_BRANCH=MOODLE_36_STABLE
-    - DB=mysqli MOODLE_BRANCH=MOODLE_37_STABLE
-    - DB=mysqli MOODLE_BRANCH=MOODLE_38_STABLE
-    - DB=mysqli MOODLE_BRANCH=master
+ - postgresql
 
 jobs:
- exclude:
-  - php: 7.0
-    env: DB=pgsql MOODLE_BRANCH=MOODLE_37_STABLE
-  - php: 7.0
-    env: DB=mysqli MOODLE_BRANCH=MOODLE_37_STABLE
-  - php: 7.0
-    env: DB=pgsql MOODLE_BRANCH=MOODLE_38_STABLE
-  - php: 7.0
-    env: DB=mysqli MOODLE_BRANCH=MOODLE_38_STABLE
-  - php: 7.0
-    env: DB=pgsql MOODLE_BRANCH=master
-  - php: 7.0
-    env: DB=mysqli MOODLE_BRANCH=master
+  include:
+    - php: 7.4
+      env: MOODLE_BRANCH=master           DB=pgsql
+    - php: 7.4
+      env: MOODLE_BRANCH=master           DB=mysqli
+    - php: 7.4
+      env: MOODLE_BRANCH=MOODLE_38_STABLE DB=pgsql
+    - php: 7.4
+      env: MOODLE_BRANCH=MOODLE_38_STABLE DB=mysqli
+
+    - php: 7.3
+      env: MOODLE_BRANCH=master           DB=pgsql
+    - php: 7.3
+      env: MOODLE_BRANCH=master           DB=mysqli
+    - php: 7.3
+      env: MOODLE_BRANCH=MOODLE_38_STABLE DB=pgsql
+    - php: 7.3
+      env: MOODLE_BRANCH=MOODLE_38_STABLE DB=mysqli
+    - php: 7.3
+      env: MOODLE_BRANCH=MOODLE_37_STABLE DB=pgsql
+    - php: 7.3
+      env: MOODLE_BRANCH=MOODLE_37_STABLE DB=mysqli
+    - php: 7.3
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql NODE=8
+    - php: 7.3
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli NODE=8
+
+    - php: 7.2
+      env: MOODLE_BRANCH=master           DB=pgsql
+    - php: 7.2
+      env: MOODLE_BRANCH=master           DB=mysqli
+    - php: 7.2
+      env: MOODLE_BRANCH=MOODLE_38_STABLE DB=pgsql
+    - php: 7.2
+      env: MOODLE_BRANCH=MOODLE_38_STABLE DB=mysqli
+    - php: 7.2
+      env: MOODLE_BRANCH=MOODLE_37_STABLE DB=pgsql
+    - php: 7.2
+      env: MOODLE_BRANCH=MOODLE_37_STABLE DB=mysqli
+    - php: 7.2
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql NODE=8
+    - php: 7.2
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli NODE=8
+
+    - php: 7.1
+      env: MOODLE_BRANCH=MOODLE_37_STABLE DB=pgsql
+    - php: 7.1
+      env: MOODLE_BRANCH=MOODLE_37_STABLE DB=mysqli
+    - php: 7.1
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql NODE=8
+    - php: 7.1
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli NODE=8
+
+    - php: 7.0
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql NODE=8
+    - php: 7.0
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli NODE=8
 
 script:
   - moodle-plugin-ci phplint
@@ -68,6 +99,7 @@ script:
   - moodle-plugin-ci savepoints
   - moodle-plugin-ci mustache
   - moodle-plugin-ci grunt || true
-  - moodle-plugin-ci phpdoc
   - moodle-plugin-ci phpunit
-  - moodle-plugin-ci behat --dump
+  - if [ $BEHAT == 'yes' ]; then
+        moodle-plugin-ci behat || travis_terminate 1;
+    fi
