@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO.
+ * Class learninggoal_edit.
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>

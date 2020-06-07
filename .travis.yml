@@ -98,7 +98,7 @@ script:
   - moodle-plugin-ci validate
   - moodle-plugin-ci savepoints
   - moodle-plugin-ci mustache
-  - moodle-plugin-ci grunt || true
+  - moodle-plugin-ci grunt --force || true
   - moodle-plugin-ci phpunit
   - if [ $BEHAT == 'yes' ]; then
         moodle-plugin-ci behat || travis_terminate 1;

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO.
+ * Class learninggoals.
  *
  * @package     local_differentiator
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
@@ -40,7 +40,7 @@ defined('MOODLE_INTERNAL') || die();
  */
 class learninggoals extends \external_api {
     /**
-     * Definition of parameters for {@link get_learninggoals()}.
+     * Definition of parameters for {@see get_learninggoals()}.
      * Returns description of method parameters.
      *
      * @return external_function_parameters
@@ -53,7 +53,7 @@ class learninggoals extends \external_api {
     }
 
     /**
-     * Definition of parameters for {@link get_learninggoals()}.
+     * Definition of parameters for {@see get_learninggoals()}.
      * Returns description of method result value.
      *
      * @return external_multiple_structure

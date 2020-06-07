@@ -44,7 +44,7 @@ require_once($CFG->libdir.'/externallib.php');
  */
 class learninggoal extends \external_api {
     /**
-     * Definition of parameters for {@link get_learninggoal()}.
+     * Definition of parameters for {@see get_learninggoal()}.
      * Returns description of method parameters.
      *
      * @return external_function_parameters
@@ -57,7 +57,7 @@ class learninggoal extends \external_api {
     }
 
     /**
-     * Definition of parameters for {@link save_learninggoal()}.
+     * Definition of parameters for {@see save_learninggoal()}.
      * Returns description of method parameters.
      *
      * @return external_function_parameters
@@ -81,7 +81,7 @@ class learninggoal extends \external_api {
     }
 
     /**
-     * Definition of parameters for {@link delete_learninggoal()}.
+     * Definition of parameters for {@see delete_learninggoal()}.
      * Returns description of method parameters.
      *
      * @return external_function_parameters
@@ -94,7 +94,7 @@ class learninggoal extends \external_api {
     }
 
     /**
-     * Definition of parameters for {@link duplicate_learninggoal()}.
+     * Definition of parameters for {@see duplicate_learninggoal()}.
      * Returns description of method parameters.
      *
      * @return external_function_parameters
@@ -107,7 +107,7 @@ class learninggoal extends \external_api {
     }
 
     /**
-     * Definition of return type for {@link get_learninggoal()}.
+     * Definition of return type for {@see get_learninggoal()}.
      * Returns description of method result value.
      *
      * @return external_multiple_structure
@@ -119,7 +119,7 @@ class learninggoal extends \external_api {
     }
 
     /**
-     * Definition of return type for {@link save_learninggoal()}.
+     * Definition of return type for {@see save_learninggoal()}.
      * Returns description of method result value.
      *
      * @return external_single_structure
@@ -129,7 +129,7 @@ class learninggoal extends \external_api {
     }
 
     /**
-     * Definition of return type for {@link delete_learninggoal()}.
+     * Definition of return type for {@see delete_learninggoal()}.
      * Returns description of method result value.
      *
      * @return external_single_structure
@@ -139,7 +139,7 @@ class learninggoal extends \external_api {
     }
 
     /**
-     * Definition of return type for {@link duplicate_learninggoal()}.
+     * Definition of return type for {@see duplicate_learninggoal()}.
      * Returns description of method result value.
      *
      * @return external_single_structure
