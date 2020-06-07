@@ -9007,7 +9007,7 @@ function xmldb_local_differentiator_install() {
         'tswetext' => 'construeren',
     ]);
 
-    // Ελληνικά.
+    // Greek – Ελληνικά.
 
     // Table local_differentiator_cwce.
     $DB->insert_record('local_differentiator_cwce', [

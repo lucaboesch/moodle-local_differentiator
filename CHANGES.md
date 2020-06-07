@@ -4,6 +4,14 @@ moodle-local_differentiator
 Changes
 -------
 
+### Release 1.4.2
+
+* 2020-06-07 - Updated websocket-extensions to version 0.1.4
+
+### Release 1.4.1
+
+* 2020-04-01 - Updated minimist to version 1.2.5
+
 ### Release 1.4.0
 
 * 2020-01-03 - Added strings for el. Thanks to Stamos Spiliotis!
@@ -21,8 +29,8 @@ Changes
 ### Release 1.2.2
 
 * 2019-12-28 - Updated set-value to version 2.0.1.
-* 2019-12-28 - Updated VueInputAutowidth to 1.0.9.
-* 2019-12-28 - Updated mixin-deep to 1.3.2
+* 2019-12-28 - Updated VueInputAutowidth to version 1.0.9.
+* 2019-12-28 - Updated mixin-deep to version 1.3.2
 * 2019-12-28 - Fixed some strings in pt.
 * 2019-12-28 - Support for RTL languages.
 
