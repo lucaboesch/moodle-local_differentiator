@@ -6,11 +6,11 @@ Changes
 
 ### Release 1.4.3
 
-* 2020-06-13 - Moodle 3.9 compability.
+* 2020-06-13 - Moodle 3.9 compatibility.
 
 ### Release 1.4.2
 
-* 2020-06-07 - Updated websocket-extensions to version 0.1.4..
+* 2020-06-07 - Updated websocket-extensions to version 0.1.4.
 
 ### Release 1.4.1
 
