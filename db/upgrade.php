@@ -5781,5 +5781,19 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
         // Plugin savepoint reached.
         upgrade_plugin_savepoint(true, 2020040100, 'local', 'differentiator');
     }
+
+    if ($oldversion < 2020071800) {
+        $time = time();
+        $tswe = $DB->get_record('local_differentiator_tswe', ['tswid' => 16, 'lang' => 'de']);
+        if (!empty($tswe)) {
+            $tswe->tswetitle = 'Begründen';
+            $tswe->tswetext = 'begründen';
+            $tswe->timemodified = $time;
+            $DB->update_record('local_differentiator_tswe', $tswe);
+        }
+
+        // Plugin savepoint reached.
+        upgrade_plugin_savepoint(true, 2020071800, 'local', 'differentiator');
+    }
     return true;
 }

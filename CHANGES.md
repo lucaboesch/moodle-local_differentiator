@@ -4,6 +4,11 @@ moodle-local_differentiator
 Changes
 -------
 
+### Release 1.4.4
+
+* 2020-07-18 - Uppercase instead of lowercase typo in german.
+* 2020-07-18 - Updated lodash to version 4.17.19.
+
 ### Release 1.4.3
 
 * 2020-06-13 - Moodle 3.9 compatibility.

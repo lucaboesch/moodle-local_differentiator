@@ -3266,7 +3266,7 @@ function xmldb_local_differentiator_install() {
         'lang' => 'de',
         'timecreated' => $time,
         'tswetitle' => 'Begründen',
-        'tswetext' => 'Begründen',
+        'tswetext' => 'begründen',
     ]);
     $DB->insert_record('local_differentiator_tswe', [
         'tswid' => 17,
