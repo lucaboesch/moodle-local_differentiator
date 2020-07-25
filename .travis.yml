@@ -9,20 +9,12 @@ cache:
   directories:
     - $HOME/.composer/cache
     - $HOME/.npm
-    - $HOME/.nvm
 
 before_install:
   - phpenv config-rm xdebug.ini
-  - if [ -z $NODE ]; then
-      export NODE=14;
-    fi
-  - nvm install $NODE
-  - nvm use $NODE
   - cd ../..
-  - composer create-project -n --no-dev --prefer-dist moodlerooms/moodle-plugin-ci ci ^2
+  - composer create-project -n --no-dev --prefer-dist moodlehq/moodle-plugin-ci ci ^3
   - export PATH="$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH"
-  - export IGNORE_PATHS=moodle/tests/fixtures,moodle/Sniffs
-  - export BEHAT=yes
 
 install:
   - moodle-plugin-ci install
@@ -30,6 +22,7 @@ install:
 services:
  - mysql
  - postgresql
+ - docker
 
 jobs:
   include:
@@ -63,9 +56,9 @@ jobs:
     - php: 7.3
       env: MOODLE_BRANCH=MOODLE_37_STABLE DB=mysqli
     - php: 7.3
-      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql NODE=8
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql
     - php: 7.3
-      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli NODE=8
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli
 
     - php: 7.2
       env: MOODLE_BRANCH=master           DB=pgsql
@@ -84,23 +77,23 @@ jobs:
     - php: 7.2
       env: MOODLE_BRANCH=MOODLE_37_STABLE DB=mysqli
     - php: 7.2
-      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql NODE=8
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql
     - php: 7.2
-      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli NODE=8
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli
 
     - php: 7.1
       env: MOODLE_BRANCH=MOODLE_37_STABLE DB=pgsql
     - php: 7.1
       env: MOODLE_BRANCH=MOODLE_37_STABLE DB=mysqli
     - php: 7.1
-      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql NODE=8
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql
     - php: 7.1
-      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli NODE=8
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli
 
     - php: 7.0
-      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql NODE=8
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=pgsql
     - php: 7.0
-      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli NODE=8
+      env: MOODLE_BRANCH=MOODLE_36_STABLE DB=mysqli
 
 script:
   - moodle-plugin-ci phplint
@@ -110,8 +103,10 @@ script:
   - moodle-plugin-ci validate
   - moodle-plugin-ci savepoints
   - moodle-plugin-ci mustache
-  - moodle-plugin-ci grunt --force || true
-  - moodle-plugin-ci phpunit
-  - if [ $BEHAT == 'yes' ]; then
-        moodle-plugin-ci behat || travis_terminate 1;
-    fi
+  - moodle-plugin-ci grunt || true
+  - moodle-plugin-ci phpdoc || true
+  - moodle-plugin-ci phpunit --coverage-clover
+  - moodle-plugin-ci behat
+
+after_success:
+  - moodle-plugin-ci coveralls-upload
