@@ -6,6 +6,11 @@ Changes
 
 ### Release 1.4.4
 
+* 2020-11-03 - Updated vue to version 2.6.12.
+* 2020-11-03 - Updated vue-template-compiler to version 2.6.12.
+* 2020-11-03 - Updated VueInputAutowidth to version 1.0.10.
+* 2020-11-03 - Updated node-forge to 0.10.0.
+* 2020-11-03 - Updated elliptic to 6.5.3.
 * 2020-07-18 - Uppercase instead of lowercase typo in german.
 * 2020-07-18 - Updated lodash to version 4.17.19.
 
