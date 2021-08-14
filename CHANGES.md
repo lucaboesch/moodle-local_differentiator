@@ -4,6 +4,9 @@ moodle-local_differentiator
 Changes
 -------
 
+### Unreleased
+* 2021-08-14 - Adding Moodle plugin CI info in README.md.
+
 ### v3.11-r1
 
 * 2021-08-14 - Prepare compatibility for Moodle 3.11.

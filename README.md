@@ -1,4 +1,7 @@
-# Moodle Differentiator [![Build Status](https://travis-ci.org/lucaboesch/moodle-local_differentiator.svg?branch=master)](https://travis-ci.org/lucaboesch/moodle-local_differentiator) [![Coverage Status](https://coveralls.io/repos/github/lucaboesch/moodle-local_differentiator/badge.svg?branch=master)](https://coveralls.io/github/lucaboesch/moodle-local_differentiator?branch=master)
+Moodle Differentiator
+=========================
+[![Moodle Plugin CI](https://github.com/lucaboesch/moodle-local_differentiator/workflows/Moodle%20Plugin%20CI/badge.svg?branch=master)](https://github.com/lucaboesch/moodle-local_differentiator/actions?query=workflow%3A%22Moodle+Plugin+CI%22+branch%3Amaster)
+
 A tool to efficiently formulate and save learning goals.
 This plugin is based off The Differentiator by Ian Byrd <http://byrdseed.com/differentiator/>.
 
