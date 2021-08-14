@@ -160,7 +160,7 @@ abstract class form_controller {
      * @return form_controller
      * @throws \moodle_exception
      */
-    static public function get_controller(string $formname, differentiator $differentiator, array $formdata, \stdClass $moreargs) {
+    public static function get_controller(string $formname, differentiator $differentiator, array $formdata, \stdClass $moreargs) {
 
         switch ($formname) {
             case 'learninggoal_edit':

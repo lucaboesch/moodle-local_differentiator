@@ -4,6 +4,10 @@ moodle-local_differentiator
 Changes
 -------
 
+### Unreleased
+
+* 2021-08-14 - Move Moodle Plugin CI from Travis CI to Github actions.
+
 ### Release 1.4.4
 
 * 2020-11-03 - Updated vue to version 2.6.12.
