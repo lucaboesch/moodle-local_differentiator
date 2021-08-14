@@ -6,6 +6,7 @@ Changes
 
 ### Unreleased
 
+* 2021-08-14 - Prepare compatibility for Moodle 3.11.
 * 2021-08-14 - Moved previously scoped css styles to styles.css.
 * 2021-08-14 - Updated path-parse to 1.0.7.
 * 2021-08-14 - Updated postcss to 7.0.36.
