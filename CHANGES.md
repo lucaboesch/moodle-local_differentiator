@@ -6,6 +6,18 @@ Changes
 
 ### Unreleased
 
+* 2021-08-14 - Moved previously scoped css styles to styles.css.
+* 2021-08-14 - Updated path-parse to 1.0.7.
+* 2021-08-14 - Updated postcss to 7.0.36.
+* 2021-08-14 - Updated ws to 6.2.2.
+* 2021-08-14 - Updated dns-packet to 1.3.4.
+* 2021-08-14 - Updated browserslist to.
+* 2021-08-14 - Updated lodash to 4.17.21.
+* 2021-08-14 - Updated url-parse to 1.5.3.
+* 2021-08-14 - Updated ssri to 6.0.2.
+* 2021-08-14 - Updated y18n to 4.0.1.
+* 2021-08-14 - Updated elliptic to 6.5.4.
+* 2021-08-14 - Updated ini to 1.3.7.
 * 2021-08-14 - Move Moodle Plugin CI from Travis CI to Github actions.
 
 ### Release 1.4.4
