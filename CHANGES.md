@@ -5,6 +5,7 @@ Changes
 -------
 
 ### Unreleased
+* 2021-08-14 - Amend CSS Unexpected unit (length-zero-no-unit).
 * 2021-08-14 - Adding Moodle plugin CI info in README.md.
 
 ### v3.11-r1
