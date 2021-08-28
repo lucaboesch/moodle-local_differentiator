@@ -10106,4 +10106,1104 @@ function xmldb_local_differentiator_install() {
         'tswetitle' => 'Χτίζω',
         'tswetext' => 'χτίζω',
     ]);
+
+    // Simplified chinese.
+
+    // Table local_differentiator_cwce.
+    $DB->insert_record('local_differentiator_cwce', [
+        'cwcid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwcetitle' => '深度',
+        'cwcetext' => '深度',
+    ]);
+    $DB->insert_record('local_differentiator_cwce', [
+        'cwcid' => 2,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwcetitle' => '复杂度',
+        'cwcetext' => '复杂度',
+    ]);
+    $DB->insert_record('local_differentiator_cwce', [
+        'cwcid' => 3,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwcetitle' => '重要度',
+        'cwcetext' => '重要度',
+    ]);
+    $DB->insert_record('local_differentiator_cwce', [
+        'cwcid' => 4,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwcetitle' => '关键词',
+        'cwcetext' => '关键词',
+    ]);
+
+    // Table local_differentiator_cwe.
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '好主意',
+        'cwetext' => '好主意',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 2,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '没有答案的问题',
+        'cwetext' => '没有答案的问题',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 3,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '伦理道德',
+        'cwetext' => '伦理道德',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 4,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '模式',
+        'cwetext' => '模式',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 5,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '规则',
+        'cwetext' => '规则',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 6,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '学科语言',
+        'cwetext' => '学科语言',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 7,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '基本细节',
+        'cwetext' => '基本细节',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 8,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '趋势',
+        'cwetext' => '趋势',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 9,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '多重观点',
+        'cwetext' => '多重观点',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 10,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '随时间变化',
+        'cwetext' => '随时间变化',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 11,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '跨学科',
+        'cwetext' => '跨学科',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 12,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '起源',
+        'cwetext' => '起源',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 13,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '汇聚',
+        'cwetext' => '汇聚',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 14,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '相似',
+        'cwetext' => '相似',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 15,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '反论',
+        'cwetext' => '反论',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 16,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '贡献',
+        'cwetext' => '贡献',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 17,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '后果',
+        'cwetext' => '后果',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 18,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '动机',
+        'cwetext' => '动机',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 19,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '启示',
+        'cwetext' => '启示',
+    ]);
+    $DB->insert_record('local_differentiator_cwe', [
+        'cwid' => 20,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'cwetitle' => '意义',
+        'cwetext' => '意义',
+    ]);
+
+    // Table local_differentiator_gwce.
+    $DB->insert_record('local_differentiator_gwce', [
+        'gwcid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'gwcetitle' => '小组人数',
+        'gwcetext' => '团体人数',
+    ]);
+
+    // Table local_differentiator_gwe.
+    $DB->insert_record('local_differentiator_gwe', [
+        'gwid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'gwetitle' => '一',
+        'gwetext' => '一',
+    ]);
+    $DB->insert_record('local_differentiator_gwe', [
+        'gwid' => 2,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'gwetitle' => '二',
+        'gwetext' => '二',
+    ]);
+    $DB->insert_record('local_differentiator_gwe', [
+        'gwid' => 3,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'gwetitle' => '三',
+        'gwetext' => '三',
+    ]);
+    $DB->insert_record('local_differentiator_gwe', [
+        'gwid' => 4,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'gwetitle' => '四',
+        'gwetext' => '四',
+    ]);
+
+    // Table local_differentiator_pwce.
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwcetitle' => '视觉类',
+        'pwcetext' => '视觉类',
+    ]);
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 2,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwcetitle' => '动手类',
+        'pwcetext' => '动手类',
+    ]);
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 3,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwcetitle' => '口述类',
+        'pwcetext' => '口述类',
+    ]);
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 4,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwcetitle' => '多媒体类',
+        'pwcetext' => '多媒体类',
+    ]);
+    $DB->insert_record('local_differentiator_pwce', [
+        'pwcid' => 5,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwcetitle' => '书面表达类',
+        'pwcetext' => '书面表达类',
+    ]);
+
+    // Table local_differentiator_pwe.
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '图表',
+        'pwetext' => '图表',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 2,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '图画',
+        'pwetext' => '图画',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 3,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '时间轴',
+        'pwetext' => '时间轴',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 4,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '示意图',
+        'pwetext' => '示意图',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 5,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '图形管理器',
+        'pwetext' => '图形管理器',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 6,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '地图',
+        'pwetext' => '地图',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 7,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '漫画',
+        'pwetext' => '漫画',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 8,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '封面',
+        'pwetext' => '封面',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 9,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '海报',
+        'pwetext' => '海报',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 10,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '模型',
+        'pwetext' => '模型',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 11,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '雕塑',
+        'pwetext' => '雕塑',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 12,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '立体模型',
+        'pwetext' => '立体模型',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 13,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '微小模型',
+        'pwetext' => '微小模型',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 14,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '美术馆',
+        'pwetext' => '美术馆',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 15,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '博物馆展览',
+        'pwetext' => '博物馆展览',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 16,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '移动设备',
+        'pwetext' => '移动设备',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 17,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '辩论',
+        'pwetext' => '辩论',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 18,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '小组讨论',
+        'pwetext' => '小组讨论',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 19,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '课程',
+        'pwetext' => '课程',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 20,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '报告',
+        'pwetext' => '报告',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 21,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '游戏',
+        'pwetext' => '游戏',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 22,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '读者剧场',
+        'pwetext' => '读者剧场',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 23,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '新闻发布会',
+        'pwetext' => '新闻发布会',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 24,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '脱口秀',
+        'pwetext' => '脱口秀',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 25,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '独白',
+        'pwetext' => '独白',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 26,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '影评',
+        'pwetext' => '影评',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 27,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '歌曲',
+        'pwetext' => '歌曲',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 28,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '画册',
+        'pwetext' => '画册',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 29,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '报纸',
+        'pwetext' => '报纸',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 30,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '电视节目',
+        'pwetext' => '电视节目',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 31,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '演示文稿软件',
+        'pwetext' => '演示文稿软件',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 32,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '影像诗',
+        'pwetext' => '影像诗',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 33,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '照片集',
+        'pwetext' => '照片集',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 34,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '视频游记',
+        'pwetext' => '视频游记',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 35,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '新闻报道',
+        'pwetext' => '新闻报道',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 36,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '网页',
+        'pwetext' => '网页',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 37,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '散文',
+        'pwetext' => '散文',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 38,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '对文学的回应',
+        'pwetext' => '对文学的回应',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 39,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '报告',
+        'pwetext' => '报告',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 40,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '文章',
+        'pwetext' => '文章',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 41,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '有说服力的文章',
+        'pwetext' => '有说服力的文章',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 42,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '续篇',
+        'pwetext' => '续篇',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 43,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '书信',
+        'pwetext' => '书信',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 44,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '儿童故事',
+        'pwetext' => '儿童故事',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 45,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '诗/歌',
+        'pwetext' => '诗/歌',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 46,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '悼词',
+        'pwetext' => '悼词',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 47,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '日记',
+        'pwetext' => '日记',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 48,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '评论',
+        'pwetext' => '评论',
+    ]);
+    $DB->insert_record('local_differentiator_pwe', [
+        'pwid' => 49,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'pwetitle' => '新类型的故事',
+        'pwetext' => '新类型的故事',
+    ]);
+
+    // Table local_differentiator_rwce.
+    $DB->insert_record('local_differentiator_rwce', [
+        'rwcid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwcetitle' => '离线',
+        'rwcetext' => '离线',
+    ]);
+    $DB->insert_record('local_differentiator_rwce', [
+        'rwcid' => 2,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwcetitle' => '在线',
+        'rwcetext' => '在线',
+    ]);
+
+    // Table local_differentiator_rwe.
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '教科书',
+        'rwetext' => '教科书',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 2,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '图书馆图书',
+        'rwetext' => '图书馆图书',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 3,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '杂志',
+        'rwetext' => '杂志',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 4,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '报纸',
+        'rwetext' => '报纸',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 5,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '采访',
+        'rwetext' => '采访',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 6,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '百科全书',
+        'rwetext' => '百科全书',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 7,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '专家',
+        'rwetext' => '专家',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 8,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '网站',
+        'rwetext' => '网站',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 9,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '维基百科',
+        'rwetext' => '维基百科',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 10,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '在线百科全书',
+        'rwetext' => '在线百科全书',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 11,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '日志',
+        'rwetext' => '日志',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 12,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '文章',
+        'rwetext' => '文章',
+    ]);
+    $DB->insert_record('local_differentiator_rwe', [
+        'rwid' => 13,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'rwetitle' => '专家',
+        'rwetext' => '专家',
+    ]);
+
+    // Table local_differentiator_tswce.
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswcetitle' => '记忆',
+        'tswcetext' => '记住',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 2,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswcetitle' => '理解',
+        'tswcetext' => '理解',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 3,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswcetitle' => '应用',
+        'tswcetext' => '申请',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 4,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswcetitle' => '分析',
+        'tswcetext' => '分析',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 5,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswcetitle' => '评估',
+        'tswcetext' => '评估',
+    ]);
+    $DB->insert_record('local_differentiator_tswce', [
+        'tswcid' => 6,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswcetitle' => '创造',
+        'tswcetext' => '创造',
+    ]);
+
+    // Table local_differentiator_tswe.
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 1,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '记住',
+        'tswetext' => '记住',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 2,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '复述',
+        'tswetext' => '复述',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 3,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '决定',
+        'tswetext' => '决定',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 4,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '报告',
+        'tswetext' => '报告',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 5,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '列表',
+        'tswetext' => '列表',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 6,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '陈述',
+        'tswetext' => '陈述',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 7,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '定义',
+        'tswetext' => '定义',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 8,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '举例说明',
+        'tswetext' => '举例说明',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 9,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '认出',
+        'tswetext' => '认出',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 10,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '比较',
+        'tswetext' => '比较',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 11,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '显示',
+        'tswetext' => '显示',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 12,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '说明',
+        'tswetext' => '说明',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 13,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '选择',
+        'tswetext' => '选择',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 14,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '详细描述',
+        'tswetext' => '详细描述',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 15,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '分类',
+        'tswetext' => '分类',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 16,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '证实',
+        'tswetext' => '证实',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 17,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '总结',
+        'tswetext' => '总结',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 18,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '辨别',
+        'tswetext' => '辨别',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 19,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '解释',
+        'tswetext' => '解释',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 20,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '解决',
+        'tswetext' => '解决',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 21,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '想象',
+        'tswetext' => '想象',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 22,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '判断',
+        'tswetext' => '判断',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 23,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '测量',
+        'tswetext' => '测量',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 24,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '概括',
+        'tswetext' => '概括',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 25,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '实施',
+        'tswetext' => '实施',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 26,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '计算',
+        'tswetext' => '计算',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 27,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '执行',
+        'tswetext' => '执行',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 28,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '检查',
+        'tswetext' => '检查',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 29,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '提问',
+        'tswetext' => '提问',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 30,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '演示',
+        'tswetext' => '演示',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 31,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '对比',
+        'tswetext' => '对比',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 32,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '批评',
+        'tswetext' => '批评',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 33,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '分析',
+        'tswetext' => '分析',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 34,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '诊断',
+        'tswetext' => '诊断',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 35,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '反映',
+        'tswetext' => '反映',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 36,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '推断',
+        'tswetext' => '推断',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 37,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '选择',
+        'tswetext' => '选择',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 38,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '建议',
+        'tswetext' => '建议',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 39,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '评估',
+        'tswetext' => '评估',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 40,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '评价',
+        'tswetext' => '评价',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 41,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '决定',
+        'tswetext' => '决定',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 42,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '证明',
+        'tswetext' => '证明',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 43,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '估量',
+        'tswetext' => '估量',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 44,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '集合',
+        'tswetext' => '集合',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 45,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '设想',
+        'tswetext' => '设想',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 46,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '延伸',
+        'tswetext' => '延伸',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 47,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '发展',
+        'tswetext' => '发展',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 48,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '设计',
+        'tswetext' => '设计',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 49,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '创建',
+        'tswetext' => '创建',
+    ]);
+    $DB->insert_record('local_differentiator_tswe', [
+        'tswid' => 50,
+        'lang' => 'zh_cn',
+        'timecreated' => $time,
+        'tswetitle' => '构造',
+        'tswetext' => '构造',
+    ]);
 }
