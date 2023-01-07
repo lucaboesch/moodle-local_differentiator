@@ -41,8 +41,8 @@
     "hoek": ">=4.2.1",
     "vue-loader": "^15.8.1",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.44.2",
+    "webpack": "^5.75.0",
     "webpack-cli": "^4.1.0",
-    "webpack-dev-server": "^3.11.3"
+    "webpack-dev-server": "^4.11.1"
   }
 }
