@@ -4,7 +4,8 @@ moodle-local_differentiator
 Changes
 -------
 
-### Unreleased
+### v4.1-r1
+
 * 2021-08-28 - Added strings for zh. Thanks to Zheng Xu!
 * 2021-08-14 - Amend CSS Unexpected unit (length-zero-no-unit).
 * 2021-08-14 - Adding Moodle plugin CI info in README.md.
