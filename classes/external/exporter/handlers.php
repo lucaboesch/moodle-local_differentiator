@@ -24,8 +24,6 @@
 
 namespace local_differentiator\external\exporter;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class handlers
  *

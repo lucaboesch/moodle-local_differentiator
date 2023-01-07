@@ -29,8 +29,6 @@ use external_multiple_structure;
 use external_value;
 use external_single_structure;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class learninggoals
  *

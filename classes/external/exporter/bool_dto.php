@@ -29,8 +29,6 @@ use context;
 use core\external\exporter;
 use renderer_base;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class bool_dto
  *

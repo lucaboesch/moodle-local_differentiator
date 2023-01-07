@@ -26,8 +26,6 @@ namespace local_differentiator\form;
 
 use \local_differentiator\differentiator;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class form_controller
  *

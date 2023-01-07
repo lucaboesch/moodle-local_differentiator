@@ -20,8 +20,9 @@
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 namespace local_differentiator\external\exporter;
-defined('MOODLE_INTERNAL') || die();
+
 /**
  * Class tab
  *

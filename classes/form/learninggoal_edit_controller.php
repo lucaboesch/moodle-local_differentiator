@@ -24,8 +24,6 @@
 
 namespace local_differentiator\form;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class learninggoal_edit_controller
  *
