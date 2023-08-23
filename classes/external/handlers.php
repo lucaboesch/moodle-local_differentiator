@@ -24,11 +24,11 @@
 
 namespace local_differentiator\external;
 
-use external_function_parameters;
-use external_multiple_structure;
-use external_settings;
-use external_single_structure;
-use external_value;
+use core_external\external_multiple_structure;
+use core_external\external_single_structure;
+use core_external\external_api;
+use core_external\external_function_parameters;
+use core_external\external_value;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -124,7 +124,7 @@ class handlers extends \external_api {
         $renderer = $PAGE->get_renderer('core');
 
         // Do additional setup stuff.
-        $settings = external_settings::get_instance();
+        $settings = \external_settings::get_instance();
         $displaylang = $settings->get_lang() ? $settings->get_lang() : ($SESSION->lang ? $SESSION->lang : $USER->lang);
 
         $ctx = \context_system::instance();
