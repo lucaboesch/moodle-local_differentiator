@@ -4,6 +4,10 @@ moodle-local_differentiator
 Changes
 -------
 
+### v4.3-r1
+
+* 2023-10-19 - Adoptions for Moodle 4.2 to suit classloader.
+
 ### v4.1-r1
 
 * 2021-08-28 - Added strings for zh. Thanks to Zheng Xu!
