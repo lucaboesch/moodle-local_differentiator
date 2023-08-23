@@ -24,10 +24,11 @@
 
 namespace local_differentiator\external;
 
-use external_function_parameters;
-use external_multiple_structure;
-use external_value;
-use external_single_structure;
+use core_external\external_multiple_structure;
+use core_external\external_single_structure;
+use core_external\external_api;
+use core_external\external_function_parameters;
+use core_external\external_value;
 
 /**
  * Class learninggoals
@@ -36,7 +37,7 @@ use external_single_structure;
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class learninggoals extends \external_api {
+class learninggoals extends external_api {
     /**
      * Definition of parameters for {@see get_learninggoals()}.
      * Returns description of method parameters.
