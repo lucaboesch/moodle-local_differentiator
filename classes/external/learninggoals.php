@@ -74,10 +74,10 @@ class learninggoals extends external_api {
     public static function get_learninggoals($userid, $learninggoalid) {
         global $USER;
         $params = self::validate_parameters(self::get_learninggoals_parameters(),
-            array(
+            [
                 'userid' => $userid,
-                'learninggoalid' => $learninggoalid
-            )
+                'learninggoalid' => $learninggoalid,
+            ]
         );
 
         $userid = $USER->id;

@@ -51,7 +51,7 @@ $PAGE->set_pagelayout('admin');
 
 $PAGE->requires->js_call_amd('local_differentiator/app-lazy', 'init', [
     'learninggoalid' => $learninggoalid,
-    'contextid' => context_system::instance()->id]
+    'contextid' => context_system::instance()->id],
 );
 
 $output = $PAGE->get_renderer('local_differentiator');

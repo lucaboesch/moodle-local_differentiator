@@ -24,50 +24,50 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$functions = array(
-    'local_differentiator_get_learninggoals' => array(
+$functions = [
+    'local_differentiator_get_learninggoals' => [
         'classname' => 'local_differentiator\external\learninggoals',
         'methodname' => 'get_learninggoals',
         'description' => 'Get all learning goals.',
         'type' => 'read',
         'ajax' => true,
         'capabilities' => 'local/differentiator:edit',
-    ),
-    'local_differentiator_get_learninggoal' => array(
+    ],
+    'local_differentiator_get_learninggoal' => [
         'classname' => 'local_differentiator\external\learninggoal',
         'methodname' => 'get_learninggoal',
         'description' => 'Get a specific learning goal.',
         'type' => 'read',
         'ajax' => true,
         'capabilities' => 'local/differentiator:edit',
-    ),
-    'local_differentiator_get_handlers' => array(
+    ],
+    'local_differentiator_get_handlers' => [
         'classname' => 'local_differentiator\external\handlers',
         'methodname' => 'get_handlers',
         'description' => 'Get the differentiator handlers.',
         'type' => 'read',
         'ajax' => true,
         'capabilities' => 'local/differentiator:edit',
-    ),
-    'local_differentiator_save_learninggoal' => array(
+    ],
+    'local_differentiator_save_learninggoal' => [
         'classname' => 'local_differentiator\external\learninggoal',
         'methodname' => 'save_learninggoal',
         'description' => 'Save a specific learning goal.',
         'type' => 'write',
         'ajax' => true,
-    ),
-    'local_differentiator_delete_learninggoal' => array(
+    ],
+    'local_differentiator_delete_learninggoal' => [
         'classname' => 'local_differentiator\external\learninggoal',
         'methodname' => 'delete_learninggoal',
         'description' => 'Delete a specific learning goal.',
         'type' => 'write',
         'ajax' => true,
-    ),
-    'local_differentiator_duplicate_learninggoal' => array(
+    ],
+    'local_differentiator_duplicate_learninggoal' => [
         'classname' => 'local_differentiator\external\learninggoal',
         'methodname' => 'duplicate_learninggoal',
         'description' => 'Duplicate a specific learning goal.',
         'type' => 'write',
         'ajax' => true,
-    ),
-);
+    ],
+];

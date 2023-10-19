@@ -24,7 +24,7 @@
 
 namespace local_differentiator\form;
 
-use \local_differentiator\differentiator;
+use local_differentiator\differentiator;
 
 /**
  * Class form_controller

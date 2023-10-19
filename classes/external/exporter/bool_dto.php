@@ -65,7 +65,7 @@ class bool_dto extends exporter {
         return [
             'result' => [
                 'type' => PARAM_BOOL,
-                'description' => 'a boolean value.'
+                'description' => 'a boolean value.',
             ],
         ];
     }

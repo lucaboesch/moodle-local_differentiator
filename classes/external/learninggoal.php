@@ -159,10 +159,10 @@ class learninggoal extends \external_api {
     public static function get_learninggoal($userid, $learninggoalid) {
         global $USER;
         $params = self::validate_parameters(self::get_learninggoal_parameters(),
-            array(
+            [
                 'userid' => $userid,
-                'learninggoalid' => $learninggoalid
-            )
+                'learninggoalid' => $learninggoalid,
+            ]
         );
 
         // TODO check if the learning goal really belongs to the user.
@@ -272,7 +272,7 @@ class learninggoal extends \external_api {
             'pre_product' => $preproduct,
             'product' => $product,
             'pre_group' => $pregroup,
-            'group' => $group
+            'group' => $group,
         ];
         self::validate_parameters(self::save_learninggoal_parameters(), $params);
 
@@ -325,10 +325,10 @@ class learninggoal extends \external_api {
         global $USER;
 
         $params = self::validate_parameters(self::get_learninggoal_parameters(),
-            array(
+            [
                 'userid' => $userid,
-                'learninggoalid' => $learninggoalid
-            )
+                'learninggoalid' => $learninggoalid,
+            ]
         );
 
         // TODO check if the learning goal really belongs to the user.
@@ -343,7 +343,7 @@ class learninggoal extends \external_api {
         $ctx = \context_system::instance();
 
         if (isset($learninggoalid) && ($learninggoalid > 0)) {
-            $DB->delete_records('local_differentiator_lg', array('id' => $learninggoalid, 'userid' => $USER->id));
+            $DB->delete_records('local_differentiator_lg', ['id' => $learninggoalid, 'userid' => $USER->id]);
         }
 
         // Return success status.
@@ -363,10 +363,10 @@ class learninggoal extends \external_api {
         global $USER;
 
         $params = self::validate_parameters(self::get_learninggoal_parameters(),
-            array(
+            [
                 'userid' => $userid,
-                'learninggoalid' => $learninggoalid
-            )
+                'learninggoalid' => $learninggoalid,
+            ]
         );
 
         // TODO check if the learning goal really belongs to the user.
