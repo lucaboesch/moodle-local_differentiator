@@ -114,7 +114,7 @@ abstract class form_controller {
      *
      * @return bool
      */
-    public function success() : bool {
+    public function success(): bool {
         return $this->formsubmittedsuccess;
     }
 
@@ -131,7 +131,7 @@ abstract class form_controller {
      * @param \stdClass $data validated data from form
      * @return bool
      */
-    abstract protected function handle_submit(\stdClass $data) : bool;
+    abstract protected function handle_submit(\stdClass $data): bool;
 
     /**
      * First display of the form.

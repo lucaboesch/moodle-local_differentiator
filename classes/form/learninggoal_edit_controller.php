@@ -71,7 +71,7 @@ class learninggoal_edit_controller extends form_controller {
      * @return bool
      * @throws \dml_exception
      */
-    protected function handle_submit(\stdClass $data) : bool {
+    protected function handle_submit(\stdClass $data): bool {
         global $DB;
 
         if ($this->learninggoalid && $data->learninggoalid != $this->learninggoalid) {

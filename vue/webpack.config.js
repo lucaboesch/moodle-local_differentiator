@@ -51,11 +51,11 @@ module.exports = (env, options) => {
             noInfo: true,
             overlay: true,
             headers: {
-                'Access-Control-Allow-Origin': '\*'
+                'Access-Control-Allow-Origin': '*'
             },
             disableHostCheck: true,
             https: true,
-            public: 'https://127.0.0.1:8080',
+            "public": 'https://127.0.0.1:8080',
             hot: true,
         },
         performance: {
@@ -123,7 +123,7 @@ module.exports = (env, options) => {
                     }
                 }),
             ]
-        }
+        };
     }
 
     return exports;

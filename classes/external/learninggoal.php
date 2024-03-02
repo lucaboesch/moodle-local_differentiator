@@ -33,6 +33,20 @@ use local_differentiator\external\exporter\bool_dto;
 
 defined('MOODLE_INTERNAL') || die();
 
+// This work-around is required until Moodle 4.2 is the lowest version we support.
+if (class_exists('core_external\external_api') && class_exists('core_external\external_function_parameters')
+    && class_exists('core_external\external_value') && class_exists('core_external\external_multiple_structure')) {
+    class_alias('core_external\external_api', '\local_differentiator_external_api_class_alias');
+    class_alias('core_external\external_function_parameters', '\local_differentiator_external_function_parameters_class_alias');
+    class_alias('core_external\external_value', '\local_differentiator_external_value_class_alias');
+    class_alias('core_external\external_multiple_structure', '\local_differentiator_external_multiple_structure_class_alias');
+} else {
+    class_alias('external_api', '\local_differentiator_external_api_class_alias');
+    class_alias('external_function_parameters', '\local_differentiator_external_function_parameters_class_alias');
+    class_alias('external_value', '\local_differentiator_external_value_class_alias');
+    class_alias('external_multiple_structure', '\local_differentiator_external_multiple_structure_class_alias');
+}
+
 require_once($CFG->libdir.'/externallib.php');
 
 /**
@@ -51,8 +65,8 @@ class learninggoal extends \external_api {
      */
     public static function get_learninggoal_parameters() {
         return new external_function_parameters([
-            'userid' => new external_value(PARAM_INT, 'userid'),
-            'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
+            'userid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'userid'),
+            'learninggoalid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'learninggoalid'),
         ]);
     }
 
@@ -64,19 +78,19 @@ class learninggoal extends \external_api {
      */
     public static function save_learninggoal_parameters() {
         return new external_function_parameters([
-            'userid' => new external_value(PARAM_INT, 'userid'),
-            'learninggoalid' => new external_value(PARAM_INT, 'id of the learning goal'),
-            'name' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'pre_thinking_skill' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'thinking_skill' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'content' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'subject' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'pre_resource' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'resource' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'pre_product' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'product' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'pre_group' => new external_value(PARAM_TEXT, 'name of the learning goal'),
-            'group' => new external_value(PARAM_TEXT, 'name of the learning goal'),
+            'userid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'userid'),
+            'learninggoalid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'id of the learning goal'),
+            'name' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'pre_thinking_skill' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'thinking_skill' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'content' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'subject' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'pre_resource' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'resource' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'pre_product' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'product' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'pre_group' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
+            'group' => new \local_differentiator_external_value_class_alias(PARAM_TEXT, 'name of the learning goal'),
         ]);
     }
 
@@ -88,8 +102,8 @@ class learninggoal extends \external_api {
      */
     public static function delete_learninggoal_parameters() {
         return new external_function_parameters([
-            'userid' => new external_value(PARAM_INT, 'userid'),
-            'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
+            'userid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'userid'),
+            'learninggoalid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'learninggoalid'),
         ]);
     }
 
@@ -101,8 +115,8 @@ class learninggoal extends \external_api {
      */
     public static function duplicate_learninggoal_parameters() {
         return new external_function_parameters([
-            'userid' => new external_value(PARAM_INT, 'userid'),
-            'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
+            'userid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'userid'),
+            'learninggoalid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'learninggoalid'),
         ]);
     }
 
@@ -113,7 +127,7 @@ class learninggoal extends \external_api {
      * @return external_multiple_structure
      */
     public static function get_learninggoal_returns() {
-        return new external_multiple_structure(
+        return new \local_differentiator_external_multiple_structure_class_alias(
             exporter\learninggoal::get_read_structure()
         );
     }

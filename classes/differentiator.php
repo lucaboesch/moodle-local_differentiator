@@ -47,7 +47,7 @@ class differentiator {
      * @return \moodle_url
      * @throws \moodle_exception
      */
-    public function make_url(string $subpath, array $params = null) : \moodle_url {
+    public function make_url(string $subpath, array $params = null): \moodle_url {
         $path = '/local/differentiator/view.php/' . $subpath;
         return new \moodle_url($path, $params);
     }
@@ -59,7 +59,7 @@ class differentiator {
      * @return bool
      * @throws \coding_exception
      */
-    public function user_has_capability(string $capability) : bool {
+    public function user_has_capability(string $capability): bool {
         return \has_capability($capability, $this->context);
     }
 

@@ -4,6 +4,10 @@ moodle-local_differentiator
 Changes
 -------
 
+### Unreleased
+
+* 2024-03-02 - Fixing some linter errors.
+
 ### v4.3-r2
 
 * 2024-03-02 - Adding Behat tests.
