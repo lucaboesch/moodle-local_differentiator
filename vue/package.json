@@ -38,7 +38,7 @@
     "cryptiles": ">=4.1.2",
     "css-loader": "^5.0.0",
     "file-loader": "^3.0.1",
-    "hoek": ">=4.2.1",
+    "@hapi/hoek": ">=8.5.1",
     "vue-loader": "^17.2.2",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^5.76.0",
