@@ -11,3 +11,4 @@ Feature: Access differentiator and add a learning goal.
     And I press "Save"
     Then I should see "Learning goal 1 (en)"
     And I should see "Students will remember the big idea of the Quentin Tarantino films using a textbook and create an essay in groups of one."
+

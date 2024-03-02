@@ -4,6 +4,16 @@ moodle-local_differentiator
 Changes
 -------
 
+### v4.3-r2
+
+* 2024-03-02 - Adding Behat tests.
+* 2024-03-02 - Unifying versions to work from 3.9 to 4.4
+
+### v4.3-r1
+
+* 2023-10-19 - Adopt to Moodle 4.3.
+
+
 ### v4.1-r1
 
 * 2021-08-28 - Added strings for zh. Thanks to Zheng Xu!
