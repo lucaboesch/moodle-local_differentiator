@@ -90,12 +90,12 @@ class tab extends \core\external\exporter {
      * @return array
      */
     protected function get_other_values(\renderer_base $output) {
-        $values = array(
+        $values = [
             'id' => $this->tab->id,
             'tabtitle' => $this->tab->tabtitle,
             'tabcolor' => $this->tab->tabcolor,
             'targetinput' => $this->tab->targetinput,
-        );
+        ];
 
         return $values;
     }

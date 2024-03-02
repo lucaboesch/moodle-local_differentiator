@@ -31,15 +31,15 @@ $capabilities = [
         'captype' => 'view',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
-            'user' => CAP_ALLOW
-        ]
+            'user' => CAP_ALLOW,
+        ],
     ],
 
     'local/differentiator:edit' => [
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
-            'user' => CAP_ALLOW
-        ]
+            'user' => CAP_ALLOW,
+        ],
     ],
 ];

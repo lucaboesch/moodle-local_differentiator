@@ -51,10 +51,10 @@ class handlers extends \external_api {
      */
     public static function get_handlers_parameters() {
         return new external_function_parameters(
-            array (
+             [
                 'userid' => new external_value(PARAM_INT, 'userid'),
                 'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
-            )
+             ]
         );
     }
 
@@ -67,37 +67,37 @@ class handlers extends \external_api {
     public static function get_handlers_returns() {
         return new external_multiple_structure(
             new external_single_structure(
-                array(
+                [
                     'tabs' => new external_multiple_structure(
                         new external_single_structure(
-                            array(
+                            [
                                 'id' => new external_value(PARAM_INT, 'Tabulator id', VALUE_OPTIONAL),
                                 'tabtitle' => new external_value(PARAM_TEXT, 'Tabulator title', VALUE_OPTIONAL),
                                 'tabcolor' => new external_value(PARAM_TEXT, 'Tabulator color', VALUE_OPTIONAL),
                                 'targetinput' => new external_value(PARAM_TEXT, 'Target input field', VALUE_OPTIONAL),
                                 'categories' => new external_multiple_structure(
                                     new external_single_structure(
-                                        array(
+                                        [
                                             'parenttabid' => new external_value(PARAM_TEXT, 'Parent tabulator id', VALUE_OPTIONAL),
                                             'cattitle' => new external_value(PARAM_TEXT, 'Category title', VALUE_OPTIONAL),
                                             'cattext' => new external_value(PARAM_TEXT, 'Category text', VALUE_OPTIONAL),
                                             'words' => new external_multiple_structure(
                                                 new external_single_structure(
-                                                    array(
+                                                    [
                                                         'title' => new external_value(PARAM_TEXT, 'Word title', VALUE_OPTIONAL),
                                                         'text' => new external_value(PARAM_TEXT, 'Word text', VALUE_OPTIONAL),
                                                         'targetinput' => new external_value(PARAM_TEXT,
                                                             'Learning goal text field to be filled'),
-                                                    )
+                                                    ]
                                                 ), 'Category words', VALUE_OPTIONAL
                                             ),
-                                        )
+                                        ]
                                     ), 'Tabulator categories', VALUE_OPTIONAL
                                 ),
-                            )
+                            ]
                         ), 'Tabulators', VALUE_OPTIONAL
                     ),
-                )
+                ]
             ), 'Handler tabs', VALUE_OPTIONAL
         );
     }
@@ -112,10 +112,10 @@ class handlers extends \external_api {
      */
     public static function get_handlers($userid, $learninggoalid) {
         self::validate_parameters(self::get_handlers_parameters(),
-            array(
+            [
                 'userid' => $userid,
-                'learninggoalid' => $learninggoalid
-            )
+                'learninggoalid' => $learninggoalid,
+            ]
         );
 
         self::validate_context(\context_system::instance());
@@ -125,7 +125,7 @@ class handlers extends \external_api {
 
         // Do additional setup stuff.
         $settings = external_settings::get_instance();
-        $displaylang = $settings->get_lang() ? $settings->get_lang() : ($SESSION->lang ? $SESSION->lang : $USER->lang);
+        $displaylang = $settings->get_lang() ? $settings->get_lang() : (isset($SESSION->lang) ? $SESSION->lang : $USER->lang);
 
         $ctx = \context_system::instance();
 

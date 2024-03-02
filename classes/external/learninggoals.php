@@ -29,6 +29,20 @@ use external_multiple_structure;
 use external_value;
 use external_single_structure;
 
+// This work-around is required until Moodle 4.2 is the lowest version we support.
+if (class_exists('core_external\external_api') && class_exists('core_external\external_function_parameters')
+    && class_exists('core_external\external_value') && class_exists('core_external\external_multiple_structure')) {
+    class_alias('core_external\external_api', '\local_differentiator_external_api_class_alias');
+    class_alias('core_external\external_function_parameters', '\local_differentiator_external_function_parameters_class_alias');
+    class_alias('core_external\external_value', '\local_differentiator_external_value_class_alias');
+    class_alias('core_external\external_multiple_structure', '\local_differentiator_external_multiple_structure_class_alias');
+} else {
+    class_alias('external_api', '\local_differentiator_external_api_class_alias');
+    class_alias('external_function_parameters', '\local_differentiator_external_function_parameters_class_alias');
+    class_alias('external_value', '\local_differentiator_external_value_class_alias');
+    class_alias('external_multiple_structure', '\local_differentiator_external_multiple_structure_class_alias');
+}
+
 /**
  * Class learninggoals
  *
@@ -36,7 +50,7 @@ use external_single_structure;
  * @copyright   2019 Luca Bösch <luca.boesch@bfh.ch>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class learninggoals extends \external_api {
+class learninggoals extends \local_differentiator_external_api_class_alias {
     /**
      * Definition of parameters for {@see get_learninggoals()}.
      * Returns description of method parameters.
@@ -44,9 +58,9 @@ class learninggoals extends \external_api {
      * @return external_function_parameters
      */
     public static function get_learninggoals_parameters() {
-        return new external_function_parameters([
-            'userid' => new external_value(PARAM_INT, 'userid'),
-            'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
+        return new \local_differentiator_external_function_parameters_class_alias([
+            'userid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'userid'),
+            'learninggoalid' => new \local_differentiator_external_value_class_alias(PARAM_INT, 'learninggoalid'),
         ]);
     }
 
@@ -57,7 +71,7 @@ class learninggoals extends \external_api {
      * @return external_multiple_structure
      */
     public static function get_learninggoals_returns() {
-        return new external_multiple_structure(
+        return new \local_differentiator_external_multiple_structure_class_alias(
             exporter\learninggoal::get_read_structure()
         );
     }
@@ -73,10 +87,10 @@ class learninggoals extends \external_api {
     public static function get_learninggoals($userid, $learninggoalid) {
         global $USER;
         $params = self::validate_parameters(self::get_learninggoals_parameters(),
-            array(
+            [
                 'userid' => $userid,
-                'learninggoalid' => $learninggoalid
-            )
+                'learninggoalid' => $learninggoalid,
+            ]
         );
 
         $userid = $USER->id;

@@ -159,10 +159,10 @@ class learninggoal extends \external_api {
     public static function get_learninggoal($userid, $learninggoalid) {
         global $USER;
         $params = self::validate_parameters(self::get_learninggoal_parameters(),
-            array(
+            [
                 'userid' => $userid,
-                'learninggoalid' => $learninggoalid
-            )
+                'learninggoalid' => $learninggoalid,
+            ]
         );
 
         // TODO check if the learning goal really belongs to the user.
@@ -173,10 +173,7 @@ class learninggoal extends \external_api {
 
         // Do additional setup stuff.
         $settings = external_settings::get_instance();
-        $sessionlang = $settings->get_lang();
-        if (!empty($sessionlang)) {
-            $SESSION->lang = $sessionlang;
-        }
+        $displaylang = $settings->get_lang() ? $settings->get_lang() : (isset($SESSION->lang) ? $SESSION->lang : $USER->lang);
 
         $ctx = \context_system::instance();
         if ($learninggoalid > 0) {
@@ -210,19 +207,19 @@ class learninggoal extends \external_api {
                 get_string('clicktoedit', 'local_differentiator') . "' AS \"name\", " .
                 "'' AS \"description\", '" .
                 get_string('prethinkingskill', 'local_differentiator') . "' AS \"pre_thinking_skill\", " .
-                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1 AND lang = '" . $SESSION->lang . "') AS " .
+                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1 AND lang = '" . $displaylang . "') AS " .
                 "\"thinking_skill\", " .
-                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1 AND lang = '" . $SESSION->lang . "') AS " .
+                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1 AND lang = '" . $displaylang . "') AS " .
                 "\"content\", '" .
                 get_string('clicktoedit', 'local_differentiator') . "' AS \"subject\", '" .
                 get_string('preresource', 'local_differentiator') . "' AS \"pre_resource\", " .
-                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $SESSION->lang . "') AS " .
+                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $displaylang . "') AS " .
                 "\"resource\", '" .
                 get_string('preproduct', 'local_differentiator') . "' AS \"pre_product\", " .
-                "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 37 AND lang = '" . $SESSION->lang . "') AS " .
+                "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 37 AND lang = '" . $displaylang . "') AS " .
                 "\"product\", '" .
                 get_string('pregroup', 'local_differentiator') . "' AS \"pre_group\", " .
-                "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1 AND lang = '" . $SESSION->lang . "') AS \"group\"";
+                "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1 AND lang = '" . $displaylang . "') AS \"group\"";
             $learninggoal = $DB->get_record_sql($sql);
         }
         $exporter = new exporter\learninggoal($learninggoal, $ctx);
@@ -272,7 +269,7 @@ class learninggoal extends \external_api {
             'pre_product' => $preproduct,
             'product' => $product,
             'pre_group' => $pregroup,
-            'group' => $group
+            'group' => $group,
         ];
         self::validate_parameters(self::save_learninggoal_parameters(), $params);
 
@@ -325,10 +322,10 @@ class learninggoal extends \external_api {
         global $USER;
 
         $params = self::validate_parameters(self::get_learninggoal_parameters(),
-            array(
+            [
                 'userid' => $userid,
-                'learninggoalid' => $learninggoalid
-            )
+                'learninggoalid' => $learninggoalid,
+            ]
         );
 
         // TODO check if the learning goal really belongs to the user.
@@ -343,7 +340,7 @@ class learninggoal extends \external_api {
         $ctx = \context_system::instance();
 
         if (isset($learninggoalid) && ($learninggoalid > 0)) {
-            $DB->delete_records('local_differentiator_lg', array('id' => $learninggoalid, 'userid' => $USER->id));
+            $DB->delete_records('local_differentiator_lg', ['id' => $learninggoalid, 'userid' => $USER->id]);
         }
 
         // Return success status.
@@ -363,10 +360,10 @@ class learninggoal extends \external_api {
         global $USER;
 
         $params = self::validate_parameters(self::get_learninggoal_parameters(),
-            array(
+            [
                 'userid' => $userid,
-                'learninggoalid' => $learninggoalid
-            )
+                'learninggoalid' => $learninggoalid,
+            ]
         );
 
         // TODO check if the learning goal really belongs to the user.
