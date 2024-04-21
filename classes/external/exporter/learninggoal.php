@@ -33,15 +33,15 @@ namespace local_differentiator\external\exporter;
  */
 class learninggoal extends \core\external\exporter {
     /**
-     * @var
+     * @var \learninggoal the differentiator's learning goal
      */
     protected $learninggoal;
 
     /**
      * The learning goal constructor.
      *
-     * @param \learninggoal $learninggoal
-     * @param \context $context
+     * @param \learninggoal $learninggoal the differentiator's learning goal
+     * @param \context $context the differentiator's context
      * @throws \coding_exception
      */
     public function __construct($learninggoal, \context $context) {

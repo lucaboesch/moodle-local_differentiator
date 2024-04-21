@@ -32,9 +32,10 @@ namespace local_differentiator\external\exporter;
  */
 class tab extends \core\external\exporter {
     /**
-     * @var
+     * @var \tab the differentiator's tab
      */
     protected $tab;
+
     /**
      * The tab constructor.
      *
@@ -46,8 +47,9 @@ class tab extends \core\external\exporter {
         $this->tab = $tab;
         parent::__construct([], ['context' => $context]);
     }
+
     /**
-     * Return the it, title, color and target input field of the tab.
+     * Return the id, title, color and target input field of the tab.
      *
      * @return array
      */

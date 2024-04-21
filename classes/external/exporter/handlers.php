@@ -33,15 +33,15 @@ namespace local_differentiator\external\exporter;
  */
 class handlers extends \core\external\exporter {
     /**
-     * @var
+     * @var \handlers the differentiator's handlers
      */
     protected $handlers;
 
     /**
      * The differentiator handlers constructor.
      *
-     * @param \handlers $handlers
-     * @param \context $context
+     * @param \handlers $handlers the differentiator's handlers
+     * @param \context $context the differentiator's context
      * @throws coding_exception
      */
     public function __construct($handlers, \context $context) {

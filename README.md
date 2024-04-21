@@ -1,6 +1,12 @@
 Moodle Differentiator
 =========================
 [![Moodle Plugin CI](https://github.com/lucaboesch/moodle-local_differentiator/workflows/Moodle%20Plugin%20CI/badge.svg?branch=main)](https://github.com/lucaboesch/moodle-local_differentiator/actions?query=workflow%3A%22Moodle+Plugin+CI%22+branch%3Amain)
+[![GitHub
+Release](https://img.shields.io/github/release/lucaboesch/moodle-local_differentiator.svg)](https://github.com/lucaboesch/moodle-local_differentiator/releases)
+[![PHP Support](https://img.shields.io/badge/php-7.4--8.3-blue)](https://github.com/lucaboesch/moodle-local_differentiator/actions)
+[![Moodle Support](https://img.shields.io/badge/Moodle-4.1--4.4-orange)](https://github.com/lucaboesch/moodle-local_differentiator/actions)
+[![License GPL-3.0](https://img.shields.io/github/license/lucaboesch/moodle-local_differentiator?color=lightgrey)](https://github.com/lucaboesch/moodle-local_differentiator/blob/main/LICENSE)
+[![GitHub contributors](https://img.shields.io/github/contributors/lucaboesch/moodle-local_differentiator)](https://github.com/lucaboesch/moodle-local_differentiator/graphs/contributors)
 
 A tool to efficiently formulate and save learning goals.
 This plugin is based off The Differentiator by Ian Byrd <http://byrdseed.com/differentiator/>.

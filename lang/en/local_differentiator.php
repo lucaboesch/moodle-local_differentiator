@@ -25,60 +25,41 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Differentiator';
-
-// Required strings.
-$string['modulename'] = 'Differentiator';
-$string['modulenameplural'] = 'Differentiators';
-$string['modulename_help'] = 'Differentiator';
-$string['pluginadministration'] = 'Differentiator Administration';
-$string['pluginname'] = 'Differentiator';
-
-// Capabilities.
+$string['btnconfirmdelete'] = 'Confirm delete';
+$string['cancel'] = 'Cancel';
+$string['clicktoedit'] = '[click to edit]';
+$string['content'] = 'Content';
+$string['delete'] = 'Delete';
+$string['deletepromptpost'] = '"?';
+$string['deletepromptpre'] = 'Do you really want to delete the learning goal "';
 $string['differentiator:edit'] = 'Edit Differentiator';
 $string['differentiator:view'] = 'View Differentiator';
-
-// Vue component route not found.
-$string['route_not_found'] = 'Error: Page (route) not found!';
-
-// Vue component learning goal edit.
-$string['learninggoals_edit_site_name'] = 'Differentiator learning goals';
-$string['learninggoals_edit_site_description'] = 'You may add a new goal or edit existing goals.';
-$string['learninggoals_edit_no_learninggoals'] = 'There are no goals to show.';
-
-// Learning goals overview.
-$string['edit'] = 'Edit';
-$string['delete'] = 'Delete';
-$string['deletepromptpre'] = 'Do you really want to delete the learning goal "';
-$string['deletepromptpost'] = '"?';
-$string['btnconfirmdelete'] = 'Confirm delete';
 $string['duplicate'] = 'Duplicate';
-$string['toclipboard'] = 'Copy to clipboard';
+$string['edit'] = 'Edit';
 $string['goalnameplaceholder'] = 'Learning goal name';
-$string['toclipboarddone'] = 'Copied to clipboard';
-$string['subject'] = 'Subject';
-
-
-// Learning goal form.
+$string['groups'] = 'Groups';
 $string['learninggoal'] = 'Goal';
-$string['learninggoal_name'] = 'Goal name';
 $string['learninggoal_description'] = 'Goal description';
 $string['learninggoal_form_title_add'] = 'Add a new goal';
 $string['learninggoal_form_title_edit'] = 'Edit a goal';
-$string['save'] = 'Save';
-$string['cancel'] = 'Cancel';
-
-// Tabs.
-$string['thinkingskill'] = 'Thinking Skill';
-$string['content'] = 'Content';
-$string['resources'] = 'Resources';
-$string['products'] = 'Products';
-$string['groups'] = 'Groups';
-
-// Words.
-$string['prethinkingskill'] = 'Students will';
-$string['clicktoedit'] = '[click to edit]';
-$string['preresource'] = 'using';
-$string['preproduct'] = 'and create';
+$string['learninggoal_name'] = 'Goal name';
+$string['learninggoals_edit_no_learninggoals'] = 'There are no goals to show.';
+$string['learninggoals_edit_site_description'] = 'You may add a new goal or edit existing goals.';
+$string['learninggoals_edit_site_name'] = 'Differentiator learning goals';
+$string['modulename'] = 'Differentiator';
+$string['modulename_help'] = 'Differentiator';
+$string['modulenameplural'] = 'Differentiators';
+$string['pluginadministration'] = 'Differentiator Administration';
+$string['pluginname'] = 'Differentiator';
 $string['pregroup'] = 'in groups of';
-
+$string['preproduct'] = 'and create';
+$string['preresource'] = 'using';
+$string['prethinkingskill'] = 'Students will';
+$string['products'] = 'Products';
+$string['resources'] = 'Resources';
+$string['route_not_found'] = 'Error: Page (route) not found!';
+$string['save'] = 'Save';
+$string['subject'] = 'Subject';
+$string['thinkingskill'] = 'Thinking Skill';
+$string['toclipboard'] = 'Copy to clipboard';
+$string['toclipboarddone'] = 'Copied to clipboard';
