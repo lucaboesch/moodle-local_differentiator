@@ -4,8 +4,9 @@ moodle-local_differentiator
 Changes
 -------
 
-### Unreleased
+### v4.4-r1
 
+* 2024-04-22 - Adopt to Moodle 4.4.
 * 2024-03-02 - Fixing some linter errors.
 
 ### v4.3-r2
