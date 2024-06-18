@@ -33,181 +33,181 @@ jobs:
           - php: 8.3
             moodle-branch: main
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.3
             moodle-branch: main
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.2
             moodle-branch: main
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.2
             moodle-branch: main
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: main
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: main
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.3
             moodle-branch: MOODLE_404_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.3
             moodle-branch: MOODLE_404_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.2
             moodle-branch: MOODLE_404_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.2
             moodle-branch: MOODLE_404_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: MOODLE_404_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: MOODLE_404_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.2
             moodle-branch: MOODLE_403_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.2
             moodle-branch: MOODLE_403_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: MOODLE_403_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: MOODLE_403_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.0
             moodle-branch: MOODLE_403_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.0
             moodle-branch: MOODLE_403_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.2
             moodle-branch: MOODLE_402_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.2
             moodle-branch: MOODLE_402_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: MOODLE_402_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: MOODLE_402_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.0
             moodle-branch: MOODLE_402_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.0
             moodle-branch: MOODLE_402_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: MOODLE_401_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.1
             moodle-branch: MOODLE_401_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.0
             moodle-branch: MOODLE_401_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.0
             moodle-branch: MOODLE_401_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 7.4
             moodle-branch: MOODLE_401_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 7.4
             moodle-branch: MOODLE_401_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.0
             moodle-branch: MOODLE_400_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 8.0
             moodle-branch: MOODLE_400_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 7.4
             moodle-branch: MOODLE_400_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 7.4
             moodle-branch: MOODLE_400_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 7.4
             moodle-branch: MOODLE_311_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 7.4
             moodle-branch: MOODLE_311_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 7.4
             moodle-branch: MOODLE_39_STABLE
             database: pgsql
-            plugin-ci: ^4
+            plugin-ci: 4
           - php: 7.4
             moodle-branch: MOODLE_39_STABLE
             database: mariadb
-            plugin-ci: ^4
+            plugin-ci: 4
 
           - php: 7.3
             moodle-branch: MOODLE_311_STABLE
             database: pgsql
-            plugin-ci: ^3
+            plugin-ci: 3
           - php: 7.3
             moodle-branch: MOODLE_311_STABLE
             database: mariadb
-            plugin-ci: ^3
+            plugin-ci: 3
           - php: 7.3
             moodle-branch: MOODLE_39_STABLE
             database: pgsql
-            plugin-ci: ^3
+            plugin-ci: 3
           - php: 7.3
             moodle-branch: MOODLE_39_STABLE
             database: mariadb
-            plugin-ci: ^3
+            plugin-ci: 3
 
           - php: 7.2
             moodle-branch: MOODLE_39_STABLE
             database: pgsql
-            plugin-ci: ^3
+            plugin-ci: 3
           - php: 7.2
             moodle-branch: MOODLE_39_STABLE
             database: mariadb
-            plugin-ci: ^3
+            plugin-ci: 3
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -224,7 +224,7 @@ jobs:
 
       - name: Initialise moodle-plugin-ci
         run: |
-          composer create-project -n --no-dev --prefer-dist moodlehq/moodle-plugin-ci ci ${{ matrix.plugin-ci }}
+          composer create-project -n --no-dev --prefer-dist moodlehq/moodle-plugin-ci ci ^${{ matrix.plugin-ci }}
           echo $(cd ci/bin; pwd) >> $GITHUB_PATH
           echo $(cd ci/vendor/bin; pwd) >> $GITHUB_PATH
           sudo locale-gen en_AU.UTF-8
