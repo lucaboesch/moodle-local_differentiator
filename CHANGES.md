@@ -7,6 +7,7 @@ Changes
 ### v5.0-r1
 
 * 2024-04-20 - Adopt to Moodle 5.0.
+* 2024-04-20 - Updated vue to version 3.0.0.
 
 ### v4.5-r1
 
