@@ -4,6 +4,10 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.1-r1
+
+* 2025-10-06 - Adopt to Moodle 5.1.
+
 ### v5.0-r1
 
 * 2024-04-20 - Adopt to Moodle 5.0.
