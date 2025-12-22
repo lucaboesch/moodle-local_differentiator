@@ -1,13 +1,11 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+/* jshint esversion: 11 */
+import { createStore } from 'vuex';
 import moodleAjax from 'core/ajax';
 import moodleStorage from 'core/localstorage';
 import Notification from 'core/notification';
 import $ from 'jquery';
 
-Vue.use(Vuex);
-
-export const store = new Vuex.Store({
+export const store = new createStore({
     state: {
         learningGoalID: 0,
         contextID: 0,
@@ -18,7 +16,7 @@ export const store = new Vuex.Store({
     },
     //strict: process.env.NODE_ENV !== 'production',
     mutations: {
-        // Mutations are synchroneous.
+        // Mutations are synchronous.
         setLearningGoalID(state, id) {
             state.learningGoalID = id;
         },
