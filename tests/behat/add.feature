@@ -5,7 +5,8 @@ Feature: Access differentiator and add a learning goal.
   Scenario: Access a differentiator and add a learning goal
     Given I log in as "admin"
     And I am on the "Differentiator" "local_differentiator > Differentiator" page
-    When I press "Add a new goal"
+    And I should see "Add a new goal"
+    When I follow "Add a new goal"
     And I set the field with xpath "//div[@class='learninggoals-edit-add-form']//input[@type='text']" to "Learning goal 1 (en)"
     And I set the field with xpath "//p[2]//input[@type='text'][4]" to "Quentin Tarantino films"
     And I press "Save"

@@ -1,10 +1,10 @@
 {
   "name": "moodle-local_differentiator",
   "description": "Vue.js project",
-  "version": "1.0.0",
-  "author": "info@example.com",
+  "version": "2.0.0",
+  "author": "luca.boesch@bfh.ch",
   "license": "GPL",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "cross-env webpack --mode development --progress",
     "watch": "cross-env webpack --mode development --watch --hide-modules",
@@ -12,37 +12,51 @@
     "build": "cross-env webpack --mode production --progress"
   },
   "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.0",
     "elliptic": ">=6.6.1",
-    "fsevents": "^2.2.0",
-    "node-forge": ">=1.3.1",
-    "node-pre-gyp": "0.17.x",
-    "vue": "^3.0.0",
-    "vue-input-autowidth": "^1.0.10",
+    "node-forge": ">=1.3.3",
+    "vue": "^3.5.26",
+    "vue-input-autowidth": "^2.2.1",
     "vue-loader-plugin": "^1.3.0",
-    "vue-router": "^3.0.5",
-    "vue-template-compiler": "^2.6.12",
-    "vue-toasted": "^1.1.27",
-    "vuex": "^3.1.0"
+    "vue-router": "^4.6.4",
+    "vue3-toastify": "^0.2.8",
+    "vuex": "^4.1.0"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not dead"
   ],
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.4.3",
-    "babel-loader": "^8.0.5",
-    "cross-env": "^5.2.0",
-    "cryptiles": ">=4.1.2",
-    "css-loader": "^5.0.0",
-    "file-loader": "^3.0.1",
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@hapi/cryptiles": "^5.0.0",
     "@hapi/hoek": ">=8.5.1",
-    "vue-loader": "^17.2.2",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^5.94.0",
-    "webpack-cli": "^4.1.0",
-    "webpack-dev-server": "^4.11.1"
+    "@vue/compiler-sfc": "^3.5.26",
+    "babel-loader": "^9.1.3",
+    "cross-env": "^7.x",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.39.2",
+    "eslint-plugin-vue": "^10.6.2",
+    "style-loader": "^4.0.0",
+    "vue-loader": "^17.4.2",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
   }
 }

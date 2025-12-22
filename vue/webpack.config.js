@@ -1,9 +1,8 @@
+/* jshint esversion: 11, node: true*/
 var path = require('path');
 var webpack = require('webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 const TerserPlugin = require('terser-webpack-plugin');
-
-const isDevServer = process.argv.find(v => v.includes('webpack-dev-server'));
 
 module.exports = (env, options) => {
 
@@ -21,7 +20,7 @@ module.exports = (env, options) => {
                 {
                     test: /\.css$/,
                     use: [
-                        'vue-style-loader',
+                        'style-loader',
                         'css-loader'
                     ],
                 },
@@ -42,26 +41,25 @@ module.exports = (env, options) => {
         },
         resolve: {
             alias: {
-                'vue$': 'vue/dist/vue.esm.js'
+                'vue$': 'vue/dist/vue.runtime.esm-bundler.js'
             },
             extensions: ['*', '.js', '.vue', '.json']
         },
         devServer: {
             historyApiFallback: true,
-            noInfo: true,
-            overlay: true,
             headers: {
                 'Access-Control-Allow-Origin': '*'
             },
-            disableHostCheck: true,
-            https: true,
-            "public": 'https://127.0.0.1:8080',
+            allowedHosts: 'all',
+            server: 'https',
+            host: '127.0.0.1',
+            port: 8080,
             hot: true,
         },
         performance: {
             hints: false
         },
-        devtool: '#eval-source-map',
+        devtool: 'eval-source-map',
         plugins: [
             new VueLoaderPlugin()
         ],
@@ -115,9 +113,7 @@ module.exports = (env, options) => {
         exports.optimization = {
             minimizer: [
                 new TerserPlugin({
-                    cache: true,
                     parallel: true,
-                    sourceMap: true,
                     terserOptions: {
                         // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
                     }
