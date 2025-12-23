@@ -34,8 +34,10 @@ use local_differentiator\external\exporter\bool_dto;
 defined('MOODLE_INTERNAL') || die();
 
 // This work-around is required until Moodle 4.2 is the lowest version we support.
-if (class_exists('core_external\external_api') && class_exists('core_external\external_function_parameters')
-    && class_exists('core_external\external_value') && class_exists('core_external\external_multiple_structure')) {
+if (
+    class_exists('core_external\external_api') && class_exists('core_external\external_function_parameters')
+    && class_exists('core_external\external_value') && class_exists('core_external\external_multiple_structure')
+) {
     class_alias('core_external\external_api', '\local_differentiator_external_api_class_alias');
     class_alias('core_external\external_function_parameters', '\local_differentiator_external_function_parameters_class_alias');
     class_alias('core_external\external_value', '\local_differentiator_external_value_class_alias');
@@ -47,7 +49,7 @@ if (class_exists('core_external\external_api') && class_exists('core_external\ex
     class_alias('external_multiple_structure', '\local_differentiator_external_multiple_structure_class_alias');
 }
 
-require_once($CFG->libdir.'/externallib.php');
+require_once($CFG->libdir . '/externallib.php');
 
 /**
  * Class learninggoal
@@ -172,13 +174,15 @@ class learninggoal extends \external_api {
      */
     public static function get_learninggoal($userid, $learninggoalid) {
         global $USER;
-        $params = self::validate_parameters(self::get_learninggoal_parameters(),
+        $params = self::validate_parameters(
+            self::get_learninggoal_parameters(),
             [
                 'userid' => $userid,
                 'learninggoalid' => $learninggoalid,
             ]
         );
 
+        // phpcs:ignore moodle.Commenting.TodoComment.MissingInfoInline
         // TODO check if the learning goal really belongs to the user.
         $learninggoalid = $params['learninggoalid'];
         self::validate_context(\context_system::instance());
@@ -191,16 +195,28 @@ class learninggoal extends \external_api {
 
         $ctx = \context_system::instance();
         if ($learninggoalid > 0) {
-            $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
-                'COALESCE(lg.thinking_skill, \'\')', '\' \'',
-                'COALESCE(lg.lgcontent, \'\')', '\' \'',
-                'COALESCE(lg.subject, \'\')', '\' \'',
-                'COALESCE(lg.pre_resource, \'\')', '\' \'',
-                'COALESCE(lg.resource, \'\')', '\' \'',
-                'COALESCE(lg.pre_product, \'\')', '\' \'',
-                'COALESCE(lg.product, \'\')', '\' \'',
-                'COALESCE(lg.pre_group, \'\')', '\' \'',
-                'COALESCE(lg.lggroup, \'\')', '\'.\'');
+            $concat = $DB->sql_concat(
+                'COALESCE(lg.pre_thinking_skill, \'\')',
+                '\' \'',
+                'COALESCE(lg.thinking_skill, \'\')',
+                '\' \'',
+                'COALESCE(lg.lgcontent, \'\')',
+                '\' \'',
+                'COALESCE(lg.subject, \'\')',
+                '\' \'',
+                'COALESCE(lg.pre_resource, \'\')',
+                '\' \'',
+                'COALESCE(lg.resource, \'\')',
+                '\' \'',
+                'COALESCE(lg.pre_product, \'\')',
+                '\' \'',
+                'COALESCE(lg.product, \'\')',
+                '\' \'',
+                'COALESCE(lg.pre_group, \'\')',
+                '\' \'',
+                'COALESCE(lg.lggroup, \'\')',
+                '\'.\''
+            );
             $sql = "SELECT lg.id, lg.title AS \"name\", " . $concat . " AS \"description\",
             COALESCE(lg.pre_thinking_skill, '') AS \"pre_thinking_skill\",
             COALESCE(lg.thinking_skill, '') AS \"thinking_skill\",
@@ -266,8 +282,21 @@ class learninggoal extends \external_api {
      * @throws moodle_exception
      * @throws restricted_context_exception
      */
-    public static function save_learninggoal($userid, $learninggoalid, $name, $prethinkingskill, $thinkingskill, $content,
-        $subject, $preresource, $resource, $preproduct, $product, $pregroup, $group) {
+    public static function save_learninggoal(
+        $userid,
+        $learninggoalid,
+        $name,
+        $prethinkingskill,
+        $thinkingskill,
+        $content,
+        $subject,
+        $preresource,
+        $resource,
+        $preproduct,
+        $product,
+        $pregroup,
+        $group
+    ) {
         global $USER;
 
         $params = [
@@ -335,13 +364,15 @@ class learninggoal extends \external_api {
     public static function delete_learninggoal($userid, $learninggoalid) {
         global $USER;
 
-        $params = self::validate_parameters(self::get_learninggoal_parameters(),
+        $params = self::validate_parameters(
+            self::get_learninggoal_parameters(),
             [
                 'userid' => $userid,
                 'learninggoalid' => $learninggoalid,
             ]
         );
 
+        // phpcs:ignore moodle.Commenting.TodoComment.MissingInfoInline
         // TODO check if the learning goal really belongs to the user.
 
         $learninggoalid = $params['learninggoalid'];
@@ -373,13 +404,15 @@ class learninggoal extends \external_api {
     public static function duplicate_learninggoal($userid, $learninggoalid) {
         global $USER;
 
-        $params = self::validate_parameters(self::get_learninggoal_parameters(),
+        $params = self::validate_parameters(
+            self::get_learninggoal_parameters(),
             [
                 'userid' => $userid,
                 'learninggoalid' => $learninggoalid,
             ]
         );
 
+        // phpcs:ignore moodle.Commenting.TodoComment.MissingInfoInline
         // TODO check if the learning goal really belongs to the user.
 
         $learninggoalid = $params['learninggoalid'];
@@ -392,7 +425,6 @@ class learninggoal extends \external_api {
         $ctx = \context_system::instance();
 
         if ($learninggoalid > 0) {
-
             $sql = "SELECT lg.id,
             lg.title,
             lg.pre_thinking_skill,
@@ -424,4 +456,3 @@ class learninggoal extends \external_api {
         return $exporter->export($renderer);
     }
 }
-

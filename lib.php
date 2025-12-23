@@ -108,7 +108,7 @@ function local_differentiator_output_fragment_mform($args) {
         }
     }
 
-    $moreargs = (isset($args['moreargs'])) ? json_decode($args['moreargs']) : new stdClass;
+    $moreargs = (isset($args['moreargs'])) ? json_decode($args['moreargs']) : new stdClass();
     $formname = $args['form'] ?? '';
 
     $form = \local_differentiator\form\form_controller::get_controller($formname, $differentiator, $formdata, $moreargs);

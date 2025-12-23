@@ -25,7 +25,12 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($hassiteconfig) { // Needs this condition or there is error on login page.
-    $ADMIN->add('courses', new admin_externalpage('local_differentiator',
+    $ADMIN->add(
+        'courses',
+        new admin_externalpage(
+            'local_differentiator',
             get_string('pluginname', 'local_differentiator'),
-            new moodle_url('/local/differentiator/index.php')));
+            new moodle_url('/local/differentiator/index.php')
+        )
+    );
 }

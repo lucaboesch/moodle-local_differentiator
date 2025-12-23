@@ -32,7 +32,7 @@ use external_value;
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->libdir.'/externallib.php');
+require_once($CFG->libdir . '/externallib.php');
 
 /**
  * Class handlers
@@ -51,10 +51,10 @@ class handlers extends \external_api {
      */
     public static function get_handlers_parameters() {
         return new external_function_parameters(
-             [
+            [
                 'userid' => new external_value(PARAM_INT, 'userid'),
                 'learninggoalid' => new external_value(PARAM_INT, 'learninggoalid'),
-             ]
+            ]
         );
     }
 
@@ -86,19 +86,29 @@ class handlers extends \external_api {
                                                     [
                                                         'title' => new external_value(PARAM_TEXT, 'Word title', VALUE_OPTIONAL),
                                                         'text' => new external_value(PARAM_TEXT, 'Word text', VALUE_OPTIONAL),
-                                                        'targetinput' => new external_value(PARAM_TEXT,
-                                                            'Learning goal text field to be filled'),
+                                                        'targetinput' => new external_value(
+                                                            PARAM_TEXT,
+                                                            'Learning goal text field to be filled'
+                                                        ),
                                                     ]
-                                                ), 'Category words', VALUE_OPTIONAL
+                                                ),
+                                                'Category words',
+                                                VALUE_OPTIONAL
                                             ),
                                         ]
-                                    ), 'Tabulator categories', VALUE_OPTIONAL
+                                    ),
+                                    'Tabulator categories',
+                                    VALUE_OPTIONAL
                                 ),
                             ]
-                        ), 'Tabulators', VALUE_OPTIONAL
+                        ),
+                        'Tabulators',
+                        VALUE_OPTIONAL
                     ),
                 ]
-            ), 'Handler tabs', VALUE_OPTIONAL
+            ),
+            'Handler tabs',
+            VALUE_OPTIONAL
         );
     }
 
@@ -111,7 +121,8 @@ class handlers extends \external_api {
      * @throws \invalid_parameter_exception
      */
     public static function get_handlers($userid, $learninggoalid) {
-        self::validate_parameters(self::get_handlers_parameters(),
+        self::validate_parameters(
+            self::get_handlers_parameters(),
             [
                 'userid' => $userid,
                 'learninggoalid' => $learninggoalid,
