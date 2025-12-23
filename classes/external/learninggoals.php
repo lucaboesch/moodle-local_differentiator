@@ -30,8 +30,10 @@ use external_value;
 use external_single_structure;
 
 // This work-around is required until Moodle 4.2 is the lowest version we support.
-if (class_exists('core_external\external_api') && class_exists('core_external\external_function_parameters')
-    && class_exists('core_external\external_value') && class_exists('core_external\external_multiple_structure')) {
+if (
+    class_exists('core_external\external_api') && class_exists('core_external\external_function_parameters')
+    && class_exists('core_external\external_value') && class_exists('core_external\external_multiple_structure')
+) {
     class_alias('core_external\external_api', '\local_differentiator_external_api_class_alias');
     class_alias('core_external\external_function_parameters', '\local_differentiator_external_function_parameters_class_alias');
     class_alias('core_external\external_value', '\local_differentiator_external_value_class_alias');
@@ -86,7 +88,8 @@ class learninggoals extends \local_differentiator_external_api_class_alias {
      */
     public static function get_learninggoals($userid, $learninggoalid) {
         global $USER;
-        $params = self::validate_parameters(self::get_learninggoals_parameters(),
+        $params = self::validate_parameters(
+            self::get_learninggoals_parameters(),
             [
                 'userid' => $userid,
                 'learninggoalid' => $learninggoalid,
@@ -102,16 +105,28 @@ class learninggoals extends \local_differentiator_external_api_class_alias {
 
         $ctx = \context_system::instance();
 
-        $concat = $DB->sql_concat('COALESCE(lg.pre_thinking_skill, \'\')', '\' \'',
-            'COALESCE(lg.thinking_skill, \'\')', '\' \'',
-            'COALESCE(lg.lgcontent, \'\')', '\' \'',
-            'COALESCE(lg.subject, \'\')', '\' \'',
-            'COALESCE(lg.pre_resource, \'\')', '\' \'',
-            'COALESCE(lg.resource, \'\')', '\' \'',
-            'COALESCE(lg.pre_product, \'\')', '\' \'',
-            'COALESCE(lg.product, \'\')', '\' \'',
-            'COALESCE(lg.pre_group, \'\')', '\' \'',
-            'COALESCE(lg.lggroup, \'\')', '\'.\'');
+        $concat = $DB->sql_concat(
+            'COALESCE(lg.pre_thinking_skill, \'\')',
+            '\' \'',
+            'COALESCE(lg.thinking_skill, \'\')',
+            '\' \'',
+            'COALESCE(lg.lgcontent, \'\')',
+            '\' \'',
+            'COALESCE(lg.subject, \'\')',
+            '\' \'',
+            'COALESCE(lg.pre_resource, \'\')',
+            '\' \'',
+            'COALESCE(lg.resource, \'\')',
+            '\' \'',
+            'COALESCE(lg.pre_product, \'\')',
+            '\' \'',
+            'COALESCE(lg.product, \'\')',
+            '\' \'',
+            'COALESCE(lg.pre_group, \'\')',
+            '\' \'',
+            'COALESCE(lg.lggroup, \'\')',
+            '\'.\''
+        );
 
         $sql = "SELECT lg.id, lg.title AS name, " . $concat . " as description
             FROM {local_differentiator_lg} lg

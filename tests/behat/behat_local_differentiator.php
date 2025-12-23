@@ -48,4 +48,3 @@ class behat_local_differentiator extends behat_base {
         }
     }
 }
-

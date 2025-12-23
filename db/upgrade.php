@@ -34,7 +34,6 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
     $dbman = $DB->get_manager();
 
     if ($oldversion < 2019122300) {
-
         $time = time();
 
         // Español.
@@ -2242,7 +2241,6 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
     }
 
     if ($oldversion < 2019122400) {
-
         $time = time();
         $gwe = $DB->get_record('local_differentiator_gwe', ['gwid' => 1, 'lang' => 'es']);
         if (!empty($gwe)) {
@@ -2289,7 +2287,6 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
     }
 
     if ($oldversion < 2019122600) {
-
         $time = time();
 
         // Português.
@@ -4658,7 +4655,6 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
     }
 
     if ($oldversion < 2020020100) {
-
         $time = time();
 
         // Greek – Ελληνικά.
