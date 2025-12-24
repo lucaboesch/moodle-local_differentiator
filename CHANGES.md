@@ -4,6 +4,12 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.1-r2
+
+* 2025-12-24 - Updated vue to version 3.5.26, done properly.
+* 2025-12-24 - Extended Behat tests.
+* 2025-12-24 - Various amendments to the code.
+
 ### v5.1-r1
 
 * 2025-10-06 - Adopt to Moodle 5.1.
