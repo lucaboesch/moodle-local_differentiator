@@ -19,15 +19,37 @@ export default {
   watch: {
     goalname: function () {
       this.learninggoal[0].name = this.goalname
+      this.refreshAutowidth();
     },
     goalsubject: function () {
       this.learninggoal[0].subject = this.goalsubject
+      this.refreshAutowidth();
+    },
+    editingadding: function (val) {
+      if (val) this.refreshAutowidth();
+    },
+    learninggoal: {
+      deep: true,
+      handler() {
+        if (this.editingadding) this.refreshAutowidth();
+      }
     }
   },
   methods: {
     switchTab: function (id) {
       this.$refs['tab'+id][0].click()
     },
+
+    refreshAutowidth() {
+      this.$nextTick(() => {
+        if (!this.$el) return;
+        // V-autowidth is a directive, not a real attribute.
+        // Therefore, it is better to trigger all inputs in the form.
+        const inputs = this.$el.querySelectorAll('.learninggoals-edit-add-form input[type="text"]');
+        inputs.forEach((el) => el.dispatchEvent(new Event('input', { bubbles: true })));
+      });
+    },
+
     addToClipboard: function (data) {
       navigator.clipboard.writeText(data);
       toast.success(this.strings.toclipboarddone, {
@@ -39,26 +61,29 @@ export default {
         "transition": "zoom"
       });
     },
+
     async showForm(learninggoalId = null, selectedTabId = 0) {
       this.goalname = '';
       this.goalsubject = '';
-      let args = {};
+
       if (learninggoalId) {
         this.$store.state.learningGoalID = learninggoalId;
-        this.$store.dispatch('fetchLearninggoal');
-        this.editingadding = true;
-        // Do something here in case of an edit.
       } else {
-        this.$store.dispatch('fetchLearninggoal');
-        this.editingadding = true;
-        // Do something here in case of an add.
+        this.$store.state.learningGoalID = 0;
       }
+
+      // First load data, then display form (so that autowidth can measure correctly).
+      await this.$store.dispatch('fetchLearninggoal');
+      this.editingadding = true;
+
       if (selectedTabId) {
         this.selectedTabId = selectedTabId;
       }
+
+      this.refreshAutowidth();
       window.scrollTo(0,0);
-      // This has to happen after the save button is hit.
     },
+
     checkRoute(route) {
       if (route.name === 'learninggoal-edit') {
         this.$nextTick(this.showForm.bind(this, route.params.learninggoalId, 0));
@@ -66,6 +91,7 @@ export default {
         this.$nextTick(this.showForm.bind(this, null, 0));
       }
     },
+
     onCancel(){
       this.$store.state.learningGoalID = 0;
       this.editingadding = false;
@@ -73,6 +99,7 @@ export default {
       this.$router.push({name: 'learninggoals-edit-overview'});
       this.$store.dispatch('fetchLearninggoals');
     },
+
     onSave() {
       let result = {
         learninggoalid: this.$store.state.learningGoalID,
@@ -96,6 +123,7 @@ export default {
       this.$store.dispatch('fetchLearninggoals');
       window.scrollTo(0,0);
     },
+
     fillword: function (event, id, index, field, text) {
       switch(field) {
         case "content":
@@ -113,17 +141,21 @@ export default {
         default:
           this.learninggoal[0].thinking_skill = text;
       }
+      this.refreshAutowidth();
     },
+
     showDeleteConfirm(index){
       // Dismiss other open confirm delete prompts.
       this.clicked = {};
       // Show the confirm delete prompt.
       this.clicked[index] = true
     },
+
     cancelDeleteConfirm(index){
       if (this.clicked.hasOwnProperty(index))
         this.clicked[index] = !this.clicked[index]
     },
+
     deleteLearninggoalConfirm(learninggoalid) {
       let result = {
         learninggoalid: learninggoalid,
@@ -132,6 +164,7 @@ export default {
       this.$store.dispatch('fetchLearninggoals');
       this.clicked = {};
     },
+
     duplicateLearninggoal(learninggoalid) {
       let result = {
         learninggoalid: learninggoalid,
@@ -144,10 +177,6 @@ export default {
     this.$store.dispatch('fetchLearninggoals');
     this.$store.dispatch('getHandlers');
     this.checkRoute(this.$route);
-    this.$nextTick(() => {
-      const inputs = this.$el.querySelectorAll('input[v-autowidth]');
-      inputs.forEach((el) => el.dispatchEvent(new Event('input')));
-    });
   },
   beforeRouteUpdate(to, from, next) {
     this.checkRoute(to);
