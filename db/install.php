@@ -1492,8 +1492,8 @@ function xmldb_local_differentiator_install() {
         'gwid' => 1,
         'lang' => 'fr',
         'timecreated' => $time,
-        'gwetitle' => 'Uno',
-        'gwetext' => 'uno',
+        'gwetitle' => 'Un',
+        'gwetext' => 'un',
     ]);
     $DB->insert_record('local_differentiator_gwe', [
         'gwid' => 2,
