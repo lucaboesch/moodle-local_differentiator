@@ -6895,5 +6895,1118 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
         // Plugin savepoint reached.
         upgrade_plugin_savepoint(true, 2021082800, 'local', 'differentiator');
     }
+
+    if ($oldversion < 2025122401) {
+        $time = time();
+
+        // Russian.
+
+        // Table local_differentiator_cwce.
+        $DB->insert_record('local_differentiator_cwce', [
+            'cwcid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwcetitle' => 'Глубина',
+            'cwcetext' => 'Глубина',
+        ]);
+        $DB->insert_record('local_differentiator_cwce', [
+            'cwcid' => 2,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwcetitle' => 'Сложность',
+            'cwcetext' => 'Сложность',
+        ]);
+        $DB->insert_record('local_differentiator_cwce', [
+            'cwcid' => 3,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwcetitle' => 'Императивы',
+            'cwcetext' => 'Императивы',
+        ]);
+        $DB->insert_record('local_differentiator_cwce', [
+            'cwcid' => 4,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwcetitle' => 'Ключевые слова',
+            'cwcetext' => 'Ключевые слова',
+        ]);
+
+        // Table local_differentiator_cwe.
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Основная идея',
+            'cwetext' => 'основная идея',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 2,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Неотвеченные вопросы',
+            'cwetext' => 'неотвеченные вопросы',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 3,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Этика',
+            'cwetext' => 'этика',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 4,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Паттерны',
+            'cwetext' => 'паттерны',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 5,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Правила',
+            'cwetext' => 'правила',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 6,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Язык дисциплины',
+            'cwetext' => 'язык дисциплины',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 7,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Существенные детали',
+            'cwetext' => 'существенные детали',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 8,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Тренды',
+            'cwetext' => 'тренды',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 9,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Несколько точек зрения',
+            'cwetext' => 'несколько точек зрения на',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 10,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Изменение со временем',
+            'cwetext' => 'изменение со временем',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 11,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Через дисциплины',
+            'cwetext' => 'через дисциплины',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 12,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Происхождение',
+            'cwetext' => 'происхождение',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 13,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Сближение',
+            'cwetext' => 'сближение',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 14,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Параллели',
+            'cwetext' => 'параллели',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 15,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Парадокс',
+            'cwetext' => 'парадокс',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 16,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Вклад',
+            'cwetext' => 'вклада',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 17,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Последствия',
+            'cwetext' => 'последствия',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 18,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Мотивация',
+            'cwetext' => 'мотивы',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwid' => 19,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Последствия',
+            'cwetext' => 'последствия',
+        ]);
+        $DB->insert_record('local_differentiator_cwe', [
+            'cwcid' => 20,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'cwetitle' => 'Значимость',
+            'cwetext' => 'значимость',
+        ]);
+
+        // Table local_differentiator_gwc.
+        $DB->insert_record('local_differentiator_gwc', [
+            'sort' => 1,
+            'timecreated' => $time,
+        ]);
+
+        // Table local_differentiator_gwce.
+        $DB->insert_record('local_differentiator_gwce', [
+            'gwcid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'gwcetitle' => 'Размер группы',
+            'gwcetext' => 'Размер группы',
+        ]);
+
+        // Table local_differentiator_gwe.
+        $DB->insert_record('local_differentiator_gwe', [
+            'gwid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'gwetitle' => 'Один',
+            'gwetext' => 'один',
+        ]);
+        $DB->insert_record('local_differentiator_gwe', [
+            'gwid' => 2,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'gwetitle' => 'Два',
+            'gwetext' => 'два',
+        ]);
+        $DB->insert_record('local_differentiator_gwe', [
+            'gwid' => 3,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'gwetitle' => 'Три',
+            'gwetext' => 'три',
+        ]);
+        $DB->insert_record('local_differentiator_gwe', [
+            'gwid' => 4,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'gwetitle' => 'Четыре',
+            'gwetext' => 'четыре',
+        ]);
+
+        // Table local_differentiator_pwce.
+        $DB->insert_record('local_differentiator_pwce', [
+            'pwcid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwcetitle' => 'Визуальный',
+            'pwcetext' => 'Визуальный',
+        ]);
+        $DB->insert_record('local_differentiator_pwce', [
+            'pwcid' => 2,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwcetitle' => 'Конструкция',
+            'pwcetext' => 'Конструкция',
+        ]);
+        $DB->insert_record('local_differentiator_pwce', [
+            'pwcid' => 3,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwcetitle' => 'Устный',
+            'pwcetext' => 'Устный',
+        ]);
+        $DB->insert_record('local_differentiator_pwce', [
+            'pwcid' => 4,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwcetitle' => 'Мультимедиа',
+            'pwcetext' => 'Мультимедиа',
+        ]);
+        $DB->insert_record('local_differentiator_pwce', [
+            'pwcid' => 5,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwcetitle' => 'Написанный',
+            'pwcetext' => 'Написанный',
+        ]);
+
+        // Table local_differentiator_pwe.
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Диаграмма',
+            'pwetext' => 'диаграмма',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 2,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Рисунок',
+            'pwetext' => 'рисунок',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 3,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Линия времени',
+            'pwetext' => 'линия времени',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 4,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Схема',
+            'pwetext' => 'схема',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 5,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Графический органайзер',
+            'pwetext' => 'графический органайзер',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 6,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Карта',
+            'pwetext' => 'карта',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 7,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Комикс',
+            'pwetext' => 'комикс',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 8,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Обложка книги',
+            'pwetext' => 'обложка книги',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 9,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Плакат',
+            'pwetext' => 'плакат',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 10,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Модель',
+            'pwetext' => 'модель',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 11,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Скульптура',
+            'pwetext' => 'скульптура',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 12,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Диорама',
+            'pwetext' => 'диорама',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 13,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Миниатюра',
+            'pwetext' => 'миниатюра',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 14,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Художественная галерея',
+            'pwetext' => 'художественная галерея',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 15,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Музейная экспозиция',
+            'pwetext' => 'музейная экспозиция',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 16,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Мобильный',
+            'pwetext' => 'мобильный',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 17,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Дебаты',
+            'pwetext' => 'дебаты',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 18,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Групповая дискуссия',
+            'pwetext' => 'групповая дискуссия',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 19,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Урок',
+            'pwetext' => 'урок',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 20,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Отчет',
+            'pwetext' => 'отчёт',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 21,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Спектакль',
+            'pwetext' => 'спектакль',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 22,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Читательский театр',
+            'pwetext' => 'читательский театр',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 23,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Пресс-конференция',
+            'pwetext' => 'пресс-конференция',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 24,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Ток-шоу',
+            'pwetext' => 'ток-шоу',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 25,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Монолог',
+            'pwetext' => 'монолог',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 26,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Рецензия на фильм',
+            'pwetext' => 'рецензия на фильм',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 27,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Песня',
+            'pwetext' => 'песня',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 28,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Иллюстрированная книга',
+            'pwetext' => 'иллюстрированная книга',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 29,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Газета',
+            'pwetext' => 'газета',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 30,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Телешоу',
+            'pwetext' => 'телевизионное шоу',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 31,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'PowerPoint',
+            'pwetext' => 'презентация PowerPoint',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 32,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Видеопоэзия',
+            'pwetext' => 'видео поэзия',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 33,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Фотоэссе',
+            'pwetext' => 'фотоэссе',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 34,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Видеопутешествие',
+            'pwetext' => 'видеопутешествие',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 35,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Новостной репортаж',
+            'pwetext' => 'новостной репортаж',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 36,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Веб-страница',
+            'pwetext' => 'веб-страница',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 37,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Эссе',
+            'pwetext' => 'эссе',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 38,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Отзыв на литературное произведение',
+            'pwetext' => 'отзыв на литературное произведение',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 39,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Отчет',
+            'pwetext' => 'отчёт',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 40,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Статья',
+            'pwetext' => 'статья',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 41,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Убедительное эссе',
+            'pwetext' => 'убедительное эссе',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 42,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Продолжение',
+            'pwetext' => 'продолжение',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 43,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Письмо',
+            'pwetext' => 'письмо',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 44,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Детская история',
+            'pwetext' => 'детская история',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 45,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Стихотворение / Песня',
+            'pwetext' => 'стихотворение / песня',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 46,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Панегирик',
+            'pwetext' => 'надгробная речь',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 47,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Дневник',
+            'pwetext' => 'дневник',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 48,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'Обзор',
+            'pwetext' => 'отзыв',
+        ]);
+        $DB->insert_record('local_differentiator_pwe', [
+            'pwid' => 49,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'pwetitle' => 'История/рассказ в новом жанре',
+            'pwetext' => 'история/рассказ в новом жанре',
+        ]);
+
+        // Table local_differentiator_rwce.
+        $DB->insert_record('local_differentiator_rwce', [
+            'rwcid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwcetitle' => 'Не в сети',
+            'rwcetext' => 'Не в сети',
+        ]);
+        $DB->insert_record('local_differentiator_rwce', [
+            'rwcid' => 2,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwcetitle' => 'Онлайн',
+            'rwcetext' => 'Онлайн',
+        ]);
+
+        // Table local_differentiator_rwe.
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Учебник',
+            'rwetext' => 'учебник',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 2,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Библиотечная книга',
+            'rwetext' => 'книга из библиотеки',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 3,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Журнал',
+            'rwetext' => 'журнал',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 4,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Газета',
+            'rwetext' => 'газета',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 5,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Интервью',
+            'rwetext' => 'интервью',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 6,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Энциклопедия',
+            'rwetext' => 'энциклопедия',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 7,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Эксперт',
+            'rwetext' => 'эксперт',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 8,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Вебсайт',
+            'rwetext' => 'веб-сайт',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 9,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Википедия',
+            'rwetext' => 'Википедия',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 10,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Онлайн-энциклопедия',
+            'rwetext' => 'онлайн-энциклопедия',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 11,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Журнал',
+            'rwetext' => 'журнал',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 12,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Статья',
+            'rwetext' => 'статья',
+        ]);
+        $DB->insert_record('local_differentiator_rwe', [
+            'rwid' => 13,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'rwetitle' => 'Эксперт',
+            'rwetext' => 'эксперт',
+        ]);
+
+        // Table local_differentiator_tswce.
+        $DB->insert_record('local_differentiator_tswce', [
+            'tswcid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswcetitle' => 'Воспоминание',
+            'tswcetext' => 'Воспоминание',
+        ]);
+        $DB->insert_record('local_differentiator_tswce', [
+            'tswcid' => 2,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswcetitle' => 'Понимание',
+            'tswcetext' => 'Понимание',
+        ]);
+        $DB->insert_record('local_differentiator_tswce', [
+            'tswcid' => 3,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswcetitle' => 'Применение',
+            'tswcetext' => 'Применение',
+        ]);
+        $DB->insert_record('local_differentiator_tswce', [
+            'tswcid' => 4,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswcetitle' => 'Анализ',
+            'tswcetext' => 'Анализ',
+        ]);
+        $DB->insert_record('local_differentiator_tswce', [
+            'tswcid' => 5,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswcetitle' => 'Оценивающий',
+            'tswcetext' => 'Оценивающий',
+        ]);
+        $DB->insert_record('local_differentiator_tswce', [
+            'tswcid' => 6,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswcetitle' => 'Создание',
+            'tswcetext' => 'Создание',
+        ]);
+
+        // Table local_differentiator_tswe.
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 1,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Вспомните',
+            'tswetext' => 'вспомните',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 2,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Повторите',
+            'tswetext' => 'повторите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 3,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Назовите',
+            'tswetext' => 'назовите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 4,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Отчет',
+            'tswetext' => 'отчет о',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 5,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Список',
+            'tswetext' => 'список',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 6,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Изложите',
+            'tswetext' => 'изложите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 7,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Определите',
+            'tswetext' => 'определите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 8,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Приведите пример',
+            'tswetext' => 'приведите пример',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 9,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Узнавать',
+            'tswetext' => 'распознавать',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 10,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Сравните',
+            'tswetext' => 'сравните',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 11,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Покажите',
+            'tswetext' => 'покажите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 12,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Объясните',
+            'tswetext' => 'объясните',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 13,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Выберите',
+            'tswetext' => 'выберите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 14,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Опишите',
+            'tswetext' => 'опишите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 15,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Классифицируйте',
+            'tswetext' => 'классифицируйте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 16,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Обоснуйте',
+            'tswetext' => 'обоснуйте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 17,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Резюмируйте',
+            'tswetext' => 'резюмируйте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 18,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Различать',
+            'tswetext' => 'различать',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 19,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Истолкуйте',
+            'tswetext' => 'интерпретируйте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 20,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Решите',
+            'tswetext' => 'решите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 21,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Визуализировать',
+            'tswetext' => 'визуализировать',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 22,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Рассудить',
+            'tswetext' => 'рассудить',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 23,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Мера',
+            'tswetext' => 'мера',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 24,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Контур',
+            'tswetext' => 'изложите суть',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 25,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Реализовывать',
+            'tswetext' => 'реализовывать',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 26,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Рассчитайте',
+            'tswetext' => 'вычислите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 27,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Выполните',
+            'tswetext' => 'выполните',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 28,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Обзор',
+            'tswetext' => 'обзор',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 29,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Вопрос',
+            'tswetext' => 'вопрос',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 30,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Презентуйте',
+            'tswetext' => 'презентуйте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 31,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Контраст',
+            'tswetext' => 'противопоставление',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 32,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Критикуйте',
+            'tswetext' => 'критикуйте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 33,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Проанализируйте',
+            'tswetext' => 'проанализируйте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 34,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Диагностируйте',
+            'tswetext' => 'диагностируйте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 35,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Поразмыслите',
+            'tswetext' => 'поразмыслите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 36,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Выведите',
+            'tswetext' => 'выведите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 37,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Выберите',
+            'tswetext' => 'выберите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 38,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Предложите',
+            'tswetext' => 'предложите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 39,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Оцените',
+            'tswetext' => 'оцените',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 40,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Оценивать',
+            'tswetext' => 'оцените',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 41,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Решайте',
+            'tswetext' => 'решайте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 42,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Оправдывать',
+            'tswetext' => 'оправдывать',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 43,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Оцените',
+            'tswetext' => 'оцените',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 44,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Соберите',
+            'tswetext' => 'соберите',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 45,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Придумайте',
+            'tswetext' => 'придумайте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 46,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Расширить',
+            'tswetext' => 'расширить',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 47,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Разрабатывать',
+            'tswetext' => 'разрабатывать',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 48,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Дизайн',
+            'tswetext' => 'проектировать',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 49,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Создайте',
+            'tswetext' => 'создайте',
+        ]);
+        $DB->insert_record('local_differentiator_tswe', [
+            'tswid' => 50,
+            'lang' => 'ru',
+            'timecreated' => $time,
+            'tswetitle' => 'Соберите',
+            'tswetext' => 'соберите',
+        ]);
+
+        // Plugin savepoint reached.
+        upgrade_plugin_savepoint(true, 2025122401, 'local', 'differentiator');
+    }
     return true;
 }
