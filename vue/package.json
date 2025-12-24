@@ -5,6 +5,9 @@
   "author": "luca.boesch@bfh.ch",
   "license": "GPL",
   "private": false,
+  "eslintIgnore": [
+    "amd/src/app-lazy.js,amd/build/app-lazy.min.js"
+  ],
   "scripts": {
     "dev": "cross-env webpack --mode development --progress",
     "watch": "cross-env webpack --mode development --watch --hide-modules",
