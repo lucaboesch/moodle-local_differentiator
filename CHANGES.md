@@ -4,6 +4,10 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.1-r3
+
+* 2026-01-01 - Updated qs to 6.14.1.
+
 ### v5.1-r2
 
 * 2025-12-24 - Updated vue to version 3.5.26, done properly.
