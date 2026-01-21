@@ -84,3 +84,7 @@
     cursor: pointer;
     margin-right: 0;
 }
+#page-local-differentiator-index #local-differentiator-app .learninggoals-edit-add-form .tab-content {
+    margin-left: 12px;
+    margin-right: 12px;
+}

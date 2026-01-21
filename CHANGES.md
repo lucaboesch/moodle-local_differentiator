@@ -4,6 +4,10 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.1-r4
+
+* 2026-01-21 - Updated tar to 7.5.6.
+
 ### v5.1-r3
 
 * 2026-01-01 - Updated qs to 6.14.1.
