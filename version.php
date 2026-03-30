@@ -25,8 +25,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_differentiator';
-$plugin->release = 'v5.1-r4';
+$plugin->release = 'v5.2-r1';
 $plugin->version = 2026012100;
 $plugin->requires = 2020061500;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->supported = [39, 501];
+$plugin->supported = [39, 502];
