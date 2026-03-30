@@ -4,6 +4,22 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.2-r1
+
+* 2026-03-30 - Adopt to Moodle 5.2.
+* 2026-03-30 - Removed serialize-javascript.
+* 2026-03-30 - Updated terser-webpack-plugin to 5.4.0.
+* 2026-03-30 - Updated node-forge to 1.4.0.
+* 2026-03-26 - Updated picomatch to 2.3.2.
+* 2026-03-21 - Updated flatted to 3.4.2.
+* 2026-03-11 - Updated tar to 7.5.11.
+* 2026-03-09 - Updated tar to 7.5.10.
+* 2026-03-04 - Updated bn.js to 4.12.3.
+* 2026-02-28 - Updated minimatch to 3.1.5.
+* 2026-02-20 - Updated tar to 7.5.9.
+* 2026-02-14 - Updated qs to 6.14.2.
+* 2026-01-29 - Updated tar to 7.5.7.
+
 ### v5.1-r4
 
 * 2026-01-21 - Updated tar to 7.5.6.
