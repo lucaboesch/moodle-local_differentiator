@@ -23,47 +23,6 @@
  */
 
 /**
- * Saves a new differentiator instance into the database.
- *
- * Given an object containing all the necessary data,
- * (defined by the form in mod_form.php) this function
- * will create a new instance and return the id number
- * of the new instance.
- *
- * @param object $differentiator an object from the form in mod_form.php
- * @return int the id of the newly inserted record
- */
-function differentiator_add_instance($differentiator) {
-    global $DB;
-
-    $differentiator->timecreated = time();
-    $differentiator->timemodified = time();
-
-    $id = $DB->insert_record('differentiator', $differentiator);
-    return $id;
-}
-
-/**
- * Updates a differentiator instance.
- *
- * Given an object containing all the necessary data,
- * (defined by the form in mod_form.php) this function
- * will update an existing instance with new data.
- *
- * @param object $differentiator an object from the form in mod_form.php
- * @return boolean Success/Fail
- */
-function differentiator_update_instance($differentiator) {
-    global $DB;
-
-    $differentiator->timemodified = time();
-    $differentiator->id = $differentiator->instance;
-
-    $ret = $DB->update_record('differentiator', $differentiator);
-    return $ret;
-}
-
-/**
  * List of features supported in differentiator.
  *
  * @param string $feature FEATURE_xx constant for requested feature

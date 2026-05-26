@@ -47,6 +47,22 @@ jobs:
             database: mariadb
             plugin-ci: 4
           - php: 8.4
+            moodle-branch: MOODLE_502_STABLE
+            database: pgsql
+            plugin-ci: 4
+          - php: 8.4
+            moodle-branch: MOODLE_502_STABLE
+            database: mariadb
+            plugin-ci: 4
+          - php: 8.3
+            moodle-branch: MOODLE_502_STABLE
+            database: pgsql
+            plugin-ci: 4
+          - php: 8.3
+            moodle-branch: MOODLE_502_STABLE
+            database: mariadb
+            plugin-ci: 4
+          - php: 8.4
             moodle-branch: MOODLE_501_STABLE
             database: pgsql
             plugin-ci: 4
@@ -274,7 +290,7 @@ jobs:
             plugin-ci: 3
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: plugin
 
@@ -337,7 +353,7 @@ jobs:
 
       - name: PHPUnit tests
         if: ${{ always() }}
-        run: moodle-plugin-ci phpunit --coverage-text
+        run: moodle-plugin-ci phpunit
 
       - name: Behat features
         if: ${{ always() }}
