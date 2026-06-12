@@ -4,6 +4,20 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.2-r2
+
+* 2026-06-12 - Various security fixes.
+* 2026-06-12 - Remove call to core/modal_factory.
+* 2026-06-12 - Updated shell-quote to 1.8.4.
+* 2026-06-12 - Updated shell-quote to 1.8.4.
+* 2026-05-26 - Updated qs to 6.15.2.
+* 2026-05-26 - Updated express to 4.22.2.
+* 2026-05-26 - Updated webpack-dev-server to 5.2.4.
+* 2026-05-09 - Updated postcss to 8.5.14.
+* 2026-05-09 - Updated plugin-transform-modules-systemjs to 7.29.4.
+* 2026-05-09 - Updated fast-uri to 3.1.2.
+* 2026-04-18 - Updated follow-redirects to 1.16.0.
+
 ### v5.2-r1
 
 * 2026-03-30 - Adopt to Moodle 5.2.
