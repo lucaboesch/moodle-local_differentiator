@@ -73,9 +73,6 @@ module.exports = (env, options) => {
             'core/str': {
                 amd: 'core/str'
             },
-            'core/modal_factory': {
-                amd: 'core/modal_factory'
-            },
             'core/modal_events': {
                 amd: 'core/modal_events'
             },
