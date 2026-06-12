@@ -36,6 +36,7 @@ $string['differentiator:edit'] = 'Edit Differentiator';
 $string['differentiator:view'] = 'View Differentiator';
 $string['duplicate'] = 'Duplicate';
 $string['edit'] = 'Edit';
+$string['erroreditthisgoal'] = 'edit this learning goal';
 $string['goalnameplaceholder'] = 'Learning goal name';
 $string['groups'] = 'Groups';
 $string['learninggoal'] = 'Goal';

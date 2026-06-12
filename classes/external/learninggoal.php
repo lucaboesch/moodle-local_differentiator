@@ -340,6 +340,20 @@ class learninggoal extends \external_api {
         $learninggoal->lggroup = $group;
 
         if ($learninggoal->id != 0) {
+            $existing = $DB->get_record(
+                'local_differentiator_lg',
+                ['id' => $learninggoalid],
+                '*',
+                MUST_EXIST
+            );
+            if ((int)$existing->userid !== (int)$USER->id) {
+                throw new \moodle_exception(
+                    'nopermissions',
+                    'error',
+                    '',
+                    get_string('erroreditthisgoal', 'local_differentiator')
+                );
+            }
             $learninggoal->timemodified = time();
             $DB->update_record('local_differentiator_lg', $learninggoal);
         } else {
