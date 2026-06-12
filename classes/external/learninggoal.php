@@ -229,8 +229,9 @@ class learninggoal extends \external_api {
             COALESCE(lg.pre_group, '') AS \"pre_group\",
             COALESCE(lg.lggroup, '') AS \"group\"
             FROM {local_differentiator_lg} lg
-            WHERE lg.id = :id";
+            WHERE lg.id = :id AND lg.userid = :userid";
             $params['id'] = $learninggoalid;
+            $params['userid'] = $USER->id;
             $learninggoal = $DB->get_record_sql($sql, $params);
         } else {
             $sql = "SELECT 0 AS id, '" .
