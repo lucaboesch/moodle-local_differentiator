@@ -182,8 +182,6 @@ class learninggoal extends \external_api {
             ]
         );
 
-        // phpcs:ignore moodle.Commenting.TodoComment.MissingInfoInline
-        // TODO check if the learning goal really belongs to the user.
         $learninggoalid = $params['learninggoalid'];
         self::validate_context(\context_system::instance());
         global $PAGE, $DB, $SESSION;
@@ -427,9 +425,6 @@ class learninggoal extends \external_api {
             ]
         );
 
-        // phpcs:ignore moodle.Commenting.TodoComment.MissingInfoInline
-        // TODO check if the learning goal really belongs to the user.
-
         $learninggoalid = $params['learninggoalid'];
 
         self::validate_context(\context_system::instance());
@@ -453,9 +448,10 @@ class learninggoal extends \external_api {
             lg.pre_group,
             lg.lggroup
             FROM {local_differentiator_lg} lg
-            WHERE lg.id = :id";
+            WHERE lg.id = :id AND lg.userid = :userid";
 
             $params['id'] = $learninggoalid;
+            $params['userid'] = $USER->id;
             $learninggoal = $DB->get_record_sql($sql, $params);
         }
 
