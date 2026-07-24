@@ -1,0 +1,60 @@
+name: local_differentiator
+summary: A tool to efficiently formulate and save learning goals based on the Differentiator by Ian Byrd. Learning goals are persisted for every user in your Moodle installation.
+description: |
+  The **Differentiator** plugin for Moodle helps teachers **formulate, refine, and store learning goals** in
+  a structured way. It is based on **The Differentiator** by Ian Byrd and has been adapted for Moodle so that
+  learning goals can be created and managed directly within the LMS.
+  
+  ## Purpose
+  
+  Writing clear learning objectives is often difficult. The plugin guides educators through the process by
+  offering structured prompts and pedagogical frameworks, making it easier to formulate learning goals that
+  align with instructional design principles such as constructive alignment.
+
+  ## Key Features
+
+  ### Learning Goal Builder
+
+  The plugin provides templates and selectable elements that help construct learning goals by combining:
+
+  - Cognitive processes (e.g. Remembering, Understanding, Applying, Analyzing, Evaluating, Creating)
+  - Action verbs associated with Bloom's taxonomy
+  - Subject content
+  - Required resources
+  - Expected products or outcomes
+  - Group settings and collaboration options
+  
+  These elements are combined into complete learning-goal statements.
+
+  ### Learning Goal Repository
+
+  Unlike the original Differentiator website, Moodle users can:
+
+  - Save learning goals permanently
+  - Organize and manage previously created goals
+  - Reuse goals across multiple courses
+
+  ### User Tours
+  
+  A Moodle User Tour configuration is included, allowing institutions to provide guided onboarding for new users.
+
+  ## Typical Workflow
+
+  1. Open the Differentiator interface.
+  1. Choose a thinking skill or Bloom level.
+  1. Select an action verb.
+  1. Define the content or subject.
+  1. Optionally specify:
+  - resources,
+  - group size,
+  - expected product/output.
+  1. Save it for future use.
+
+labels:
+  - fully-free
+# screenshots:
+#   - path: .camp/screenshots/overview.png
+#     caption: Main view
+links:
+   docs: https://docs.moodle.org/en/Differentiator_local_plugin
+   issues: A tool to efficiently formulate and save learning goals. This plugin is based off The Differentiator by Ian Byrd http://byrdseed.com/differentiator/.
