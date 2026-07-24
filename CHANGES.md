@@ -4,11 +4,28 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.2-r3
+
+* 2026-07-24 - Updated shell-quote to 1.10.0.
+* 2026-07-24 - Updated fast-uri to 3.1.4.
+* 2026-07-24 - Updated js-yaml to 4.3.0.
+* 2026-07-24 - Updated tar to 7.5.21.
+* 2026-07-24 - Updated brace-expansion to 1.1.16.
+* 2026-07-24 - Updated webpack-dev-server to 5.2.6.
+* 2026-07-16 - Updated websocket-driver to 0.7.5.
+* 2026-07-15 - Updated ws to 8.21.1.
+* 2026-07-07 - Add Moodle Plugin CI for Moodle 5.2.
+* 2026-07-07 - Updated http-proxy-middleware to 2.0.10.
+* 2026-06-19 - Updated @babel
+* 2026-06-19 - Updated js-yaml to 4.2.0.
+* 2026-06-19 - Updated webpack-dev-server to 5.2.5.
+* 2026-06-19 - Updated tar to 7.5.16.
+* 2026-06-19 - Updated launch-editor to 2.14.1.
+
 ### v5.2-r2
 
 * 2026-06-12 - Various security fixes.
 * 2026-06-12 - Remove call to core/modal_factory.
-* 2026-06-12 - Updated shell-quote to 1.8.4.
 * 2026-06-12 - Updated shell-quote to 1.8.4.
 * 2026-05-26 - Updated qs to 6.15.2.
 * 2026-05-26 - Updated express to 4.22.2.
