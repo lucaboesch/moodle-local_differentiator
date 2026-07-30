@@ -4,6 +4,11 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.2-r4
+
+* 2026-07-30 - Adapting author-release.yml.
+* 2026-07-27 - Updated postcss to 8.5.23.
+
 ### v5.2-r3
 
 * 2026-07-24 - Updated shell-quote to 1.10.0.
