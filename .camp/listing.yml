@@ -57,6 +57,5 @@ labels:
 #   - path: .camp/screenshots/overview.png
 #     caption: Main view
 links:
-   docs: https://docs.moodle.org/en/Differentiator_local_plugin
-   issues: A tool to efficiently formulate and save learning goals. This plugin is based off The Differentiator by Ian Byrd http://byrdseed.com/differentiator/.
-security-contact: https://github.com/lucaboesch/moodle-local_differentiator/security/advisories/new
+  docs: https://docs.moodle.org/en/Differentiator_local_plugin
+  issues: https://github.com/lucaboesch/moodle-local_differentiator/issues

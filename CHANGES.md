@@ -4,6 +4,11 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.2-r3
+
+* 2026-07-31 - CAMP related release.
+* 2026-07-30 - Adapt Moodle Plugin CI to use PostgreSQL 17 and MariaDB 11.4 for Moodle 5.3 compatibility
+
 ### v5.2-r4
 
 * 2026-07-30 - Adapting author-release.yml.
