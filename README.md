@@ -1,6 +1,7 @@
 Moodle Differentiator
 =========================
 [![Moodle Plugin CI](https://github.com/lucaboesch/moodle-local_differentiator/actions/workflows/moodle-plugin-ci.yml/badge.svg?branch=main)](https://github.com/lucaboesch/moodle-local_differentiator/actions/workflows/moodle-plugin-ci.yml)
+[![MDL Shield](https://img.shields.io/endpoint?url=https%3A%2F%2Fmdlshield.com%2Fapi%2Fbadge%2Flocal_differentiator)](https://mdlshield.com/plugins/local_differentiator)
 [![GitHub
 Release](https://img.shields.io/github/release/lucaboesch/moodle-local_differentiator.svg)](https://github.com/lucaboesch/moodle-local_differentiator/releases)
 [![PHP Support](https://img.shields.io/badge/php-7.4--8.4-blue)](https://github.com/lucaboesch/moodle-local_differentiator/actions)
