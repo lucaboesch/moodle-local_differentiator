@@ -140,71 +140,104 @@ class handlers extends \external_api {
 
         $ctx = \context_system::instance();
 
-        $sql = "SELECT 0 AS id, '" . get_string('thinkingskill', 'local_differentiator') . "' AS tabtitle, '#009' AS tabcolor,
-                    'ts' AS tabprefix, 'thinking_skill' AS targetinput
-                UNION
-                SELECT 1 AS id, '" . get_string('content', 'local_differentiator') . "' AS tabtitle, '#600' AS tabcolor,
-                    'c' AS tabprefix, 'content' AS targetinput
-                UNION
-                SELECT 2 AS id, '" . get_string('resources', 'local_differentiator') . "' AS tabtitle, '#090' AS tabcolor,
-                    'r' AS tabprefix, 'resource' AS targetinput
-                UNION
-                SELECT 3 AS id, '" . get_string('products', 'local_differentiator') . "' AS tabtitle, '#909' AS tabcolor,
-                    'p' AS tabprefix, 'product' AS targetinput
-                UNION
-                SELECT 4 AS id, '" . get_string('groups', 'local_differentiator') . "' AS tabtitle, '#990' AS tabcolor,
-                    'g' AS tabprefix, 'group' AS targetinput
-                ORDER BY id ASC";
+        // Static tab definitions. These values are fixed in code (never user input). The tabprefix values
+        // are interpolated into table and column names in the queries below, so they are drawn exclusively
+        // from this definition and validated against $allowedprefixes before use.
+        $tabdefinitions = [
+            (object) [
+                'id' => 0,
+                'tabtitle' => get_string('thinkingskill', 'local_differentiator'),
+                'tabcolor' => '#009',
+                'tabprefix' => 'ts',
+                'targetinput' => 'thinking_skill',
+            ],
+            (object) [
+                'id' => 1,
+                'tabtitle' => get_string('content', 'local_differentiator'),
+                'tabcolor' => '#600',
+                'tabprefix' => 'c',
+                'targetinput' => 'content',
+            ],
+            (object) [
+                'id' => 2,
+                'tabtitle' => get_string('resources', 'local_differentiator'),
+                'tabcolor' => '#090',
+                'tabprefix' => 'r',
+                'targetinput' => 'resource',
+            ],
+            (object) [
+                'id' => 3,
+                'tabtitle' => get_string('products', 'local_differentiator'),
+                'tabcolor' => '#909',
+                'tabprefix' => 'p',
+                'targetinput' => 'product',
+            ],
+            (object) [
+                'id' => 4,
+                'tabtitle' => get_string('groups', 'local_differentiator'),
+                'tabcolor' => '#990',
+                'tabprefix' => 'g',
+                'targetinput' => 'group',
+            ],
+        ];
+
+        // Allowlist of valid tab prefixes. Only these may be interpolated into table/column names below.
+        $allowedprefixes = ['ts', 'c', 'r', 'p', 'g'];
 
         $handlers = new \stdClass();
-        $handlers->tabs = $DB->get_records_sql($sql);
+        $handlers->tabs = [];
         // Now tabs id, tabtitle, tabcolor are set.
-        // Now iterate through the tabs to add their categories.
+        foreach ($tabdefinitions as $tabdefinition) {
+            $handlers->tabs[$tabdefinition->id] = $tabdefinition;
+        }
 
+        // Now iterate through the tabs to add their categories.
         foreach ($handlers->tabs as $tab) {
+            // The prefix is interpolated into table/column names, so guard it against the allowlist.
+            if (!in_array($tab->tabprefix, $allowedprefixes, true)) {
+                throw new \coding_exception('Invalid differentiator tab prefix: ' . $tab->tabprefix);
+            }
+            $prefix = $tab->tabprefix;
+
             // Create the query through the categories.
             $categorysql = 'SELECT wc.id AS id,
-                            ' . $tab->id . ' AS parenttabid,
-                            wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcetitle as cattitle,
-                            wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcetext as cattext
-                            FROM {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wce} wce
-                            JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wc} wc
-                            ON wc.id = wce.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid AND wce.lang = \'' .
-                            $displaylang . '\'
+                            wce.' . $prefix . 'wcetitle as cattitle,
+                            wce.' . $prefix . 'wcetext as cattext
+                            FROM {local_differentiator_' . $prefix . 'wce} wce
+                            JOIN {local_differentiator_' . $prefix . 'wc} wc
+                            ON wc.id = wce.' . $prefix . 'wcid AND wce.lang = :lang
                             ORDER BY wc.sort ASC';
 
             // Perform that query.
-            $categories = $DB->get_records_sql($categorysql);
+            $categories = $DB->get_records_sql($categorysql, ['lang' => $displaylang]);
 
             // Add the categories to the $handlers object.
             foreach ($categories as $category) {
                 $handlers->tabs[$tab->id]->categories[$category->id] = new \stdClass();
                 $handlers->tabs[$tab->id]->categories[$category->id]->cattitle = $category->cattitle;
                 $handlers->tabs[$tab->id]->categories[$category->id]->cattext = $category->cattext;
-                $handlers->tabs[$tab->id]->categories[$category->id]->parenttabid = $category->parenttabid;
+                $handlers->tabs[$tab->id]->categories[$category->id]->parenttabid = $tab->id;
 
                 // Create the query through the words.
                 $wordsql = 'SELECT w.id AS id,
-                we.' . $handlers->tabs[$tab->id]->tabprefix . 'wetitle as wordtitle,
-                we.' . $handlers->tabs[$tab->id]->tabprefix . 'wetext as wordtext,
-                \'' . $handlers->tabs[$tab->id]->targetinput . '\' as targetinput
-                FROM {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'we} we
-                JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'w} w
-                ON w.id = we.' . $handlers->tabs[$tab->id]->tabprefix . 'wid
-                JOIN {local_differentiator_' . $handlers->tabs[$tab->id]->tabprefix . 'wc} wc
-                ON wc.id = w.' . $handlers->tabs[$tab->id]->tabprefix . 'wcid AND we.lang = \'' .
-                    $displaylang . '\'
-                WHERE wc.id = ' . $category->id . '
+                we.' . $prefix . 'wetitle as wordtitle,
+                we.' . $prefix . 'wetext as wordtext
+                FROM {local_differentiator_' . $prefix . 'we} we
+                JOIN {local_differentiator_' . $prefix . 'w} w
+                ON w.id = we.' . $prefix . 'wid
+                JOIN {local_differentiator_' . $prefix . 'wc} wc
+                ON wc.id = w.' . $prefix . 'wcid AND we.lang = :lang
+                WHERE wc.id = :categoryid
                 ORDER BY w.sort ASC';
                 // Perform that query.
-                $words = $DB->get_records_sql($wordsql);
+                $words = $DB->get_records_sql($wordsql, ['lang' => $displaylang, 'categoryid' => $category->id]);
 
                 // Add the words to the $handlers object.
                 foreach ($words as $word) {
                     $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id] = new \stdClass();
                     $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->title = $word->wordtitle;
                     $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->text = $word->wordtext;
-                    $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->targetinput = $word->targetinput;
+                    $handlers->tabs[$tab->id]->categories[$category->id]->words[$word->id]->targetinput = $tab->targetinput;
                 }
             }
         }
