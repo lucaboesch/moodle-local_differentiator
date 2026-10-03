@@ -61,5 +61,8 @@
       "parser": "babel-eslint"
     },
     "rules": {}
+  },
+  "overrides": {
+    "nanoid": "3.3.18"
   }
 }
