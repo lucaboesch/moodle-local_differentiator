@@ -54,6 +54,22 @@ jobs:
             database: mariadb
             plugin-ci: 4
           - php: 8.3
+            moodle-branch: MOODLE_503_STABLE
+            database: pgsql
+            plugin-ci: 4
+          - php: 8.3
+            moodle-branch: MOODLE_503_STABLE
+            database: mariadb
+            plugin-ci: 4
+          - php: 8.4
+            moodle-branch: MOODLE_503_STABLE
+            database: pgsql
+            plugin-ci: 4
+          - php: 8.4
+            moodle-branch: MOODLE_503_STABLE
+            database: mariadb
+            plugin-ci: 4
+          - php: 8.3
             moodle-branch: MOODLE_502_STABLE
             database: pgsql
             plugin-ci: 4
@@ -289,7 +305,7 @@ jobs:
             plugin-ci: 3
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           path: plugin
 
