@@ -4,6 +4,19 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.3-r1
+
+* 2026-10-03 - Adopt to Moodle 5.3.
+* 2026-10-03 - Updated nanoid to 3.3.18.
+* 2026-09-09 - Updated js-yaml to 4.3.2.
+* 2026-09-03 - Updated @humanfs/node to 0.16.8.
+* 2026-09-03 - Updated fast-uri to 3.1.7.
+* 2026-09-02 - Updated browserslist to 4.28.8.
+* 2026-09-01 - Updated postcss-selector-parser to 7.1.5.
+* 2026-08-11 - Updated js-yaml to 4.3.1.
+* 2026-08-05 - Updated fast-uri to 3.1.5.
+
+
 ### v5.2-r3
 
 * 2026-07-31 - CAMP related release.
