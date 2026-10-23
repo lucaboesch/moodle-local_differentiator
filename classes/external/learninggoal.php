@@ -317,6 +317,8 @@ class learninggoal extends \external_api {
 
         self::validate_context(\context_system::instance());
 
+        require_capability('local/differentiator:edit', \context_system::instance());
+
         global $PAGE, $DB;
 
         $renderer = $PAGE->get_renderer('core');
@@ -392,6 +394,8 @@ class learninggoal extends \external_api {
 
         self::validate_context(\context_system::instance());
 
+        require_capability('local/differentiator:edit', \context_system::instance());
+
         global $PAGE, $DB;
         $renderer = $PAGE->get_renderer('core');
 
@@ -428,6 +432,8 @@ class learninggoal extends \external_api {
         $learninggoalid = $params['learninggoalid'];
 
         self::validate_context(\context_system::instance());
+
+        require_capability('local/differentiator:edit', \context_system::instance());
 
         global $PAGE, $DB;
         $renderer = $PAGE->get_renderer('core');
