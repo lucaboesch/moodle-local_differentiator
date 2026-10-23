@@ -2,7 +2,6 @@
 var path = require('path');
 var webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env, options) => {
 
@@ -107,16 +106,8 @@ module.exports = (env, options) => {
                 minimize: true
             })
         ]);
-        exports.optimization = {
-            minimizer: [
-                new TerserPlugin({
-                    parallel: true,
-                    terserOptions: {
-                        // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-                    }
-                }),
-            ]
-        };
+        // Production mode enables webpack's built-in default minimizer, so no explicit
+        // optimization.minimizer config is needed here.
     }
 
     return exports;
