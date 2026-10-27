@@ -55,6 +55,7 @@ $functions = [
         'description' => 'Save a specific learning goal.',
         'type' => 'write',
         'ajax' => true,
+        'capabilities' => 'local/differentiator:edit',
     ],
     'local_differentiator_delete_learninggoal' => [
         'classname' => 'local_differentiator\external\learninggoal',
@@ -62,6 +63,7 @@ $functions = [
         'description' => 'Delete a specific learning goal.',
         'type' => 'write',
         'ajax' => true,
+        'capabilities' => 'local/differentiator:edit',
     ],
     'local_differentiator_duplicate_learninggoal' => [
         'classname' => 'local_differentiator\external\learninggoal',
@@ -69,5 +71,6 @@ $functions = [
         'description' => 'Duplicate a specific learning goal.',
         'type' => 'write',
         'ajax' => true,
+        'capabilities' => 'local/differentiator:edit',
     ],
 ];
