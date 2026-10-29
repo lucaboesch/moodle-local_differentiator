@@ -4,6 +4,7 @@ Moodle Differentiator
 [![MDL Shield](https://img.shields.io/endpoint?url=https%3A%2F%2Fmdlshield.com%2Fapi%2Fbadge%2Flocal_differentiator)](https://mdlshield.com/plugins/local_differentiator)
 [![GitHub
 Release](https://img.shields.io/github/release/lucaboesch/moodle-local_differentiator.svg)](https://github.com/lucaboesch/moodle-local_differentiator/releases)
+[![camp](https://camp-registry.org/badge/local_differentiator.svg)](https://camp-registry.org/plugin/local_differentiator.html)
 [![PHP Support](https://img.shields.io/badge/php-7.4--8.4-blue)](https://github.com/lucaboesch/moodle-local_differentiator/actions)
 [![Moodle Support](https://img.shields.io/badge/Moodle-4.1--5.2-orange)](https://github.com/lucaboesch/moodle-local_differentiator/actions)
 [![License GPL-3.0](https://img.shields.io/github/license/lucaboesch/moodle-local_differentiator?color=lightgrey)](https://github.com/lucaboesch/moodle-local_differentiator/blob/main/LICENSE)
