@@ -4,6 +4,17 @@ moodle-local_differentiator
 Changes
 -------
 
+### v5.3-r2
+
+* 2026-11-01 - Updated minimatch to 11.0.1.
+* 2026-11-01 - Updated follow-redirects to 1.16.2.
+* 2026-11-01 - Updated node-forge to 1.4.1.
+* 2026-11-01 - Updated bn.js to 4.12.5.
+* 2026-11-01 - Removed unnecessary vue packages and code improvements done.
+* 2026-10-27 - Updated qs to 6.15.2.
+* 2026-10-27 - Updated fast-uri to 3.1.9.
+* 2026-10-26 - Updated launch-editor to 2.14.2.
+
 ### v5.3-r1
 
 * 2026-10-03 - Adopt to Moodle 5.3.
@@ -17,7 +28,7 @@ Changes
 * 2026-08-05 - Updated fast-uri to 3.1.5.
 
 
-### v5.2-r3
+### v5.2-r5
 
 * 2026-07-31 - CAMP related release.
 * 2026-07-30 - Adapt Moodle Plugin CI to use PostgreSQL 17 and MariaDB 11.4 for Moodle 5.3 compatibility
