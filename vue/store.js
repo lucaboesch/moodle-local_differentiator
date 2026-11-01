@@ -1,9 +1,29 @@
 /* jshint esversion: 11 */
+/* global window, document */
 import { createStore } from 'vuex';
 import moodleAjax from 'core/ajax';
-import moodleStorage from 'core/localstorage';
 import Notification from 'core/notification';
-import $ from 'jquery';
+
+// Moodle removed the `core/localstorage` AMD module in MDL-88762 (migrated to an ESM
+// module), so this bundle can no longer depend on it. Use the browser's localStorage
+// directly, guarded against environments where it is unavailable (e.g. private mode).
+const moodleStorage = {
+    get(key) {
+        try {
+            return window.localStorage.getItem(key);
+        } catch (e) {
+            return null;
+        }
+    },
+    set(key, value) {
+        try {
+            window.localStorage.setItem(key, value);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    },
+};
 
 export const store = new createStore({
     state: {
@@ -46,7 +66,7 @@ export const store = new createStore({
          * @returns {Promise<void>}
          */
         async loadLang(context) {
-            const lang = $('html').attr('lang').replace(/-/g, '_');
+            const lang = document.documentElement.lang.replace(/-/g, '_');
             context.commit('setLang', lang);
         },
         /**
@@ -56,8 +76,11 @@ export const store = new createStore({
          * @returns {Promise<void>}
          */
         async loadComponentStrings(context) {
-            const lang = $('html').attr('lang').replace(/-/g, '_');
-            const cacheKey = 'local_differentiator/strings/' + lang;
+            const lang = document.documentElement.lang.replace(/-/g, '_');
+            // Include the jsrev so the cached strings are invalidated whenever the
+            // Moodle JavaScript revision changes (e.g. on upgrade or cache purge).
+            const jsrev = (window.M && window.M.cfg && window.M.cfg.jsrev) ? window.M.cfg.jsrev : '';
+            const cacheKey = 'local_differentiator/strings/' + lang + '/' + jsrev;
             const cachedStrings = moodleStorage.get(cacheKey);
             if (cachedStrings) {
                 context.commit('setStrings', JSON.parse(cachedStrings));

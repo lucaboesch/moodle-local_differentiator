@@ -184,6 +184,7 @@ class learninggoal extends \external_api {
 
         $learninggoalid = $params['learninggoalid'];
         self::validate_context(\context_system::instance());
+        require_capability('local/differentiator:edit', \context_system::instance());
         global $PAGE, $DB, $SESSION;
         $renderer = $PAGE->get_renderer('core');
 
@@ -232,24 +233,22 @@ class learninggoal extends \external_api {
             $params['userid'] = $USER->id;
             $learninggoal = $DB->get_record_sql($sql, $params);
         } else {
-            $sql = "SELECT 0 AS id, '" .
-                get_string('clicktoedit', 'local_differentiator') . "' AS \"name\", " .
-                "'' AS \"description\", '" .
-                get_string('prethinkingskill', 'local_differentiator') . "' AS \"pre_thinking_skill\", " .
-                "(SELECT tswetext from {local_differentiator_tswe} WHERE tswid = 1 AND lang = '" . $displaylang . "') AS " .
-                "\"thinking_skill\", " .
-                "(SELECT cwetext from {local_differentiator_cwe} WHERE cwid = 1 AND lang = '" . $displaylang . "') AS " .
-                "\"content\", '" .
-                get_string('clicktoedit', 'local_differentiator') . "' AS \"subject\", '" .
-                get_string('preresource', 'local_differentiator') . "' AS \"pre_resource\", " .
-                "(SELECT rwetext from {local_differentiator_rwe} WHERE rwid = 1 AND lang = '" . $displaylang . "') AS " .
-                "\"resource\", '" .
-                get_string('preproduct', 'local_differentiator') . "' AS \"pre_product\", " .
-                "(SELECT pwetext from {local_differentiator_pwe} WHERE pwid = 37 AND lang = '" . $displaylang . "') AS " .
-                "\"product\", '" .
-                get_string('pregroup', 'local_differentiator') . "' AS \"pre_group\", " .
-                "(SELECT gwetext from {local_differentiator_gwe} WHERE gwid = 1 AND lang = '" . $displaylang . "') AS \"group\"";
-            $learninggoal = $DB->get_record_sql($sql);
+            $lang = ['lang' => $displaylang];
+            $learninggoal = (object) [
+                'id' => 0,
+                'name' => get_string('clicktoedit', 'local_differentiator'),
+                'description' => '',
+                'pre_thinking_skill' => get_string('prethinkingskill', 'local_differentiator'),
+                'thinking_skill' => $DB->get_field('local_differentiator_tswe', 'tswetext', ['tswid' => 1] + $lang),
+                'content' => $DB->get_field('local_differentiator_cwe', 'cwetext', ['cwid' => 1] + $lang),
+                'subject' => get_string('subject', 'local_differentiator'),
+                'pre_resource' => get_string('preresource', 'local_differentiator'),
+                'resource' => $DB->get_field('local_differentiator_rwe', 'rwetext', ['rwid' => 1] + $lang),
+                'pre_product' => get_string('preproduct', 'local_differentiator'),
+                'product' => $DB->get_field('local_differentiator_pwe', 'pwetext', ['pwid' => 37] + $lang),
+                'pre_group' => get_string('pregroup', 'local_differentiator'),
+                'group' => $DB->get_field('local_differentiator_gwe', 'gwetext', ['gwid' => 1] + $lang),
+            ];
         }
         $exporter = new exporter\learninggoal($learninggoal, $ctx);
         $list[] = $exporter->export($renderer);

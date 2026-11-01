@@ -3490,8 +3490,8 @@ function xmldb_local_differentiator_upgrade($oldversion = 0) {
         }
         $pwe = $DB->get_record('local_differentiator_pwe', ['pwid' => 34, 'lang' => 'pt']);
         if (!empty($pwe)) {
-            $pwe->tswetitle = 'Vídeo de uma viagem';
-            $pwe->tswetext = 'um vídeo de uma viagem';
+            $pwe->pwetitle = 'Vídeo de uma viagem';
+            $pwe->pwetext = 'um vídeo de uma viagem';
             $pwe->timemodified = $time;
             $DB->update_record('local_differentiator_pwe', $pwe);
         }

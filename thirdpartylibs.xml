@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>amd/src/app-lazy.js</location>
+        <name>Vue.js</name>
+        <description>Vue.js is a progressive, incrementally-adoptable JavaScript framework for building user interfaces on the web.</description>
+        <version>3.5.43</version>
+        <license>MIT</license>
+        <repository>https://github.com/vuejs/core</repository>
+    </library>
+    <library>
+        <location>amd/src/app-lazy.js</location>
+        <name>Vue Router</name>
+        <description>Vue Router is the official router for Vue.js.</description>
+        <version>4.6.4</version>
+        <license>MIT</license>
+        <repository>https://github.com/vuejs/router</repository>
+    </library>
+    <library>
+        <location>amd/src/app-lazy.js</location>
+        <name>Vuex</name>
+        <description>Vuex is a state management pattern and library for Vue.js applications.</description>
+        <version>4.1.0</version>
+        <license>MIT</license>
+        <repository>https://github.com/vuejs/vuex</repository>
+    </library>
+    <library>
+        <location>amd/src/app-lazy.js</location>
+        <name>vue3-toastify</name>
+        <description>vue3-toastify adds notifications (toasts) to a Vue 3 application.</description>
+        <version>0.2.9</version>
+        <license>MIT</license>
+        <repository>https://github.com/jerrywu001/vue3-toastify</repository>
+    </library>
+    <library>
+        <location>amd/src/app-lazy.js</location>
+        <name>vue-input-autowidth</name>
+        <description>vue-input-autowidth is a Vue directive that automatically resizes an input to fit its content.</description>
+        <version>2.2.1</version>
+        <license>MIT</license>
+        <repository>https://github.com/syropian/vue-input-autowidth</repository>
+    </library>
+</libraries>

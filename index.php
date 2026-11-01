@@ -36,6 +36,7 @@ if ($learninggoalid > 0) {
 }
 
 require_login();
+require_capability('local/differentiator:view', context_system::instance());
 
 // Set page context.
 $PAGE->set_context(context_system::instance());
